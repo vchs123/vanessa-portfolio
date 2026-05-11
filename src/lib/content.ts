@@ -29,7 +29,7 @@ export const hero = {
   },
   zh: {
     tag: "绩效回顾 · 2026",
-    name: "蔡美莲",
+    name: "Vanessa Chua",
     role: "IT 总监 · Siddeley Group",
     tagline: "全栈工程师兼技术管理者，独立或带领团队，跨子公司交付数字基础设施。",
     cta: "查看项目",
