@@ -5,8 +5,8 @@ import { useLang } from "@/context/LanguageContext";
 import { nav } from "@/lib/content";
 
 const projects = [
-  { slug: "redbridge-website", en: "RedBridge Website", zh: "RedBridge 网站" },
-  { slug: "redbridge-migration", en: "RedBridge V5", zh: "RedBridge V5" },
+  { slug: "redbridge-website", en: "RedBridge Website + CRM Portal", zh: "RedBridge 网站 + CRM 门户" },
+  { slug: "redbridge-migration", en: "RedBridge Website V2", zh: "RedBridge 网站 V2" },
   { slug: "siddeley-talent-link", en: "Siddeley Talent Link", zh: "维拓联才" },
   { slug: "goodmood-studio", en: "GoodMood Studio", zh: "GoodMood Studio" },
 ];

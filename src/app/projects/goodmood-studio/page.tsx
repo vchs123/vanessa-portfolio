@@ -62,8 +62,8 @@ export default function GoodMoodStudioPage() {
           </div>
           <p className="text-amber-800 text-sm leading-relaxed">
             {lang === "zh"
-              ? "GoodMood Studio 项目体现了 Vanessa 作为 IT 总监职能的双重性：她既是亲力亲为、交付生产代码的工程师（如项目 1–3 所示），也是对团队产出质量负责的技术管理者。在并行交付 RedBridge V5 迁移和独立搭建维拓联才的同时，管理 GoodMood Studio 的实施工作，充分展示了这一时期她所承担的广度责任。"
-              : "The GoodMood Studio project demonstrates the dual nature of Vanessa's role as Head of IT: she is both a hands-on engineer delivering production code (as evidenced across Projects 1–3) and a technical manager responsible for the quality of her team's output. Managing GoodMood Studio's implementation while simultaneously delivering the RedBridge V5 migration and building Siddeley Talent Link from scratch demonstrates the breadth of responsibility carried across this period."}
+              ? "GoodMood Studio 项目体现了 Vanessa 作为 IT 总监职能的双重性：她既是亲力亲为、交付生产代码的工程师（如项目 1–3 所示），也是对团队产出质量负责的技术管理者。在并行交付 RedBridge 网站 V2 迁移和独立搭建维拓联才的同时，管理 GoodMood Studio 的实施工作，充分展示了这一时期她所承担的广度责任。"
+              : "The GoodMood Studio project demonstrates the dual nature of Vanessa's role as Head of IT: she is both a hands-on engineer delivering production code (as evidenced across Projects 1–3) and a technical manager responsible for the quality of her team's output. Managing GoodMood Studio's implementation while simultaneously delivering the RedBridge Website V2 migration and building Siddeley Talent Link from scratch demonstrates the breadth of responsibility carried across this period."}
           </p>
         </div>
       </FadeIn>

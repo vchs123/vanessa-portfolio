@@ -4,16 +4,16 @@ export const nav = {
   en: {
     home: "Home",
     projects: "Projects",
-    p1: "RedBridge Website",
-    p2: "RedBridge V5",
+    p1: "RedBridge Website + CRM Portal",
+    p2: "RedBridge Website V2",
     p3: "Siddeley Talent Link",
     p4: "GoodMood Studio",
   },
   zh: {
     home: "首页",
     projects: "项目",
-    p1: "RedBridge 网站",
-    p2: "RedBridge V5",
+    p1: "RedBridge 网站 + CRM 门户",
+    p2: "RedBridge 网站 V2",
     p3: "维拓联才",
     p4: "GoodMood Studio",
   },
@@ -144,7 +144,7 @@ export const projectCards = {
       accent: "#be185d",
       accentLight: "#fce7f3",
       tag: "Project 1 · Feb–Apr 2026",
-      title: "RedBridge Website",
+      title: "RedBridge Website + CRM Portal",
       summary: "Full-stack bilingual site with CRM, booking system, and 5 integrations — built solo.",
       stats: [
         { num: "268", label: "Commits" },
@@ -157,7 +157,7 @@ export const projectCards = {
       accent: "#7c3aed",
       accentLight: "#ede9fe",
       tag: "Project 2 · Apr–May 2026",
-      title: "RedBridge V5",
+      title: "RedBridge Website V2",
       summary: "Led the migration from vanilla HTML to Next.js 16 + TypeScript + Tailwind CSS 4, managing 3 direct reports.",
       stats: [
         { num: "25", label: "Vanessa's commits" },
@@ -211,7 +211,7 @@ export const projectCards = {
       accent: "#7c3aed",
       accentLight: "#ede9fe",
       tag: "项目 2 · 2026年4月–5月",
-      title: "RedBridge V5",
+      title: "RedBridge Website V2",
       summary: "主导从原生 HTML 迁移至 Next.js 16 + TypeScript + Tailwind CSS 4，带领 3 名直属下属完成交付。",
       stats: [
         { num: "25", label: "Vanessa 提交" },
@@ -254,14 +254,14 @@ export const summary = {
     subheading: "All four projects · Feb 6 – May 6, 2026",
     rows: [
       {
-        project: "RedBridge Website",
+        project: "RedBridge Website + CRM Portal",
         period: "Feb 6 – Apr 17",
         role: "Solo engineer",
         commits: "268",
         cost: "$50k–$100k AUD avoided",
       },
       {
-        project: "RedBridge V5",
+        project: "RedBridge Website V2",
         period: "Apr 13 – May 5",
         role: "Head of IT + team lead",
         commits: "25 (+ 193 team)",
@@ -297,7 +297,7 @@ export const summary = {
         cost: "节省 $50k–$100k 澳元",
       },
       {
-        project: "RedBridge V5",
+        project: "RedBridge Website V2",
         period: "4月13日 – 5月5日",
         role: "IT总监 + 团队负责人",
         commits: "25（+ 193 团队）",
@@ -381,7 +381,7 @@ export const growth = {
 export const p1 = {
   en: {
     tag: "Project 1 · Feb 6 – Apr 17, 2026",
-    title: "RedBridge Website",
+    title: "RedBridge Website + CRM Portal",
     subtitle: "Role: Software Developer (sole engineer) · 10 weeks",
     accent: "#be185d",
     liveUrl: "https://redbridge.pages.dev/",
@@ -400,7 +400,7 @@ export const p1 = {
       },
     ],
     tableRows: [
-      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website", valueZh: "RedBridge 网站" },
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website + CRM Portal", valueZh: "RedBridge 网站 + CRM 门户" },
       { field: "Period", fieldZh: "周期", value: "Feb 6 – Apr 17, 2026 (~10 weeks)", valueZh: "2026年2月6日 – 4月17日（约10周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Software Developer — Sole engineer", valueZh: "软件开发工程师 — 独立工程师" },
@@ -451,7 +451,7 @@ export const p1 = {
       },
     ],
     tableRows: [
-      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website", valueZh: "RedBridge 网站" },
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website + CRM Portal", valueZh: "RedBridge 网站 + CRM 门户" },
       { field: "Period", fieldZh: "周期", value: "Feb 6 – Apr 17, 2026 (~10 weeks)", valueZh: "2026年2月6日 – 4月17日（约10周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Software Developer — Sole engineer", valueZh: "软件开发工程师 — 独立工程师" },
@@ -486,7 +486,7 @@ export const p1 = {
 export const p2 = {
   en: {
     tag: "Project 2 · Apr 13 – May 5, 2026",
-    title: "RedBridge V5 — Next.js Migration",
+    title: "RedBridge Website V2 — Next.js Migration",
     subtitle: "Role: Head of IT · Software Engineer & Product Manager · Team lead",
     accent: "#7c3aed",
     impact: [
@@ -504,7 +504,7 @@ export const p2 = {
       },
     ],
     tableRows: [
-      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge V5 — Next.js Migration", valueZh: "RedBridge V5 — Next.js 迁移" },
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website V2 — Next.js Migration", valueZh: "RedBridge 网站 V2 — Next.js 迁移" },
       { field: "Period", fieldZh: "周期", value: "Apr 13 – May 5, 2026 (~3 weeks)", valueZh: "2026年4月13日 – 5月5日（约3周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Engineering + Team management", valueZh: "IT 总监 — 工程 + 团队管理" },
@@ -532,7 +532,7 @@ export const p2 = {
   },
   zh: {
     tag: "项目 2 · 2026年4月13日 – 5月5日",
-    title: "RedBridge V5 — Next.js 迁移",
+    title: "RedBridge 网站 V2 — Next.js 迁移",
     subtitle: "职能：IT 总监 · 软件工程师兼产品经理 · 团队负责人",
     accent: "#7c3aed",
     impact: [
@@ -565,7 +565,7 @@ export const p2 = {
       { name: "Avivi (Avivi30)", role: "总经理秘书（临时）", commits: 2, focus: "主页 JSON 内容 — 4 月 14 日 Vanessa 重新上岗期间提供协助" },
     ],
     tableRows: [
-      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge V5 — Next.js Migration", valueZh: "RedBridge V5 — Next.js 迁移" },
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website V2 — Next.js Migration", valueZh: "RedBridge 网站 V2 — Next.js 迁移" },
       { field: "Period", fieldZh: "周期", value: "Apr 13 – May 5, 2026 (~3 weeks)", valueZh: "2026年4月13日 – 5月5日（约3周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Engineering + Team management", valueZh: "IT 总监 — 工程 + 团队管理" },
