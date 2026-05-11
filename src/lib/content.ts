@@ -175,7 +175,7 @@ export const projectCards = {
       stats: [
         { num: "14", label: "Commits" },
         { num: "< 1 wk", label: "Build time" },
-        { num: "6/6", label: "Blind vote wins" },
+        { num: "7/7", label: "Blind vote wins" },
       ],
     },
     {
@@ -229,7 +229,7 @@ export const projectCards = {
       stats: [
         { num: "14", label: "提交次数" },
         { num: "< 1周", label: "开发周期" },
-        { num: "6/6", label: "盲测全胜" },
+        { num: "7/7", label: "盲测全胜" },
       ],
     },
     {
@@ -335,7 +335,7 @@ export const growth = {
       {
         icon: "🗳️",
         label: "STL blind vote — website comparison",
-        value: "15 participants selected · 6 responded · 6/6 chose Vanessa's version",
+        value: "15 participants selected · 7 responded · 7/7 chose Vanessa's version",
       },
       {
         icon: "💼",
@@ -360,7 +360,7 @@ export const growth = {
       {
         icon: "🗳️",
         label: "维拓联才网站盲测",
-        value: "15 人参与 · 6 人作答 · 6/6 选择 Vanessa 的版本",
+        value: "15 人参与 · 7 人作答 · 7/7 选择 Vanessa 的版本",
       },
       {
         icon: "💼",
@@ -607,7 +607,7 @@ export const p3 = {
       { field: "Commits", fieldZh: "提交数", value: "14 (all Vanessa)", valueZh: "14（全部为 Vanessa）" },
       { field: "Stack", fieldZh: "技术栈", value: "Next.js 15 · React · Tailwind CSS · Cloudflare Pages + KV + Pages Functions", valueZh: "Next.js 15 · React · Tailwind CSS · Cloudflare Pages + KV + Pages Functions" },
       { field: "Key feature", fieldZh: "核心功能", value: "Real-time job view/apply counters via Cloudflare KV", valueZh: "通过 Cloudflare KV 实现实时浏览/申请计数" },
-      { field: "Blind vote", fieldZh: "盲测结果", value: "15 participants · 6 responded · 6/6 chose Vanessa's version", valueZh: "15 人参与 · 6 人作答 · 6/6 选择 Vanessa 的版本" },
+      { field: "Blind vote", fieldZh: "盲测结果", value: "15 participants · 7 responded · 7/7 chose Vanessa's version", valueZh: "15 人参与 · 7 人作答 · 7/7 选择 Vanessa 的版本" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $15,000–$30,000 AUD agency cost avoided", valueZh: "估计节省机构费用 $15,000–$30,000 澳元" },
     ],
     highlights: [
@@ -617,11 +617,11 @@ export const p3 = {
       "EN/ZH bilingual job data with VETASSESS alignment and salary ranges",
       "Privacy Policy page added for legal compliance (168 lines)",
       "Google Apps Script contact form integration deployed and maintained",
-      "Blind vote: 15 people selected from STL's network, 6 responded, all 6 chose Vanessa's design",
+      "Blind vote: 15 people selected from STL's network, 7 responded, all 7 chose Vanessa's design",
     ],
     voteCallout: {
       title: "Blind Vote Result",
-      body: "To validate the website design before launch, a blind comparison was conducted across STL's network. 15 people were selected; 6 responded. All 6 chose Vanessa's version — without knowing who built it.",
+      body: "To validate the website design before launch, a blind comparison was conducted across STL's network. 15 people were selected; 7 responded. All 7 chose Vanessa's version — without knowing who built it.",
     },
   },
   zh: {
@@ -651,7 +651,7 @@ export const p3 = {
       "含 VETASSESS 对齐和薪资范围的中英双语职位数据",
       "为满足法律合规要求新增隐私政策页面（168 行）",
       "部署并维护 Google Apps Script 联系表单集成",
-      "盲测：从维拓联才网络中选出 15 人，6 人作答，全部 6 人选择 Vanessa 的设计",
+      "盲测：从维拓联才网络中选出 15 人，7 人作答，全部 7 人选择 Vanessa 的设计",
     ],
     tableRows: [
       { field: "Project Name", fieldZh: "项目名称", value: "Siddeley Talent Link (siddeleyTL)", valueZh: "维拓联才（siddeleyTL）" },
@@ -661,12 +661,12 @@ export const p3 = {
       { field: "Commits", fieldZh: "提交数", value: "14 (all Vanessa)", valueZh: "14（全部为 Vanessa）" },
       { field: "Stack", fieldZh: "技术栈", value: "Next.js 15 · React · Tailwind CSS · Cloudflare Pages + KV + Pages Functions", valueZh: "Next.js 15 · React · Tailwind CSS · Cloudflare Pages + KV + Pages Functions" },
       { field: "Key feature", fieldZh: "核心功能", value: "Real-time job view/apply counters via Cloudflare KV", valueZh: "通过 Cloudflare KV 实现实时浏览/申请计数" },
-      { field: "Blind vote", fieldZh: "盲测结果", value: "15 participants · 6 responded · 6/6 chose Vanessa's version", valueZh: "15 人参与 · 6 人作答 · 6/6 选择 Vanessa 的版本" },
+      { field: "Blind vote", fieldZh: "盲测结果", value: "15 participants · 7 responded · 7/7 chose Vanessa's version", valueZh: "15 人参与 · 7 人作答 · 7/7 选择 Vanessa 的版本" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $15,000–$30,000 AUD agency cost avoided", valueZh: "估计节省机构费用 $15,000–$30,000 澳元" },
     ],
     voteCallout: {
       title: "盲测结果",
-      body: "为在上线前验证网站设计，在维拓联才的网络中开展了盲测对比。选出 15 人，6 人参与作答。全部 6 人选择了 Vanessa 的版本，且事先不知道是谁制作的。",
+      body: "为在上线前验证网站设计，在维拓联才的网络中开展了盲测对比。选出 15 人，7 人参与作答。全部 7 人选择了 Vanessa 的版本，且事先不知道是谁制作的。",
     },
   },
 };

@@ -41,13 +41,13 @@ export default function SiddeleyTalentLinkPage() {
               {
                 icon: "📬",
                 label: lang === "zh" ? "作答人数" : "Responded",
-                value: "6",
+                value: "7",
                 color: "text-green-800",
               },
               {
                 icon: "✅",
                 label: lang === "zh" ? "选择 Vanessa" : "Chose Vanessa",
-                value: "6/6",
+                value: "7/7",
                 color: "text-green-800",
               },
             ].map((item, i) => (
