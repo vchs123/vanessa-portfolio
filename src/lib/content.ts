@@ -8,6 +8,7 @@ export const nav = {
     p2: "RedBridge Website V2",
     p3: "Siddeley Talent Link",
     p4: "GoodMood Studio",
+    p5: "Google Ads — Employer Sponsorship",
   },
   zh: {
     home: "首页",
@@ -16,6 +17,7 @@ export const nav = {
     p2: "RedBridge 网站 V2",
     p3: "维拓联才",
     p4: "GoodMood Studio",
+    p5: "Google Ads — 雇主担保推广",
   },
 };
 
@@ -191,6 +193,19 @@ export const projectCards = {
         { num: "Paused", label: "Rebrand in progress" },
       ],
     },
+    {
+      slug: "google-ads-rb",
+      accent: "#1a73e8",
+      accentLight: "#e8f0fe",
+      tag: "Project 5 · May 2026",
+      title: "Google Ads — Employer Sponsorship",
+      summary: "Set up and launched a Google Search campaign for RedBridge employer sponsorship leads, achieving 8.5% CTR against an industry average of 3–5%.",
+      stats: [
+        { num: "2,100", label: "Impressions" },
+        { num: "178", label: "Clicks" },
+        { num: "8.5%", label: "CTR" },
+      ],
+    },
   ],
   zh: [
     {
@@ -245,13 +260,26 @@ export const projectCards = {
         { num: "暂停", label: "品牌重塑中" },
       ],
     },
+    {
+      slug: "google-ads-rb",
+      accent: "#1a73e8",
+      accentLight: "#e8f0fe",
+      tag: "项目 5 · 2026年5月",
+      title: "Google Ads — 雇主担保推广",
+      summary: "独立创建并管理 RedBridge 雇主担保搜索广告系列，点击率达 8.5%，远高于行业均值。",
+      stats: [
+        { num: "2,100", label: "展示次数" },
+        { num: "178", label: "点击次数" },
+        { num: "8.5%", label: "点击率" },
+      ],
+    },
   ],
 };
 
 export const summary = {
   en: {
     heading: "Combined Summary",
-    subheading: "All four projects · Feb 6 – May 6, 2026",
+    subheading: "All five projects · Feb 6 – May 2026",
     rows: [
       {
         project: "RedBridge Website + CRM Portal",
@@ -281,23 +309,30 @@ export const summary = {
         commits: "— (management)",
         cost: "Rework & consultant cost avoided",
       },
+      {
+        project: "Google Ads — Employer Sponsorship",
+        period: "May 8 – present",
+        role: "Head of IT · campaign manager",
+        commits: "—",
+        cost: "$861 AUD spend · 8.5% CTR",
+      },
     ],
-    total: "$80k–$180k AUD agency-equivalent cost avoided across all four projects",
-    cols: ["Project", "Period", "Role", "Vanessa's Commits", "Cost Impact"],
+    total: "$80k–$180k AUD agency-equivalent cost avoided across engineering projects, plus active paid media management",
+    cols: ["Project", "Period", "Role", "Vanessa's Commits", "Cost / Impact"],
   },
   zh: {
     heading: "综合汇总",
-    subheading: "四个项目 · 2026年2月6日 – 5月6日",
+    subheading: "五个项目 · 2026年2月6日 – 5月",
     rows: [
       {
-        project: "RedBridge 网站",
+        project: "RedBridge 网站 + CRM 门户",
         period: "2月6日 – 4月17日",
         role: "独立工程师",
         commits: "268",
         cost: "节省 $50k–$100k 澳元",
       },
       {
-        project: "RedBridge Website V2",
+        project: "RedBridge 网站 V2",
         period: "4月13日 – 5月5日",
         role: "IT总监 + 团队负责人",
         commits: "25（+ 193 团队）",
@@ -317,9 +352,16 @@ export const summary = {
         commits: "— （管理）",
         cost: "避免返工及外部顾问费用",
       },
+      {
+        project: "Google Ads — 雇主担保推广",
+        period: "5月8日 – 至今",
+        role: "IT总监 · 广告管理",
+        commits: "—",
+        cost: "投放 $861 澳元 · 点击率 8.5%",
+      },
     ],
-    total: "四个项目合计节省机构等效费用 $80k–$180k 澳元",
-    cols: ["项目", "周期", "职能", "Vanessa 提交数", "成本影响"],
+    total: "工程项目合计节省机构等效费用 $80k–$180k 澳元，同时主动管理付费媒体广告投放",
+    cols: ["项目", "周期", "职能", "Vanessa 提交数", "成本 / 影响"],
   },
 };
 
@@ -746,6 +788,131 @@ export const p4 = {
       { field: "Vanessa's commits", fieldZh: "Vanessa 提交", value: "None — management contribution", valueZh: "无 — 管理职能贡献" },
       { field: "Direct reports", fieldZh: "直属下属", value: "Nicole · Eric (Yinjia) · Chloe", valueZh: "Nicole · Eric（Yinjia）· Chloe" },
       { field: "Status", fieldZh: "状态", value: "On hold — management decision to rebrand", valueZh: "暂停 — 管理层决定品牌重塑" },
+    ],
+  },
+};
+
+export const p5 = {
+  en: {
+    tag: "Project 5 · May 8, 2026 – Present",
+    title: "Google Ads — Employer Sponsorship",
+    subtitle: "Role: Head of IT — Campaign setup, strategy & management (sole)",
+    accent: "#1a73e8",
+    impact: [
+      {
+        label: "Cost",
+        text: "Campaign set up and managed entirely in-house. Agency management fees for Google Ads typically run 10–15% of spend or $1,500–$3,000/month — avoided entirely by Vanessa managing it directly.",
+      },
+      {
+        label: "Marketing",
+        text: "High-intent keyword targeting across employer sponsorship, immigration consulting, and migration agent terms drives qualified employer enquiries directly to RedBridge. An 8.5% CTR — more than double the 3–5% industry benchmark — confirms strong ad relevance and keyword alignment.",
+      },
+      {
+        label: "Revenue",
+        text: "Employer sponsorship is RedBridge's highest-value service category. Each converted employer client represents significant consulting revenue and creates a pipeline of candidate visa lodgement work through Insight Idea — compounding revenue across two subsidiaries.",
+      },
+    ],
+    tableRows: [
+      { field: "Campaign Name", fieldZh: "广告系列名称", value: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN", valueZh: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN" },
+      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – Present (active)", valueZh: "2026年5月8日 – 至今（运行中）" },
+      { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole campaign manager", valueZh: "IT 总监 — 独立广告管理者" },
+      { field: "Campaign Type", fieldZh: "广告类型", value: "Google Search — Leads objective", valueZh: "Google 搜索广告 — 潜在客户目标" },
+      { field: "Target Audience", fieldZh: "目标受众", value: "English-speaking employers seeking sponsorship and migration services", valueZh: "寻求担保及移民服务的英语雇主" },
+      { field: "Daily Budget", fieldZh: "每日预算", value: "A$211.91", valueZh: "A$211.91" },
+      { field: "Total Spend (to date)", fieldZh: "累计花费", value: "A$861", valueZh: "A$861" },
+      { field: "Impressions", fieldZh: "展示次数", value: "2,100", valueZh: "2,100" },
+      { field: "Clicks", fieldZh: "点击次数", value: "178", valueZh: "178" },
+      { field: "Avg. CTR", fieldZh: "平均点击率", value: "8.5% (industry avg: 3–5%)", valueZh: "8.5%（行业均值：3–5%）" },
+      { field: "Avg. CPC", fieldZh: "平均每次点击费用", value: "A$4.84", valueZh: "A$4.84" },
+      { field: "Keywords", fieldZh: "关键词", value: "10+ keyword groups (visa sponsorship jobs, job placement services, immigration consulting, migration agent, visa sponsorship, and more)", valueZh: "10+ 关键词组（签证担保工作、招聘服务、移民咨询、移民顾问、签证担保等）" },
+    ],
+    highlights: [
+      "Sole ownership of campaign setup, keyword research, ad copywriting, and ongoing management",
+      "8.5% average CTR — more than double the 3–5% benchmark for legal and migration consulting",
+      "Top keyword: \"visa sponsorship\" at 15.48% CTR; \"job placement services\" at 10.09% CTR with highest click volume (32 clicks)",
+      "\"visa sponsorship jobs\" generated 31 clicks at 14.90% CTR for A$138.92 — strong ROI on a high-intent term",
+      "10+ keyword groups covering the full employer sponsorship search intent landscape",
+      "A$4.84 avg CPC — competitive for the migration and legal services category in Melbourne",
+      "Campaign launched May 8 and active — performance data reflects the first 3 days of a live, ongoing campaign",
+    ],
+    keywordsTable: [
+      { keyword: "visa sponsorship jobs", cost: "A$138.92", clicks: 31, ctr: "14.90%" },
+      { keyword: "job placement services", cost: "A$96.96", clicks: 32, ctr: "10.09%" },
+      { keyword: "immigration consulting", cost: "A$90.54", clicks: 9, ctr: "8.18%" },
+      { keyword: "migration agent", cost: "A$85.88", clicks: 9, ctr: "5.00%" },
+      { keyword: "visa sponsorship", cost: "A$69.80", clicks: 13, ctr: "15.48%" },
+    ],
+    statsGrid: [
+      { num: "2,100", label: "Impressions" },
+      { num: "178", label: "Clicks" },
+      { num: "8.5%", label: "Avg CTR" },
+      { num: "A$4.84", label: "Avg CPC" },
+      { num: "A$861", label: "Total spend" },
+      { num: "10+", label: "Keyword groups" },
+      { num: "A$211.91", label: "Daily budget" },
+      { num: "Active", label: "Status" },
+    ],
+  },
+  zh: {
+    tag: "项目 5 · 2026年5月8日 – 至今",
+    title: "Google Ads — 雇主担保推广",
+    subtitle: "职能：IT 总监 — 广告系列创建、策略制定及管理（独立负责）",
+    accent: "#1a73e8",
+    impact: [
+      {
+        label: "成本",
+        text: "广告系列完全由内部独立管理。Google Ads 的机构管理费通常为投放金额的 10–15% 或每月 $1,500–$3,000，由 Vanessa 亲自管理，完全避免了此项支出。",
+      },
+      {
+        label: "营销",
+        text: "针对雇主担保、移民咨询和移民顾问等高意向关键词进行精准定向，将合格的雇主询盘直接引导至 RedBridge。8.5% 的点击率超过行业基准（3–5%）一倍以上，印证了广告的高度相关性和关键词匹配质量。",
+      },
+      {
+        label: "收入",
+        text: "雇主担保是 RedBridge 最高价值的服务类别。每位转化的雇主客户代表可观的咨询收入，同时通过 Insight Idea 为签证申请创造客源，形成跨两家子公司的复利收入。",
+      },
+    ],
+    tableRows: [
+      { field: "Campaign Name", fieldZh: "广告系列名称", value: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN", valueZh: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN" },
+      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – Present (active)", valueZh: "2026年5月8日 – 至今（运行中）" },
+      { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole campaign manager", valueZh: "IT 总监 — 独立广告管理者" },
+      { field: "Campaign Type", fieldZh: "广告类型", value: "Google Search — Leads objective", valueZh: "Google 搜索广告 — 潜在客户目标" },
+      { field: "Target Audience", fieldZh: "目标受众", value: "English-speaking employers seeking sponsorship and migration services", valueZh: "寻求担保及移民服务的英语雇主" },
+      { field: "Daily Budget", fieldZh: "每日预算", value: "A$211.91", valueZh: "A$211.91" },
+      { field: "Total Spend (to date)", fieldZh: "累计花费", value: "A$861", valueZh: "A$861" },
+      { field: "Impressions", fieldZh: "展示次数", value: "2,100", valueZh: "2,100" },
+      { field: "Clicks", fieldZh: "点击次数", value: "178", valueZh: "178" },
+      { field: "Avg. CTR", fieldZh: "平均点击率", value: "8.5% (industry avg: 3–5%)", valueZh: "8.5%（行业均值：3–5%）" },
+      { field: "Avg. CPC", fieldZh: "平均每次点击费用", value: "A$4.84", valueZh: "A$4.84" },
+      { field: "Keywords", fieldZh: "关键词", value: "10+ keyword groups", valueZh: "10+ 关键词组" },
+    ],
+    highlights: [
+      "独立负责广告系列创建、关键词研究、广告文案撰写及持续管理",
+      "平均点击率 8.5%，超过法律及移民咨询行业基准（3–5%）一倍以上",
+      "最佳关键词：\"visa sponsorship\" 点击率 15.48%；\"job placement services\" 点击率 10.09%，点击量最高（32 次）",
+      "\"visa sponsorship jobs\" 以 $138.92 获得 31 次点击，点击率 14.90%，高意向关键词投资回报显著",
+      "覆盖雇主担保全意向层级的 10+ 关键词组",
+      "平均每次点击费用 $4.84，在墨尔本移民及法律服务类目中具竞争力",
+      "广告系列于 5 月 8 日上线并持续运行，当前数据反映上线 3 天内的实时表现",
+    ],
+    keywordsTable: [
+      { keyword: "visa sponsorship jobs", cost: "A$138.92", clicks: 31, ctr: "14.90%" },
+      { keyword: "job placement services", cost: "A$96.96", clicks: 32, ctr: "10.09%" },
+      { keyword: "immigration consulting", cost: "A$90.54", clicks: 9, ctr: "8.18%" },
+      { keyword: "migration agent", cost: "A$85.88", clicks: 9, ctr: "5.00%" },
+      { keyword: "visa sponsorship", cost: "A$69.80", clicks: 13, ctr: "15.48%" },
+    ],
+    statsGrid: [
+      { num: "2,100", label: "展示次数" },
+      { num: "178", label: "点击次数" },
+      { num: "8.5%", label: "平均点击率" },
+      { num: "A$4.84", label: "平均每次点击费用" },
+      { num: "A$861", label: "累计花费" },
+      { num: "10+", label: "关键词组" },
+      { num: "A$211.91", label: "每日预算" },
+      { num: "运行中", label: "状态" },
     ],
   },
 };

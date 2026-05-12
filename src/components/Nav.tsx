@@ -9,6 +9,7 @@ const projects = [
   { slug: "redbridge-migration", en: "RedBridge Website V2", zh: "RedBridge 网站 V2" },
   { slug: "siddeley-talent-link", en: "Siddeley Talent Link", zh: "维拓联才" },
   { slug: "goodmood-studio", en: "GoodMood Studio", zh: "GoodMood Studio" },
+  { slug: "google-ads-rb", en: "Google Ads — Employer Sponsorship", zh: "Google Ads — 雇主担保推广" },
 ];
 
 export default function Nav() {
