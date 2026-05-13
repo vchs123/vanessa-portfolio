@@ -10,6 +10,7 @@ const projects = [
   { slug: "siddeley-talent-link", en: "Siddeley Talent Link", zh: "维拓联才" },
   { slug: "goodmood-studio", en: "GoodMood Studio", zh: "GoodMood Studio" },
   { slug: "google-ads-rb", en: "Google Ads — Employer Sponsorship", zh: "Google Ads — 雇主担保推广" },
+  { slug: "siddeley-group-website", en: "Siddeley Group Website", zh: "Siddeley Group 网站" },
 ];
 
 export default function Nav() {

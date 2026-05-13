@@ -9,6 +9,7 @@ export const nav = {
     p3: "Siddeley Talent Link",
     p4: "GoodMood Studio",
     p5: "Google Ads — Employer Sponsorship",
+    p6: "Siddeley Group Website",
   },
   zh: {
     home: "首页",
@@ -18,6 +19,7 @@ export const nav = {
     p3: "维拓联才",
     p4: "GoodMood Studio",
     p5: "Google Ads — 雇主担保推广",
+    p6: "Siddeley Group 网站",
   },
 };
 
@@ -206,6 +208,19 @@ export const projectCards = {
         { num: "8.5%", label: "CTR" },
       ],
     },
+    {
+      slug: "siddeley-group-website",
+      accent: "#1e3a8a",
+      accentLight: "#eff6ff",
+      tag: "Project 6 · May 8–13, 2026",
+      title: "Siddeley Group Website",
+      summary: "Sole front-end developer across 2 phases: deployment pipeline, full EN/ZH bilingual i18n across 8 pages and 8 articles, mobile org chart redesign, and 3-root-cause mobile performance fix.",
+      stats: [
+        { num: "2", label: "Phases" },
+        { num: "16", label: "Pages/articles bilingual" },
+        { num: "~8k", label: "Words of ZH content" },
+      ],
+    },
   ],
   zh: [
     {
@@ -273,6 +288,19 @@ export const projectCards = {
         { num: "8.5%", label: "点击率" },
       ],
     },
+    {
+      slug: "siddeley-group-website",
+      accent: "#1e3a8a",
+      accentLight: "#eff6ff",
+      tag: "项目 6 · 2026年5月8日–13日",
+      title: "Siddeley Group 网站",
+      summary: "两阶段独立前端开发：部署流水线修正、8个页面和8篇文章的完整中英双语国际化、移动端组织架构图重设计及性能优化。",
+      stats: [
+        { num: "2", label: "阶段数" },
+        { num: "16", label: "双语页面/文章" },
+        { num: "~8千", label: "中文字数" },
+      ],
+    },
   ],
 };
 
@@ -316,6 +344,13 @@ export const summary = {
         commits: "—",
         cost: "$861 AUD spend · 8.5% CTR",
       },
+      {
+        project: "Siddeley Group Website",
+        period: "May 8–13",
+        role: "Sole front-end developer",
+        commits: "—",
+        cost: "$800–$1,600 translation cost avoided · A$0 hosting",
+      },
     ],
     total: "$80k–$180k AUD agency-equivalent cost avoided across engineering projects, plus active paid media management",
     cols: ["Project", "Period", "Role", "Vanessa's Commits", "Cost / Impact"],
@@ -358,6 +393,13 @@ export const summary = {
         role: "IT总监 · 广告管理",
         commits: "—",
         cost: "投放 $861 澳元 · 点击率 8.5%",
+      },
+      {
+        project: "Siddeley Group 网站",
+        period: "5月8日–13日",
+        role: "独立前端开发者",
+        commits: "—",
+        cost: "节省翻译费 $800–$1,600 · 托管费 A$0",
       },
     ],
     total: "工程项目合计节省机构等效费用 $80k–$180k 澳元，同时主动管理付费媒体广告投放",
@@ -913,6 +955,165 @@ export const p5 = {
       { num: "10+", label: "关键词组" },
       { num: "A$211.91", label: "每日预算" },
       { num: "运行中", label: "状态" },
+    ],
+  },
+};
+
+export const p6 = {
+  en: {
+    tag: "Project 6 · May 8–13, 2026",
+    title: "Siddeley Group Website",
+    subtitle: "Role: Head of IT — Sole front-end developer & technical lead · 2 phases across 6 days",
+    accent: "#1e3a8a",
+    impact: [
+      {
+        label: "Cost",
+        text: "Hosting on Cloudflare Pages free tier — $0/month. No third-party translation services used; ~8,000 words of ZH content authored directly, avoiding est. $800–$1,600 in professional translation costs. All tooling open-source.",
+      },
+      {
+        label: "Marketing",
+        text: "The primary public-facing presence for The Siddeley Group and all four brands. The Chinese-language version expands reach to Melbourne's Chinese-Australian professional community — a primary audience for RedBridge, STL, and GoodMood. Mobile performance fixes reduce bounce rate across all inbound channels.",
+      },
+      {
+        label: "Revenue",
+        text: "The bilingual site materially increases the addressable market for all four brands. Bilingual insight articles targeting Chinese-speaking job seekers, visa applicants, and business owners are high-intent content that drives enquiries for fee-generating services across RedBridge, STL, and Insight Idea.",
+      },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "Siddeley Group Public Website — Phase 1 & 2", valueZh: "Siddeley Group 公共网站 — 第一阶段 & 第二阶段" },
+      { field: "Period", fieldZh: "周期", value: "May 8–13, 2026 (6 days, 2 phases)", valueZh: "2026年5月8日–13日（6天，2个阶段）" },
+      { field: "Company", fieldZh: "公司", value: "The Siddeley Group (Melbourne house of companies)", valueZh: "Siddeley Group（墨尔本企业集团）" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole front-end developer & technical lead", valueZh: "IT 总监 — 独立前端开发者兼技术负责人" },
+      { field: "Phase 1 scope", fieldZh: "第一阶段范围", value: "Layout, responsiveness, deployment pipeline correctness", valueZh: "布局、响应式适配及部署流水线修正" },
+      { field: "Phase 2 scope", fieldZh: "第二阶段范围", value: "Full EN/ZH bilingual i18n, mobile org chart redesign, performance optimisation", valueZh: "完整中英双语国际化、移动端组织架构图重设计、性能优化" },
+      { field: "Pages bilingual", fieldZh: "双语页面数", value: "8 pages + 8 insight articles", valueZh: "8 个页面 + 8 篇洞见文章" },
+      { field: "ZH content", fieldZh: "中文内容", value: "~8,000 words authored directly (no translation service)", valueZh: "约 8,000 字直接撰写（无翻译服务）" },
+      { field: "Translation cost avoided", fieldZh: "节省翻译费用", value: "Est. $800–$1,600 AUD at market rates", valueZh: "按市场价估计节省 $800–$1,600 澳元" },
+      { field: "Hosting cost", fieldZh: "托管费用", value: "A$0/month — Cloudflare Pages free tier", valueZh: "$0/月 — Cloudflare Pages 免费层" },
+    ],
+    phases: [
+      {
+        number: "Phase 1",
+        period: "May 8–11, 2026",
+        title: "Foundation, Responsiveness & Deployment",
+        outcomes: [
+          "Identified and resolved a deployment misconfiguration — deploys were targeting `siddeley-group` instead of the correct `siddeleygroup-v` project; locked the target in both `wrangler.toml` and `package.json`",
+          "Fixed the hero section not filling device screens — resolved a CSS constraint issue (`min-h` vs `h`) leaving large whitespace gaps on mobile",
+          "Refactored the hero illustration panel from fragile absolute-positioned overlay to a proper flex column structure — making future content changes safe and predictable",
+          "Fixed About section column alignment so headings and body text share a consistent top edge — directly affecting design quality perception for prospective clients",
+        ],
+      },
+      {
+        number: "Phase 2",
+        period: "May 12–13, 2026",
+        title: "EN/ZH i18n, Mobile Org Chart & Performance",
+        outcomes: [
+          "Full EN/ZH bilingual website across all 8 pages, 8 insight articles, and all shared components (Nav, Footer, Ticker, ESG pillars, org chart labels) — single static site, no backend required",
+          "Built a non-intrusive language switcher fixed to the right edge, persisting preference via localStorage — visible on all screen sizes without obstructing content",
+          "Authored ~8,000 words of Chinese-language content including 8 long-form insight articles (WeChat marketing, visa pathways, LinkedIn for Chinese professionals)",
+          "Resolved a critical image blocker — 17–34 MB staff PNGs exceeded Cloudflare's 25 MB per-file limit; compressed all 20 photos to 60–120 KB JPEGs using `sips`",
+          "Rebuilt org chart for mobile: desktop 5-column grid was unreadable on mobile (forced horizontal scroll, 190px-wide columns); replaced with a tap-to-expand accordion revealing teams, people, and detail cards",
+          "Resolved persistent mobile touch lag across the entire site — three root causes fixed: disabled Lenis smooth scroll on touch devices; removed scale from `RevealChildren` animations (non-compositable); rewrote `CountUp` from `setState` per frame to direct DOM mutation, then skipped animation on touch entirely",
+          "Removed custom cursor component and `cursor: none !important` CSS — eliminated 6 global mouse event listeners and 2 continuous Framer Motion spring animations",
+        ],
+      },
+    ],
+    highlights: [
+      "Sole ownership across both phases: deployment, layout engineering, i18n architecture, mobile UX redesign, performance profiling, and CI/CD",
+      "Full bilingual EN/ZH site across 8 pages and 8 articles — single static build, client-side switching, localStorage persistence",
+      "~8,000 words of ZH content authored directly — est. $800–$1,600 in translation costs avoided",
+      "Identified and fixed three independent sources of mobile touch lag (smooth scroll, stacking contexts, CountUp re-renders) in a single session",
+      "Compressed 20 staff photos from 17–34 MB to 60–120 KB, unblocking deployment entirely",
+      "Deployment pipeline hardened — wrong-project misconfiguration caught and locked before it caused a production incident",
+      "Org chart rebuilt from a desktop-only 5-column grid to a fully mobile-usable tap-to-expand accordion",
+    ],
+    statsGrid: [
+      { num: "2", label: "Phases" },
+      { num: "6", label: "Days" },
+      { num: "8", label: "Pages bilingual" },
+      { num: "8", label: "Insight articles bilingual" },
+      { num: "~8,000", label: "Words of ZH content" },
+      { num: "20", label: "Photos compressed" },
+      { num: "3", label: "Mobile lag root causes fixed" },
+      { num: "A$0", label: "Hosting cost/month" },
+    ],
+  },
+  zh: {
+    tag: "项目 6 · 2026年5月8日–13日",
+    title: "Siddeley Group 网站",
+    subtitle: "职能：IT 总监 — 独立前端开发者兼技术负责人 · 6天两阶段",
+    accent: "#1e3a8a",
+    impact: [
+      {
+        label: "成本",
+        text: "网站托管于 Cloudflare Pages 免费层，每月费用为零。全部约 8,000 字中文内容由 Vanessa 直接撰写，无需专业翻译服务，节省估计 $800–$1,600 澳元的翻译费用。所有工具均为开源，无授权成本。",
+      },
+      {
+        label: "营销",
+        text: "该网站是 Siddeley Group 及旗下四家品牌的主要公共形象窗口。中文版本将覆盖范围扩展至墨尔本华人专业人士群体，这是 RedBridge、维拓联才和 GoodMood 的核心目标受众。移动端性能优化降低各流量渠道的跳出率。",
+      },
+      {
+        label: "收入",
+        text: "双语网站从实质上扩大了四家品牌的可触达市场。面向华人求职者、签证申请人和企业主的双语洞见文章是高意向内容，可为 RedBridge、维拓联才和 Insight Idea 的收费服务带动询盘量。",
+      },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "Siddeley Group Public Website — Phase 1 & 2", valueZh: "Siddeley Group 公共网站 — 第一阶段 & 第二阶段" },
+      { field: "Period", fieldZh: "周期", value: "May 8–13, 2026 (6 days, 2 phases)", valueZh: "2026年5月8日–13日（6天，2个阶段）" },
+      { field: "Company", fieldZh: "公司", value: "The Siddeley Group (Melbourne house of companies)", valueZh: "Siddeley Group（墨尔本企业集团）" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole front-end developer & technical lead", valueZh: "IT 总监 — 独立前端开发者兼技术负责人" },
+      { field: "Phase 1 scope", fieldZh: "第一阶段范围", value: "Layout, responsiveness, deployment pipeline correctness", valueZh: "布局、响应式适配及部署流水线修正" },
+      { field: "Phase 2 scope", fieldZh: "第二阶段范围", value: "Full EN/ZH bilingual i18n, mobile org chart redesign, performance optimisation", valueZh: "完整中英双语国际化、移动端组织架构图重设计、性能优化" },
+      { field: "Pages bilingual", fieldZh: "双语页面数", value: "8 pages + 8 insight articles", valueZh: "8 个页面 + 8 篇洞见文章" },
+      { field: "ZH content", fieldZh: "中文内容", value: "~8,000 words authored directly (no translation service)", valueZh: "约 8,000 字直接撰写（无翻译服务）" },
+      { field: "Translation cost avoided", fieldZh: "节省翻译费用", value: "Est. $800–$1,600 AUD at market rates", valueZh: "按市场价估计节省 $800–$1,600 澳元" },
+      { field: "Hosting cost", fieldZh: "托管费用", value: "A$0/month — Cloudflare Pages free tier", valueZh: "$0/月 — Cloudflare Pages 免费层" },
+    ],
+    phases: [
+      {
+        number: "第一阶段",
+        period: "2026年5月8日–11日",
+        title: "基础架构、响应式布局与部署流水线",
+        outcomes: [
+          "发现并修正部署配置错误 — 部署目标误指向 `siddeley-group` 而非正确的 `siddeleygroup-v` 项目；在 `wrangler.toml` 和 `package.json` 中锁定目标配置",
+          "修复主视觉区未能充满设备屏幕的问题 — 解决 CSS 约束错误（`min-h` vs `h`），消除移动端大片空白区域",
+          "将主视觉区插图面板从脆弱的绝对定位覆盖层重构为规范的 flex 列结构，使未来内容更改安全可预测",
+          "修复「关于」板块列对齐问题，确保各列标题和正文共享一致的顶部对齐线，直接影响访客对设计品质的感知",
+        ],
+      },
+      {
+        number: "第二阶段",
+        period: "2026年5月12日–13日",
+        title: "中英双语国际化、移动端组织架构图与性能优化",
+        outcomes: [
+          "在全部 8 个页面、8 篇洞见文章及所有共享组件（导航、页脚、滚动条、ESG 支柱、组织架构标签）中实现完整中英双语支持，单一静态站点，无需后端",
+          "构建固定于屏幕右侧边缘的非侵入式语言切换器，通过 localStorage 持久化用户偏好，在所有屏幕尺寸下均可见且不遮挡内容",
+          "直接撰写约 8,000 字中文内容，包含 8 篇长篇洞见文章（微信营销、签证通道、华人 LinkedIn 使用指南等）",
+          "解决关键图片阻塞问题 — 17–34 MB 的员工 PNG 图片超出 Cloudflare 25 MB 单文件限制；使用 `sips` 将全部 20 张图片压缩至 60–120 KB JPEG，完全解除部署阻塞",
+          "重建移动端组织架构图：桌面端 5 列网格在移动端完全不可读（强制横向滚动，列宽仅 190px）；重构为点击展开的手风琴式交互，点击机构节点展开其团队和人员，点击姓名弹出详细卡片",
+          "解决全站持续存在的移动端触控延迟 — 修复三个根本原因：在触控设备上禁用 Lenis 平滑滚动（移动端原生滚动已足够流畅）；从 `RevealChildren` 动画中移除 scale（非 GPU 合成属性）；将 `CountUp` 从每帧调用 `setState` 改写为直接操作 DOM `textContent`，并在触控设备上完全跳过动画",
+          "移除自定义光标组件及其 `cursor: none !important` CSS 规则 — 消除 6 个全局鼠标事件监听器和 2 个持续运行的 Framer Motion 弹簧动画",
+        ],
+      },
+    ],
+    highlights: [
+      "两阶段全程独立负责：部署配置、布局工程、国际化架构、移动端 UX 重设计、性能分析及 CI/CD",
+      "8 个页面 + 8 篇文章完整双语化 — 单一静态构建，客户端切换，localStorage 持久化",
+      "约 8,000 字中文内容直接撰写，节省估计 $800–$1,600 澳元翻译费用",
+      "在单次工作周期内发现并修复三个独立的移动端触控延迟来源（平滑滚动、层叠上下文、CountUp 重渲染）",
+      "将 20 张员工照片从 17–34 MB 压缩至 60–120 KB，完全解除部署阻塞",
+      "捕获并锁定部署管道错误配置，防止生产事故发生",
+      "组织架构图从仅适用于桌面端的 5 列网格重建为完整可用的移动端手风琴交互",
+    ],
+    statsGrid: [
+      { num: "2", label: "阶段数" },
+      { num: "6", label: "天数" },
+      { num: "8", label: "双语页面" },
+      { num: "8", label: "双语洞见文章" },
+      { num: "~8,000", label: "中文字数" },
+      { num: "20", label: "照片压缩数" },
+      { num: "3", label: "移动端延迟根因修复" },
+      { num: "A$0", label: "每月托管费用" },
     ],
   },
 };
