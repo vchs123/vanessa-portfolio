@@ -11,7 +11,6 @@ const projects = [
   { slug: "goodmood-studio", en: "GoodMood Studio", zh: "GoodMood Studio" },
   { slug: "google-ads-rb", en: "Google Ads — Employer Sponsorship", zh: "Google Ads — 雇主担保推广" },
   { slug: "siddeley-group-website", en: "Siddeley Group Website", zh: "Siddeley Group 网站" },
-  { slug: "redbridge-v3", en: "RedBridge Website V3", zh: "RedBridge 网站 V3" },
 ];
 
 export default function Nav() {
