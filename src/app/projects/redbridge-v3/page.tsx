@@ -39,38 +39,129 @@ export default function RedbridgeV3Page() {
         </div>
       </FadeIn>
 
-      {/* Indexing fix callout */}
+      {/* Phase breakdown */}
       <FadeIn delay={0.3}>
-        <div className="rounded-2xl bg-teal-50 border-2 border-teal-200 p-6 flex gap-4 items-start">
-          <span className="text-3xl">🔎</span>
-          <div>
-            <h3 className="font-serif text-xl font-bold text-teal-800 mb-2">
-              {lang === "zh" ? "中文页面索引修复" : "Chinese-Language Indexing Fixed"}
-            </h3>
-            <p className="text-teal-700 text-sm leading-relaxed">
-              {lang === "zh"
-                ? "上线后的 hreflang 标注错误曾导致 Google 无法正确识别网站的中文版本，使其无法在 zh-CN 搜索结果中出现。修复后，所有规范 URL 及 hreflang 备用链接已通过 sitemap.xml 提交至 Google Search Console，中文页面现已具备完整的索引与排名资格。"
-                : "Broken hreflang annotations had been preventing Google from correctly recognising the site's Chinese-language version, blocking it from zh-CN search results. With the fix in place, all canonical URLs and hreflang alternates were submitted to Google Search Console via sitemap.xml — the Chinese-language pages are now fully eligible for indexing and ranking."}
-            </p>
+        <section>
+          <h2 className="font-serif text-3xl font-bold mb-8" style={{ color: t.accent }}>
+            {lang === "zh" ? "阶段详情" : "Phase Breakdown"}
+          </h2>
+          <div className="space-y-6">
+            {t.phases.map((phase, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border-2 overflow-hidden"
+                style={{ borderColor: t.accent + "30" }}
+              >
+                {/* Phase header */}
+                <div
+                  className="px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2"
+                  style={{ backgroundColor: t.accent + "10" }}
+                >
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full self-start"
+                    style={{ backgroundColor: t.accent + "20", color: t.accent }}
+                  >
+                    {phase.number}
+                  </span>
+                  <div>
+                    <div className="font-serif text-xl font-bold text-gray-900">{phase.title}</div>
+                    <div className="text-xs text-gray-400 mt-0.5">{phase.period}</div>
+                  </div>
+                </div>
+
+                {/* Phase outcomes */}
+                <div className="bg-white px-6 py-5">
+                  <ul className="space-y-3">
+                    {phase.outcomes.map((outcome, j) => (
+                      <li key={j} className="flex gap-3 items-start">
+                        <span
+                          className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: t.accent }}
+                        />
+                        <span className="text-sm text-gray-700 leading-relaxed">{outcome}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
       </FadeIn>
 
-      {/* Structured data callout */}
+      {/* SEO Architecture — Hub-and-Spoke Model */}
       <FadeIn delay={0.35}>
-        <div className="rounded-xl bg-emerald-50 border border-emerald-200 px-5 py-4 flex gap-3 items-start">
-          <span className="text-xl">🏷️</span>
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-1">
-              {lang === "zh" ? "结构化数据 / 富媒体结果" : "Structured Data / Rich Results"}
+        <section>
+          <h2 className="font-serif text-3xl font-bold mb-4" style={{ color: t.accent }}>
+            {t.seoArchitecture.heading}
+          </h2>
+          <p className="text-sm text-gray-600 leading-relaxed mb-6">
+            {t.seoArchitecture.description}
+          </p>
+
+          {/* Hub */}
+          <div
+            className="rounded-2xl p-5 border mb-4 text-center"
+            style={{ backgroundColor: t.accent + "18", borderColor: t.accent + "30" }}
+          >
+            <div
+              className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2"
+              style={{ backgroundColor: t.accent + "22", color: t.accent }}
+            >
+              {t.seoArchitecture.hub.label}
             </div>
-            <p className="text-sm text-emerald-800 leading-relaxed">
-              {lang === "zh"
-                ? "新增并更新的 JSON-LD（FAQPage、BreadcrumbList、Organization/LocalBusiness）使页面具备 FAQ 折叠面板、面包屑导航及知识图谱等增强版搜索结果展示资格 — 在零边际成本下提升点击率。"
-                : "New and updated JSON-LD (FAQPage, BreadcrumbList, Organization/LocalBusiness) makes pages eligible for enhanced SERP features — FAQ accordions, breadcrumb trails, and a knowledge panel — increasing click-through rate at zero marginal cost."}
-            </p>
+            <div className="font-serif text-lg font-bold text-gray-900">{t.seoArchitecture.hub.title}</div>
+            <div className="text-xs text-gray-400 mt-1 font-mono">{t.seoArchitecture.hub.url}</div>
           </div>
-        </div>
+
+          {/* Spokes */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {t.seoArchitecture.spokes.map((spoke, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-4 border text-center"
+                style={{ backgroundColor: "white", borderColor: t.accent + "30" }}
+              >
+                <div
+                  className="inline-block text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2"
+                  style={{ backgroundColor: t.accent + "15", color: t.accent }}
+                >
+                  {spoke.label}
+                </div>
+                <div className="font-semibold text-sm text-gray-900">{spoke.title}</div>
+                <div className="text-xs text-gray-400 mt-1 font-mono break-all">{spoke.url}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Technical Highlights */}
+      <FadeIn delay={0.4}>
+        <section>
+          <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: t.accent }}>
+            {t.technicalHighlights.heading}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {t.technicalHighlights.items.map((item, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-5 border"
+                style={{ backgroundColor: t.accent + "0c", borderColor: t.accent + "30" }}
+              >
+                <div className="flex gap-3 items-start">
+                  <span className="text-2xl">{item.icon}</span>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: t.accent }}>
+                      {item.title}
+                    </div>
+                    <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </FadeIn>
     </ProjectPageLayout>
   );
