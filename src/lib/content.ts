@@ -10,6 +10,7 @@ export const nav = {
     p4: "GoodMood Studio",
     p5: "Google Ads — Employer Sponsorship",
     p6: "Siddeley Group Website",
+    p7: "RedBridge Website V3",
   },
   zh: {
     home: "首页",
@@ -20,6 +21,7 @@ export const nav = {
     p4: "GoodMood Studio",
     p5: "Google Ads — 雇主担保推广",
     p6: "Siddeley Group 网站",
+    p7: "RedBridge 网站 V3",
   },
 };
 
@@ -221,6 +223,19 @@ export const projectCards = {
         { num: "~8k", label: "Words of ZH content" },
       ],
     },
+    {
+      slug: "redbridge-v3",
+      accent: "#0d9488",
+      accentLight: "#ccfbf1",
+      tag: "Project 7 · June 2026",
+      title: "RedBridge Website V3 — SEO Audit & Restructure",
+      summary: "Full technical SEO audit, restructure, and deployment: fixed hreflang for Chinese-language indexing, added structured data, restructured i18n and URLs, and shipped a sitemap to Google Search Console.",
+      stats: [
+        { num: "3", label: "Pages w/ BreadcrumbList" },
+        { num: "1st", label: "Sitemap submitted to GSC" },
+        { num: "$3k–8k", label: "AUD cost avoided" },
+      ],
+    },
   ],
   zh: [
     {
@@ -301,13 +316,26 @@ export const projectCards = {
         { num: "~8千", label: "中文字数" },
       ],
     },
+    {
+      slug: "redbridge-v3",
+      accent: "#0d9488",
+      accentLight: "#ccfbf1",
+      tag: "项目 7 · 2026年6月",
+      title: "RedBridge 网站 V3 — SEO 审计与重构",
+      summary: "完整技术 SEO 审计、重构与部署：修复中文页面的 hreflang 索引问题、新增结构化数据、重构国际化目录与 URL 结构，并向 Google Search Console 提交站点地图。",
+      stats: [
+        { num: "3", label: "页面新增 BreadcrumbList" },
+        { num: "首次", label: "站点地图提交至 GSC" },
+        { num: "$3k–8k", label: "节省机构费用（澳元）" },
+      ],
+    },
   ],
 };
 
 export const summary = {
   en: {
     heading: "Combined Summary",
-    subheading: "All five projects · Feb 6 – May 2026",
+    subheading: "All seven projects · Feb 6 – Jun 2026",
     rows: [
       {
         project: "RedBridge Website + CRM Portal",
@@ -351,13 +379,20 @@ export const summary = {
         commits: "—",
         cost: "$800–$1,600 translation cost avoided · A$0 hosting",
       },
+      {
+        project: "RedBridge Website V3 — SEO Audit & Restructure",
+        period: "June 2026",
+        role: "Sole developer · technical SEO consultant",
+        commits: "—",
+        cost: "$3,000–$8,000 AUD avoided · no ongoing retainer",
+      },
     ],
-    total: "$80k–$180k AUD agency-equivalent cost avoided across engineering projects, plus active paid media management",
+    total: "$83k–$188k AUD agency-equivalent cost avoided across engineering projects, plus active paid media management",
     cols: ["Project", "Period", "Role", "Vanessa's Commits", "Cost / Impact"],
   },
   zh: {
     heading: "综合汇总",
-    subheading: "五个项目 · 2026年2月6日 – 5月",
+    subheading: "七个项目 · 2026年2月6日 – 6月",
     rows: [
       {
         project: "RedBridge 网站 + CRM 门户",
@@ -401,8 +436,15 @@ export const summary = {
         commits: "—",
         cost: "节省翻译费 $800–$1,600 · 托管费 A$0",
       },
+      {
+        project: "RedBridge 网站 V3 — SEO 审计与重构",
+        period: "2026年6月",
+        role: "独立开发者 · 技术 SEO 顾问",
+        commits: "—",
+        cost: "节省 $3,000–$8,000 澳元 · 无持续顾问费",
+      },
     ],
-    total: "工程项目合计节省机构等效费用 $80k–$180k 澳元，同时主动管理付费媒体广告投放",
+    total: "工程项目合计节省机构等效费用 $83k–$188k 澳元，同时主动管理付费媒体广告投放",
     cols: ["项目", "周期", "职能", "Vanessa 提交数", "成本 / 影响"],
   },
 };
@@ -1114,6 +1156,121 @@ export const p6 = {
       { num: "20", label: "照片压缩数" },
       { num: "3", label: "移动端延迟根因修复" },
       { num: "A$0", label: "每月托管费用" },
+    ],
+  },
+};
+
+export const p7 = {
+  en: {
+    tag: "Project 7 · June 2026",
+    title: "RedBridge Website V3 — Technical SEO Audit, Restructure & Deployment",
+    subtitle: "Role: Sole Developer & Technical SEO Consultant",
+    accent: "#0d9488",
+    liveUrl: "https://redbridge.pages.dev/",
+    impact: [
+      {
+        label: "Cost",
+        text: "Full technical SEO audit and remediation delivered in-house at no external cost. A comparable agency audit plus developer remediation of this scope typically runs $3,000–$8,000 AUD — avoided entirely, with no ongoing SEO-retainer fees.",
+      },
+      {
+        label: "Marketing",
+        text: "Hreflang and canonical fixes directly improve organic visibility for a bilingual audience in a high-intent, competitive niche (skilled migration consulting, Melbourne). The Chinese-language pages are now properly indexed and eligible to rank in zh-CN Google Search — opening a channel to RedBridge's core Mandarin-speaking skilled migrant audience without any additional ad spend.",
+      },
+      {
+        label: "Revenue",
+        text: "Structured data (FAQPage, BreadcrumbList, Organization/LocalBusiness) makes the site eligible for enhanced SERP features including FAQ accordions and a knowledge panel, increasing click-through rate at zero marginal cost. The sitemap submission accelerates Google's re-crawl of all fixed pages, shortening the time-to-impact across the whole audit.",
+      },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website V3 — Technical SEO Audit, Restructure & Deployment", valueZh: "RedBridge 网站 V3 — 技术 SEO 审计、重构与部署" },
+      { field: "Period", fieldZh: "周期", value: "June 2026", valueZh: "2026年6月" },
+      { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
+      { field: "Role", fieldZh: "职能", value: "Sole Developer & Technical SEO Consultant", valueZh: "独立开发者兼技术 SEO 顾问" },
+      { field: "Scope", fieldZh: "范围", value: "Metadata architecture, URL structure, structured data, i18n compliance, messages/ refactor, Git version control, end-to-end deployment", valueZh: "元数据架构、URL 结构、结构化数据、国际化合规、messages/ 重构、Git 版本控制、端到端部署" },
+      { field: "Stack", fieldZh: "技术栈", value: "Next.js + next-intl · Cloudflare Workers via OpenNext · Google Search Console", valueZh: "Next.js + next-intl · 通过 OpenNext 部署至 Cloudflare Workers · Google Search Console" },
+      { field: "Key Fixes", fieldZh: "关键修复", value: "Hreflang, duplicate page titles, sitemap.xml, robots.ts, JSON-LD (BreadcrumbList, FAQPage & Organization/LocalBusiness), MARN/ABN constant, messages/ restructure, /services/ URL flattening", valueZh: "hreflang、重复页面标题、sitemap.xml、robots.ts、JSON-LD（BreadcrumbList、FAQPage 与 Organization/LocalBusiness）、MARN/ABN 常量、messages/ 重构、/services/ URL 精简" },
+      { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $3,000–$8,000 AUD agency audit + remediation cost avoided", valueZh: "估计节省机构审计及修复费用 $3,000–$8,000 澳元" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+    ],
+    highlights: [
+      "Fixed broken hreflang annotations that were preventing Google from correctly indexing the Chinese-language version of the site — a direct blocker for organic reach to the primary target audience (Mandarin-speaking skilled migrants)",
+      "Eliminated duplicate brand name in all page titles, correcting a structural SEO error across every route",
+      "Created and registered sitemap.xml with hreflang alternates and submitted it to Google Search Console, making all canonical URLs discoverable for the first time",
+      "Built robots.ts to replace a static file that was silently overriding the intended crawl configuration",
+      "Added JSON-LD structured data (BreadcrumbList) to three service pages, making them eligible for rich results in Google SERPs",
+      "Flattened the URL structure for the three employer-pathway service pages by removing the redundant /services/ path segment (e.g. /services/employer-pathway/482-visa-employer-matching → /employer-pathway/482-visa-employer-matching), aligning routes with the sitemap and breadcrumb hierarchy",
+      "Extracted MARN and ABN into a single source-of-truth constant, eliminating compliance risk from divergent values across 5+ files",
+      "Restructured the entire messages/ directory — removed versioning artefacts (v2/, services/) — leaving a clean, maintainable bilingual i18n system",
+      "Removed <meta keywords> tags sitewide (obsolete, potential spam signal to Bing)",
+      "Verified and updated Organization schema JSON-LD to accurately reflect current service scope and geography",
+      "Managed all Git version control and handled end-to-end deployment to Cloudflare Workers via OpenNext",
+      "Supported RedBridge's founding team in understanding what was live vs. pending, and guided them through external platform tasks (GSC, Google Business Profile)",
+    ],
+    statsGrid: [
+      { num: "3", label: "Pages w/ BreadcrumbList" },
+      { num: "1", label: "MARN/ABN source of truth" },
+      { num: "5+", label: "Files unified" },
+      { num: "2", label: "Versioned dirs removed" },
+      { num: "1st", label: "Sitemap submitted to GSC" },
+      { num: "0", label: "Meta keywords remaining" },
+      { num: "$3k–8k", label: "AUD cost avoided" },
+      { num: "A$0", label: "Ongoing retainer" },
+    ],
+  },
+  zh: {
+    tag: "项目 7 · 2026年6月",
+    title: "RedBridge 网站 V3 — 技术 SEO 审计、重构与部署",
+    subtitle: "职能：独立开发者兼技术 SEO 顾问",
+    accent: "#0d9488",
+    liveUrl: "https://redbridge.pages.dev/",
+    impact: [
+      {
+        label: "成本",
+        text: "完整的技术 SEO 审计与修复完全由内部独立完成，无任何外部费用。同等规模的机构审计加开发修复通常费用为 $3,000–$8,000 澳元 — 完全避免该支出，且无需持续的 SEO 顾问费。",
+      },
+      {
+        label: "营销",
+        text: "hreflang 和规范链接的修复直接提升了在高意向、竞争激烈的细分市场（墨尔本技术移民咨询）中双语受众的自然搜索可见度。中文页面现已被正确索引，并具备在 zh-CN Google 搜索中排名的资格 — 首次为 RedBridge 的核心华语技术移民受众打开自然流量渠道，无需额外广告投入。",
+      },
+      {
+        label: "收入",
+        text: "结构化数据（FAQPage、BreadcrumbList、Organization/LocalBusiness）使网站具备增强版搜索结果展示资格，包括 FAQ 折叠面板和知识图谱，以零边际成本提升点击率。向 Google Search Console 提交的站点地图加速了所有修复页面的重新抓取，缩短了整体审计成效的显现时间。",
+      },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website V3 — Technical SEO Audit, Restructure & Deployment", valueZh: "RedBridge 网站 V3 — 技术 SEO 审计、重构与部署" },
+      { field: "Period", fieldZh: "周期", value: "June 2026", valueZh: "2026年6月" },
+      { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
+      { field: "Role", fieldZh: "职能", value: "Sole Developer & Technical SEO Consultant", valueZh: "独立开发者兼技术 SEO 顾问" },
+      { field: "Scope", fieldZh: "范围", value: "Metadata architecture, URL structure, structured data, i18n compliance, messages/ refactor, Git version control, end-to-end deployment", valueZh: "元数据架构、URL 结构、结构化数据、国际化合规、messages/ 重构、Git 版本控制、端到端部署" },
+      { field: "Stack", fieldZh: "技术栈", value: "Next.js + next-intl · Cloudflare Workers via OpenNext · Google Search Console", valueZh: "Next.js + next-intl · 通过 OpenNext 部署至 Cloudflare Workers · Google Search Console" },
+      { field: "Key Fixes", fieldZh: "关键修复", value: "Hreflang, duplicate page titles, sitemap.xml, robots.ts, JSON-LD (BreadcrumbList, FAQPage & Organization/LocalBusiness), MARN/ABN constant, messages/ restructure, /services/ URL flattening", valueZh: "hreflang、重复页面标题、sitemap.xml、robots.ts、JSON-LD（BreadcrumbList、FAQPage 与 Organization/LocalBusiness）、MARN/ABN 常量、messages/ 重构、/services/ URL 精简" },
+      { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $3,000–$8,000 AUD agency audit + remediation cost avoided", valueZh: "估计节省机构审计及修复费用 $3,000–$8,000 澳元" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+    ],
+    highlights: [
+      "修复了阻止 Google 正确索引网站中文版本的 hreflang 标注错误 — 这是触达核心目标受众（华语技术移民）自然流量的直接障碍",
+      "消除所有页面标题中重复的品牌名称，修正了贯穿全站每个路由的结构性 SEO 错误",
+      "创建并注册了包含 hreflang 备用链接的 sitemap.xml，并提交至 Google Search Console，首次使所有规范 URL 可被发现",
+      "构建 robots.ts 替代了一个静默覆盖预期抓取配置的静态文件",
+      "为三个服务页面新增 JSON-LD 结构化数据（BreadcrumbList），使其具备在 Google 搜索结果中展示富媒体摘要的资格",
+      "精简三个雇主通道服务页面的 URL 结构，移除冗余的 /services/ 路径前缀（例如 /services/employer-pathway/482-visa-employer-matching → /employer-pathway/482-visa-employer-matching），使路由与站点地图及面包屑层级保持一致",
+      "将 MARN 和 ABN 提取为单一可信来源常量，消除了 5 个以上文件中数值不一致带来的合规风险",
+      "重构整个 messages/ 目录 — 移除版本化遗留产物（v2/、services/） — 留下一套整洁、可维护的双语国际化系统",
+      "全站移除 <meta keywords> 标签（已过时，且可能被 Bing 视为垃圾信号）",
+      "核查并更新 Organization JSON-LD 架构数据，使其准确反映当前的服务范围和地理覆盖",
+      "负责全部 Git 版本控制，并完成通过 OpenNext 部署至 Cloudflare Workers 的端到端部署",
+      "协助 RedBridge 创始团队厘清哪些内容已上线、哪些待处理，并指导他们完成外部平台任务（GSC、Google Business Profile）",
+    ],
+    statsGrid: [
+      { num: "3", label: "页面新增 BreadcrumbList" },
+      { num: "1", label: "MARN/ABN 单一可信来源" },
+      { num: "5+", label: "统一的文件数" },
+      { num: "2", label: "移除的版本化目录" },
+      { num: "首次", label: "站点地图提交至 GSC" },
+      { num: "0", label: "剩余 meta keywords" },
+      { num: "$3k–8k", label: "节省费用（澳元）" },
+      { num: "A$0", label: "持续顾问费" },
     ],
   },
 };
