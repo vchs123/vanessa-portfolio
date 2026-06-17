@@ -25,7 +25,7 @@ export default function RedbridgeMigrationPage() {
             {lang === "zh" ? "阶段详情" : "Phase Breakdown"}
           </h2>
           <div className="space-y-6">
-            {t.phases.map((phase, i) => (
+            {("phases" in t ? (t as any).phases : []).map((phase: any, i: number) => (
               <div
                 key={i}
                 className="rounded-2xl border-2 overflow-hidden"
@@ -48,7 +48,7 @@ export default function RedbridgeMigrationPage() {
                 </div>
                 <div className="bg-white px-6 py-5">
                   <ul className="space-y-3">
-                    {phase.outcomes.map((outcome, j) => (
+                    {phase.outcomes.map((outcome: string, j: number) => (
                       <li key={j} className="flex gap-3 items-start">
                         <span
                           className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
