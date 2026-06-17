@@ -510,7 +510,7 @@ export const p1 = {
     title: "RedBridge Website + CRM Portal",
     subtitle: "Role: Software Developer (sole engineer) · 10 weeks",
     accent: "#be185d",
-    liveUrl: "https://redbridge.pages.dev/",
+    liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "Cost",
@@ -533,7 +533,8 @@ export const p1 = {
       { field: "Commits", fieldZh: "提交数", value: "268 (all Vanessa)", valueZh: "268（全部为 Vanessa）" },
       { field: "Scale", fieldZh: "规模", value: "~100 files · ~41,500 lines of code · 28 HTML pages · 12 DB tables", valueZh: "约100个文件 · 约41,500行代码 · 28个HTML页面 · 12张数据库表" },
       { field: "Integrations", fieldZh: "集成", value: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel", valueZh: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel" },
-      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge-consulting.com.au", valueZh: "https://redbridge-consulting.com.au" },
+      { field: "Production URL", fieldZh: "生产环境链接", value: "https://redbridge-v3.vanessachs-work.workers.dev/", valueZh: "https://redbridge-v3.vanessachs-work.workers.dev/" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $50,000–$100,000 AUD agency cost avoided", valueZh: "估计节省机构费用 $50,000–$100,000 澳元" },
     ],
     highlights: [
@@ -561,7 +562,7 @@ export const p1 = {
     title: "RedBridge 网站",
     subtitle: "职能：软件开发工程师（独立工程师） · 10 周",
     accent: "#be185d",
-    liveUrl: "https://redbridge.pages.dev/",
+    liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "成本",
@@ -584,7 +585,8 @@ export const p1 = {
       { field: "Commits", fieldZh: "提交数", value: "268 (all Vanessa)", valueZh: "268（全部为 Vanessa）" },
       { field: "Scale", fieldZh: "规模", value: "~100 files · ~41,500 lines of code · 28 HTML pages · 12 DB tables", valueZh: "约100个文件 · 约41,500行代码 · 28个HTML页面 · 12张数据库表" },
       { field: "Integrations", fieldZh: "集成", value: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel", valueZh: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel" },
-      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge-consulting.com.au", valueZh: "https://redbridge-consulting.com.au" },
+      { field: "Production URL", fieldZh: "生产环境链接", value: "https://redbridge-v3.vanessachs-work.workers.dev/", valueZh: "https://redbridge-v3.vanessachs-work.workers.dev/" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $50,000–$100,000 AUD agency cost avoided", valueZh: "估计节省机构费用 $50,000–$100,000 澳元" },
     ],
     highlights: [
@@ -1166,7 +1168,7 @@ export const p7 = {
     title: "RedBridge Website V3",
     subtitle: "Role: Head of IT · Sole technical architect, developer & SEO implementer · Cross-subsidiary, Siddeley Group · 6 phases · 18 routes · 178 components · 283+ commits",
     accent: "#0d9488",
-    liveUrl: "https://redbridge.pages.dev/",
+    liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "Cost",
@@ -1197,7 +1199,8 @@ export const p7 = {
       { field: "Phase 5 Scope", fieldZh: "第五阶段范围", value: "FAQPage & LocalBusiness schema, sitemap submitted to GSC, /services/ URL flattening, inline contextual linking, founder support", valueZh: "FAQPage 与 LocalBusiness 结构化数据、站点地图提交至 GSC、/services/ URL 精简、内联上下文链接、创始团队支持" },
       { field: "Phase 6 Scope", fieldZh: "第六阶段范围", value: "CI/CD pipeline via GitHub Actions + production deployment bug fix — stale Cloudflare build artifact was breaking navigation links sitewide", valueZh: "GitHub Actions CI/CD 流水线 + 生产部署 bug 修复 — Cloudflare 陈旧构建产物导致全站导航链接失效" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $40,000–$95,000 AUD agency build + SEO audit cost avoided", valueZh: "估计节省机构建站及 SEO 审计费用 $40,000–$95,000 澳元" },
-      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge-consulting.com.au", valueZh: "https://redbridge-consulting.com.au" },
+      { field: "Production URL", fieldZh: "生产环境链接", value: "https://redbridge-v3.vanessachs-work.workers.dev/", valueZh: "https://redbridge-v3.vanessachs-work.workers.dev/" },
     ],
     phases: [
       {
@@ -1325,7 +1328,7 @@ export const p7 = {
     title: "RedBridge 网站 V3",
     subtitle: "职能：IT 总监 · 独立技术架构师、开发者兼 SEO 实施者 · 跨子公司，Siddeley Group · 6 个阶段 · 18 个路由 · 178 个组件 · 283+ 次提交",
     accent: "#0d9488",
-    liveUrl: "https://redbridge.pages.dev/",
+    liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "成本",
@@ -1356,7 +1359,8 @@ export const p7 = {
       { field: "Phase 5 Scope", fieldZh: "第五阶段范围", value: "FAQPage & LocalBusiness schema, sitemap submitted to GSC, /services/ URL flattening, inline contextual linking, founder support", valueZh: "FAQPage 与 LocalBusiness 结构化数据、站点地图提交至 GSC、/services/ URL 精简、内联上下文链接、创始团队支持" },
       { field: "Phase 6 Scope", fieldZh: "第六阶段范围", value: "CI/CD pipeline via GitHub Actions + production deployment bug fix — stale Cloudflare build artifact was breaking navigation links sitewide", valueZh: "GitHub Actions CI/CD 流水线 + 生产部署 bug 修复 — Cloudflare 陈旧构建产物导致全站导航链接失效" },
       { field: "Cost Impact", fieldZh: "成本影响", value: "Est. $40,000–$95,000 AUD agency build + SEO audit cost avoided", valueZh: "估计节省机构建站及 SEO 审计费用 $40,000–$95,000 澳元" },
-      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge.pages.dev/", valueZh: "https://redbridge.pages.dev/" },
+      { field: "Live URL", fieldZh: "上线链接", value: "https://redbridge-consulting.com.au", valueZh: "https://redbridge-consulting.com.au" },
+      { field: "Production URL", fieldZh: "生产环境链接", value: "https://redbridge-v3.vanessachs-work.workers.dev/", valueZh: "https://redbridge-v3.vanessachs-work.workers.dev/" },
     ],
     phases: [
       {
