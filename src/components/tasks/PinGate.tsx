@@ -19,7 +19,7 @@ export default function PinGate({ onAuth }: Props) {
     setError("");
     setLoading(true);
     try {
-      const res = await login(loginType, pin.trim().toUpperCase());
+      const res = await login(loginType, loginType === "visitor" ? pin.trim().toUpperCase() : pin.trim());
       onAuth({ token: res.token, role: res.role as AuthState["role"] });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Invalid PIN");
