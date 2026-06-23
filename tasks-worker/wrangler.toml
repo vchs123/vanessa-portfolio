@@ -1,0 +1,13 @@
+name = "tasks-api"
+main = "src/index.ts"
+compatibility_date = "2026-06-22"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "TASKS_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Secrets — set via: wrangler secret put <NAME>
+# OWNER_PIN          — your personal PIN to edit tasks
+# COMMENTER_PIN      — PIN you share with your manager
+# ANTHROPIC_API_KEY  — for AI-generated purpose field
