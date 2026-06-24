@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import type { Task, AuthState, Timeline } from "./types";
 import { getTimeline } from "./types";
-import { getTasks, createTask, updateTask, deleteTask, generateVisitorPin, listVisitorPins, revokeVisitorPin } from "./api";
+import { getTasks, createTask, updateTask, deleteTask, generateVisitorPin, listVisitorPins, revokeVisitorPin, passkeyRegisterBegin, passkeyRegisterComplete, passkeyDelete } from "./api";
 import type { VisitorPin } from "./types";
 
 interface VisitorRequest {
@@ -36,6 +36,8 @@ export default function TaskBoard({ auth, onLogout }: Props) {
   const [showPins, setShowPins] = useState(false);
   const [requests, setRequests] = useState<VisitorRequest[]>([]);
   const [showRequests, setShowRequests] = useState(false);
+  const [passkeyRegistering, setPasskeyRegistering] = useState(false);
+  const [passkeyMsg, setPasskeyMsg] = useState("");
   const isOwner = auth.role === "owner";
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function TaskBoard({ auth, onLogout }: Props) {
   }, [auth.token]);
 
   const filtered = tasks.filter((t) => {
-    if (getTimeline(t) !== tab) return false;
+    if (tab !== "all" && getTimeline(t) !== tab) return false;
     if (filters.client && !t.client.includes(filters.client as Task["client"][number])) return false;
     if (filters.type && !t.type.includes(filters.type as Task["type"][number])) return false;
     if (filters.priority && t.priority !== filters.priority) return false;
@@ -102,6 +104,58 @@ export default function TaskBoard({ auth, onLogout }: Props) {
     }
   }
 
+  async function handleRegisterPasskey() {
+    setPasskeyRegistering(true);
+    setPasskeyMsg("");
+    try {
+      const opts = await passkeyRegisterBegin(auth.token);
+      const b64uToBuf = (b64: string) => {
+        const padded = b64.replace(/-/g, "+").replace(/_/g, "/");
+        const bin = atob(padded);
+        const buf = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        return buf.buffer;
+      };
+      const bufToB64u = (buf: ArrayBuffer) => {
+        const bytes = new Uint8Array(buf);
+        let bin = "";
+        for (const b of bytes) bin += String.fromCharCode(b);
+        return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+      };
+      const cred = await navigator.credentials.create({
+        publicKey: {
+          challenge: b64uToBuf(opts.challenge),
+          rp: opts.rp,
+          user: { id: b64uToBuf(opts.user.id), name: opts.user.name, displayName: opts.user.displayName },
+          pubKeyCredParams: opts.pubKeyCredParams as PublicKeyCredentialParameters[],
+          timeout: opts.timeout,
+          authenticatorSelection: opts.authenticatorSelection as AuthenticatorSelectionCriteria,
+        },
+      }) as PublicKeyCredential | null;
+      if (!cred) throw new Error("Registration cancelled");
+      const resp = cred.response as AuthenticatorAttestationResponse;
+      const publicKeyBuf = resp.getPublicKey();
+      if (!publicKeyBuf) throw new Error("Could not extract public key");
+      await passkeyRegisterComplete(auth.token, {
+        id: cred.id,
+        clientDataJSON: bufToB64u(resp.clientDataJSON),
+        publicKey: bufToB64u(publicKeyBuf),
+      });
+      setPasskeyMsg("Biometric registered ✓ — you can now use Face ID / Touch ID to log in.");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Registration failed";
+      if (!msg.includes("cancelled") && !msg.includes("NotAllowedError")) setPasskeyMsg(`Failed: ${msg}`);
+    } finally {
+      setPasskeyRegistering(false);
+    }
+  }
+
+  async function handleRemovePasskey() {
+    if (!confirm("Remove biometric login? You'll need to use your PIN next time.")) return;
+    await passkeyDelete(auth.token);
+    setPasskeyMsg("Biometric removed.");
+  }
+
   async function markHandled(id: string) {
     const BASE = process.env.NEXT_PUBLIC_TASKS_API_URL ?? "https://tasks-api.vanessachs-work.workers.dev";
     await fetch(`${BASE}/visitor-requests/${id}/handled`, {
@@ -125,6 +179,7 @@ export default function TaskBoard({ auth, onLogout }: Props) {
     current: tasks.filter((t) => getTimeline(t) === "current").length,
     past: tasks.filter((t) => getTimeline(t) === "past").length,
     future: tasks.filter((t) => getTimeline(t) === "future").length,
+    all: tasks.length,
   };
 
   return (
@@ -160,12 +215,32 @@ export default function TaskBoard({ auth, onLogout }: Props) {
               </a>
             </>
           )}
+          {isOwner && typeof window !== "undefined" && window.PublicKeyCredential && (
+            <button
+              onClick={handleRegisterPasskey}
+              disabled={passkeyRegistering}
+              title="Set up Face ID / Touch ID / fingerprint login"
+              className="text-xs text-stone-400 hover:text-stone-700 border border-stone-200 rounded px-3 py-1.5 disabled:opacity-40"
+            >
+              {passkeyRegistering ? "Setting up…" : "⁺ Biometric"}
+            </button>
+          )}
           <span className="text-xs text-stone-400 capitalize">{auth.role}</span>
           <button onClick={onLogout} className="text-xs text-stone-400 hover:text-red-500">Sign out</button>
         </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
+        {/* Passkey status message */}
+        {passkeyMsg && (
+          <div className={`text-xs px-4 py-2 rounded-lg ${passkeyMsg.startsWith("Failed") ? "bg-red-50 text-red-600" : "bg-green-50 text-green-700"}`}>
+            {passkeyMsg}
+            {passkeyMsg.includes("✓") && (
+              <button onClick={handleRemovePasskey} className="ml-2 underline opacity-60 hover:opacity-100">Remove</button>
+            )}
+          </div>
+        )}
+
         {/* Access requests panel */}
         {isOwner && showRequests && (
           <div className="bg-white border border-stone-200 rounded-xl p-4 space-y-3">

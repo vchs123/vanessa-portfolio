@@ -79,3 +79,27 @@ export async function generateVisitorPin(token: string): Promise<VisitorPin> {
 export async function revokeVisitorPin(token: string, pin: string): Promise<void> {
   await request(`/visitor-pins/${pin}`, token, { method: "DELETE" });
 }
+
+export async function passkeyStatus(): Promise<{ registered: boolean }> {
+  return request<{ registered: boolean }>("/auth/passkey/status", null);
+}
+
+export async function passkeyLoginBegin(): Promise<{ challenge: string; allowCredentials: { type: string; id: string }[]; userVerification: string; timeout: number; hasCredentials: boolean }> {
+  return request("/auth/passkey/login/begin", null, { method: "POST" });
+}
+
+export async function passkeyLoginComplete(payload: { id: string; clientDataJSON: string; authenticatorData: string; signature: string }): Promise<{ token: string; role: string }> {
+  return request("/auth/passkey/login/complete", null, { method: "POST", body: JSON.stringify(payload) });
+}
+
+export async function passkeyRegisterBegin(token: string): Promise<{ challenge: string; rp: { name: string }; user: { id: string; name: string; displayName: string }; pubKeyCredParams: { alg: number; type: string }[]; timeout: number; authenticatorSelection: object }> {
+  return request("/auth/passkey/register/begin", token, { method: "POST" });
+}
+
+export async function passkeyRegisterComplete(token: string, payload: { id: string; clientDataJSON: string; publicKey: string }): Promise<void> {
+  await request("/auth/passkey/register/complete", token, { method: "POST", body: JSON.stringify(payload) });
+}
+
+export async function passkeyDelete(token: string): Promise<void> {
+  await request("/auth/passkey/delete", token, { method: "DELETE" });
+}

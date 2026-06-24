@@ -175,7 +175,7 @@ async function handleLogin(request: Request, env: Env): Promise<Response> {
 
   if (type === "commenter") {
     if (pin !== env.COMMENTER_PIN) return err("Invalid PIN", 401);
-    const token = await createSession(env, "commenter", 60 * 60 * 24 * 7); // 7 days
+    const token = await createSession(env, "commenter", 60 * 60 * 24 * 2); // 2 days
     return json({ token, role: "commenter" });
   }
 
@@ -392,6 +392,114 @@ async function handleRevokeVisitorPin(env: Env, session: Session, pin: string): 
   return json({ ok: true });
 }
 
+// ─── WebAuthn / Passkey ───────────────────────────────────────────────────────
+
+function bufToB64u(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let bin = "";
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+}
+
+function b64uToBuf(b64: string): ArrayBuffer {
+  const padded = b64.replace(/-/g, "+").replace(/_/g, "/");
+  const bin = atob(padded);
+  const buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return buf.buffer;
+}
+
+function derToP1363(der: ArrayBuffer): ArrayBuffer {
+  // Convert DER-encoded ECDSA sig → IEEE P1363 (r‖s) for Web Crypto
+  const d = new Uint8Array(der);
+  let o = 2; // skip 0x30 + total-length byte
+  const rLen = d[o + 1]; o += 2;
+  const rBytes = d.slice(rLen > 32 ? o + 1 : o, o + rLen); o += rLen;
+  const sLen = d[o + 1]; o += 2;
+  const sBytes = d.slice(sLen > 32 ? o + 1 : o, o + sLen);
+  const out = new Uint8Array(64);
+  out.set(rBytes, 32 - rBytes.length);
+  out.set(sBytes, 64 - sBytes.length);
+  return out.buffer;
+}
+
+async function handlePasskeyRegisterBegin(env: Env, session: Session): Promise<Response> {
+  requireOwner(session);
+  const challenge = bufToB64u(crypto.getRandomValues(new Uint8Array(32)).buffer);
+  await env.TASKS_KV.put(`passkey:challenge:${challenge}`, "register", { expirationTtl: 300 });
+  return json({
+    challenge,
+    rp: { name: "Vanessa Chua · Tasks" },
+    user: { id: bufToB64u(new TextEncoder().encode("vanessa").buffer), name: "vanessa", displayName: "Vanessa" },
+    pubKeyCredParams: [{ alg: -7, type: "public-key" }],
+    timeout: 60000,
+    authenticatorSelection: { userVerification: "required", residentKey: "preferred" },
+  });
+}
+
+async function handlePasskeyRegisterComplete(request: Request, env: Env, session: Session): Promise<Response> {
+  requireOwner(session);
+  const body = await request.json() as { id: string; clientDataJSON: string; publicKey: string };
+  if (!body.id || !body.clientDataJSON || !body.publicKey) return err("Missing fields");
+  const clientData = JSON.parse(new TextDecoder().decode(b64uToBuf(body.clientDataJSON)));
+  if (clientData.type !== "webauthn.create") return err("Invalid type", 401);
+  const stored = await env.TASKS_KV.get(`passkey:challenge:${clientData.challenge}`);
+  if (!stored) return err("Invalid or expired challenge", 401);
+  await env.TASKS_KV.delete(`passkey:challenge:${clientData.challenge}`);
+  await env.TASKS_KV.put(`passkey:cred:${body.id}`, JSON.stringify({ publicKey: body.publicKey, createdAt: new Date().toISOString() }));
+  const idxRaw = await env.TASKS_KV.get("passkey:creds");
+  const ids: string[] = idxRaw ? JSON.parse(idxRaw) : [];
+  if (!ids.includes(body.id)) ids.push(body.id);
+  await env.TASKS_KV.put("passkey:creds", JSON.stringify(ids));
+  return json({ ok: true });
+}
+
+async function handlePasskeyLoginBegin(env: Env): Promise<Response> {
+  const challenge = bufToB64u(crypto.getRandomValues(new Uint8Array(32)).buffer);
+  await env.TASKS_KV.put(`passkey:challenge:${challenge}`, "auth", { expirationTtl: 300 });
+  const idxRaw = await env.TASKS_KV.get("passkey:creds");
+  const ids: string[] = idxRaw ? JSON.parse(idxRaw) : [];
+  return json({ challenge, allowCredentials: ids.map((id) => ({ type: "public-key", id })), userVerification: "required", timeout: 60000, hasCredentials: ids.length > 0 });
+}
+
+async function handlePasskeyLoginComplete(request: Request, env: Env): Promise<Response> {
+  const body = await request.json() as { id: string; clientDataJSON: string; authenticatorData: string; signature: string };
+  const credRaw = await env.TASKS_KV.get(`passkey:cred:${body.id}`);
+  if (!credRaw) return err("Unknown credential", 401);
+  const cred = JSON.parse(credRaw) as { publicKey: string };
+  const clientDataBuf = b64uToBuf(body.clientDataJSON);
+  const clientData = JSON.parse(new TextDecoder().decode(clientDataBuf));
+  if (clientData.type !== "webauthn.get") return err("Invalid type", 401);
+  const stored = await env.TASKS_KV.get(`passkey:challenge:${clientData.challenge}`);
+  if (!stored) return err("Invalid or expired challenge", 401);
+  await env.TASKS_KV.delete(`passkey:challenge:${clientData.challenge}`);
+  const authDataBuf = b64uToBuf(body.authenticatorData);
+  const clientDataHash = await crypto.subtle.digest("SHA-256", clientDataBuf);
+  const signedData = new Uint8Array(authDataBuf.byteLength + clientDataHash.byteLength);
+  signedData.set(new Uint8Array(authDataBuf), 0);
+  signedData.set(new Uint8Array(clientDataHash), authDataBuf.byteLength);
+  const pubKey = await crypto.subtle.importKey("spki", b64uToBuf(cred.publicKey), { name: "ECDSA", namedCurve: "P-256" }, false, ["verify"]);
+  const valid = await crypto.subtle.verify({ name: "ECDSA", hash: "SHA-256" }, pubKey, derToP1363(b64uToBuf(body.signature)), signedData.buffer);
+  if (!valid) return err("Invalid signature", 401);
+  const token = await createSession(env, "owner", 60 * 60 * 24 * 30);
+  return json({ token, role: "owner" });
+}
+
+async function handlePasskeyStatus(env: Env): Promise<Response> {
+  const idxRaw = await env.TASKS_KV.get("passkey:creds");
+  const ids: string[] = idxRaw ? JSON.parse(idxRaw) : [];
+  return json({ registered: ids.length > 0 });
+}
+
+async function handlePasskeyDelete(env: Env, session: Session): Promise<Response> {
+  requireOwner(session);
+  const idxRaw = await env.TASKS_KV.get("passkey:creds");
+  const ids: string[] = idxRaw ? JSON.parse(idxRaw) : [];
+  for (const id of ids) await env.TASKS_KV.delete(`passkey:cred:${id}`);
+  await env.TASKS_KV.delete("passkey:creds");
+  return json({ ok: true });
+}
+
 // ─── Visitor Requests ─────────────────────────────────────────────────────────
 
 async function handleSubmitVisitorRequest(request: Request, env: Env): Promise<Response> {
@@ -450,6 +558,9 @@ export default {
       // Public endpoints
       if (path === "/auth/login" && method === "POST") return handleLogin(request, env);
       if (path === "/visitor-requests" && method === "POST") return handleSubmitVisitorRequest(request, env);
+      if (path === "/auth/passkey/status" && method === "GET") return handlePasskeyStatus(env);
+      if (path === "/auth/passkey/login/begin" && method === "POST") return handlePasskeyLoginBegin(env);
+      if (path === "/auth/passkey/login/complete" && method === "POST") return handlePasskeyLoginComplete(request, env);
 
       // All other routes require a session
       const session = await getSession(env, request);
@@ -488,6 +599,11 @@ export default {
       if (path === "/visitor-pins" && method === "POST") return handleGenerateVisitorPin(env, session!);
       const revokeMatch = path.match(/^\/visitor-pins\/(.+)$/);
       if (revokeMatch && method === "DELETE") return handleRevokeVisitorPin(env, session!, revokeMatch[1]);
+
+      // Passkey management (owner-authenticated)
+      if (path === "/auth/passkey/register/begin" && method === "POST") return handlePasskeyRegisterBegin(env, session!);
+      if (path === "/auth/passkey/register/complete" && method === "POST") return handlePasskeyRegisterComplete(request, env, session!);
+      if (path === "/auth/passkey/delete" && method === "DELETE") return handlePasskeyDelete(env, session!);
 
       // Visitor access requests
       if (path === "/visitor-requests" && method === "GET") return handleListVisitorRequests(env, session!);

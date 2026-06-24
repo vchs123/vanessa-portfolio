@@ -78,7 +78,7 @@ export interface AuthState {
   role: Role;
 }
 
-export type Timeline = "past" | "current" | "future";
+export type Timeline = "past" | "current" | "future" | "all";
 
 export function getTimeline(task: Task): Timeline {
   if (task.priority === "Future") return "future";

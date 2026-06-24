@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function FilterBar({ tab, onTabChange, filters, onFiltersChange }: Props) {
-  const tabs: Timeline[] = ["current", "past", "future"];
+  const tabs: Timeline[] = ["current", "past", "future", "all"];
 
   function set(key: keyof Filters, value: string) {
     onFiltersChange({ ...filters, [key]: value });
