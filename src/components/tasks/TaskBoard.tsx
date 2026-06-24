@@ -5,6 +5,15 @@ import type { Task, AuthState, Timeline } from "./types";
 import { getTimeline } from "./types";
 import { getTasks, createTask, updateTask, deleteTask, generateVisitorPin, listVisitorPins, revokeVisitorPin } from "./api";
 import type { VisitorPin } from "./types";
+
+interface VisitorRequest {
+  id: string;
+  name: string;
+  email: string;
+  note: string;
+  createdAt: string;
+  handled: boolean;
+}
 import FilterBar from "./FilterBar";
 import type { Filters } from "./FilterBar";
 import TaskCard from "./TaskCard";
@@ -25,6 +34,8 @@ export default function TaskBoard({ auth, onLogout }: Props) {
   const [newTitle, setNewTitle] = useState("");
   const [pins, setPins] = useState<VisitorPin[]>([]);
   const [showPins, setShowPins] = useState(false);
+  const [requests, setRequests] = useState<VisitorRequest[]>([]);
+  const [showRequests, setShowRequests] = useState(false);
   const isOwner = auth.role === "owner";
 
   useEffect(() => {
@@ -79,6 +90,27 @@ export default function TaskBoard({ auth, onLogout }: Props) {
     setShowPins(true);
   }
 
+  async function loadRequests() {
+    const BASE = process.env.NEXT_PUBLIC_TASKS_API_URL ?? "https://tasks-api.vanessachs-work.workers.dev";
+    const res = await fetch(`${BASE}/visitor-requests`, {
+      headers: { Authorization: `Bearer ${auth.token}` },
+    });
+    if (res.ok) {
+      const data = await res.json() as VisitorRequest[];
+      setRequests(data);
+      setShowRequests(true);
+    }
+  }
+
+  async function markHandled(id: string) {
+    const BASE = process.env.NEXT_PUBLIC_TASKS_API_URL ?? "https://tasks-api.vanessachs-work.workers.dev";
+    await fetch(`${BASE}/visitor-requests/${id}/handled`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${auth.token}` },
+    });
+    setRequests((prev) => prev.map((r) => r.id === id ? { ...r, handled: true } : r));
+  }
+
   async function handleGeneratePin() {
     const pin = await generateVisitorPin(auth.token);
     setPins((prev) => [pin, ...prev]);
@@ -107,6 +139,17 @@ export default function TaskBoard({ auth, onLogout }: Props) {
           {isOwner && (
             <>
               <button
+                onClick={() => (showRequests ? setShowRequests(false) : loadRequests())}
+                className="text-xs text-stone-400 hover:text-stone-700 border border-stone-200 rounded px-3 py-1.5 relative"
+              >
+                Access Requests
+                {requests.filter((r) => !r.handled).length > 0 && (
+                  <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full text-white text-[9px] flex items-center justify-center">
+                    {requests.filter((r) => !r.handled).length}
+                  </span>
+                )}
+              </button>
+              <button
                 onClick={() => (showPins ? setShowPins(false) : loadPins())}
                 className="text-xs text-stone-400 hover:text-stone-700 border border-stone-200 rounded px-3 py-1.5"
               >
@@ -123,6 +166,36 @@ export default function TaskBoard({ auth, onLogout }: Props) {
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
+        {/* Access requests panel */}
+        {isOwner && showRequests && (
+          <div className="bg-white border border-stone-200 rounded-xl p-4 space-y-3">
+            <h2 className="text-sm font-medium text-stone-700">Visitor Access Requests</h2>
+            {requests.length === 0 && <p className="text-sm text-stone-400">No requests yet.</p>}
+            {requests.map((r) => (
+              <div key={r.id} className={`flex items-start justify-between gap-4 text-sm py-2 border-b border-stone-50 last:border-0 ${r.handled ? "opacity-50" : ""}`}>
+                <div className="min-w-0">
+                  <p className="font-medium text-stone-800">{r.name}</p>
+                  <a href={`mailto:${r.email}`} className="text-stone-500 hover:text-stone-700 text-xs">{r.email}</a>
+                  {r.note && <p className="text-xs text-stone-400 mt-0.5 italic">"{r.note}"</p>}
+                  <p className="text-xs text-stone-300 mt-0.5">
+                    {new Date(r.createdAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}
+                  </p>
+                </div>
+                {!r.handled ? (
+                  <button
+                    onClick={() => markHandled(r.id)}
+                    className="shrink-0 text-xs text-stone-400 hover:text-stone-700 border border-stone-200 rounded px-2 py-1 hover:border-stone-400"
+                  >
+                    Mark handled
+                  </button>
+                ) : (
+                  <span className="shrink-0 text-xs text-green-600">✓ Handled</span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Visitor PIN panel */}
         {isOwner && showPins && (
           <div className="bg-white border border-stone-200 rounded-xl p-4 space-y-3">

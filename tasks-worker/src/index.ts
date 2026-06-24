@@ -55,6 +55,15 @@ export interface VisitorPin {
   usedAt: string | null;
 }
 
+export interface VisitorRequest {
+  id: string;
+  name: string;
+  email: string;
+  note: string;
+  createdAt: string;
+  handled: boolean;
+}
+
 // ─── CORS ─────────────────────────────────────────────────────────────────────
 
 const CORS_HEADERS = {
@@ -383,6 +392,48 @@ async function handleRevokeVisitorPin(env: Env, session: Session, pin: string): 
   return json({ ok: true });
 }
 
+// ─── Visitor Requests ─────────────────────────────────────────────────────────
+
+async function handleSubmitVisitorRequest(request: Request, env: Env): Promise<Response> {
+  const body = await request.json() as { name?: string; email?: string; note?: string };
+  if (!body.name?.trim() || !body.email?.trim()) return err("Name and email are required");
+  const record: VisitorRequest = {
+    id: crypto.randomUUID(),
+    name: body.name.trim(),
+    email: body.email.trim(),
+    note: body.note?.trim() ?? "",
+    createdAt: new Date().toISOString(),
+    handled: false,
+  };
+  await env.TASKS_KV.put(`visitor-request:${record.id}`, JSON.stringify(record));
+  const raw = await env.TASKS_KV.get("visitor-requests:index");
+  const ids: string[] = raw ? JSON.parse(raw) : [];
+  ids.unshift(record.id);
+  await env.TASKS_KV.put("visitor-requests:index", JSON.stringify(ids));
+  return json({ ok: true }, 201);
+}
+
+async function handleListVisitorRequests(env: Env, session: Session): Promise<Response> {
+  requireOwner(session);
+  const raw = await env.TASKS_KV.get("visitor-requests:index");
+  const ids: string[] = raw ? JSON.parse(raw) : [];
+  const records = await Promise.all(ids.map(async (id) => {
+    const r = await env.TASKS_KV.get(`visitor-request:${id}`);
+    return r ? JSON.parse(r) as VisitorRequest : null;
+  }));
+  return json(records.filter(Boolean));
+}
+
+async function handleMarkRequestHandled(env: Env, session: Session, id: string): Promise<Response> {
+  requireOwner(session);
+  const raw = await env.TASKS_KV.get(`visitor-request:${id}`);
+  if (!raw) return err("Request not found", 404);
+  const record = JSON.parse(raw) as VisitorRequest;
+  record.handled = true;
+  await env.TASKS_KV.put(`visitor-request:${id}`, JSON.stringify(record));
+  return json({ ok: true });
+}
+
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 export default {
@@ -396,8 +447,9 @@ export default {
     const method = request.method;
 
     try {
-      // Public auth endpoint
+      // Public endpoints
       if (path === "/auth/login" && method === "POST") return handleLogin(request, env);
+      if (path === "/visitor-requests" && method === "POST") return handleSubmitVisitorRequest(request, env);
 
       // All other routes require a session
       const session = await getSession(env, request);
@@ -436,6 +488,11 @@ export default {
       if (path === "/visitor-pins" && method === "POST") return handleGenerateVisitorPin(env, session!);
       const revokeMatch = path.match(/^\/visitor-pins\/(.+)$/);
       if (revokeMatch && method === "DELETE") return handleRevokeVisitorPin(env, session!, revokeMatch[1]);
+
+      // Visitor access requests
+      if (path === "/visitor-requests" && method === "GET") return handleListVisitorRequests(env, session!);
+      const requestHandleMatch = path.match(/^\/visitor-requests\/([^/]+)\/handled$/);
+      if (requestHandleMatch && method === "POST") return handleMarkRequestHandled(env, session!, requestHandleMatch[1]);
 
       return err("Not found", 404);
     } catch (e) {
