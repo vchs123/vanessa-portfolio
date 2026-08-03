@@ -61,7 +61,7 @@ export const overview = {
   en: {
     heading: "Overview",
     body: [
-      "Vanessa joined Siddeley Group as a Software Developer and was promoted to Head of IT within the same review period, reflecting rapid demonstrated value across engineering, product management, and cross-subsidiary leadership.",
+      "Vanessa joined Siddeley Group as an ICT Business Analyst and was promoted to Head of IT within the same review period, reflecting rapid demonstrated value across engineering, product management, and cross-subsidiary leadership.",
       "In her dual capacity as engineer and manager, she delivered production digital infrastructure for four subsidiaries — RedBridge Consulting, GoodMood Studio, Siddeley Talent Link, and Insight Idea — over 13 weeks from February to May 2026.",
       "Her work spans a full-stack bilingual website with CRM and booking integration, a modern Next.js framework migration, a job listings platform built solo in under a week, and concurrent technical management of the GoodMood Studio implementation. Combined agency-equivalent cost avoided across all four projects: est. $80,000–$180,000 AUD.",
     ],
@@ -69,7 +69,7 @@ export const overview = {
   zh: {
     heading: "总体概述",
     body: [
-      "Vanessa 以软件开发工程师身份加入 Siddeley Group，并在同一考核周期内晋升为 IT 总监，充分体现了她在工程、产品管理及跨子公司领导方面所展现的卓越价值。",
+      "Vanessa 以 ICT 业务分析师身份加入 Siddeley Group，并在同一考核周期内晋升为 IT 总监，充分体现了她在工程、产品管理及跨子公司领导方面所展现的卓越价值。",
       "在工程师与管理者的双重角色下，她于 2026 年 2 月至 5 月间，历时 13 周，为 RedBridge Consulting、GoodMood Studio、维拓联才及 Insight Idea 四家子公司交付了生产级数字基础设施。",
       "她的工作涵盖带 CRM 和预约集成的全栈双语网站、现代 Next.js 框架迁移、独立一周内完成的招聘平台，以及对 GoodMood Studio 实施工作的并行技术管理。四个项目合计节省的机构等效费用估计为 $80,000–$180,000 澳元。",
     ],
@@ -456,7 +456,7 @@ export const growth = {
       {
         icon: "📈",
         label: "Promoted within review period",
-        value: "Software Developer → Head of IT",
+        value: "ICT Business Analyst → Head of IT",
       },
       {
         icon: "🗳️",
@@ -481,7 +481,7 @@ export const growth = {
       {
         icon: "📈",
         label: "考核期内晋升",
-        value: "软件开发工程师 → IT 总监",
+        value: "ICT 业务分析师 → IT 总监",
       },
       {
         icon: "🗳️",
@@ -508,7 +508,7 @@ export const p1 = {
   en: {
     tag: "Project 1 · Feb 6 – Apr 17, 2026",
     title: "RedBridge Website + CRM Portal",
-    subtitle: "Role: Software Developer (sole engineer) · 10 weeks",
+    subtitle: "Role: ICT Business Analyst (sole engineer) · 10 weeks",
     accent: "#be185d",
     liveUrl: "https://redbridge-consulting.com.au",
     impact: [
@@ -529,7 +529,7 @@ export const p1 = {
       { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website + CRM Portal", valueZh: "RedBridge 网站 + CRM 门户" },
       { field: "Period", fieldZh: "周期", value: "Feb 6 – Apr 17, 2026 (~10 weeks)", valueZh: "2026年2月6日 – 4月17日（约10周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
-      { field: "Role", fieldZh: "职能", value: "Software Developer — Sole engineer", valueZh: "软件开发工程师 — 独立工程师" },
+      { field: "Role", fieldZh: "职能", value: "ICT Business Analyst — Sole engineer", valueZh: "ICT 业务分析师 — 独立工程师" },
       { field: "Commits", fieldZh: "提交数", value: "268 (all Vanessa)", valueZh: "268（全部为 Vanessa）" },
       { field: "Scale", fieldZh: "规模", value: "~100 files · ~41,500 lines of code · 28 HTML pages · 12 DB tables", valueZh: "约100个文件 · 约41,500行代码 · 28个HTML页面 · 12张数据库表" },
       { field: "Integrations", fieldZh: "集成", value: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel", valueZh: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel" },
@@ -560,7 +560,7 @@ export const p1 = {
   zh: {
     tag: "项目 1 · 2026年2月6日 – 4月17日",
     title: "RedBridge 网站",
-    subtitle: "职能：软件开发工程师（独立工程师） · 10 周",
+    subtitle: "职能：ICT 业务分析师（独立工程师） · 10 周",
     accent: "#be185d",
     liveUrl: "https://redbridge-consulting.com.au",
     impact: [
@@ -581,7 +581,7 @@ export const p1 = {
       { field: "Project Name", fieldZh: "项目名称", value: "RedBridge Website + CRM Portal", valueZh: "RedBridge 网站 + CRM 门户" },
       { field: "Period", fieldZh: "周期", value: "Feb 6 – Apr 17, 2026 (~10 weeks)", valueZh: "2026年2月6日 – 4月17日（约10周）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
-      { field: "Role", fieldZh: "职能", value: "Software Developer — Sole engineer", valueZh: "软件开发工程师 — 独立工程师" },
+      { field: "Role", fieldZh: "职能", value: "ICT Business Analyst — Sole engineer", valueZh: "ICT 业务分析师 — 独立工程师" },
       { field: "Commits", fieldZh: "提交数", value: "268 (all Vanessa)", valueZh: "268（全部为 Vanessa）" },
       { field: "Scale", fieldZh: "规模", value: "~100 files · ~41,500 lines of code · 28 HTML pages · 12 DB tables", valueZh: "约100个文件 · 约41,500行代码 · 28个HTML页面 · 12张数据库表" },
       { field: "Integrations", fieldZh: "集成", value: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel", valueZh: "Meta CAPI · Google Calendar · Cloudflare Workers · Gemini AI · Meta Pixel" },

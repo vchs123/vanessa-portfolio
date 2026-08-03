@@ -43,6 +43,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
           <Link href="/" className="hover:text-pink-700 transition-colors">{t.home}</Link>
 
+          <Link href="/duties" className="hover:text-pink-700 transition-colors">{lang === "zh" ? "职责" : "Duties"}</Link>
           <Link href="/tasks" className="hover:text-pink-700 transition-colors">Tasks</Link>
 
           {/* Projects dropdown */}
@@ -116,6 +117,7 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden mx-auto max-w-5xl mt-2 bg-white rounded-xl shadow-xl border border-gray-100 py-3 px-5">
           <Link href="/" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700 hover:text-pink-700">{t.home}</Link>
+          <Link href="/duties" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700 hover:text-pink-700">{lang === "zh" ? "职责" : "Duties"}</Link>
           <Link href="/tasks" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700 hover:text-pink-700">Tasks</Link>
           <div className="mt-1 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">{t.projects}</div>
           {projects.map((p) => (
