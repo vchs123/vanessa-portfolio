@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [[kv_namespaces]]
 binding = "TASKS_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "b4913f27f3144209b12cd2f6393511a7"
 
 # Secrets — set via: wrangler secret put <NAME>
 # OWNER_PIN          — your personal PIN to edit tasks
