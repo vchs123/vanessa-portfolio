@@ -18,6 +18,7 @@ import FilterBar from "./FilterBar";
 import type { Filters } from "./FilterBar";
 import TaskCard from "./TaskCard";
 import TaskDrawer from "./TaskDrawer";
+import TaskCalendar from "./TaskCalendar";
 
 interface Props {
   auth: AuthState;
@@ -30,6 +31,7 @@ export default function TaskBoard({ auth, onLogout }: Props) {
   const [tab, setTab] = useState<Timeline>("current");
   const [filters, setFilters] = useState<Filters>({ client: "", type: "", priority: "", search: "" });
   const [selected, setSelected] = useState<Task | null>(null);
+  const [view, setView] = useState<"list" | "calendar">("list");
   const [creating, setCreating] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [pins, setPins] = useState<VisitorPin[]>([]);
@@ -225,12 +227,29 @@ export default function TaskBoard({ auth, onLogout }: Props) {
               {passkeyRegistering ? "Setting up…" : "⁺ Biometric"}
             </button>
           )}
+          {/* List / Calendar toggle */}
+          <div className="flex items-center border border-stone-200 rounded-lg overflow-hidden text-xs">
+            <button
+              onClick={() => setView("list")}
+              title="List view"
+              className={`px-3 py-1.5 transition-colors ${view === "list" ? "bg-stone-800 text-white" : "text-stone-400 hover:bg-stone-100"}`}
+            >
+              ≡ List
+            </button>
+            <button
+              onClick={() => setView("calendar")}
+              title="Calendar view"
+              className={`px-3 py-1.5 border-l border-stone-200 transition-colors ${view === "calendar" ? "bg-stone-800 text-white" : "text-stone-400 hover:bg-stone-100"}`}
+            >
+              ⊞ Calendar
+            </button>
+          </div>
           <span className="text-xs text-stone-400 capitalize">{auth.role}</span>
           <button onClick={onLogout} className="text-xs text-stone-400 hover:text-red-500">Sign out</button>
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
+      <div className={`mx-auto px-4 py-6 space-y-5 ${view === "calendar" ? "max-w-6xl" : "max-w-3xl"}`}>
         {/* Passkey status message */}
         {passkeyMsg && (
           <div className={`text-xs px-4 py-2 rounded-lg ${passkeyMsg.startsWith("Failed") ? "bg-red-50 text-red-600" : "bg-green-50 text-green-700"}`}>
@@ -300,68 +319,85 @@ export default function TaskBoard({ auth, onLogout }: Props) {
           </div>
         )}
 
-        {/* Filter bar */}
-        <FilterBar
-          tab={tab}
-          onTabChange={setTab}
-          filters={filters}
-          onFiltersChange={setFilters}
-        />
-
-        {/* Task count */}
-        <p className="text-xs text-stone-400">
-          {filtered.length} of {tabCounts[tab]} {tab} tasks
-        </p>
-
-        {/* New task form */}
-        {isOwner && (
-          creating ? (
-            <form onSubmit={handleCreate} className="flex gap-2">
-              <input
-                value={newTitle}
-                onChange={(e) => setNewTitle(e.target.value)}
-                autoFocus
-                placeholder="Task title…"
-                className="flex-1 border border-stone-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-stone-400"
-              />
-              <button type="submit" className="bg-stone-800 text-white px-4 py-2.5 rounded-lg text-sm hover:bg-stone-700">
-                Add
-              </button>
-              <button type="button" onClick={() => setCreating(false)} className="text-stone-400 px-3 text-sm">
-                Cancel
-              </button>
-            </form>
+        {view === "calendar" ? (
+          loading ? (
+            <div className="grid grid-cols-7 gap-px bg-stone-100 rounded-xl overflow-hidden">
+              {Array.from({ length: 35 }).map((_, i) => (
+                <div key={i} className="bg-white h-24 animate-pulse" />
+              ))}
+            </div>
           ) : (
-            <button
-              onClick={() => setCreating(true)}
-              className="w-full border border-dashed border-stone-200 rounded-xl py-3 text-sm text-stone-400 hover:border-stone-400 hover:text-stone-600 transition-colors"
-            >
-              + New task
-            </button>
+            <TaskCalendar
+              tasks={tasks.filter((t) => !t.isDeleted)}
+              onSelect={setSelected}
+            />
           )
-        )}
-
-        {/* Task list */}
-        {loading ? (
-          <div className="space-y-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white rounded-xl h-20 animate-pulse border border-stone-100" />
-            ))}
-          </div>
-        ) : filtered.length === 0 ? (
-          <p className="text-sm text-stone-400 text-center py-12">No {tab} tasks{filters.search || filters.client || filters.type || filters.priority ? " matching filters" : ""}.</p>
         ) : (
-          <div className="space-y-2">
-            {filtered.map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onClick={() => setSelected(task)}
-                isOwner={isOwner}
-                onToggleStatus={handleToggleStatus}
-              />
-            ))}
-          </div>
+          <>
+            {/* Filter bar */}
+            <FilterBar
+              tab={tab}
+              onTabChange={setTab}
+              filters={filters}
+              onFiltersChange={setFilters}
+            />
+
+            {/* Task count */}
+            <p className="text-xs text-stone-400">
+              {filtered.length} of {tabCounts[tab]} {tab} tasks
+            </p>
+
+            {/* New task form */}
+            {isOwner && (
+              creating ? (
+                <form onSubmit={handleCreate} className="flex gap-2">
+                  <input
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)}
+                    autoFocus
+                    placeholder="Task title…"
+                    className="flex-1 border border-stone-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-stone-400"
+                  />
+                  <button type="submit" className="bg-stone-800 text-white px-4 py-2.5 rounded-lg text-sm hover:bg-stone-700">
+                    Add
+                  </button>
+                  <button type="button" onClick={() => setCreating(false)} className="text-stone-400 px-3 text-sm">
+                    Cancel
+                  </button>
+                </form>
+              ) : (
+                <button
+                  onClick={() => setCreating(true)}
+                  className="w-full border border-dashed border-stone-200 rounded-xl py-3 text-sm text-stone-400 hover:border-stone-400 hover:text-stone-600 transition-colors"
+                >
+                  + New task
+                </button>
+              )
+            )}
+
+            {/* Task list */}
+            {loading ? (
+              <div className="space-y-2">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-white rounded-xl h-20 animate-pulse border border-stone-100" />
+                ))}
+              </div>
+            ) : filtered.length === 0 ? (
+              <p className="text-sm text-stone-400 text-center py-12">No {tab} tasks{filters.search || filters.client || filters.type || filters.priority ? " matching filters" : ""}.</p>
+            ) : (
+              <div className="space-y-2">
+                {filtered.map((task) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    onClick={() => setSelected(task)}
+                    isOwner={isOwner}
+                    onToggleStatus={handleToggleStatus}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
 
