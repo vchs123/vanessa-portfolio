@@ -14,9 +14,9 @@ interface Props {
   title: string;
   subtitle: string;
   accent: string;
-  impact: ImpactItem[];
-  tableRows: TableRow[];
-  highlights: string[];
+  impact?: ImpactItem[];
+  tableRows?: TableRow[];
+  highlights?: string[];
   statsGrid?: { num: string; label: string }[];
   children?: React.ReactNode;
 }
@@ -115,34 +115,36 @@ export default function ProjectPageLayout({
 
         <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
           {/* Business impact — staggered cards */}
-          <FadeIn>
-            <section>
-              <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
-                Business Impact
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {impact.map((item, i) => (
-                  <StaggerItem key={i} delay={i * 0.1} variant="scale">
-                    <div
-                      className="rounded-2xl p-5 border h-full transition-shadow duration-300 hover:shadow-lg"
-                      style={{
-                        backgroundColor: accentLight,
-                        borderColor: accent + "30",
-                      }}
-                    >
+          {impact && impact.length > 0 && (
+            <FadeIn>
+              <section>
+                <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
+                  Business Impact
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {impact.map((item, i) => (
+                    <StaggerItem key={i} delay={i * 0.1} variant="scale">
                       <div
-                        className="text-xs font-bold uppercase tracking-widest mb-2"
-                        style={{ color: accent }}
+                        className="rounded-2xl p-5 border h-full transition-shadow duration-300 hover:shadow-lg"
+                        style={{
+                          backgroundColor: accentLight,
+                          borderColor: accent + "30",
+                        }}
                       >
-                        {item.label}
+                        <div
+                          className="text-xs font-bold uppercase tracking-widest mb-2"
+                          style={{ color: accent }}
+                        >
+                          {item.label}
+                        </div>
+                        <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
                       </div>
-                      <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </div>
-            </section>
-          </FadeIn>
+                    </StaggerItem>
+                  ))}
+                </div>
+              </section>
+            </FadeIn>
+          )}
 
           {/* Stats grid — pop-in with stagger */}
           {statsGrid && (
@@ -174,36 +176,40 @@ export default function ProjectPageLayout({
           )}
 
           {/* Summary table */}
-          <FadeIn delay={0.1} variant="up">
-            <section>
-              <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
-                Project Summary
-              </h2>
-              <BilingualTable rows={tableRows} accent={accent} />
-            </section>
-          </FadeIn>
+          {tableRows && tableRows.length > 0 && (
+            <FadeIn delay={0.1} variant="up">
+              <section>
+                <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
+                  Project Summary
+                </h2>
+                <BilingualTable rows={tableRows} accent={accent} />
+              </section>
+            </FadeIn>
+          )}
 
           {/* Highlights — staggered left-slide */}
-          <FadeIn delay={0.05}>
-            <section>
-              <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
-                Key Highlights
-              </h2>
-              <ul className="space-y-3">
-                {highlights.map((h, i) => (
-                  <StaggerItem key={i} delay={i * 0.04} variant="left">
-                    <li className="flex gap-3 items-start group">
-                      <span
-                        className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0 transition-transform duration-200 group-hover:scale-125"
-                        style={{ backgroundColor: accent }}
-                      />
-                      <span className="text-gray-700 text-sm leading-relaxed">{h}</span>
-                    </li>
-                  </StaggerItem>
-                ))}
-              </ul>
-            </section>
-          </FadeIn>
+          {highlights && highlights.length > 0 && (
+            <FadeIn delay={0.05}>
+              <section>
+                <h2 className="font-serif text-3xl font-bold mb-6" style={{ color: accent }}>
+                  Key Highlights
+                </h2>
+                <ul className="space-y-3">
+                  {highlights.map((h, i) => (
+                    <StaggerItem key={i} delay={i * 0.04} variant="left">
+                      <li className="flex gap-3 items-start group">
+                        <span
+                          className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0 transition-transform duration-200 group-hover:scale-125"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <span className="text-gray-700 text-sm leading-relaxed">{h}</span>
+                      </li>
+                    </StaggerItem>
+                  ))}
+                </ul>
+              </section>
+            </FadeIn>
+          )}
 
           {/* Extra content slot */}
           {children}
