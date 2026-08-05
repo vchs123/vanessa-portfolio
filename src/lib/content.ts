@@ -45,15 +45,15 @@ export const hero = {
 export const stats = {
   en: [
     { num: "4", label: "Subsidiaries Served" },
-    { num: "312+", label: "Vanessa's Commits" },
-    { num: "~41,500+", label: "Lines of Code" },
-    { num: "13 wks", label: "Feb 6 – May 6" },
+    { num: "647+", label: "Vanessa's Commits" },
+    { num: "~100,000+", label: "Lines of Code" },
+    { num: "live", label: "Days · Feb 6 – Present" },
   ],
   zh: [
     { num: "4", label: "服务子公司" },
-    { num: "312+", label: "Vanessa 提交数" },
-    { num: "~41,500+", label: "代码行数" },
-    { num: "13 周", label: "2月6日 – 5月6日" },
+    { num: "647+", label: "Vanessa 提交数" },
+    { num: "~100,000+", label: "代码行数" },
+    { num: "live", label: "天 · 2月6日至今" },
   ],
 };
 
@@ -62,7 +62,7 @@ export const overview = {
     heading: "Overview",
     body: [
       "Vanessa joined Siddeley Group as an ICT Business Analyst and was promoted to Head of IT within the same review period, reflecting rapid demonstrated value across engineering, product management, and cross-subsidiary leadership.",
-      "In her dual capacity as engineer and manager, she delivered production digital infrastructure for four subsidiaries — RedBridge Consulting, GoodMood Studio, Siddeley Talent Link, and Insight Idea — over 13 weeks from February to May 2026.",
+      "In her dual capacity as engineer and manager, she delivered production digital infrastructure for four subsidiaries — RedBridge Consulting, GoodMood Studio, Siddeley Talent Link, and Insight Idea — over 26 weeks from February to August 2026.",
       "Her work spans a full-stack bilingual website with CRM and booking integration, a modern Next.js framework migration, a job listings platform built solo in under a week, and concurrent technical management of the GoodMood Studio implementation. Combined agency-equivalent cost avoided across all four projects: est. $80,000–$180,000 AUD.",
     ],
   },
@@ -70,7 +70,7 @@ export const overview = {
     heading: "总体概述",
     body: [
       "Vanessa 以 ICT 业务分析师身份加入 Siddeley Group，并在同一考核周期内晋升为 IT 总监，充分体现了她在工程、产品管理及跨子公司领导方面所展现的卓越价值。",
-      "在工程师与管理者的双重角色下，她于 2026 年 2 月至 5 月间，历时 13 周，为 RedBridge Consulting、GoodMood Studio、维拓联才及 Insight Idea 四家子公司交付了生产级数字基础设施。",
+      "在工程师与管理者的双重角色下，她于 2026 年 2 月至 8 月间，历时 26 周，为 RedBridge Consulting、GoodMood Studio、维拓联才及 Insight Idea 四家子公司交付了生产级数字基础设施。",
       "她的工作涵盖带 CRM 和预约集成的全栈双语网站、现代 Next.js 框架迁移、独立一周内完成的招聘平台，以及对 GoodMood Studio 实施工作的并行技术管理。四个项目合计节省的机构等效费用估计为 $80,000–$180,000 澳元。",
     ],
   },
@@ -81,7 +81,7 @@ export const attributes = {
     {
       icon: "⚡",
       title: "Speed to Production",
-      desc: "Four production systems delivered across 13 weeks — solo and at team scale.",
+      desc: "Four production systems delivered across 26 weeks — solo and at team scale.",
     },
     {
       icon: "🏗️",
@@ -113,7 +113,7 @@ export const attributes = {
     {
       icon: "⚡",
       title: "快速交付",
-      desc: "13 周内交付四套生产系统，独立开发与团队管理并举。",
+      desc: "26 周内交付四套生产系统，独立开发与团队管理并举。",
     },
     {
       icon: "🏗️",

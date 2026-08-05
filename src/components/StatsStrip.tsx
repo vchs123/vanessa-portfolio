@@ -20,14 +20,24 @@ function useCountUp(target: number, duration: number, active: boolean) {
   return value;
 }
 
+function useLiveDays(startDate: string) {
+  const [days, setDays] = useState(0);
+  useEffect(() => {
+    setDays(Math.floor((Date.now() - new Date(startDate).getTime()) / 86_400_000));
+  }, [startDate]);
+  return days;
+}
+
 function StatItem({
   num, label, index, visible,
 }: { num: string; label: string; index: number; visible: boolean }) {
+  const isLive = num === "live";
+  const liveDays = useLiveDays("2026-02-06");
   // Extract leading number if present (e.g. "6", "218", "$8k")
   const match = num.match(/^(\d+)/);
-  const targetNum = match ? parseInt(match[1]) : null;
-  const prefix = match ? num.slice(0, num.indexOf(match[1])) : "";
-  const suffix = match ? num.slice(num.indexOf(match[1]) + match[1].length) : "";
+  const targetNum = isLive ? liveDays : match ? parseInt(match[1]) : null;
+  const prefix = match && !isLive ? num.slice(0, num.indexOf(match[1])) : "";
+  const suffix = match && !isLive ? num.slice(num.indexOf(match[1]) + match[1].length) : "";
   const counted = useCountUp(targetNum ?? 0, 1400 + index * 120, visible && targetNum !== null);
   const displayNum = targetNum !== null ? `${prefix}${counted}${suffix}` : num;
 
