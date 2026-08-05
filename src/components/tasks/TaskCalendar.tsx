@@ -43,15 +43,21 @@ export default function TaskCalendar({ tasks, onSelect }: Props) {
 
   const todayStr = toDateStr(new Date());
 
-  const tasksByDate = useMemo(() => {
+  const { tasksByDate, unscheduled } = useMemo(() => {
     const map = new Map<string, Task[]>();
+    const unsched: Task[] = [];
     for (const task of tasks) {
       if (task.isDeleted) continue;
+      const isDone = task.status === "Done" || task.status === "Archived";
+      if (!isDone && !task.dueDate) {
+        unsched.push(task);
+        continue;
+      }
       const key = getCalendarDate(task).slice(0, 10);
       if (!map.has(key)) map.set(key, []);
       map.get(key)!.push(task);
     }
-    return map;
+    return { tasksByDate: map, unscheduled: unsched };
   }, [tasks]);
 
   const calendarDays = useMemo(() => {
@@ -202,6 +208,28 @@ export default function TaskCalendar({ tasks, onSelect }: Props) {
           );
         })}
       </div>
+
+      {/* Unscheduled — pending tasks with no due date */}
+      {unscheduled.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-3">
+            Unscheduled · {unscheduled.length}
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {unscheduled.map((task) => (
+              <button
+                key={task.id}
+                onClick={() => onSelect(task)}
+                title={task.title}
+                className="flex items-center gap-1.5 text-xs border rounded px-2.5 py-1.5 bg-stone-100 text-stone-500 border-stone-200 hover:opacity-75 transition-opacity max-w-[220px]"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0" />
+                <span className="truncate">{task.title}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -367,7 +367,7 @@ export const summary = {
       },
       {
         project: "Google Ads — Employer Sponsorship",
-        period: "May 8 – present",
+        period: "May 8 – May 25",
         role: "Head of IT · campaign manager",
         commits: "—",
         cost: "$861 AUD spend · 8.5% CTR",
@@ -424,7 +424,7 @@ export const summary = {
       },
       {
         project: "Google Ads — 雇主担保推广",
-        period: "5月8日 – 至今",
+        period: "5月8日 – 5月25日",
         role: "IT总监 · 广告管理",
         commits: "—",
         cost: "投放 $861 澳元 · 点击率 8.5%",
@@ -880,7 +880,7 @@ export const p4 = {
 
 export const p5 = {
   en: {
-    tag: "Project 5 · May 8, 2026 – Present",
+    tag: "Project 5 · May 8, 2026 – May 25, 2026",
     title: "Google Ads — Employer Sponsorship",
     subtitle: "Role: Head of IT — Campaign setup, strategy & management (sole)",
     accent: "#1a73e8",
@@ -900,7 +900,7 @@ export const p5 = {
     ],
     tableRows: [
       { field: "Campaign Name", fieldZh: "广告系列名称", value: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN", valueZh: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN" },
-      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – Present (active)", valueZh: "2026年5月8日 – 至今（运行中）" },
+      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – May 25, 2026", valueZh: "2026年5月8日 – 2026年5月25日" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Sole campaign manager", valueZh: "IT 总监 — 独立广告管理者" },
       { field: "Campaign Type", fieldZh: "广告类型", value: "Google Search — Leads objective", valueZh: "Google 搜索广告 — 潜在客户目标" },
@@ -941,7 +941,7 @@ export const p5 = {
     ],
   },
   zh: {
-    tag: "项目 5 · 2026年5月8日 – 至今",
+    tag: "项目 5 · 2026年5月8日 – 2026年5月25日",
     title: "Google Ads — 雇主担保推广",
     subtitle: "职能：IT 总监 — 广告系列创建、策略制定及管理（独立负责）",
     accent: "#1a73e8",
@@ -961,7 +961,7 @@ export const p5 = {
     ],
     tableRows: [
       { field: "Campaign Name", fieldZh: "广告系列名称", value: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN", valueZh: "Leads-Search-RB-08/05/26_EmployerSponsorshipEN" },
-      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – Present (active)", valueZh: "2026年5月8日 – 至今（运行中）" },
+      { field: "Period", fieldZh: "周期", value: "May 8, 2026 – May 25, 2026", valueZh: "2026年5月8日 – 2026年5月25日" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting (Siddeley Group)", valueZh: "RedBridge Consulting（Siddeley Group）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Sole campaign manager", valueZh: "IT 总监 — 独立广告管理者" },
       { field: "Campaign Type", fieldZh: "广告类型", value: "Google Search — Leads objective", valueZh: "Google 搜索广告 — 潜在客户目标" },
