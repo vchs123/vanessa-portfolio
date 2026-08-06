@@ -416,7 +416,7 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
     ],
   },
   zh: {
-    pageTitle: "职责与成就",
+    pageTitle: "职责与产出",
     pageSubtitle:
       "IT 总监 · Siddeley Group — 2025年11月至今承担的职能角色，以谷歌 XYZ 公式撰写。",
     note: "正式职衔：IT 总监。以下各标签页反映该职位下实际履行的职能角色。",
