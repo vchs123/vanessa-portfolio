@@ -370,10 +370,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "Designed a high-fidelity CRM prototype for RedBridge Consulting, tailored for use across the Sales, HR, CRM, and Legal teams",
-            by: "producing interactive Figma designs covering the core CRM dashboard, department-specific role views, and unified client data panels — then presenting the system live to ASG's Sales team as a concrete alternative to off-the-shelf SaaS platforms such as Salesforce or HubSpot",
+              "Designed and delivered a ready-to-use custom CRM system for RedBridge Consulting, covering the Sales, HR, CRM, and Legal teams",
+            by: "producing a complete UI/UX design system — core CRM dashboard, department-specific role views, and unified client data panels — then using the live RedBridge system as a product demonstration in a pitch to ASG's Sales team, proposing an equivalent tailored CRM build for ASG based on the same foundation",
             resulting:
-              "a fully specified, production-ready design system that directly informed the custom CRM build, demonstrating the viability of a bespoke solution aligned to RedBridge's internal workflows across four departments at a fraction of commercial SaaS licensing costs",
+              "a fully operational CRM in active use across four RedBridge departments, and a live product demo that served as the commercial pitch artefact for acquiring an external client with the same business need",
           },
           {
             accomplished:
@@ -754,10 +754,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "为 RedBridge Consulting 设计了高保真 CRM 原型，专为销售、HR、CRM 与法务四个团队定制",
-            by: "制作涵盖核心 CRM 仪表板、各部门专属角色视图和统一客户数据面板的交互式 Figma 设计，并向 ASG 销售团队实时展示，作为 Salesforce 或 HubSpot 等现成 SaaS 平台的具体替代方案",
+              "为 RedBridge Consulting 设计并交付了覆盖销售、HR、CRM 与法务四个团队的即用型定制 CRM 系统",
+            by: "制作完整的 UI/UX 设计体系——核心 CRM 仪表板、各部门专属角色视图与统一客户数据面板——随后以 RedBridge 上线系统为产品演示，向 ASG 销售团队进行商业提案，建议基于同一底层为 ASG 定制开发同等系统",
             resulting:
-              "一套完整规格、可直接指导生产开发的设计系统，跨四个部门验证了定制化方案对于 RedBridge 内部工作流程的适配性，并以远低于商业 SaaS 许可费用的成本实现同等功能覆盖",
+              "一套在 RedBridge 四个部门中实际投入使用的 CRM 系统，以及作为商业提案核心物料的实时产品演示——用于向有相同业务需求的外部客户进行客户拓展",
           },
           {
             accomplished:
