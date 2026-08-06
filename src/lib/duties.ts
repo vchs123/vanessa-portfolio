@@ -370,10 +370,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "Produced a Figma prototype for the Siddeley Group CRM and sales platform that secured client approval for the full custom build",
-            by: "designing a high-fidelity interactive prototype covering the core CRM dashboard, predictive analytics views, and unified client data panels — then presenting it live to ASG stakeholders as a direct visual comparison against off-the-shelf SaaS alternatives",
+              "Designed a high-fidelity CRM prototype for RedBridge Consulting, tailored for use across the Sales, HR, CRM, and Legal teams",
+            by: "producing interactive Figma designs covering the core CRM dashboard, department-specific role views, and unified client data panels — then presenting the system live to ASG's Sales team as a concrete alternative to off-the-shelf SaaS platforms such as Salesforce or HubSpot",
             resulting:
-              "client sign-off to proceed with the custom build, with stakeholders aligned on the visual and functional direction before any database schema, API, or production component was written",
+              "a fully specified, production-ready design system that directly informed the custom CRM build, demonstrating the viability of a bespoke solution aligned to RedBridge's internal workflows across four departments at a fraction of commercial SaaS licensing costs",
           },
           {
             accomplished:
@@ -754,10 +754,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "为 Siddeley Group CRM 与销售平台制作了 Figma 原型，成功争取客户批准完整定制开发",
-            by: "设计涵盖核心 CRM 仪表板、预测分析视图和统一客户数据面板的高保真交互原型，并向 ASG 利益相关方实时演示，直接对比现成 SaaS 替代方案",
+              "为 RedBridge Consulting 设计了高保真 CRM 原型，专为销售、HR、CRM 与法务四个团队定制",
+            by: "制作涵盖核心 CRM 仪表板、各部门专属角色视图和统一客户数据面板的交互式 Figma 设计，并向 ASG 销售团队实时展示，作为 Salesforce 或 HubSpot 等现成 SaaS 平台的具体替代方案",
             resulting:
-              "客户签字推进定制开发，利益相关方在任何数据库架构、API 或生产组件编写之前即对视觉和功能方向达成一致",
+              "一套完整规格、可直接指导生产开发的设计系统，跨四个部门验证了定制化方案对于 RedBridge 内部工作流程的适配性，并以远低于商业 SaaS 许可费用的成本实现同等功能覆盖",
           },
           {
             accomplished:
