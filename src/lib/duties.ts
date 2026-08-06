@@ -68,6 +68,13 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
           },
           {
             accomplished:
+              "Eliminated manual administrative overhead for client bookings and lead follow-ups",
+            by: "engineering an event-driven transactional email pipeline using the Resend API wired to real-time database triggers, firing automatically on booking confirmation, status updates, and new inquiry receipt",
+            resulting:
+              "a proactive, zero-friction communication sequence where no incoming inquiry or status update is dropped during high-volume periods, with no manual action required from staff",
+          },
+          {
+            accomplished:
               "Authored ~8,000 words of Chinese-language content for the Siddeley Group website including 8 long-form insight articles, 8 bilingual pages, and all shared component strings",
             by: "producing the content in parallel with front-end development from a single Next.js static export, with no external translator",
             resulting:
@@ -122,6 +129,13 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
             by: "restructuring the dropdown and mobile accordion into two labelled groups surfacing all 9 employer pathway pages, adding 8 new translation keys in both EN and ZH, with zero hardcoded strings",
             resulting:
               "homepage-to-guide click depth reduced from 2 to 1 for every visitor on every page of the site",
+          },
+          {
+            accomplished:
+              "Designed an optimised internal UI that prevents critical client data from being missed by the CRM and Sales teams",
+            by: "mapping targeted visual cues — real-time notification badges for unread client chat messages — within dedicated role-based workspaces, surfacing time-sensitive updates without requiring staff to navigate away from their current view",
+            resulting:
+              "improved response times to incoming client messages and zero missed critical internal updates during active booking and follow-up periods",
           },
         ],
       },
@@ -297,6 +311,108 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
           },
         ],
       },
+      {
+        id: "ba",
+        label: "ICT Business Analyst",
+        subtitle:
+          "Requirements gathering, stakeholder presentations, UAT leadership, and translating business needs into technical specifications — P1 (CRM and booking platform).",
+        bullets: [
+          {
+            accomplished:
+              "Secured stakeholder buy-in for an enterprise CRM and sales platform, eliminating the need for expensive off-the-shelf SaaS licensing",
+            by: "architecting and presenting a live, functional prototype to the client (ASG) demonstrating predictive analytics and a unified data oversight dashboard — framing it explicitly as a bespoke 'single source of truth' alternative to platforms such as Salesforce or HubSpot",
+            resulting:
+              "client approval to proceed with the custom build, avoiding an estimated $15,000–$60,000 AUD per year in SaaS subscription costs while ensuring the system mapped exactly to existing workflows rather than forcing staff adaptation",
+          },
+          {
+            accomplished:
+              "Engineered complete cross-departmental alignment on the CRM platform before a single line of production code was written",
+            by: "leading comprehensive requirements-gathering sessions with the Sales and CRM teams, documenting internal workflows and data dependencies, then managing end-to-end User Acceptance Testing (UAT) to confirm the delivered system matched those specifications",
+            resulting:
+              "a precision-built platform that directly mapped to internal workflows without forcing staff to adapt to generic software constraints — and zero rework cycles after UAT, as each feature was specified before implementation",
+          },
+        ],
+      },
+      {
+        id: "architect",
+        label: "Solutions Architect",
+        subtitle:
+          "End-to-end system design, technology selection, and architectural decisions across the Siddeley Group digital ecosystem — Next.js, Supabase, and Cloudflare Workers.",
+        bullets: [
+          {
+            accomplished:
+              "Designed the complete three-layer technical architecture for the Siddeley Group digital ecosystem from scratch",
+            by: "selecting Next.js (static export for Cloudflare Pages delivery), Supabase (PostgreSQL with row-level security for multi-tenant data), and Cloudflare Workers (edge API for low-latency global access) as independent, composable layers with clearly separated responsibilities and no cross-layer coupling",
+            resulting:
+              "a production-grade architecture where security is enforced at the database layer, business logic is isolated in the API layer, and delivery is handled at the edge — each layer independently replaceable, and the whole system built and deployed by a single engineer within one review period",
+          },
+          {
+            accomplished:
+              "Identified and resolved a critical architectural constraint before it could permanently cap the platform's organic search ceiling",
+            by: "diagnosing mid-build that the chosen Vite SPA architecture would render the job listings platform invisible to search engines, then executing a same-day migration to Next.js 15 with full SSR before the launch deadline",
+            resulting:
+              "Siddeley Talent Link launched with server-side rendering and correct SEO architecture from day one, eliminating a structural growth ceiling that would have been expensive and disruptive to fix post-launch",
+          },
+          {
+            accomplished:
+              "Architected a real-time engagement tracking system at zero incremental infrastructure cost",
+            by: "evaluating Cloudflare KV against a relational database for per-job view and apply counters — selecting KV for its edge-local access, zero-cost reads, and eventual-consistency model appropriate for analytics counters — and wiring it to Pages Functions with no additional service provisioning",
+            resulting:
+              "live engagement data across all job listings with no database provisioning, schema changes, or monthly infrastructure cost added to the platform",
+          },
+        ],
+      },
+      {
+        id: "uiux",
+        label: "UI / UX Designer",
+        subtitle:
+          "Figma prototyping, internal interface design, and visual systems for the Siddeley Group CRM platform and client-facing booking flows.",
+        bullets: [
+          {
+            accomplished:
+              "Produced a Figma prototype for the Siddeley Group CRM and sales platform that secured client approval for the full custom build",
+            by: "designing a high-fidelity interactive prototype covering the core CRM dashboard, predictive analytics views, and unified client data panels — then presenting it live to ASG stakeholders as a direct visual comparison against off-the-shelf SaaS alternatives",
+            resulting:
+              "client sign-off to proceed with the custom build, with stakeholders aligned on the visual and functional direction before any database schema, API, or production component was written",
+          },
+          {
+            accomplished:
+              "Designed an optimised internal UI that prevents critical client data from being missed",
+            by: "mapping targeted visual cues — real-time notification badges for unread client chat messages — within dedicated role-based workspaces, surfacing time-sensitive updates without requiring staff to navigate away from their current view",
+            resulting:
+              "improved response times to incoming client inquiries and zero missed critical updates during high-volume booking and follow-up periods for the CRM and Sales teams",
+          },
+          {
+            accomplished:
+              "Won a 7/7 blind design vote for Siddeley Talent Link against a competing team member's design",
+            by: "producing a layout that prioritised information hierarchy, bilingual readability, and brand coherence across the job listing and application flow — then presenting both designs simultaneously to 7 stakeholders with no authorship disclosed",
+            resulting:
+              "unanimous selection of the delivered design as the production direction, providing evidence-based validation of the UX decisions with no subjective override before the build commenced",
+          },
+        ],
+      },
+      {
+        id: "ai-engineer",
+        label: "AI-Assisted Engineer",
+        subtitle:
+          "Leveraging AI tools for rapid iteration, architecture planning, and full-stack delivery at single-engineer velocity — across P1, P3, P5, and P7.",
+        bullets: [
+          {
+            accomplished:
+              "Drastically accelerated full-stack prototyping and deployment across the Siddeley Group digital ecosystem",
+            by: "implementing a proprietary AI-assisted architecture workflow — using Gemini Pro for research and technical feasibility, Claude Pro for code generation and architecture review, and Figma for rapid UI iteration — enabling continuous context-switching between engineering, design, and strategy roles within a single working session",
+            resulting:
+              "the ability to single-handedly architect, build, and deploy complex production systems — including a bilingual Next.js platform, a 12-table CRM backend, and a multi-campaign Google Ads attribution system — at a velocity typically requiring a multi-person development team",
+          },
+          {
+            accomplished:
+              "Maintained production quality and zero regressions across 340+ commits as the sole engineer, without a human peer reviewer",
+            by: "using Claude Pro as a parallel code reviewer on every significant change — catching edge cases, TypeScript errors, and architectural inconsistencies before they reached the CI pipeline — supplementing the automated smoke test suite with AI-assisted review at zero additional engineering headcount",
+            resulting:
+              "a clean commit history with no broken production builds attributable to code quality failures across a 6-month review period, despite no human peer review on any of the 340+ commits",
+          },
+        ],
+      },
     ],
   },
   zh: {
@@ -343,6 +459,13 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
             by: "分别追踪每个根因 — next-intl t.raw() 剔除嵌套数组、OpenNext esbuild 丢弃 src/ 外的 JSON 数组对象、next-intl 富文本解析器与 Workers 运行时不兼容",
             resulting:
               "自定义 parseRichText() 正则辅助函数（零外部依赖）同时解决全部三个根因，无任何回归",
+          },
+          {
+            accomplished:
+              "消除了客户预约和线索跟进的手动行政开销",
+            by: "基于 Resend API 开发事件驱动的事务性邮件流水线，与实时数据库触发器绑定，在预约确认、状态更新和新询盘到达时自动触发",
+            resulting:
+              "主动式、零摩擦的沟通序列——高峰期间不再有任何询盘或状态更新被遗漏，且无需员工手动操作",
           },
           {
             accomplished:
@@ -396,6 +519,13 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
             by: "将下拉菜单和移动手风琴重构为两个带标签的分组，展示全部 9 个雇主担保通道页面，新增 8 个中英双语翻译键，无任何硬编码字符串",
             resulting:
               "网站任意页面到任意指南页面的点击次数从两次减少至一次",
+          },
+          {
+            accomplished:
+              "设计了防止 CRM 与销售团队遗漏关键客户数据的内部 UI",
+            by: "在专属角色工作区内设计有针对性的视觉提示——未读客户聊天消息的实时通知角标——在无需离开当前任务界面的前提下将最紧急的更新浮出水面",
+            resulting:
+              "客户咨询响应时间改善，在预约与跟进高峰期间 CRM 和销售团队零遗漏关键内部更新",
           },
         ],
       },
@@ -562,6 +692,108 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
             by: "构建高相关性、范围精确的广告组以最大化质量得分，并抑制低意向宽泛匹配词条以避免无效流量膨胀",
             resulting:
               "在澳大利亚移民和法律服务通常需要支付更高单次点击费用的市场中实现竞争力定价，以 $861 澳元获得 2,100 次展示和 178 次点击",
+          },
+        ],
+      },
+      {
+        id: "ba",
+        label: "ICT 业务分析师",
+        subtitle:
+          "需求收集、利益相关方展示、UAT 主导及将业务需求转化为技术规格 — 项目1（CRM 与预约平台）。",
+        bullets: [
+          {
+            accomplished:
+              "为企业 CRM 与销售平台争取到利益相关方认可，消除昂贵的现成 SaaS 许可需求",
+            by: "设计并向客户（ASG）实时演示了包含预测分析和统一数据仪表板的功能原型，将其明确定位为 Salesforce 或 HubSpot 等平台的定制化「单一真相来源」替代方案",
+            resulting:
+              "客户批准推进定制开发，每年节省约 $15,000–$60,000 澳元的 SaaS 订阅费用，同时确保系统精准映射现有工作流程，无需员工适应通用软件",
+          },
+          {
+            accomplished:
+              "在编写第一行生产代码前实现了 CRM 平台的跨部门完整对齐",
+            by: "主导与销售和 CRM 团队的全面需求收集会议，记录内部工作流程与数据依赖关系，随后管理端到端用户验收测试（UAT）以确认交付系统符合既定规格",
+            resulting:
+              "交付平台精准映射内部工作流程，无需员工适应通用软件限制——UAT 后零返工周期，因为每项功能在实施前均已明确规格",
+          },
+        ],
+      },
+      {
+        id: "architect",
+        label: "解决方案架构师",
+        subtitle:
+          "Siddeley Group 数字生态系统的端到端系统设计、技术选型与架构决策 — Next.js、Supabase 与 Cloudflare Workers。",
+        bullets: [
+          {
+            accomplished:
+              "从零设计了 Siddeley Group 数字生态系统的完整三层技术架构",
+            by: "选择 Next.js（静态导出至 Cloudflare Pages 分发）、Supabase（含行级安全的 PostgreSQL 多租户数据存储）和 Cloudflare Workers（低延迟全球访问的边缘 API）作为职责清晰、相互解耦的独立层",
+            resulting:
+              "生产级架构中，安全在数据库层强制执行、业务逻辑隔离在 API 层、分发在边缘处理——每层独立可替换，整个系统由单一工程师在一个考核期内完成构建与部署",
+          },
+          {
+            accomplished:
+              "在架构缺陷永久限制平台自然搜索上限之前识别并解决了该问题",
+            by: "在开发过程中诊断出所选 Vite SPA 架构将使招聘平台对搜索引擎不可见，随后在发布截止日期前当天执行框架迁移至 Next.js 15 并开启完整 SSR",
+            resulting:
+              "维拓联才从第一天起即以完整服务端渲染和正确 SEO 架构上线，消除了一个发布后修复将极为昂贵和具有破坏性的结构性增长上限",
+          },
+          {
+            accomplished:
+              "以零增量基础设施成本设计了实时参与度追踪系统",
+            by: "评估 Cloudflare KV 与关系型数据库在岗位浏览量和申请计数器场景中的适配性——基于其边缘本地访问、零成本读取和适合分析计数器的最终一致性模型，选择 KV 方案并通过 Pages Functions 接入，无需额外服务配置",
+            resulting:
+              "所有招聘岗位的实时参与度数据，无需数据库配置、架构变更或任何平台额外月度基础设施成本",
+          },
+        ],
+      },
+      {
+        id: "uiux",
+        label: "UI/UX 设计师",
+        subtitle:
+          "Figma 原型设计、内部界面设计与视觉系统 — Siddeley Group CRM 平台与客户预约流程。",
+        bullets: [
+          {
+            accomplished:
+              "为 Siddeley Group CRM 与销售平台制作了 Figma 原型，成功争取客户批准完整定制开发",
+            by: "设计涵盖核心 CRM 仪表板、预测分析视图和统一客户数据面板的高保真交互原型，并向 ASG 利益相关方实时演示，直接对比现成 SaaS 替代方案",
+            resulting:
+              "客户签字推进定制开发，利益相关方在任何数据库架构、API 或生产组件编写之前即对视觉和功能方向达成一致",
+          },
+          {
+            accomplished:
+              "设计了防止关键客户数据被遗漏的内部 UI",
+            by: "在专属角色工作区内设计有针对性的视觉提示——未读客户聊天消息的实时通知角标——在无需离开当前任务界面的前提下将最紧急的更新浮出水面",
+            resulting:
+              "客户咨询响应时间改善，在预约与跟进高峰期间 CRM 和销售团队零遗漏关键更新",
+          },
+          {
+            accomplished:
+              "在对维拓联才招聘平台设计的盲测中以 7/7 全票胜出竞争方案",
+            by: "制作了在双语岗位列表和申请流程中注重信息层级、视觉清晰度和品牌一致性的设计方案，随后以不披露作者身份的方式向 7 名利益相关方同时展示两套方案",
+            resulting:
+              "交付设计方案被全票选为生产方向，为 UX 决策提供了有数据支撑的验证，开发开始前无任何主观干预",
+          },
+        ],
+      },
+      {
+        id: "ai-engineer",
+        label: "AI 辅助工程师",
+        subtitle:
+          "利用 AI 工具加速迭代、架构规划与全栈交付，以单人工程师实现团队级速度 — 项目1、3、5、7。",
+        bullets: [
+          {
+            accomplished:
+              "大幅加速了 Siddeley Group 数字生态系统的全栈原型设计与部署速度",
+            by: "实施专有的 AI 辅助架构工作流——使用 Gemini Pro 进行研究与技术可行性验证、Claude Pro 进行代码生成与架构审查、Figma 进行快速 UI 迭代——在单次工作会话中实现工程、设计和策略角色的无缝切换",
+            resulting:
+              "能够独立架构、构建和部署复杂生产系统——包括双语 Next.js 平台、12 张数据表的 CRM 后端和多系列 Google Ads 归因系统——达到通常需要多人开发团队才能实现的交付速度",
+          },
+          {
+            accomplished:
+              "作为独立工程师，在 340+ 次提交中保持了生产质量与零回归，全程无人工同行审查",
+            by: "在每次重大变更时使用 Claude Pro 作为并行代码审查工具——在代码进入 CI 流水线之前捕获边界情况、TypeScript 错误和架构不一致性——以零额外工程人员补充自动化冒烟测试套件",
+            resulting:
+              "在 6 个月考核期内保持清晰的提交历史，无任何因代码质量失误导致的生产构建失败，尽管 340+ 次提交均无人工同行审查",
           },
         ],
       },
