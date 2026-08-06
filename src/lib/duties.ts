@@ -22,7 +22,7 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
   en: {
     pageTitle: "Duties & Achievements",
     pageSubtitle:
-      "Head of IT · Siddeley Group — roles performed across the Feb–Jul 2026 review period, written in Google's XYZ formula.",
+      "Head of IT · Siddeley Group — roles performed across the Feb 2026–current review period, written in Google's XYZ formula.",
     note: "Official title: Head of IT. The following tabs reflect the functional roles performed within that position.",
     tabs: [
       {
@@ -418,7 +418,7 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
   zh: {
     pageTitle: "职责与成就",
     pageSubtitle:
-      "IT 总监 · Siddeley Group — 2026年2月–7月考核期内承担的职能角色，以谷歌 XYZ 公式撰写。",
+      "IT 总监 · Siddeley Group — 2026年2月至今考核期内承担的职能角色，以谷歌 XYZ 公式撰写。",
     note: "正式职衔：IT 总监。以下各标签页反映该职位下实际履行的职能角色。",
     tabs: [
       {
