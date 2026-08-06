@@ -319,10 +319,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "Secured stakeholder buy-in for an enterprise CRM and sales platform, eliminating the need for expensive off-the-shelf SaaS licensing",
-            by: "architecting and presenting a live, functional prototype to the client (ASG) demonstrating predictive analytics and a unified data oversight dashboard — framing it explicitly as a bespoke 'single source of truth' alternative to platforms such as Salesforce or HubSpot",
+              "Delivered a fully operational custom CRM platform tailored to RedBridge Consulting's Sales, HR, CRM, and Legal teams",
+            by: "translating cross-departmental requirements into a production system with role-based workspaces, unified client data oversight, and predictive analytics — then preparing the live platform as a pitch demonstration for ASG's Sales team, positioning it as a commercial-grade alternative to Salesforce or HubSpot",
             resulting:
-              "client approval to proceed with the custom build, avoiding an estimated $15,000–$60,000 AUD per year in SaaS subscription costs while ensuring the system mapped exactly to existing workflows rather than forcing staff adaptation",
+              "an internal CRM that replaced the need for off-the-shelf SaaS across four departments and served as a functional, pitch-ready product demonstration presented to external stakeholders",
           },
           {
             accomplished:
@@ -703,10 +703,10 @@ export const duties: { en: DutiesData; zh: DutiesData } = {
         bullets: [
           {
             accomplished:
-              "为企业 CRM 与销售平台争取到利益相关方认可，消除昂贵的现成 SaaS 许可需求",
-            by: "设计并向客户（ASG）实时演示了包含预测分析和统一数据仪表板的功能原型，将其明确定位为 Salesforce 或 HubSpot 等平台的定制化「单一真相来源」替代方案",
+              "为 RedBridge Consulting 销售、HR、CRM 与法务四个团队交付了完整可运行的定制化 CRM 平台",
+            by: "将跨部门需求转化为具备角色化工作区、统一客户数据视图和预测分析功能的生产系统，并将上线平台整理为向 ASG 销售团队的现场演示方案，定位为 Salesforce 或 HubSpot 的商业级替代选择",
             resulting:
-              "客户批准推进定制开发，每年节省约 $15,000–$60,000 澳元的 SaaS 订阅费用，同时确保系统精准映射现有工作流程，无需员工适应通用软件",
+              "一套取代现成 SaaS 产品、精准适配四个部门内部工作流程的 CRM 系统，以及向外部利益相关方呈现的可演示商业产品方案",
           },
           {
             accomplished:
