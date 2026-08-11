@@ -224,32 +224,6 @@ export default function GoogleAdsRBPage() {
                 </div>
               </div>
 
-              <div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">
-                  {lang === "zh" ? "优化建议" : "Recommended optimisations"}
-                </h3>
-                <ul className="space-y-2">
-                  {(lang === "zh"
-                    ? [
-                        "暂停或大幅降低求职类关键词出价：\"visa sponsorship jobs\"、\"job placement services\"、\"placement services\"",
-                        "根据搜索词报告建立否定关键词清单：\"jobs\"、\"recruitment agency\"、\"lawyer\"、\"hays\"、\"vfs\"、\"vetassess\" 及所有出现的竞争对手品牌词",
-                        "将预算向具明确咨询意图的考量阶段词汇倾斜：\"employer sponsorship visa help\"、\"482 visa pathway advice\"、\"how to get employer sponsored visa australia\"",
-                        "提高桌面端出价 — 英文端移动 CPC 为 A$3.58，桌面端为 A$8.09，但联系表单填写更可能在桌面端完成",
-                      ]
-                    : [
-                        "Pause or cut bids significantly on job-seeker keywords: \"visa sponsorship jobs,\" \"job placement services,\" \"placement services\"",
-                        "Build a negative keyword list from the search terms report: \"jobs,\" \"recruitment agency,\" \"lawyer,\" \"hays,\" \"vfs,\" \"vetassess,\" and all competitor brand names that surfaced",
-                        "Shift budget toward consideration-phase queries with explicit consultancy intent: \"employer sponsorship visa help,\" \"482 visa pathway advice,\" \"how to get employer sponsored visa australia\"",
-                        "Apply a desktop bid uplift — EN mobile CPC is A$3.58 vs desktop A$8.09, but contact form completions are more likely on desktop",
-                      ]
-                  ).map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: t.accent }} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </section>
           </FadeIn>
         </>
@@ -324,9 +298,9 @@ export default function GoogleAdsRBPage() {
                 {lang === "zh" ? "中文广告系列 — 关键词表现（前 5 位）" : "ZH Campaign — Keyword Performance (Top 5)"}
               </h2>
 
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-green-100 text-green-700">
-                <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                {lang === "zh" ? "运行中 · 2026年5月19日–25日" : "Active · May 19–25, 2026"}
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-gray-100 text-gray-500">
+                <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
+                {lang === "zh" ? "已暂停 · 2026年5月19日–25日" : "Paused · May 19–25, 2026"}
               </div>
 
               <div className="overflow-x-auto rounded-xl border border-blue-100 shadow-sm">
@@ -480,30 +454,6 @@ export default function GoogleAdsRBPage() {
                 </div>
               </div>
 
-              <div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">
-                  {lang === "zh" ? "优化建议" : "Recommended optimisations"}
-                </h3>
-                <ul className="space-y-2">
-                  {(lang === "zh"
-                    ? [
-                        "将所有中文关键词从广泛匹配改为词组匹配，防止匹配到竞争对手品牌词和本地化机构搜索",
-                        "立即添加否定关键词：\"yeeyi\"、\"亿亿网\"、\"box hill\"、竞争对手机构名（stanley chan、avl 中澳通、荣商），以及求职类词汇（招工、现金工作、招聘）",
-                        "密切关注修复后的转化数据——追踪缺口导致目前无历史基准，至少需要 30 次已追踪点击才能得出有意义的转化率结论",
-                      ]
-                    : [
-                        "Switch all ZH keywords from broad match to phrase match to prevent matching against competitor brand names and localised agency searches",
-                        "Add negative keywords immediately: \"yeeyi,\" \"亿亿网,\" \"box hill,\" competitor agency names (stanley chan, avl 中澳通, 荣商), and job-listing terms (招工, 现金工作, 招聘)",
-                        "Monitor post-fix conversion data closely — the tracking gap means no baseline exists yet; meaningful conclusions on conversion rate require at least 30 tracked clicks",
-                      ]
-                  ).map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: t.accent }} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </section>
           </FadeIn>
         </>

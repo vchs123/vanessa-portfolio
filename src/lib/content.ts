@@ -967,7 +967,7 @@ export const p5 = {
         { num: "A$1,199", label: "Total spend" },
         { num: "0*", label: "Tracked conv." },
         { num: "50.3%", label: "Impression share" },
-        { num: "Active", label: "Status" },
+        { num: "Paused", label: "Status" },
       ],
       tableRows: [
         { field: "Campaign Name", fieldZh: "广告系列名称", value: "Leads-Search-RB-19/05/26to25/05/26_EmployerSponsorshipZH", valueZh: "Leads-Search-RB-19/05/26to25/05/26_EmployerSponsorshipZH" },
@@ -985,7 +985,7 @@ export const p5 = {
         { field: "Conversions", fieldZh: "转化次数", value: "0 tracked (1 actual — tracking gap, resolved mid-period)", valueZh: "0（已追踪）/ 1 实际转化（追踪参数缺失期间发生，已修复）" },
         { field: "Impression Share", fieldZh: "展示份额", value: "50.3%", valueZh: "50.3%" },
         { field: "Top of Page Rate", fieldZh: "页首展示率", value: "43.0%", valueZh: "43.0%" },
-        { field: "Status", fieldZh: "状态", value: "Active", valueZh: "运行中" },
+        { field: "Status", fieldZh: "状态", value: "Paused", valueZh: "已暂停" },
       ],
       keywordsTable: [
         { keyword: "澳洲移民中介", keywordEn: "Australian migration agent", cost: "A$237.86", clicks: 6, ctr: "17.14%" },
@@ -1102,7 +1102,7 @@ export const p5 = {
         { field: "Conversions", fieldZh: "转化次数", value: "0 tracked (1 actual — tracking gap, resolved mid-period)", valueZh: "0（已追踪）/ 1 实际转化（追踪参数缺失期间发生，已修复）" },
         { field: "Impression Share", fieldZh: "展示份额", value: "50.3%", valueZh: "50.3%" },
         { field: "Top of Page Rate", fieldZh: "页首展示率", value: "43.0%", valueZh: "43.0%" },
-        { field: "Status", fieldZh: "状态", value: "Active", valueZh: "运行中" },
+        { field: "Status", fieldZh: "状态", value: "Paused", valueZh: "已暂停" },
       ],
       keywordsTable: [
         { keyword: "澳洲移民中介", keywordEn: "Australian migration agent", cost: "A$237.86", clicks: 6, ctr: "17.14%" },
