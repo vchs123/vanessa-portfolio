@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RGL Ecosystem — Strategic Proposal · 红桥全球旅居生态平台战略提案</title>
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#191C22; --muted:#5C6472; --faint:#8B93A1;
+  --rule:#DEDAD3; --rule-strong:#C3BDB3;
+  --bridge:#A8202B; --bridge-soft:#F5E9E9;
+  --slate:#2E4057; --slate-soft:#EEF1F5;
+  --measure:74ch;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:12pt/1.5 Arial,"PingFang SC","Microsoft YaHei",Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.zh,.zh-t{font-family:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
+
+/* the bilingual pairing — the document's signature device */
+.zh-t{
+  display:block; font-size:12pt; line-height:1.5; color:var(--slate);
+  margin:24px 0 36px; padding-left:14px; border-left:2px solid var(--rule);
+  max-width:var(--measure);
+}
+li > .zh-t{margin:24px 0 36px; padding-left:12px}
+td .zh-t,th .zh-t{margin:24px 0 0; padding-left:0; border-left:0; font-size:12.5px; line-height:1.5}
+.dd-zh{display:block; font-family:"PingFang SC","Microsoft YaHei",sans-serif; font-size:13.5px;
+       line-height:1.5; color:var(--slate); margin:24px 0 0; padding-left:12px; border-left:2px solid var(--rule)}
+
+.shell{display:grid; grid-template-columns:272px minmax(0,1fr); gap:0; max-width:1250px; margin:0 auto;}
+nav.toc{
+  position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+  padding:38px 24px 60px 30px; border-right:1px solid var(--rule);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Helvetica,Arial,sans-serif;
+  font-size:12.5px; line-height:1.45;
+}
+nav.toc h2{font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint);
+  font-weight:600; margin:0 0 16px; font-family:inherit;}
+nav.toc ol{list-style:none; margin:0; padding:0}
+nav.toc li{margin:0 0 2px}
+nav.toc a{display:block; padding:5px 8px 5px 30px; text-indent:-22px; color:var(--muted);
+  text-decoration:none; border-radius:3px;}
+nav.toc a::before{content:attr(data-n); display:inline-block; width:22px; color:var(--faint);
+  font-variant-numeric:tabular-nums;}
+nav.toc a:hover{background:var(--slate-soft); color:var(--ink)}
+nav.toc a.on{background:var(--bridge-soft); color:var(--bridge); font-weight:600}
+nav.toc a.on::before{color:var(--bridge)}
+nav.toc a small{display:block; text-indent:0; color:var(--faint); font-size:11px; margin-top:1px}
+nav.toc a.on small{color:var(--bridge); opacity:.75}
+nav.toc .grp{margin:24px 0 12px; font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--faint); font-weight:600}
+
+main{padding:0 62px 120px 62px; max-width:calc(var(--measure) + 130px)}
+
+.cover{padding:78px 0 44px; border-bottom:3px double var(--rule-strong); margin-bottom:52px}
+.stamp{display:inline-block; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:600;
+  color:var(--bridge); border:1px solid var(--bridge); padding:5px 11px; border-radius:2px;}
+.cover h1{font-size:30pt; font-family:Arial,Helvetica,sans-serif; line-height:1.12; margin:26px 0 6px; font-weight:normal; letter-spacing:-.015em}
+.cover .h1zh{font-size:22pt; font-family:Arial,Helvetica,sans-serif; color:var(--slate); margin:0 0 26px; font-weight:normal}
+.cover .sub{font-size:17px; color:var(--muted); margin:0 0 4px; max-width:62ch}
+.cover .subzh{font-size:15px; color:var(--slate); margin:0 0 30px; max-width:62ch; line-height:1.5}
+.meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:18px 26px;
+  border-top:1px solid var(--rule); padding-top:20px; font-size:13px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Helvetica,sans-serif;}
+.meta dt{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint);
+  font-weight:600; margin-bottom:4px}
+.meta dd{margin:0; color:var(--ink)}
+
+h2.sec{margin:72px 0 4px; font-size:24pt; font-family:Arial,Helvetica,sans-serif; font-weight:normal; line-height:1.22;
+  padding-top:20px; border-top:1px solid var(--rule-strong); letter-spacing:-.01em;}
+h2.sec .num{display:block; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  font-size:10.5px; letter-spacing:.2em; color:var(--bridge); font-weight:700; margin-bottom:9px;}
+.zhh{font-size:24pt; font-family:Arial,Helvetica,sans-serif; color:var(--slate); margin:0 0 24px; letter-spacing:.02em; line-height:1.5}
+h3{font-size:19pt; font-family:Arial,Helvetica,sans-serif; font-weight:normal; margin:48px 0 4px; color:var(--ink)}
+h3 + .zhh3{font-size:19pt; font-family:Arial,Helvetica,sans-serif; color:var(--slate); margin:0 0 24px; line-height:1.5}
+h4{font-size:15pt; text-transform:none; letter-spacing:0; margin:24px 0 4px; letter-spacing:.06em; text-transform:uppercase;
+   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif; color:var(--slate)}
+h4 + .zhh4{font-size:15pt; color:var(--slate); margin:0 0 12px; line-height:1.5;
+   font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+
+p{margin:0 0 24px; max-width:var(--measure)}
+p.solo{margin-bottom:24px}
+ul,ol{max-width:var(--measure); padding-left:22px; margin:0 0 24px}
+li{margin-bottom:12px}
+a{color:var(--bridge)}
+.lede{font-size:18px; line-height:1.5; color:#2C313B}
+.lede + .zh-t{font-size:15.5px}
+
+.decision{border-left:3px solid var(--bridge); background:var(--bridge-soft);
+  padding:20px 24px; margin:48px 0; max-width:var(--measure); border-radius:0 3px 3px 0;}
+.decision .tag{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+  color:var(--bridge); display:block; margin-bottom:7px;}
+.decision p:last-of-type{margin-bottom:0}
+.decision .zh-t{border-left-color:#E0C6C6; margin-bottom:0}
+.note{border-left:3px solid var(--slate); background:var(--slate-soft);
+  padding:20px 24px; margin:48px 0; max-width:var(--measure); font-size:15px; border-radius:0 3px 3px 0;}
+.note .tag{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+  color:var(--slate); display:block; margin-bottom:7px;}
+.note p:last-of-type{margin-bottom:0}
+.note .zh-t{border-left-color:#CBD5E1; margin-bottom:0}
+
+table{border-collapse:collapse; width:100%; table-layout:fixed; margin:24px 0 48px; font-size:14px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Helvetica,sans-serif;}
+caption{caption-side:top; text-align:left; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+        color:var(--faint); font-weight:600; padding-bottom:9px}
+caption .zh-t{text-transform:none; letter-spacing:0; color:var(--faint); font-size:12px; margin-top:3px}
+th{text-align:left; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--slate);
+   border-bottom:1.5px solid var(--rule-strong); padding:9px 14px 9px 0; vertical-align:bottom;
+   font-weight:700; overflow-wrap:anywhere;}
+th .zh-t{text-transform:none; letter-spacing:0; font-weight:600}
+td{padding:11px 14px 11px 0; border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.5;
+   overflow-wrap:anywhere; word-break:normal;}
+tr:last-child td{border-bottom:1.5px solid var(--rule-strong)}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; padding-right:20px}
+.tight td,.tight th{font-size:13px}
+
+.pill{display:inline-block; font-size:10px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
+      padding:2px 7px; border-radius:2px; font-family:-apple-system,BlinkMacSystemFont,Helvetica,sans-serif;}
+.p1{background:#E7EFE7; color:#2E5E36} .p2{background:#FFF3DB; color:#8A6100}
+.p3{background:#EDEDF2; color:#4A4A63} .p4{background:var(--bridge-soft); color:var(--bridge)}
+
+.scen{margin:24px 0 48px; max-width:var(--measure)}
+.scen .q{font-size:16.5px; color:var(--ink); margin:0 0 3px}
+.scen .qzh{font-size:14px; color:var(--slate); margin:0 0 24px;
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.scen dl{margin:0}
+.scen dt{font-weight:bold; font-size:14.5px; margin:24px 0 4px;
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Helvetica,sans-serif}
+.scen dd{margin:0 0 12px; font-size:15px; color:#2F343E}
+.verdict{border-top:1px solid var(--rule); margin-top:24px; padding-top:12px; font-size:15px}
+.verdict b{color:var(--bridge)}
+.verdict .dd-zh{margin-top:6px}
+
+hr.soft{border:0; border-top:1px solid var(--rule); margin:34px 0}
+.foot{margin-top:70px; padding-top:22px; border-top:3px double var(--rule-strong);
+      font-size:12.5px; color:var(--faint);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Helvetica,sans-serif}
+
+@media (max-width:940px){
+  .shell{grid-template-columns:1fr}
+  nav.toc{position:static; height:auto; border-right:0; border-bottom:1px solid var(--rule); padding:24px}
+  main{padding:0 24px 80px}
+  .cover h1{font-size:24pt}
+}
+@media print{
+  nav.toc{display:none}
+  .shell{display:block; max-width:none}
+  main{padding:0; max-width:none}
+  body{background:#fff; font-size:12pt}
+  h2.sec{page-break-after:avoid; margin-top:36px}
+  table,.scen,.decision,.note{page-break-inside:avoid}
+  .cover{page-break-after:always}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--bridge); outline-offset:2px}
+
+/* --- Arial throughout --- */
+body,p,li,dd,dt,td,th,blockquote,figcaption,caption,small,h1,h2,h3,h4,h5,h6,
+.lede,.zh,.zh-t,.dd-zh,nav.toc,nav.toc a,.decision,.note,.scen,.verdict,table{
+  font-family:Arial,"PingFang SC","Microsoft YaHei",Helvetica,sans-serif}
+
+/* --- uniform 1.5 line spacing throughout --- */
+body, p, li, dd, dt, td, th, blockquote, figcaption,
+.lede, .zh, .zh-t, .dd-zh, .note p, caption, small{line-height:1.5}
+h1,h2,h3,h4,h5,h6,.cover h1,h2.sec{line-height:1.5}
+nav.toc, nav.toc a{line-height:1.5}
+@media print{ body,p,li,dd,td,th,.zh-t,.dd-zh{line-height:1.5} }
+
+/* ================= BILINGUAL COLUMNS ================= */
+/* JS wraps each EN block with its ZH sibling in .bi ; .bi-en / .bi-zh are the halves. */
+.bi{display:block}
+.bi-en,.bi-zh{min-width:0}
+
+/* stacked (default / narrow): keep the original rule-and-indent treatment */
+.bi-zh > .zh-t,.bi-zh > .zhh,.bi-zh > .zhh3,.bi-zh > .zhh4{
+  padding-left:14px; border-left:2px solid var(--rule);
+}
+
+/* side by side once there is room */
+@media (min-width:1180px){
+  .shell{max-width:1780px; grid-template-columns:272px minmax(0,1fr)}
+  main{max-width:none}
+  body.bi-both .bi{
+    display:grid; grid-template-columns:1fr 1fr;
+    column-gap:56px; align-items:baseline;
+  }
+  body.bi-both .bi-en,body.bi-both .bi-zh{max-width:74ch}
+  body.bi-both .bi-zh > .zh-t,
+  body.bi-both .bi-zh > .zhh,
+  body.bi-both .bi-zh > .zhh3,
+  body.bi-both .bi-zh > .zhh4{
+    margin-top:0; padding-left:0; border-left:0;
+  }
+  body.bi-both .bi-zh > .zh-t{margin-bottom:0}
+  body.bi-both .bi-en > *{margin-bottom:0}
+  body.bi-both .bi{margin-bottom:24px}
+  body.bi-both .bi-sec{margin-top:72px}
+  body.bi-both .bi-sec .bi-en > h2.sec{margin-top:0}
+  body.bi-both .bi-h3{margin-top:48px}
+  body.bi-both .bi-h3 .bi-en > h3{margin-top:0}
+  body.bi-both .bi-h4{margin-top:24px}
+  body.bi-both .bi-h4 .bi-en > h4{margin-top:0}
+  body.bi-both .bi-h3 .bi-zh,body.bi-both .bi-h4 .bi-zh,body.bi-both .bi-sec .bi-zh{border-left:0}
+  /* the divider between the two columns */
+  body.bi-both .bi-zh{border-left:1px solid var(--rule); padding-left:28px}
+  body.bi-both table{max-width:none}
+  /* callouts span the full measure and pair inside themselves */
+  body.bi-both .decision,body.bi-both .note,body.bi-both .scen{max-width:none}
+  /* inside callouts, stack EN then ZH so both use the full box width */
+  body.bi-both .decision .bi,body.bi-both .note .bi,body.bi-both .scen .bi{display:block}
+  body.bi-both .decision .bi-en,body.bi-both .decision .bi-zh,
+  body.bi-both .note .bi-en,body.bi-both .note .bi-zh,
+  body.bi-both .scen .bi-en,body.bi-both .scen .bi-zh{max-width:none; border-left:0; padding-left:0}
+  body.bi-both .decision .bi-zh,body.bi-both .note .bi-zh{margin-top:12px}
+  body.bi-both .decision .bi-zh > .zh-t,body.bi-both .note .bi-zh > .zh-t{
+    padding-left:14px; border-left:2px solid var(--rule); margin:0}
+  body.bi-both .decision > .bi-full,body.bi-both .note > .bi-full{grid-column:1 / -1}
+}
+
+/* language filter */
+body.bi-en .bi-zh,body.bi-en .zh-t,body.bi-en .zhh,body.bi-en .zhh3,
+body.bi-en .zhh4,body.bi-en .dd-zh,body.bi-en .zh,body.bi-en nav.toc small{display:none}
+body.bi-zh .bi-en,body.bi-zh .lede{display:none}
+body.bi-zh .bi-zh > .zh-t{padding-left:0; border-left:0; margin-top:0}
+/* ZH-only: strip the English half wherever a Chinese counterpart sits inside
+   the same element. :has() keeps elements with no Chinese child untouched. */
+body.bi-zh :is(h1,h2,h3,h4,p,li,dd,dt,td,th,span,.stamp,.cv-org,.cv-line,.cv-scope,.cv-ask-t):has(> .zh),
+body.bi-zh :is(h1,h2,h3,h4,p,li,dd,dt,td,th,span):has(> .zh-t),
+body.bi-zh :is(dd,li):has(> .dd-zh),
+body.bi-zh nav.toc a:has(> small){font-size:0; letter-spacing:0}
+body.bi-zh .zh{font-size:12pt; letter-spacing:normal}
+body.bi-zh .zh-t{font-size:12pt; letter-spacing:normal}
+body.bi-zh td .zh-t,body.bi-zh th .zh-t{font-size:12.5px}
+body.bi-zh caption .zh-t{font-size:12px}
+body.bi-zh .dd-zh{font-size:13.5px; letter-spacing:normal}
+body.bi-zh .zhh{font-size:24pt}
+body.bi-zh .zhh3{font-size:19pt}
+body.bi-zh .zhh4{font-size:15pt}
+body.bi-zh .cover h1 .zh{font-size:19pt}
+body.bi-zh .cv-org .zh{font-size:10pt}
+body.bi-zh .cv-line .zh{font-size:10pt}
+body.bi-zh nav.toc a small{font-size:12px; text-indent:0; margin-top:0}
+body.bi-zh nav.toc a::before{font-size:11px}
+body.bi-zh .meta dd br{display:none}
+body.bi-zh .meta dd .zh{display:block}
+body.bi-zh .cover h1 .zh{margin-top:0}
+body.bi-zh .cover .sub,body.bi-zh .cv-ask-b:not(.zh){display:none}
+
+/* toggle control */
+.langbar{
+  position:sticky; top:0; z-index:40; display:flex; gap:6px; justify-content:flex-end;
+  padding:10px 0 12px; margin-bottom:6px;
+  background:linear-gradient(var(--paper) 70%, rgba(255,255,255,0));
+}
+.langbar button{
+  font:600 11px/1 Arial,Helvetica,sans-serif; letter-spacing:.1em; text-transform:uppercase;
+  padding:7px 13px; border:1px solid var(--rule-strong); background:#fff; color:var(--muted);
+  border-radius:3px; cursor:pointer;
+}
+.langbar button[aria-pressed="true"]{background:var(--bridge); border-color:var(--bridge); color:#fff}
+@media (max-width:1179px){ .langbar [data-lang="both"]{display:none} }
+@media print{ .langbar{display:none} body.bi-both .bi{display:block} }
+
+
+/* --- sitemap --- */
+.sitemap{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:22px 0 26px}
+.sm-card{border:1px solid var(--rule); border-radius:10px; padding:14px 16px; break-inside:avoid}
+.sm-card.wide{grid-column:1 / -1}
+.sm-card h5{margin:0 0 2px; font-size:14pt; font-weight:600; font-family:Arial,Helvetica,sans-serif}
+.sm-card .smzh{margin:0 0 2px; font-size:12pt; color:var(--slate)}
+.sm-card .smsub{margin:0 0 10px; font-size:10pt; color:var(--faint)}
+.sm-grp{font-size:11pt; font-weight:600; margin:10px 0 3px}
+.sm-grp:first-of-type{margin-top:0}
+.sitemap ul{list-style:none; margin:0; padding:0}
+.sitemap li{font-size:10.5pt; color:var(--slate); line-height:1.5; margin:0 0 2px}
+.sm-t{font-size:8.5pt; padding:1px 5px; border-radius:3px; white-space:nowrap; letter-spacing:.04em}
+.sm-b{background:#E8F1EA; color:#2C5F3E; border:1px solid #C8DFCF}
+.sm-n{background:#FDEDE4; color:#8A3E10; border:1px solid #F5D2BC}
+.sm-l{background:#EFEFF2; color:#55565C; border:1px solid #DCDCE1}
+@media (max-width:900px){ .sitemap{grid-template-columns:1fr} }
+@media print{ .sitemap{grid-template-columns:1fr 1fr} }
+
+
+/* single-language mode: text uses the full width the shell provides */
+@media (min-width:1180px){
+  body.bi-en p, body.bi-en ul, body.bi-en ol, body.bi-en .lede,
+  body.bi-en .decision, body.bi-en .note, body.bi-en .scen,
+  body.bi-en .bi-en, body.bi-en .cover .sub, body.bi-en table,
+  body.bi-zh p, body.bi-zh ul, body.bi-zh ol,
+  body.bi-zh .decision, body.bi-zh .note, body.bi-zh .scen,
+  body.bi-zh .bi-zh, body.bi-zh .zh-t, body.bi-zh .cover .subzh, body.bi-zh table{
+    max-width:none;
+  }
+  body.bi-en .bi, body.bi-zh .bi{display:block}
+}
+
+
+/* --- cover --- */
+.cover{padding:0 0 48px; border-bottom:0; margin-bottom:48px}
+.cv-rule{height:6px; background:var(--bridge); width:96px; margin:72px 0 36px}
+.cover .stamp .zh{display:block; margin-top:2px; letter-spacing:.08em}
+.cv-org{font-size:11pt; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 24px; max-width:none}
+.cv-org .zh{display:block; letter-spacing:.12em; text-transform:none; font-size:10pt; margin-top:2px}
+.cover h1{font-size:34pt; line-height:1.18; margin:0 0 4px; font-weight:600; letter-spacing:-.02em}
+.cover h1 .zh{display:block; font-size:19pt; font-weight:400; color:var(--slate);
+  letter-spacing:0; margin-top:8px}
+.cv-line{font-size:11pt; letter-spacing:.18em; text-transform:uppercase; color:var(--bridge);
+  margin:24px 0 36px; max-width:none}
+.cv-line .zh{display:block; letter-spacing:.1em; text-transform:none; color:var(--slate);
+  font-size:10pt; margin-top:3px}
+.cover .sub{font-size:13pt; color:var(--muted); margin:0 0 4px; max-width:70ch}
+.cover .subzh{font-size:12pt; color:var(--slate); margin:0 0 36px; max-width:70ch}
+.cv-ask{border-left:4px solid var(--bridge); background:var(--bridge-soft);
+  padding:24px; margin:0 0 48px; max-width:none}
+.cv-ask-t{font-size:9.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--bridge);
+  margin:0 0 8px; font-weight:700; max-width:none}
+.cv-ask-t .zh{letter-spacing:.06em; text-transform:none; margin-left:8px; color:var(--slate)}
+.cv-ask-b{margin:0 0 6px; font-size:12pt; max-width:none}
+.cv-ask-b:last-child{margin-bottom:0; color:var(--slate); font-size:11pt}
+.cv-scope{border-top:1px solid var(--rule); padding-top:24px; margin:36px 0 0;
+  font-size:10.5pt; color:var(--muted); max-width:none}
+.cv-scope strong{color:var(--ink)}
+.cv-scope .zh{display:block; margin-top:5px; color:var(--slate)}
+.meta{border-top:1px solid var(--rule); padding-top:24px}
+@media print{ .cover{page-break-after:always} .cv-rule{margin-top:0} }
+
+
+/* --- baseline grid: 12pt/1.5 = 24px line box; all gaps are multiples of 12 --- */
+.decision > *:last-child,.note > *:last-child{margin-bottom:0}
+.decision .tag,.note .tag{margin-bottom:12px}
+.decision p,.note p{margin-bottom:12px}
+.decision .zh-t,.note .zh-t{margin:12px 0 0}
+@media (min-width:1180px){
+  /* the wrapper already carries 24px; callouts add the rest to reach 48px */
+  body.bi-both .decision,body.bi-both .note,body.bi-both .scen{margin:24px 0 48px}
+  body.bi-both .bi + .decision,body.bi-both .bi + .note{margin-top:24px}
+  body.bi-both .decision .bi,body.bi-both .note .bi{margin-bottom:0}
+  body.bi-both .decision .bi + .bi,body.bi-both .note .bi + .bi{margin-top:12px}
+}
+
+
+/* cover: centred title block, full-width abstract */
+.cv-rule{margin-left:auto; margin-right:auto}
+.cv-org,.cover h1,.cv-line{text-align:center}
+.cover .sub,.cover .subzh{max-width:none; text-align:left}
+
+
+/* ============ ZH type size mirrors its EN counterpart, everywhere ============ */
+.zh-t{font-size:12pt}                      /* body p is 12pt */
+.lede + .zh-t{font-size:18px}              /* .lede is 18px */
+td .zh-t,th .zh-t{font-size:14px}          /* table is 14px */
+.tight td .zh-t,.tight th .zh-t{font-size:13px}
+caption .zh-t{font-size:11px}              /* caption is 11px */
+.dd-zh{font-size:15px}                     /* .scen dd is 15px */
+.scen .qzh{font-size:16.5px}               /* .scen .q is 16.5px */
+.verdict .dd-zh{font-size:15px}
+nav.toc a small{font-size:12.5px}          /* nav.toc is 12.5px */
+.cover h1 .zh{font-size:34pt}              /* cover h1 is 34pt */
+.cover .subzh{font-size:13pt}              /* .cover .sub is 13pt */
+.cv-org .zh{font-size:11pt}
+.cv-line .zh{font-size:11pt}
+.cv-ask-b:last-child{font-size:12pt}
+.sm-card .smzh{font-size:14pt}             /* .sm-card h5 is 14pt */
+.meta dd .zh{font-size:13px}               /* .meta is 13px */
+.decision .zh-t,.note .zh-t{font-size:12pt}
+
+body.bi-zh .zh-t{font-size:12pt}
+body.bi-zh td .zh-t,body.bi-zh th .zh-t{font-size:14px}
+body.bi-zh caption .zh-t{font-size:11px}
+body.bi-zh .dd-zh{font-size:15px}
+body.bi-zh .cover h1 .zh{font-size:34pt}
+body.bi-zh .cv-org .zh{font-size:11pt}
+body.bi-zh .cv-line .zh{font-size:11pt}
+body.bi-zh nav.toc a small{font-size:12.5px}
+
+/* ============ section headings: match the EN structure ============
+   h2.sec carries a 20px padding-top, a rule above it, and a block
+   "Section NN" line. Without matching offsets the ZH heading starts
+   higher than the EN one. Give the pair wrapper the rule and padding,
+   and reserve the number line on the ZH side. */
+@media (min-width:1180px){
+  body.bi-both .bi-sec{border-top:1px solid var(--rule-strong); padding-top:20px}
+  body.bi-both .bi-sec .bi-en > h2.sec{border-top:0; padding-top:0}
+  body.bi-both .bi-sec .bi-zh > .zhh::before{
+    content:""; display:block; font-size:10.5px; line-height:1.5;
+    height:calc(10.5px * 1.5); margin-bottom:9px;
+  }
+  body.bi-both .bi-sec,body.bi-both .bi-h3,body.bi-both .bi-h4{align-items:start}
+}
+
+
+/* subheading pairs: the adjacent-sibling selectors stop matching once the
+   wrapper splits them into two columns, so set the values on the class. */
+.zhh3{font-size:19pt; font-family:Arial,Helvetica,sans-serif; color:var(--slate);
+  margin:0 0 24px; line-height:1.5; font-weight:normal}
+.zhh4{font-size:15pt; color:var(--slate); margin:0 0 12px; line-height:1.5;
+  letter-spacing:.06em; text-transform:none}
+
+@media (min-width:1180px){
+  /* CJK and Latin faces have different metrics, so equal font-size and
+     line-height still leave the baselines apart. Align the baselines. */
+  body.bi-both .bi-h3,body.bi-both .bi-h4{align-items:baseline}
+  body.bi-both .bi-h3 .bi-en > h3,body.bi-both .bi-h3 .bi-zh > .zhh3,
+  body.bi-both .bi-h4 .bi-en > h4,body.bi-both .bi-h4 .bi-zh > .zhh4{
+    margin-top:0; padding-top:0;
+  }
+}
+
+
+@media (min-width:1180px){
+  body.bi-both ul,body.bi-both ol,body.bi-both dl,body.bi-both blockquote{max-width:none}
+  body.bi-both li > .zh-t{margin:12px 0 0}
+}
+
+
+@media (min-width:1180px){
+  /* callout contents stack, so their paragraphs and lists lose the column cap */
+  body.bi-both .decision p,body.bi-both .decision ul,body.bi-both .decision ol,
+  body.bi-both .decision .zh-t,body.bi-both .decision li,
+  body.bi-both .note p,body.bi-both .note ul,body.bi-both .note ol,
+  body.bi-both .note .zh-t,body.bi-both .note li,
+  body.bi-both .scen p,body.bi-both .scen dl,body.bi-both .scen dd,
+  body.bi-both .scen dt,body.bi-both .scen .dd-zh,body.bi-both .scen .q,
+  body.bi-both .scen .qzh,body.bi-both .verdict,body.bi-both .verdict .dd-zh{
+    max-width:none;
+  }
+}
+
+
+@media (min-width:1180px){
+  /* .zh-t carries its own 74ch cap. Inside a .bi column that is correct;
+     anywhere else (list items, table cells, callouts) it must not apply. */
+  body.bi-both li > .zh-t,
+  body.bi-both td .zh-t,body.bi-both th .zh-t,
+  body.bi-both .decision .zh-t,body.bi-both .note .zh-t,
+  body.bi-both .scen .zh-t,body.bi-both .verdict .zh-t,
+  body.bi-both dd > .zh-t,body.bi-both .dd-zh{max-width:none}
+}
+
+</style>
+</head>
+<body class="bi-both">
+<div class="shell">
+
+<nav class="toc" aria-label="Contents 目录">
+  <h2>Contents 目录</h2>
+  <ol>
+    <li><a href="#s1" data-n="1">Executive summary<small>执行摘要</small></a></li>
+    <li><a href="#s2" data-n="2">Mandate and scope<small>委托事项与范围</small></a></li>
+    <li><a href="#s3" data-n="3">Evidence base<small>证据基础</small></a></li>
+    <li><a href="#s4" data-n="4">Design principles<small>设计原则</small></a></li>
+    <div class="grp">The platform 平台</div>
+    <li><a href="#s5" data-n="5">Target architecture<small>目标架构</small></a></li>
+    <li><a href="#s6" data-n="6">Product-to-system mapping<small>产品与系统映射</small></a></li>
+    <li><a href="#s7" data-n="7">Payments and money<small>支付与资金架构</small></a></li>
+    <li><a href="#s8" data-n="8">Data, CRM and the client record<small>数据、客户关系与主档案</small></a></li>
+    <li><a href="#s9" data-n="9">Content, CMS and discovery<small>内容、内容管理与获客</small></a></li>
+    <li><a href="#s10" data-n="10">Compliance by design<small>合规内嵌设计</small></a></li>
+    <div class="grp">Delivery 交付</div>
+    <li><a href="#s11" data-n="11">Delivery plan<small>交付计划</small></a></li>
+    <li><a href="#s12" data-n="12">Resourcing<small>资源与人力</small></a></li>
+    <li><a href="#s13" data-n="13">Investment model<small>投入与回报</small></a></li>
+    <li><a href="#s14" data-n="14">Risks<small>风险</small></a></li>
+    <li><a href="#s15" data-n="15">Decisions required<small>需要决策的事项</small></a></li>
+    <div class="grp">Appendices 附录</div>
+    <li><a href="#a1" data-n="A">Adviser questions — companion paper<small>顾问提问 · 配套文件</small></a></li>
+    <li><a href="#a2" data-n="B">Glossary and control<small>术语与文件控制</small></a></li>
+  </ol>
+</nav>
+
+<main>
+
+<header class="cover">
+  <div class="cv-rule"></div>
+  <p class="cv-org">The RedBridge Group<span class="zh">红桥集团</span></p>
+  <h1>Building the RGL Ecosystem<span class="zh">红桥全球旅居 · 平台生态建设战略提案</span></h1>
+  <p class="cv-line">Strategic Proposal · Version 1.1<span class="zh">战略提案 · 版本 1.1</span></p>
+
+  <p class="sub">A proposal for the platform described in the Global Living &amp; Cross-Border Relocation Product Book V1.0 — its architecture, its sequencing, its commercial and compliance design, and the twelve decisions required to begin.</p>
+  <p class="subzh zh">本提案针对《全球旅居与跨境迁居产品册 V1.0》所描述的平台，说明其架构、建设次序、商业与合规设计，以及启动前需要作出的十二项决策。</p>
+
+  <div class="cv-ask">
+    <p class="cv-ask-t">Recommendation<span class="zh">建议</span></p>
+    <p class="cv-ask-b">Approve Phase 1 — ten weeks, existing internal capacity, no blocking decisions, no new subscriptions — and answer the four decisions in Section 15 that block Phase 2.</p>
+    <p class="cv-ask-b zh">批准第一阶段——十周、由现有内部人力承担、无前置决策阻碍、无新增订阅支出——并就第 15 节中阻碍第二阶段的四项决策给出答复。</p>
+  </div>
+
+  <dl class="meta">
+    <div><dt>Prepared for 呈报</dt><dd>The Chairman, RGL<br><span class="zh">红桥董事长</span></dd></div>
+    <div><dt>Prepared by 拟稿</dt><dd>Head of IT, RGL<br><span class="zh">集团 IT 负责人</span></dd></div>
+    <div><dt>Date 日期</dt><dd>13 August 2026<br><span class="zh">2026 年 8 月 13 日</span></dd></div>
+    <div><dt>Status 状态</dt><dd>For decision<br><span class="zh">供决策</span></dd></div>
+    <div><dt>Governing text 准据文本</dt><dd>English<br><span class="zh">以英文版为准</span></dd></div>
+    <div><dt>Supersedes 替代</dt><dd>v1.0, 13 August 2026<br><span class="zh">v1.0（2026 年 8 月 13 日）</span></dd></div>
+  </dl>
+
+  <p class="cv-scope"><strong>Scope</strong> · Website and web application · Booking · Checkout and payments · Staff, client, CRM and CMS portals
+  <span class="zh"><strong>范围</strong> · 官网与网页应用 · 预订 · 结算与支付 · 员工、客户、CRM 与内容管理四个门户</span></p>
+</header>
+
+<h2 class="sec" id="s1"><span class="num">Section 01</span>Executive summary</h2>
+<p class="zhh zh">执行摘要</p>
+
+<p class="lede">Five thousand and seventy-six people have contacted this business since December. Thirty-five signed. Of the rest, 2,829 have no salesperson, no outcome and no reason recorded against them, so nobody can say whether we turned them down or simply lost them.</p>
+<span class="zh-t">自去年 12 月以来，共有 5,076 人主动联系过这家公司，其中 35 人签约。在其余的人当中，有 2,829 条既没有对接销售、没有结果，也没有任何原因记录——因此没有人说得清，这些人是我们拒绝的，还是就这么丢了。</span>
+
+<p>This proposal sets out how to build the RGL ecosystem — website and web application, booking, checkout and payment, and four portals covering staff, clients, customer relationships and content. It starts with that gap, because closing it costs ten weeks and buys back the only asset the business is currently throwing away.</p>
+<span class="zh-t">本提案说明如何建设红桥全球旅居生态平台——官网与网页应用、预订、结算与支付，以及员工、客户、客户关系与内容四个门户。它从上述缺口入手：补上这个缺口需要十周，换回的是这家公司目前唯一在白白丢弃的资产。</span>
+
+<div class="decision">
+  <span class="tag">Recommendation · 建议</span>
+  <p>Approve Phase 1 — ten weeks, existing internal capacity, no blocking decisions, no new subscriptions — and answer the four decisions in Section 15 that block Phase 2. Section 11.0 sets out the alternatives and why they are weaker.</p>
+  <span class="zh-t">批准第一阶段——十周、由现有内部人力承担、无前置决策阻碍、无新增订阅支出——并就第 15 节中阻碍第二阶段的四项决策给出答复。第 11.0 节列出了其他备选路径，以及它们为何更弱。</span>
+</div>
+
+<p>This is not a proposal to build less than the Product Book sets out. We will build all of it. We will start with the parts the evidence says pay back first, because working down the list in the order it happens to be written in is how the money ends up in the wrong place.</p>
+<span class="zh-t">本提案并非建议缩减《产品册》的范围，而是<strong>全部建设</strong>，但建设次序由证据决定，而非由组件被列出的先后顺序决定。</span>
+
+<h4>The proposal in six points</h4>
+<p class="zhh4 zh">提案要点六条</p>
+
+<p><strong>1. One platform, eight surfaces, two systems of record.</strong> The website, the web app, booking, checkout and the four portals should all be windows onto the same underlying system. One record of who the client is. One record of what they owe and have paid. Build each piece as its own product and they stop agreeing with each other. The client who paid in the checkout is a different client in the CRM, and reconciling the two becomes somebody's monthly job. That is the most common and most expensive way projects of this shape go wrong.</p>
+<span class="zh-t"><strong>一、一个平台、八个界面、两套记录中枢。</strong>官网、网页应用、预订、结算与四个门户，都是同一中枢之上的界面：一套客户主记录，一套资金记录。把它们当作彼此独立的产品来建设，是此类项目中最常见、也最昂贵的失败方式。</span>
+
+<p><strong>2. Start where the money is, not at the top of the list.</strong> The company's own lead data points to how leads are handled after they arrive. Of 5,076 leads in the register, 38.7% have a sales rep named against them and the register records 8 closes against the 35 the business reports. The unnamed majority were not all neglected. Sales screens out enquirers who don't fit, and that's a legitimate commercial judgement. But only 271 leads carry a refusal reason of any kind. A further 2,829, or 55.7% of the register, have no rep, no outcome and no reason recorded at all. So the business cannot tell a lead it correctly refused from one it simply dropped, and neither can anyone reading its numbers. Closing that gap is Phase 1, and it does not depend on a decision from anyone.</p>
+<span class="zh-t"><strong>二、按回报排序，而非按清单顺序。</strong>公司自身的线索数据指向线索进来之后的处理环节。台账共 5,076 条线索，其中 38.7% 填有对接销售；台账记录成交 8 笔，而业务方口径为 35 笔。未填销售的大多数并非都被忽略：销售会筛掉不符合客户画像的咨询，这属于正当的商业判断。但带有任何拒绝原因的线索仅 271 条。另有 2,829 条——占台账 55.7%——既无对接销售、无结果，也无任何原因记录。因此公司无法区分已正确拒绝与单纯流失，任何看这份数据的人也无法区分。<strong>补上这个缺口</strong>就是第一阶段的内容，且不依赖任何人作出决策。</span>
+
+<p><strong>3. Then the money layer.</strong> Milestone billing for a A$220,000–270,000 engagement, in AUD and CNY, across bank transfer, PayID, WeChat Pay and Alipay, with the payment rails assigned by product tier rather than offered uniformly, because the wallets cannot carry six-figure stages.</p>
+<span class="zh-t"><strong>三、其次是资金层。</strong>面向 22–27 万澳元委托的里程碑分期收费，支持澳元与人民币，通过银行转账、PayID、微信支付与支付宝收款——支付通道按产品层级分配，而非一律全开，因为电子钱包无法承载六位数金额的分期款。</span>
+
+<p><strong>4. Then commerce, portals and content.</strong> Booking, checkout, the client portal and the CMS follow, serving the products that the first two phases prove there is demand for.</p>
+<span class="zh-t"><strong>四、再建设交易、门户与内容。</strong>预订、结算、客户门户与内容管理系统随后建设，服务于前两阶段已验证有需求的产品。</span>
+
+<p><strong>5. Compliance has to be built into the system, not written into a policy.</strong> The eight boundaries set out in the Product Book each become a working control: an approval step before marketing claims are published, disclosure of related-party relationships, payee types the system will not accept, milestones described by the work delivered, and evidence recorded as that work is done. Including it now is cheap. Adding it afterwards, and being believed, is not.</p>
+<span class="zh-t"><strong>五、合规是建出来的，不是写出来的。</strong>《产品册》第 08 节的八项边界，逐项转化为具体的系统控制——营销主张审核关卡、关联方披露、禁止的收款方类型、以已交付工作定义的里程碑，以及在工作发生时同步留存的证据。现在做成本很低；事后再补，其可信度无法成立。</span>
+
+<p><strong>6. Ten of these screens already run.</strong> The IT function built a staff and client portal for RedBridge Consulting and offered it for testing in March 2026. Pipeline, case milestones, document requests, the client portal and staff messaging are working today. Phase 1 is therefore ten weeks of work on a system that already runs. Routing, deduplication, response timing and reporting, plus the single change that matters most: connecting the portal to where leads actually arrive. About 1.3% of leads reach the website form. The rest arrive on Xiaohongshu. That gap, not the software, is the likeliest reason nobody tried the portal, and Section 8.5 addresses it.</p>
+<span class="zh-t"><strong>六、其中相当一部分已经建成。</strong>已为红桥咨询建成一套员工与客户门户，并于 2026 年 3 月开放测试。销售管道、案件里程碑、材料索取、客户门户与员工内部沟通目前均可运行。因此第一阶段是十周的工作量，而非从零开始的建设——自动分配、去重、响应计时与报表——外加最关键的一项改动：<strong>把门户接到线索真正进来的地方</strong>。仅约 1.3% 的线索经由官网表单进入，其余来自小红书。这一断口而非软件本身，才是当初无人试用该门户的最可能原因，第 8.5 节专门处理它。</span>
+
+<div class="decision">
+  <span class="tag">What this document asks for · 本文件请求批准的事项</span>
+  <p>Approval of the architecture in Section 5, the sequencing in Section 11, and answers to the twelve decisions listed in Section 15. Four of those block Phase 2; one blocks Phase 1.</p>
+  <span class="zh-t">请批准第 5 节的架构、第 11 节的建设次序，并就第 15 节列出的十二项决策给出答复。其中四项影响第二阶段，一项影响第一阶段。</span>
+</div>
+
+<h3>1.1 The triage inbox</h3>
+<p class="zhh3 zh">1.1 分诊收件箱</p>
+
+<p>Sales already declines leads that don't fit a A$220,000 engagement, and that judgement is sound. What the register shows is that the judgement is almost never written down. 271 leads carry a refusal reason. 2,829 carry nothing at all, so a lead that was correctly refused and a lead that was simply dropped look identical on the record.</p>
+<span class="zh-t">销售本来就会拒掉不适合 22 万澳元委托的线索，这个判断是合理的。台账反映出的问题是：这个判断几乎从不被写下来。带有拒绝原因的线索有 271 条，完全没有任何记录的有 2,829 条——因此被正确拒绝的线索与单纯被漏掉的线索在记录上完全无法区分。</span>
+
+<p>The fix is a triage inbox rather than an assignment queue. Imported leads land there scored, and management works the inbox instead of the spreadsheet. Two buttons: admit, which routes the lead by rule and starts the response clock, or decline, which asks for a reason from a short list and archives it. Declining takes one click and one reason. That single field turns 2,829 unexplained rows into a record the business can audit, count and learn from.</p>
+<span class="zh-t">解决办法是分诊收件箱，而不是分配队列。导入的线索带着评分进入收件箱，管理层处理收件箱，而不再处理表格。只有两个动作：<strong>准入</strong>——按规则自动分配并启动响应计时；<strong>拒绝</strong>——从简短的选项中选一个原因，随后归档。拒绝只需一次点击加一个原因。正是这一个字段，把 2,829 条无法解释的记录，变成可审计、可统计、可从中学习的数据。</span>
+
+<div class="decision">
+  <span class="tag">Declined is not deleted · 拒绝不等于删除</span>
+  <p>Declined leads stay visible to management with their reason and the name of whoever declined them, and they stay reportable. Silent archiving would reproduce the exact gap this section exists to close, and in a licensed business an unexplained refusal is a record worth keeping.</p>
+  <span class="zh-t">被拒绝的线索对管理层仍然可见，并保留拒绝原因与操作人姓名，也仍然可以纳入报表。静默归档只会重新制造本节要消除的那个缺口；而在持牌业务中，一条没有说明理由的拒绝记录，是你应当留存的证据，不是应当丢弃的负担。</span>
+</div>
+
+<h3>1.2 Scoring, and what it can honestly do</h3>
+<p class="zhh3 zh">1.2 评分机制及其现实边界</p>
+
+<p>Each lead arrives with a score built from what the register already captures well: whether the person is onshore (about 80% are), their visa type and expiry, years of experience and sector, and English test results where stated. The score orders the inbox. It does not decide anything.</p>
+<span class="zh-t">每条线索进入时带有一个评分，其依据是台账目前已经采集得比较完整的字段：是否已在澳洲境内（约 80% 是）、签证类型与到期时间、工作年限与所属行业，以及已填写的英语成绩。评分只决定收件箱的排序，不决定任何结果。</span>
+
+<p>That limit is deliberate and worth stating plainly to anyone who asks. The register records 8 closes against the 35 the business reports, so there are not enough recorded outcomes to fit weights to. Any weighting proposed today is judgement expressed as a number. Presenting it as calibration would not survive the first question asked of it.</p>
+<span class="zh-t">这个限制是有意设定的，且值得对任何提问者直说。台账记录成交 8 笔，而业务方口径为 35 笔——已记录的结果数量根本不足以拟合权重。今天提出的任何权重组合，都只是把经验判断写成数字。若将其表述为基于历史数据校准，经不起第一个追问。</span>
+
+<p>So the weights start as a written-down version of how the team already decides, they are visible to management, and they are adjusted quarterly once admitted leads have produced enough outcomes to check them against. Recording the decline reasons is what generates that evidence. The scoring model comes out of Phase 1's data discipline. It cannot go in ahead of it.</p>
+<span class="zh-t">因此，权重的初始版本就是把团队现有的判断标准写下来，对管理层完全可见，并在准入线索积累出足够结果之后按季度校正。而记录拒绝原因，正是产生这些证据的来源。<strong>评分模型是第一阶段数据纪律的产出，而不是它的前提。</strong></span>
+
+<p>Hard limits are separate from the score. A small number of conditions send a lead straight to triage flagged for review, with the reason shown, rather than being auto-declined. Anything touching visa history or eligibility is reviewed by the MARA Agent at Insight Idea. No rule resolves it, because that judgement sits with the licence.</p>
+<span class="zh-t">硬性限制与评分相互独立。少数几类情形会让线索直接进入分诊并标记需复核，同时显示触发原因，而不是被自动拒绝。凡涉及签证历史或资格判断的情形，一律由 Insight Idea 的 MARA 持牌代理复核，不由规则自行决定——因为这项判断属于牌照的责任范围。</span>
+
+<h2 class="sec" id="s2"><span class="num">Section 02</span>Mandate and scope</h2>
+<p class="zhh zh">委托事项与范围</p>
+
+<h3>2.1 What was asked</h3>
+<p class="zhh3 zh">2.1 委托内容</p>
+
+<p>To propose how we build the RGL platform ecosystem in accordance with the Product Book, covering — but not limited to — a website, a web application, a booking system, a checkout and payment system, a staff portal, a client portal, a CRM portal and a CMS portal, with payments in AUD and CNY via bank transfer / PayID, WeChat Pay and Alipay.</p>
+<span class="zh-t">就我方如何依照《产品册》建设红桥生态平台提出方案，范围包括但不限于：官网、网页应用、预订系统、结算与支付系统、员工门户、客户门户、CRM 门户与内容管理门户；支付支持澳元与人民币，通道包括银行转账／PayID、微信支付与支付宝。</span>
+
+<h3>2.2 In scope</h3>
+<p class="zhh3 zh">2.2 范围之内</p>
+
+<table class="tight">
+<caption>Scope of this proposal<span class="zh-t">本提案涵盖范围</span></caption>
+<tr><th style="width:26%">Component<span class="zh-t">组件</span></th><th style="width:74%">Covered here<span class="zh-t">本提案的处理方式</span></th></tr>
+<tr><td>Public website<span class="zh-t">公开官网</span></td><td>Marketing site, product pages, enquiry capture, multilingual, SEO/GEO structure<span class="zh-t">营销站点、产品页面、咨询留资、多语言、搜索与生成式引擎可见性结构</span></td></tr>
+<tr><td>Web application<span class="zh-t">网页应用</span></td><td>Authenticated experience for clients and prospects<span class="zh-t">面向客户与潜在客户的登录后体验</span></td></tr>
+<tr><td>Booking system<span class="zh-t">预订系统</span></td><td>Availability, capacity, group departures, request-to-book and instant-confirm<span class="zh-t">可售库存、容量、成团出发、申请式预订与即时确认</span></td></tr>
+<tr><td>Checkout &amp; payments<span class="zh-t">结算与支付</span></td><td>AUD/CNY, four rails, deposits, milestone billing, refunds, reconciliation<span class="zh-t">澳元／人民币、四条支付通道、定金、里程碑收费、退款、对账</span></td></tr>
+<tr><td>Staff portal<span class="zh-t">员工门户</span></td><td>Operations, delivery, case handling, approvals<span class="zh-t">运营、交付、案件处理、审批</span></td></tr>
+<tr><td>Client portal<span class="zh-t">客户门户</span></td><td>Documents, milestones, statements, messaging<span class="zh-t">材料、里程碑、账务明细、消息沟通</span></td></tr>
+<tr><td>CRM portal<span class="zh-t">CRM 门户</span></td><td>Lead capture, deduplication, routing, pipeline, follow-up, reporting<span class="zh-t">线索接收、去重、自动分配、管道、跟进、报表</span></td></tr>
+<tr><td>CMS portal<span class="zh-t">内容管理门户</span></td><td>Articles, product content, translation workflow, review-before-publish<span class="zh-t">文章、产品内容、翻译流程、发布前审核</span></td></tr>
+<tr><td>Employer network register<span class="zh-t">雇主网络台账</span></td><td>Existing and prospective employers, sponsorship status and verification history — restricted to Super Admin and the board. Employers do not log in<span class="zh-t">现有与潜在雇主、担保资格状态与核查历史——仅超级管理员与董事会可见。雇主不登录该系统</span></td></tr>
+</table>
+
+<h3>2.3 Out of scope</h3>
+<p class="zhh3 zh">2.3 范围之外</p>
+
+<p>Legal drafting; accounting policy; the corporate restructure itself; media buying; and delivery operations in destination markets. Each is referenced where it constrains the build, but none is proposed here.</p>
+<span class="zh-t">法律文件起草、会计政策、集团架构重组本身、广告投放，以及目的地市场的交付运营。凡对建设构成约束之处本提案均会提及，但均不在本提案的建议范围内。</span>
+
+<h2 class="sec" id="s3"><span class="num">Section 03</span>Evidence base</h2>
+<p class="zhh zh">证据基础</p>
+
+<p>This proposal draws on four sources. The Product Book V1.0; the current operating structure of RedBridge Consulting and Insight Idea; the inbound lead register, as at 13 August 2026; and the existing internal portal built for RedBridge Consulting and offered to the sales and CRM teams for testing in March 2026.</p>
+<span class="zh-t">本提案的依据有四项：《产品册 V1.0》；红桥咨询与 Insight Idea 当前的运营架构；截至 2026 年 8 月 13 日的进线留资台账；以及此前为红桥咨询建成、并于 2026 年 3 月向销售与 CRM 团队开放测试的内部门户系统。</span>
+
+<h3>3.1 What the lead register shows</h3>
+<p class="zhh3 zh">3.1 留资台账反映了什么</p>
+
+<table>
+<caption>Inbound lead register — data as at 13 August 2026<span class="zh-t">进线留资台账 · 数据截至 2026 年 8 月 13 日</span></caption>
+<tr><th style="width:34%">Measure<span class="zh-t">指标</span></th><th class="num" style="width:13%">Value<span class="zh-t">数值</span></th><th style="width:53%">Relevance to the build<span class="zh-t">对平台建设的意义</span></th></tr>
+<tr><td>Leads captured<span class="zh-t">累计线索</span></td><td class="num">5,076</td><td>The four-in-one register, 29 Dec 2025 to 12 Aug 2026, across 21 Xiaohongshu accounts and 609 distinct posts. Volume is sufficient; acquisition is not the constraint<span class="zh-t">四合一总汇台账，2025 年 12 月 29 日至 2026 年 8 月 12 日，覆盖 21 个小红书账号、609 个不同帖子。数量充足；瓶颈不在获客</span></td></tr>
+<tr><td>Paid-attributed leads, August<span class="zh-t">8 月付费投放来源占比</span></td><td class="num">93%</td><td>Leakage now costs cash, not just opportunity<span class="zh-t">漏损现在损失的是现金，而不只是机会</span></td></tr>
+<tr><td>Assigned to a salesperson<span class="zh-t">已分配给销售</span></td><td class="num">38.7%</td><td>1,963 of 5,076 name a rep. Steady at 41–47% from February to July, with January at 25.6% and the part-month of August at 27.5%. Per account it swings hard: Jeffery 77.8%, Henry 42.0%, Edmond 32.9%, Ivy 26.2%<span class="zh-t">5,076 条中 1,963 条填有对接销售。2 月至 7 月稳定在 41–47%，1 月为 25.6%，8 月（未满月）为 27.5%。按账号差异极大：Jeffery 77.8%、Henry 42.0%、Edmond 32.9%、Ivy 26.2%</span></td></tr>
+<tr><td>No rep, no outcome, no reason<span class="zh-t">无销售、无结果、无原因</span></td><td class="num">55.7%</td><td>2,829 leads, excluding flagged duplicates, law-firm referrals and employers. Not unassigned — undecided on the record. This is the number that matters<span class="zh-t">2,829 条，已剔除标记重复、律所转介与雇主。并非未分配，而是记录上没有结论。这才是关键数字</span></td></tr>
+<tr><td>Carrying a refusal reason<span class="zh-t">有明确拒绝原因</span></td><td class="num">5.3%</td><td>271 leads: 100 didn't pass screening, 66 rejected, 53 can't be serviced, 26 not considering, 20 price, 8 invalid. Screening is real, recorded, and covers under a tenth of the unassigned<span class="zh-t">271 条：没通过 100、已拒绝 66、做不了 53、不考虑 26、太贵了 20、无效客资 8。筛选确实存在且有记录，但覆盖未分配线索的不足十分之一</span></td></tr>
+<tr><td>Could not be reached<span class="zh-t">无法联系上</span></td><td class="num">4.1%</td><td>206 leads: 112 no reply, 73 unusable contact details, 21 never replied. A contact-quality problem, and phone is filled on 3% of rows<span class="zh-t">206 条：没回复 112、未通过联系方式 73、未回复 21。属于联系方式质量问题；电话字段仅 3% 的行有填写</span></td></tr>
+<tr><td>Duplicate records<span class="zh-t">重复记录</span></td><td class="num">17.2%</td><td>875 of 5,076 on Xiaohongshu ID, which is filled on 97% of rows. Only 301 are flagged by hand, so roughly two-thirds sit unmarked. Removable at entry with a matching rule<span class="zh-t">按小红书 ID 匹配得 875 条；该字段 97% 的行有填写。人工标记的仅 301 条，约三分之二未被标记。可在录入环节以匹配规则消除</span></td></tr>
+<tr><td>Signed clients, as advised<span class="zh-t">已签约客户（业务方口径）</span></td><td class="num">35</td><td>≈145 leads per client; ≈A$8.6M contracted value<span class="zh-t">约每 145 条线索成交 1 位客户；合同金额约 860 万澳元</span></td></tr>
+<tr><td>Signed clients the register records<span class="zh-t">台账记录的成交数</span></td><td class="num">8</td><td>Eight rows marked closed-won against 35 advised, so every ratio derived from this file understates conversion roughly fourfold. Seven of the eight are Melbourne, and five carry no campaign name<span class="zh-t">标记已成交的仅 8 行，而业务方口径为 35——由本文件推得的任何转化比率都低估约四倍。8 笔中有 7 笔在墨尔本，5 笔没有投放计划名称</span></td></tr>
+<tr><td>Median client age<span class="zh-t">客户年龄中位数</span></td><td class="num">30</td><td>Shapes channel, tone and accessibility choices<span class="zh-t">决定渠道、语气与无障碍设计的取向</span></td></tr>
+<tr><td>Already onshore in Australia<span class="zh-t">已在澳洲境内</span></td><td class="num">~80%</td><td>Determines currency priority and portal design<span class="zh-t">决定币种优先级与门户设计</span></td></tr>
+</table>
+
+<p>The front-end status column describes a five-step funnel (arrived, left details, spoke, added on WeChat, assigned) and the volume through it falls away sharply: 1,553, then 895, 590, 489, 389. Assignment itself works as designed at the bottom: 386 of the 389 rows marked assigned name a rep, and 473 of 489 marked added do too. The leak is higher up. Of the 1,553 leads marked only as arrived, 1,540 have no outcome recorded of any kind, and 8% ever reach a rep. Another 590 got as far as a conversation and then stopped, 587 of them with nothing recorded after.</p>
+<span class="zh-t">前端状态列描述的是一条五步漏斗——已进线、已留资、已开口、已添加、已分配——而各步的存量急剧衰减：1,553、895、590、489、389。分配环节本身在底部运转正常：标记已分配的 389 行中有 386 行填有对接销售，标记已添加的 489 行中有 473 行也有。漏损发生在更上游。仅标记为已进线的 1,553 条中，有 1,540 条没有任何结果记录，仅 8% 最终触达销售。另有 590 条推进到已开口后停住，其中 587 条此后没有任何记录。</span>
+
+<p>Sales screening out an unsuitable enquirer is a commercial judgement, and a reasonable one. But it accounts for 271 leads. The 2,829 with nothing recorded at all are not screened, refused or lost. They are unresolved on paper, so nobody can say which is which. <strong>The gate isn't assignment. It's the disposition that never gets recorded, and it sits before assignment, not at it.</strong></p>
+<span class="zh-t">销售筛掉不合适的咨询是一种商业判断，且是合理的判断。但这类线索共 271 条。而那 2,829 条没有任何记录的线索，既不算被筛选、被拒绝，也不算流失——它们只是在纸面上没有结论，因此没有人能分清它们属于哪一类。<strong>闸门不是分配，而是那个从未被记录下来的处置结论；而且它发生在分配之前，不是在分配这一步。</strong></span>
+
+<h3>3.1a Where leads actually arrive</h3>
+<p class="zhh3 zh">3.1a 线索实际从哪里进来</p>
+
+<p>The website form has produced <strong>64 enquiries between 2 May and 14 August 2026</strong>, plus 11 on the earlier site version from 18 March. Monthly: 35 in May, 8 in June, 17 in July, 4 to mid-August. Two pairs of records sit four and six seconds apart, which is one person submitting twice. A small duplicate source, but a real one even on the verified form.</p>
+<span class="zh-t">官网表单在 <strong>2026 年 5 月 2 日至 8 月 14 日之间共收到 64 条咨询</strong>，另有 11 条来自 3 月 18 日起的上一版网站。按月分布：5 月 35 条、6 月 8 条、7 月 17 条、8 月上半月 4 条。其中有两组记录彼此仅相隔 4 秒与 6 秒——同一人重复提交；即便在有邮箱验证的表单上，这也是一个虽小但真实的重复来源。</span>
+
+<p><strong>Set against the inbound register, this is the single most important structural fact in the document.</strong> The website accounts for roughly <strong>1.3%</strong> of total lead flow; something close to 98.7% arrives through Xiaohongshu and does not pass through the website form at all.</p>
+<span class="zh-t"><strong>把这一数字与进线台账对照，就得到本文件中最重要的结构性事实。</strong>官网仅占总线索量的约 <strong>1.3%</strong>；约 98.7% 的线索经由小红书进入，<strong>完全不经过官网表单</strong>。</span>
+
+<p>The existing portal was designed on the assumption that leads enter via the website. That assumption is correct in design and wrong in fact, and it is the likeliest explanation for why nobody tried the portal. A sales team will not open a system that contains one lead in eighty. Section 8.5 addresses it as a plumbing problem, because that is what it is.</p>
+<span class="zh-t">现有门户的设计前提是线索经由官网进入。这个前提在设计上没有错，但与事实不符——而这很可能就是无人试用该门户的真正原因：<strong>一个八十条线索里只装了一条的系统，销售团队不会用它。</strong>这是管道接通问题，不是意愿问题；第 8.5 节专门处理它。</span>
+
+<h3>3.2 What this implies</h3>
+<p class="zhh3 zh">3.2 由此得出的推论</p>
+
+<p>The Product Book's underlying instincts hold up well. Own the client relationship instead of brokering it. Build a data asset that gains value over time. Serve a whole lifecycle, not one transaction. Never promise a government outcome. What the data changes is where the emphasis should sit. The people contacting the business today have already decided to migrate and are already living in Australia. So the platform's first job is to respond to that demand faster and more reliably than it does now. Selling additional things to those people comes after that, not before it.</p>
+<span class="zh-t">《产品册》的战略直觉是成立的：自持客户关系而非居间转介、建设可复利累积的数据资产、服务生命周期而非单次交易、不承诺政府审批结果。数据补充的是<strong>侧重点的修正</strong>：今天的需求在进线时已经具备明确意向，且人已在澳洲境内。因此平台的首要任务是更快、更可靠地响应既有需求——之后才谈得上向其销售更多产品。</span>
+
+<h3>3.3 An asset that already exists</h3>
+<p class="zhh3 zh">3.3 一项已经存在的资产</p>
+
+<p>The IT function built a staff and client portal for RedBridge Consulting and told the sales and CRM teams it was ready for testing in March 2026. Neither team tried it. The portal was never evaluated, so nothing is known about whether it would have worked for them. Going through the code has changed this proposal quite a lot, because a good deal of what Sections 5 to 8 describe has in fact already been written and works.</p>
+<span class="zh-t">IT 已为红桥咨询建成一套员工与客户门户，并于 2026 年 3 月告知销售与 CRM 团队可以开始测试。两个团队都没有试用。该门户从未被实际评估过，因此无从判断它是否适用于他们的工作方式。重新审阅其代码后，本提案发生了实质性调整：第 5 至第 8 节所描述的相当一部分内容，已经写好并可运行。</span>
+
+<table class="tight">
+<caption>Existing portal — capability against this proposal<span class="zh-t">现有门户系统 · 与本提案的能力对照</span></caption>
+<tr><th style="width:30%">Capability<span class="zh-t">能力</span></th><th style="width:15%">Status<span class="zh-t">状态</span></th><th style="width:55%">Notes<span class="zh-t">说明</span></th></tr>
+<tr><td>Authentication, invite and password flows<span class="zh-t">身份认证、邀请与密码流程</span></td><td><span class="pill p1">Built 已建</span></td><td>Supabase auth, invite and recovery handling, forced profile completion<span class="zh-t">Supabase 认证、邀请与找回处理、强制完善资料</span></td></tr>
+<tr><td>Staff directory, roles, approval gate<span class="zh-t">员工目录、角色与审批关卡</span></td><td><span class="pill p1">Built 已建</span></td><td>Departments including Law Firm; pending/approved states; role levels<span class="zh-t">部门含律所；待审／已批状态；角色层级</span></td></tr>
+<tr><td>Sales pipeline<span class="zh-t">销售管道</span></td><td><span class="pill p1">Built 已建</span></td><td>New Lead → Discovery → Strategy → Proposal → Contract Signed, with stage-specific loss reasons<span class="zh-t">新线索 → 需求了解 → 方案策略 → 报价 → 签约，并按阶段区分流失原因</span></td></tr>
+<tr><td>Lead detail, notes, tasks, interactions<span class="zh-t">线索详情、备注、任务、互动记录</span></td><td><span class="pill p1">Built 已建</span></td><td>Activity history, task completion, staff chat with attachments<span class="zh-t">活动历史、任务完成、可带附件的员工内部沟通</span></td></tr>
+<tr><td>Manual assignment<span class="zh-t">手动分配</span></td><td><span class="pill p2">Partial 部分</span></td><td>Assignment dropdown per lead exists. Target state: rules-based automatic assignment on arrival, with managers and team leaders able to reassign. Non-management roles cannot assign a lead away from themselves, assign themselves onto another lead, or see leads belonging to others<span class="zh-t">已有逐条线索的分配下拉框。目标状态：线索到达时按预设规则自动分配，经理与组长可再分配。非管理岗不得将线索转出、不得把自己指派到他人线索上，也不得查看他人名下的线索</span></td></tr>
+<tr><td>Qualification scoring<span class="zh-t">客资适配度评分</span></td><td><span class="pill p1">Built 已建</span></td><td>Weighted score across budget band, English test, work experience and visa history. <strong>Update the scoring logic to match what management actually uses</strong><span class="zh-t">按预算区间、英语成绩、工作年限与签证历史加权计分。<strong>评分逻辑须更新为管理层当前实际使用的逻辑</strong></span></td></tr>
+<tr><td>Family / dependent linking<span class="zh-t">家庭／副申关联</span></td><td><span class="pill p1">Built 已建</span></td><td>Addresses the primary and secondary/family modelling requirement in Section 8.1<span class="zh-t">已解决第 8.1 节主申与副申／家庭建模问题</span></td></tr>
+<tr><td>Fulfilment case management<span class="zh-t">履约案件管理</span></td><td><span class="pill p1">Built 已建</span></td><td>Milestone timeline, completion marking, document requests with templates — the core of Phase 2<span class="zh-t">里程碑时间轴、完成标记、带模板的材料索取——即第二阶段的核心</span></td></tr>
+<tr><td>Client portal<span class="zh-t">客户门户</span></td><td><span class="pill p1">Built 已建</span></td><td>Milestones, document requests, uploads, secure messaging, edit requests<span class="zh-t">里程碑、材料索取、上传、安全消息、修改申请</span></td></tr>
+<tr><td>Sales dashboard and leaderboard<span class="zh-t">销售看板与排行榜</span></td><td><span class="pill p1">Built 已建</span></td><td>Per-agent metrics, date ranges, trend charts<span class="zh-t">按顾问的指标、时间区间、趋势图</span></td></tr>
+<tr><td>Milestone reminders<span class="zh-t">里程碑提醒</span></td><td><span class="pill p1">Built 已建</span></td><td>Task-driven reminder view<span class="zh-t">基于任务的提醒视图</span></td></tr>
+<tr><td>Applicant tracking<span class="zh-t">招聘申请管理</span></td><td><span class="pill p1">Built 已建</span></td><td>Candidate pipeline with document links and hiring stages<span class="zh-t">候选人管道，含材料链接与招聘阶段</span></td></tr>
+<tr><td>Employer network register<span class="zh-t">雇主网络台账</span></td><td><span class="pill p4">Gap 缺口</span></td><td>A restricted register of existing and prospective employers, visible only to Super Admin and the board. Not an employer-facing portal — employers do not log in<span class="zh-t">现有与潜在雇主的受限台账，仅超级管理员与董事会可见。<strong>并非面向雇主的门户</strong>——雇主不登录该系统</span></td></tr>
+<tr><td>Automatic routing rules<span class="zh-t">自动分配规则</span></td><td><span class="pill p4">Gap 缺口</span></td><td>Assignment is manual, and so is the decision not to assign — which is why 2,829 leads carry no disposition at all<span class="zh-t">分配为手动操作，不分配这个决定同样是手动的——因此才有 2,829 条线索完全没有处置结论</span></td></tr>
+<tr><td>Deduplication at entry<span class="zh-t">录入端去重</span></td><td><span class="pill p2">Partial 部分</span></td><td>Website enquiries are verified by email address and carry a UUID, so a returning client does not duplicate. A second email address defeats this, and leads that never pass through the website form are unprotected — which is where the ~17% duplicate rate arises. Needs identity matching on WeChat and Xiaohongshu ID, plus a human review queue for near-matches<span class="zh-t">官网咨询以邮箱验证并生成 UUID，因此老客户再次留资不会重复。但换一个邮箱即可绕过；未经官网表单进入的线索则完全没有保护——约 17% 的重复率正源于此。需增加按微信号与小红书 ID 的身份匹配，并为疑似重复设置人工复核队列</span></td></tr>
+<tr><td>First-response SLA and escalation<span class="zh-t">首次响应时限与升级</span></td><td><span class="pill p4">Gap 缺口</span></td><td>No response timer or breach escalation<span class="zh-t">没有响应计时，也没有超时升级</span></td></tr>
+<tr><td>Campaign and creative attribution<span class="zh-t">投放计划与创意归因</span></td><td><span class="pill p1">Built 已建</span></td><td>Marketing source, UTM source, UTM campaign, lead created timestamp, Meta <em>fbc</em> and <em>fbp</em> identifiers, Facebook URL and Instagram handle are auto-collected or requested at enquiry. The gap is coverage of non-website sources, not the fields themselves<span class="zh-t">营销来源、UTM source、UTM campaign、线索创建时间、Meta 的 fbc 与 fbp 标识、Facebook 链接与 Instagram 账号，均在留资时自动采集或向客户询问。缺口在于非官网来源的覆盖，而非字段本身</span></td></tr>
+<tr><td>Funnel reporting on assignment and response<span class="zh-t">分配与响应的漏斗报表</span></td><td><span class="pill p4">Gap 缺口</span></td><td>Dashboards report volume and agent performance, not the gate itself<span class="zh-t">现有看板反映数量与顾问业绩，未反映闸门本身</span></td></tr>
+<tr><td>Money layer<span class="zh-t">资金层</span></td><td><span class="pill p2">Partial 部分</span></td><td>Deal value is entered against the lead in the sales pipeline and stored on the same record the CRM workspace reads, so the figure is technically already there. The CRM case view simply never shows it or lets anyone edit it, so staff re-key the number elsewhere and the two pipelines report different totals. Surfacing and editing it on the case panel is two to three days of work in Phase 1. The underlying principle still holds: value belongs to the client and the engagement, not to a pipeline stage. Quotes, contracts, milestone billing, payers, invoicing and payment rails are not present<span class="zh-t">成交金额录入在销售管道的线索记录上，而 CRM 工作区读取的正是同一条记录，因此数据本身已经在那里。问题在于 CRM 案件视图从不显示该字段、也无法编辑，员工只能另行重录，两条管道的合计数因此对不上。在案件面板上显示并允许编辑该字段，约需两到三天，属于第一阶段的工作。原则不变：金额归属于客户与委托本身，而不是归属于某个管道阶段。报价、合同、里程碑收费、付款人、开票与支付通道均未建设</span></td></tr>
+</table>
+
+<p>That matters for what comes next. Phase 1 is roughly ten weeks of engineering: automatic assignment, deduplication, response timing, attribution, and the reporting that shows whether any of it is working. But it's ten weeks of extension on a system that already runs, not ten weeks of building from nothing. The code is the predictable half. Getting the thing used is not.</p>
+<span class="zh-t"><strong>这一点意义重大。</strong>第一阶段约为十周开发——自动分配、去重、响应计时、归因，以及衡量这些环节的报表——但这十周是在一套可运行系统之上的扩展，而非从零开始的建设。代码是可预期的那一半；更难的那一半是：<strong>让它真正被使用</strong>。</span>
+
+
+
+<div class="note">
+  <span class="tag">Caveat · 数据说明</span>
+  <p>The register under-records downstream stages, showing 8 closes against an actual 35. Lead volume, paid share, assignment rate and duplicate rate are reliable; meeting and close counts drawn from it are not. Reliable measurement is therefore something Phase 1 delivers, and the case here does not assume it.</p>
+  <span class="zh-t">该台账对下游环节存在严重漏记：账面显示成交 8 笔，实际为 35 笔。线索数量、付费来源占比、分配率与重复率是可靠的；由该台账推得的面谈数与成交数则不可靠。因此可信的度量本身是第一阶段的交付物，而不是第一阶段的前提假设。</span>
+</div>
+
+<h2 class="sec" id="s4"><span class="num">Section 04</span>Design principles</h2>
+<p class="zhh zh">设计原则</p>
+
+<p>Seven principles sit behind every decision in the rest of this document. If a later section seems to pick one option over another without explaining itself, the reason is usually here.</p>
+<span class="zh-t">以下七条原则支配后文的每一项决定。若后续章节中某个选择看似武断，那是因为它由其中某一条原则所决定。</span>
+
+<h4>One client, one record</h4>
+<p class="zhh4 zh">一个客户，一份档案</p>
+<p>Someone who buys a A$120 experience and someone who signs a quarter-million-dollar engagement are the same kind of record in the system. Everything else (the booking, the case, the invoice, the family member who paid) hangs off that one record.</p>
+<span class="zh-t">购买 120 澳元体验活动的人，与签下 25 万澳元委托的人，在系统中属于同一类记录。其余一切都是与该记录之间的关系。</span>
+
+<h4>Configuration over code</h4>
+<p class="zhh4 zh">配置优先于代码</p>
+<p>Products, prices, milestone schedules, fee stages and visa pathways should all be changeable without a developer. Australian visa rules move, prices vary from one client to the next, and the Group will cut the product list back at some point. If any of those changes needs code, the platform will feel out of date within a year.</p>
+<span class="zh-t">产品、价格、里程碑安排、收费阶段与路径定义都是<strong>数据</strong>，不是代码。澳洲签证政策会变；产品定价因客户而异；集团也会在某个时点裁减产品线。若上述任一项的调整都需要开发人员介入，这个平台在一年之内就会严重老化。</span>
+
+<h4>Compliance as a mechanism, not a memo</h4>
+<p class="zhh4 zh">合规是机制，不是通知</p>
+<p>Each boundary in Section 08 of the Product Book becomes a control with someone accountable for it, a record of what happened, and the ability to stop an action that breaches it. A rule that only works when the person typing remembers it isn't a control.</p>
+<span class="zh-t">《产品册》第 08 节的每一条边界，都要落成系统中的一项控制，具备责任人、审计留痕与拦截行为。凡是依赖录入者记得的规则，都不算控制。</span>
+
+<h4>Evidence captured as a by-product of work</h4>
+<p class="zhh4 zh">证据随工作自然生成</p>
+<p>Deliverables, approvals, disclosures and consents get recorded at the moment they happen, not pieced together afterwards. In three years, that is the difference between a record that holds and one that doesn't.</p>
+<span class="zh-t">里程碑交付物、审批、披露与同意，均在发生当时记录，而非事后追补。这正是多年之后这份记录仍然可信的原因。</span>
+
+<h4>WeChat-first, not email-first</h4>
+<p class="zhh4 zh">以微信为先，而非以邮件为先</p>
+<p>Almost all the contact details in the register are WeChat; very few are email addresses. While Chinese-market clients remain the core revenue, notifications, follow-up and client identity all work on that basis, with email as the backup. If the Group takes the products global, email becomes the primary channel and the platform has to carry both without a rebuild.</p>
+<span class="zh-t">台账中的联系方式绝大多数是微信，邮箱覆盖率很低。只要中国市场客户仍是核心收入来源，通知、跟进与身份识别就以微信为主通道、邮件为备用。若集团将产品推向全球市场，邮件将成为主通道——平台必须同时支持两者，且无需重建。</span>
+
+<h4>Buy the commodity, build the differentiator</h4>
+<p class="zhh4 zh">通用能力外采，差异化能力自建</p>
+<p>Payment processing, document storage, e-signature, messaging and analytics are all things to buy. The lead engine, the case model, the milestone billing logic and the employer network are things to build, because they are what the business actually is.</p>
+<span class="zh-t">支付处理、文件存储、电子签名、邮件与分析工具，一律外采。线索引擎、案件模型、里程碑收费逻辑与雇主网络，一律自建——因为它们就是业务本身。</span>
+
+<h4>Nothing ships without measurement</h4>
+<p class="zhh4 zh">没有度量，不予上线</p>
+<p>Before we build a phase, we agree which numbers it should move. The platform then reports them. A business whose own register understated its signed clients by a factor of four cannot afford to build something else it has no way of measuring.</p>
+<span class="zh-t">每个阶段在动工之前先明确它要改变哪些数字，并由平台负责呈现这些数字。一家连自己成交了多少单都统计不准的公司，无法管理一个自己无法度量的平台。</span>
+
+<h2 class="sec" id="s5"><span class="num">Section 05</span>Target architecture</h2>
+<p class="zhh zh">目标架构</p>
+
+<h3>5.0 The stack, and why it is not off-the-shelf</h3>
+<p class="zhh3 zh">5.0 技术栈，以及为何不采用现成产品</p>
+
+<p>The stack below is the one the existing portal already runs on. Naming it here is not a proposal to adopt something new; it is a statement of what Phase 1 extends, and it is the reason a ten-week estimate is credible.</p>
+<span class="zh-t">下表列出的技术栈，正是现有门户已经在使用的那一套。此处列出并非提议引入新技术，而是说明第一阶段是在什么基础上扩展——这也是十周排期之所以可信的原因。</span>
+
+<table>
+<caption>Current stack and what each part does<span class="zh-t">现有技术栈及各部分职责</span></caption>
+<tr><th style="width:26%">Component<span class="zh-t">组成</span></th><th style="width:74%">What it does for the business<span class="zh-t">对业务的作用</span></th></tr>
+<tr><td><strong>Supabase / PostgreSQL</strong></td><td>Holds the client record and the money record. The database enforces row-level security, so a person's role decides what they see at query time, rather than which buttons the page hides. This is what makes the legal-matter split in 8.3 enforceable rather than cosmetic<span class="zh-t">承载客户主档案与资金记录。数据库在行级强制执行安全策略：查询时由用户角色决定其可见范围，而不取决于页面隐藏了哪些按钮。这正是 8.3 节法律案件隔离得以真正生效、而非流于表面的基础</span></td></tr>
+<tr><td><strong>Cloudflare Pages &amp; Workers</strong></td><td>Hosting and server-side logic without servers to maintain. Routing rules, the response clock and the Xiaohongshu import all run here, on a schedule, without anyone starting them<span class="zh-t">托管与服务端逻辑，无需自行维护服务器。分配规则、响应计时与小红书导入均在此按计划自动运行，无需人工触发</span></td></tr>
+<tr><td><strong>Next.js and TypeScript</strong></td><td>The public website already runs on this. Moving the portal onto it puts both on one stack, one build and one deployment, which matters when one developer maintains everything. TypeScript checks every database field at build time, so a mistyped column name fails before release instead of silently in production. The portal's existing screens migrate as they are worked on; new screens are built here from the start<span class="zh-t">公开官网已采用该技术栈。将门户迁移至同一栈上，可实现单一技术栈、单一构建与单一部署——在仅有一名开发人员维护全部系统的情况下，这一点很关键。TypeScript 在构建阶段即校验每个数据库字段，列名写错会在发布前报错，而不是在生产环境中静默出错。门户现有页面在改动时逐步迁移，新页面则直接以该技术栈开发</span></td></tr>
+<tr><td><strong>Transactional email provider</strong></td><td>Password resets, client portal links and system notices. Test deliverability to Chinese and Australian inboxes before launch. Most client contact runs on WeChat, so email is the fallback and nobody finds out it is broken until it matters<span class="zh-t">密码重置、客户门户链接与系统通知。中澳两地邮箱的送达率应在上线前实测，不应默认成立——客户联系方式以微信为主，邮件属于备用通道</span></td></tr>
+</table>
+
+<p>The migration is incremental by design. Rebuilding all ten existing screens before Phase 1 starts would delay the only work with a measurable return, and rebuilding them after would mean writing the Phase 1 features twice. So the new surfaces are built on the new stack from the first day, and the older screens move across as they are touched. Nothing stops working while it happens.</p>
+<span class="zh-t">迁移在设计上是渐进式的。若在第一阶段启动前重写全部十个现有页面，会拖延唯一具备可衡量回报的工作；若在其后重写，则意味着第一阶段的功能要写两遍。因此，新增页面从第一天起即采用新技术栈，既有页面则在被改动时同步迁移。整个过程中系统不会停摆。</span>
+
+<p>The case against a packaged CRM is narrower than it is usually put. Off-the-shelf tools handle pipelines well. What they do not handle is this business's specific shape: leads arriving from Xiaohongshu with no API, a WeChat-first contact model where email is the exception, engagements measured in years with milestone billing in two currencies, and a legal-matter boundary that has to hold at row level. Every one of those would be a workaround in a packaged product, and workarounds are what staff stop using.</p>
+<span class="zh-t">反对采用现成 CRM 的理由，比通常的说法要具体得多。成熟产品处理销售管道并无问题；它们处理不了的是这项业务的特定形态：线索来自没有 API 的小红书；联系方式以微信为主、邮件反而是例外；委托周期以年计并涉及双币种里程碑收费；法律案件的隔离必须在数据行层面成立。上述每一项在现成产品中都只能靠变通实现，而变通方案正是员工最终弃用系统的原因。</span>
+
+<div class="decision">
+  <span class="tag">What building it ourselves does not remove · 自建无法消除的问题</span>
+  <p>Building it yourself means owning the maintenance, the security review and the key-person risk already noted in Section 14. The stack above is chosen to keep all three small: one database, one hosting platform, no framework, and row-level policies that are reviewed and documented before the portal holds payment or matter data.</p>
+  <span class="zh-t">自建意味着自行承担维护、安全审查，以及第 14 节已列出的关键人依赖风险。上述技术栈的选择正是为了把这三项都控制在最小范围：一个数据库、一个托管平台、不引入框架，并在门户开始承载支付或案件数据之前，完成行级安全策略的审查与文档化。</span>
+</div>
+
+<h3>5.1 The shape of the system</h3>
+<p class="zhh3 zh">5.1 系统的整体形态</p>
+<p>Eight surfaces sitting on one spine. The spine is two systems of record. One holds people and the relationships between them. The other holds money and what is owed. Every surface reads from those two and writes back to them.</p>
+<span class="zh-t">八个界面，一条中枢。中枢由两套记录系统构成——一套记录人与关系，一套记录资金与义务——所有界面都从中读取、向其写入。</span>
+
+<table>
+<caption>Component responsibilities<span class="zh-t">各组件的职责</span></caption>
+<tr><th style="width:22%">Surface<span class="zh-t">界面</span></th><th style="width:40%">Owns<span class="zh-t">负责</span></th><th style="width:38%">Reads from<span class="zh-t">数据来源</span></th></tr>
+<tr><td><strong>Public website</strong><span class="zh-t">公开官网</span></td><td>Content, product presentation, enquiry capture, search visibility<span class="zh-t">内容、产品呈现、咨询留资、搜索可见性</span></td><td>CMS, product catalogue<span class="zh-t">内容管理、产品目录</span></td></tr>
+<tr><td><strong>Web application</strong><span class="zh-t">网页应用</span></td><td>Authenticated prospect and client experience<span class="zh-t">潜客与客户的登录后体验</span></td><td>Client record, orders, cases<span class="zh-t">客户主档案、订单、案件</span></td></tr>
+<tr><td><strong>CRM portal</strong><span class="zh-t">CRM 门户</span></td><td>Leads, deduplication, routing, pipeline, activity, follow-up<span class="zh-t">线索、去重、分配、管道、活动、跟进</span></td><td>Client record<span class="zh-t">客户主档案</span></td></tr>
+<tr><td><strong>Staff portal</strong><span class="zh-t">员工门户</span></td><td>Case and delivery management, approvals, supplier records<span class="zh-t">案件与交付管理、审批、供应商记录</span></td><td>All<span class="zh-t">全部</span></td></tr>
+<tr><td><strong>Client portal</strong><span class="zh-t">客户门户</span></td><td>Documents, milestone visibility, statements, messaging<span class="zh-t">材料、里程碑进度、账务明细、消息</span></td><td>Cases, money record<span class="zh-t">案件、资金记录</span></td></tr>
+<tr><td><strong>Booking system</strong><span class="zh-t">预订系统</span></td><td>Availability, capacity, departures, amendments<span class="zh-t">可售库存、容量、出发团期、变更</span></td><td>Product catalogue, client record<span class="zh-t">产品目录、客户主档案</span></td></tr>
+<tr><td><strong>Checkout &amp; payments</strong><span class="zh-t">结算与支付</span></td><td>Quotes, orders, invoices, rails, reconciliation, refunds<span class="zh-t">报价、订单、发票、支付通道、对账、退款</span></td><td>Money record<span class="zh-t">资金记录</span></td></tr>
+<tr><td><strong>CMS portal</strong><span class="zh-t">内容管理门户</span></td><td>Articles, translations, review workflow, publication<span class="zh-t">文章、翻译、审核流程、发布</span></td><td>—</td></tr>
+<tr><td><strong>Employer register</strong><span class="zh-t">雇主台账</span></td><td>Employers, sponsorship status, verification history, restricted access<span class="zh-t">雇主、担保资格状态、核查历史、受限访问</span></td><td>Client record<span class="zh-t">客户主档案</span></td></tr>
+</table>
+
+<h3>5.1a The two systems of record</h3>
+<p class="zhh3 zh">5.1a 两套记录系统</p>
+<p><strong>The client record</strong> holds people, households, organisations, relationships, consents and the full interaction history. It is the Product Book's <span class="zh">客户主档案</span> made concrete, and it is the asset the Product Book correctly identifies as the Group's most durable.</p>
+<span class="zh-t"><strong>客户记录</strong>保存个人、家庭、机构、关系、授权同意与完整互动历史。它就是《产品册》中客户主档案的具体落地形态，也是《产品册》正确指认的、集团最具持久性的资产。</span>
+<p><strong>The money record</strong> holds quotes, contracts, milestone schedules, invoices, payments, payers, refunds and exposure. It is deliberately separate, because money has different retention, audit and access requirements from relationship data.</p>
+<span class="zh-t"><strong>资金记录</strong>保存报价、合同、里程碑安排、发票、收款、付款人、退款与风险敞口。它被刻意独立设置，因为资金数据在留存期限、审计与访问权限上的要求与关系数据不同。</span>
+
+<h3>5.2 The complete map</h3>
+<p class="zhh3 zh">5.2 全景地图</p>
+
+<p>Every surface the Product Book asks for, and what state each is in today. Tags read: <span class="sm-t sm-b">built</span> already running, <span class="sm-t sm-n">phase 1</span> in the first ten weeks, <span class="sm-t sm-l">later</span> a subsequent phase. Section 11 governs when the later ones enter, and none of them enters without evidence of demand.</p>
+<span class="zh-t">下表列出《产品册》所要求的全部界面，以及各自当前的状态。标记含义：<span class="sm-t sm-b">built</span> 已在运行；<span class="sm-t sm-n">phase 1</span> 属于第一阶段十周内的工作；<span class="sm-t sm-l">later</span> 属于后续阶段。后续阶段的进入时点由第 11 节约束，且任何一项都须先有需求证据。</span>
+
+<div class="sitemap">
+
+<div class="sm-card">
+  <h5>Migration — product 12</h5>
+  <p class="smzh">移民业务 · 产品 12</p>
+  <p class="smsub">RedBridge Consulting. Live today. 红桥咨询，现已上线。</p>
+  <div class="sm-grp">Site pages 站内页面 <span class="sm-t sm-b">built</span></div>
+  <ul>
+    <li>Home, about, employer pages 首页、关于我们、雇主页面</li>
+    <li>Pathway pages 各签证路径页</li>
+    <li>Fees and inclusions 收费与服务范围</li>
+  </ul>
+  <div class="sm-grp">Consultation booking 咨询预约</div>
+  <ul>
+    <li>Eight-step qualification form 八步资格问卷 <span class="sm-t sm-b">built</span></li>
+    <li>Visa status, occupation, experience, English 签证状态、职业、经验、英语</li>
+    <li>Calendar slot, no payment 预约时段，不涉及付款</li>
+    <li>Posts to the lead register 写入线索台账 <span class="sm-t sm-n">phase 1</span></li>
+  </ul>
+  <div class="sm-grp">Engagement, after consultation 咨询之后的委托</div>
+  <ul>
+    <li>Quote 报价</li>
+    <li>Contract, signed on paper 合同，纸质签署</li>
+    <li>Milestone invoices across four stages 四阶段里程碑开票</li>
+    <li>No checkout at any point 全程不经过结算流程</li>
+  </ul>
+</div>
+
+<div class="sm-card">
+  <h5>Other lines — products 1 to 11</h5>
+  <p class="smzh">其他业务线 · 产品 1 至 11</p>
+  <p class="smsub">Not built. Enters only against demand. 尚未建设，须凭需求证据方可进入。</p>
+  <div class="sm-grp">Site pages 站内页面 <span class="sm-t sm-l">later</span></div>
+  <ul>
+    <li>Line overview 业务线总览</li>
+    <li>Product detail 产品详情</li>
+    <li>Availability and dates 库存与档期</li>
+  </ul>
+  <div class="sm-grp">Product booking 产品预订 <span class="sm-t sm-l">later</span></div>
+  <ul>
+    <li>Dates, party size, options 日期、人数、可选项</li>
+    <li>Request to book, or instant confirm 申请预订，或即时确认</li>
+    <li>Hold and expiry 库存锁定与失效</li>
+  </ul>
+  <div class="sm-grp">Checkout 结算 <span class="sm-t sm-l">later</span></div>
+  <ul>
+    <li>Order summary 订单摘要</li>
+    <li>Traveller and payer details 出行人与付款人信息</li>
+    <li>Payment, AUD or CNY, four rails 付款：澳元或人民币，四条通道</li>
+    <li>Confirmation and receipt 确认与收据</li>
+    <li>Account created on first purchase 首次购买时自动建户</li>
+  </ul>
+</div>
+
+<div class="sm-card wide">
+  <h5>RGL group site</h5>
+  <p class="smzh">红桥全球旅居 · 集团站</p>
+  <p class="smsub">Umbrella. RedBridge sits under it as a named line. 母品牌站点，红桥作为具名业务线位于其下。</p>
+  <div class="sm-grp">Group pages 集团页面 <span class="sm-t sm-l">later</span></div>
+  <ul>
+    <li>Home, with hero video, positioning and the primary enquiry path 首页：品牌视频、定位陈述与主要咨询入口</li>
+    <li>About, licensing and credentials, contact, legal and privacy 关于我们、资质与持牌信息、联系方式、法律与隐私</li>
+  </ul>
+  <div class="sm-grp">Content 内容 <span class="sm-t sm-l">later</span></div>
+  <ul>
+    <li>Article index, article pages, and question-and-answer pages built from the search-term library 文章索引页、文章页，以及依据搜索词库建设的问答页</li>
+  </ul>
+</div>
+
+<div class="sm-card">
+  <h5>Client portal</h5>
+  <p class="smzh">客户门户</p>
+  <p class="smsub">Signed in. Both paths land here. 需登录；两条路径最终都汇入此处。</p>
+  <ul>
+    <li>Dashboard 概览</li>
+    <li>My bookings 我的预订 <span class="sm-t sm-b">built</span></li>
+    <li>Case milestones 案件里程碑 <span class="sm-t sm-b">built</span></li>
+    <li>Documents requested and uploaded 材料索取与上传 <span class="sm-t sm-b">built</span></li>
+    <li>Statements and payment history 对账单与付款记录</li>
+    <li>Messages 消息 <span class="sm-t sm-b">built</span></li>
+    <li>Profile and preferences 个人资料与偏好</li>
+  </ul>
+</div>
+
+<div class="sm-card">
+  <h5>Staff portal</h5>
+  <p class="smzh">员工门户</p>
+  <p class="smsub">Signed in. Role and region scoped. 需登录；按角色与区域限定可见范围。</p>
+  <ul>
+    <li>Overview dashboard 总览面板 <span class="sm-t sm-b">built</span></li>
+    <li>Triage inbox 分诊收件箱 <span class="sm-t sm-n">phase 1</span></li>
+    <li>Leads 线索 <span class="sm-t sm-b">built</span></li>
+    <li>Sales workspace 销售工作台 <span class="sm-t sm-b">built</span></li>
+    <li>CRM workspace, cases CRM 工作台与案件 <span class="sm-t sm-b">built</span></li>
+    <li>Document requests 材料索取 <span class="sm-t sm-b">built</span></li>
+    <li>Reminders 提醒 <span class="sm-t sm-b">built</span></li>
+    <li>Consultation calendar 咨询日程</li>
+    <li>Bookings administration 预订管理</li>
+    <li>Invoices and reconciliation 开票与对账</li>
+    <li>Funnel and unit reporting 漏斗与单元报表 <span class="sm-t sm-n">phase 1</span></li>
+    <li>HR applicants 招聘申请 <span class="sm-t sm-b">built</span></li>
+    <li>Profile 个人资料 <span class="sm-t sm-b">built</span></li>
+  </ul>
+</div>
+
+<div class="sm-card wide">
+  <h5>Restricted</h5>
+  <p class="smzh">受限访问</p>
+  <p class="smsub">Super admin, legal role, and board only. 仅超级管理员、法务角色与董事会可见。</p>
+  <div class="sm-grp">CMS 内容管理</div>
+  <ul>
+    <li>Articles and product content, translation workflow, review gate before publish 文章与产品内容、翻译流程、发布前审核关卡</li>
+    <li>Media library, including the hero video 媒体库，含首页品牌视频</li>
+  </ul>
+  <div class="sm-grp">Administration 系统管理</div>
+  <ul>
+    <li>User management 用户管理 <span class="sm-t sm-b">built</span>; employer network register, with no employer sign-in 雇主资源库，雇主不设登录入口</li>
+    <li>Audit and access logs, retention and deletion log, system settings 审计与访问日志、留存与销毁日志、系统设置</li>
+  </ul>
+</div>
+
+</div>
+
+<p>Two things on this map are commonly conflated and behave differently. Products 1 to 11 book a product, which means dates, party size, payment and confirmation. Product 12 books a consultation, which means a calendar slot with no payment, before anything is bought. The engagement that follows is quoted, contracted and billed by milestone, so product 12 never passes through checkout at all. Section 6 keeps the two apart in the transaction model.</p>
+<span class="zh-t">图中有两件事常被混为一谈，但它们的运作方式并不相同。产品 1 至 11 预约的是<strong>产品</strong>：日期、人数、付款、确认。产品 12 预约的是<strong>咨询</strong>：一个日程时段，不涉及付款，且发生在任何购买之前；其后的委托通过报价、签约、按里程碑收费完成，因此产品 12 全程不经过结算流程。第 6 节在交易模型中将两者分开处理。</span>
+
+<h3>5.3 Build, buy and integrate</h3>
+<p class="zhh3 zh">5.3 自建、外采与集成</p>
+
+<table class="tight">
+<caption>Build-versus-buy posture<span class="zh-t">自建与外采的取向</span></caption>
+<tr><th style="width:30%">Capability<span class="zh-t">能力</span></th><th style="width:16%">Posture<span class="zh-t">取向</span></th><th style="width:54%">Reasoning<span class="zh-t">理由</span></th></tr>
+<tr><td>Payment processing and rails<span class="zh-t">支付处理与通道</span></td><td><span class="pill p3">Buy 外采</span></td><td>Regulated, commoditised; a provider supporting cards, PayID, Alipay and WeChat Pay reduces PCI scope dramatically<span class="zh-t">受监管且高度标准化；选用同时支持银行卡、PayID、支付宝与微信支付的服务商可大幅缩小 PCI 合规范围</span></td></tr>
+<tr><td>Document storage<span class="zh-t">文件存储</span></td><td><span class="pill p1">In place 已有</span></td><td>Supabase storage, already in use by the existing portal<span class="zh-t">Supabase 存储，现有门户已在使用</span></td></tr>
+<tr><td>E-signature<span class="zh-t">电子签名</span></td><td><span class="pill p3">Buy 外采</span></td><td>Buildable, but not worth building — see 5.4<span class="zh-t">技术上可自建，但不值得自建——见 5.4</span></td></tr>
+<tr><td>Accounting ledger<span class="zh-t">会计总账</span></td><td><span class="pill p3">Buy 外采</span></td><td>The platform pushes to it; it never becomes the accounting system<span class="zh-t">平台向其推送数据；平台本身绝不充当会计系统</span></td></tr>
+<tr><td>Email, SMS, WeChat messaging<span class="zh-t">邮件、短信、微信触达</span></td><td><span class="pill p3">Buy 外采</span></td><td>Commodity<span class="zh-t">通用能力</span></td></tr>
+<tr><td>Lead engine and routing<span class="zh-t">线索引擎与分配</span></td><td><span class="pill p4">Build 自建</span></td><td>The differentiator; off-the-shelf CRMs do not model this business's routing or dedup needs<span class="zh-t">差异化所在；市售 CRM 无法刻画本业务的分配与去重需求</span></td></tr>
+<tr><td>Case and milestone model<span class="zh-t">案件与里程碑模型</span></td><td><span class="pill p4">Build 自建</span></td><td>A multi-year professional engagement is not a booking<span class="zh-t">跨年度的专业服务委托不是一次预订</span></td></tr>
+<tr><td>Milestone billing logic<span class="zh-t">里程碑收费逻辑</span></td><td><span class="pill p4">Build 自建</span></td><td>Per-engagement schedules; no standard product fits<span class="zh-t">每份委托的收费安排各不相同；没有标准产品能够适配</span></td></tr>
+<tr><td>Employer network<span class="zh-t">雇主网络</span></td><td><span class="pill p4">Build 自建</span></td><td>The Group's most defensible asset<span class="zh-t">集团壁垒最高的资产</span></td></tr>
+<tr><td>Booking and availability<span class="zh-t">预订与库存</span></td><td><span class="pill p2">Assess 待评估</span></td><td>Buy if the experience products proceed at volume; otherwise build thin<span class="zh-t">若体验类产品形成规模则外采；否则轻量自建</span></td></tr>
+<tr><td>CMS<span class="zh-t">内容管理系统</span></td><td><span class="pill p2">Assess 待评估</span></td><td>A headless CMS is likely cheaper than building; the review gate is built on top either way<span class="zh-t">采用无头 CMS 很可能比自建更省；无论哪种方式，审核关卡都需自建于其上</span></td></tr>
+</table>
+
+<h3>5.4 E-signature: build or buy</h3>
+<p class="zhh3 zh">5.4 电子签名：自建还是外采</p>
+
+<p><strong>Can it be built?</strong> Yes. The mechanics are not exotic. Capture a drawn or typed signature, hash the document, record signer identity, email verification, IP address, user agent and timestamp, then seal a PDF with an audit trail appended. This can be built in two to three weeks.</p>
+<span class="zh-t"><strong>能自建吗？</strong>能。技术上并不复杂：采集手写或输入的签名、对文件做哈希、记录签署人身份、邮箱验证、IP、浏览器信息与时间戳，最后生成附带审计留痕的密封 PDF。该功能约需两到三周完成。</span>
+
+<p><strong>Is it legally effective?</strong> Under Australian electronic transactions legislation, an electronic signature is generally valid where the signer is identified, their intention is indicated, the method is as reliable as appropriate for the purpose, and the other party consents. A self-built system can satisfy that. So the question is not legality.</p>
+<span class="zh-t"><strong>法律上有效吗？</strong>依据澳洲电子交易相关立法，电子签名在满足以下条件时通常有效：能识别签署人、能体现其签署意图、所用方法就用途而言足够可靠、且对方同意采用。自建系统可以满足这些条件。因此问题不在于合法性。</span>
+
+<p><strong>The question is evidentiary.</strong> If a A$220,000–270,000 engagement is ever disputed, the signature has to survive challenge, and the firm would be defending its own implementation instead of pointing at an industry-standard certificate and a vendor who produces a court-ready audit trail. Add key management, tamper-evidence, long-term validation and ongoing maintenance, and the cost of a build exceeds a subscription many times over.</p>
+<span class="zh-t"><strong>真正的问题在于举证。</strong>一旦 22–27 万澳元的委托发生争议，签名必须经得起质疑——而那时你要为自己的实现方式辩护，而不是出示一份行业标准证书、并由服务商提供可直接呈堂的审计记录。再加上密钥管理、防篡改、长期有效性验证与持续维护，自建的总成本远高于订阅费用。</span>
+
+<table class="tight">
+<caption>E-signature — risk summary<span class="zh-t">电子签名 · 风险摘要</span></caption>
+<tr><th style="width:30%">Dimension<span class="zh-t">维度</span></th><th style="width:22%">Build<span class="zh-t">自建</span></th><th style="width:48%">Comment<span class="zh-t">说明</span></th></tr>
+<tr><td>Technical difficulty<span class="zh-t">技术难度</span></td><td><span class="pill p2">Moderate 中等</span></td><td>1–2 weeks for a working implementation<span class="zh-t">可运行版本约需 1–2 周</span></td></tr>
+<tr><td>Legal validity<span class="zh-t">法律效力</span></td><td><span class="pill p1">Achievable 可达成</span></td><td>Satisfiable with identity, intent, reliability and consent<span class="zh-t">满足身份、意图、可靠性与同意即可</span></td></tr>
+<tr><td>Evidentiary strength if disputed<span class="zh-t">争议时的举证强度</span></td><td><span class="pill p4">Weak 弱</span></td><td>The decisive factor at this contract value<span class="zh-t">在这一合同金额下，这是决定性因素</span></td></tr>
+<tr><td>Maintenance burden<span class="zh-t">维护负担</span></td><td><span class="pill p4">High 高</span></td><td>Falls on a single developer indefinitely<span class="zh-t">将无限期落在唯一开发人员身上</span></td></tr>
+</table>
+
+<p><strong>Recommendation: paper for the Client Agreement, electronic for everything else.</strong> The portal runs the whole envelope either way. It fills the contract from the client record, sends it, tracks it, files the executed copy against the case and moves the stage forward. That automation is worth having, and none of it depends on how the signature itself is captured.</p>
+<span class="zh-t"><strong>建议：《客户协议》用纸质签署，其余文件电子签署。</strong>无论采用哪种方式，整个流程仍由门户承载：从客户档案填充合同、发出、跟踪状态、将已签署文件归档至对应案件，并推进阶段。这套自动化本身是有价值的，且不依赖签名如何采集。</span>
+
+<p>For the Client Agreement, the signature stays on paper. Of the eight signings the register records, six have a documented in-person meeting and seven are onshore, six of those in Melbourne. The firm also has a Chengdu branch, so face-to-face signing is available on both sides of the relationship. At roughly 35 signings a year, a signature given in person, scanned and filed against the record, is the strongest evidence available and costs nothing. Thirty-five sheets of paper a year is a cheap way to remove the argument entirely from the one document carrying a quarter of a million dollars.</p>
+<span class="zh-t">《客户协议》的签署保留纸质形式。台账记录的 8 笔成交中，6 笔有明确的线下面谈记录，7 笔客户在澳洲境内（其中 6 笔在墨尔本）。公司在成都亦设有分支，因此当面签署在中澳两端都具备条件。按每年约 35 份签约计算，当面签署、扫描并归档的签名，是可获得的最强证据，且成本为零。每年 35 页纸，就能把争议从这份涉及 25 万澳元的文件上彻底移除，这个代价很便宜。</span>
+
+<p>Everything else signs electronically in the portal: engagement letters, variations, consents, acknowledgements, and any internal document where an audit trail is useful but a dispute is not plausible.</p>
+<span class="zh-t">其余文件在门户内电子签署：委托说明函、变更协议、各类同意书与确认函，以及任何留痕有用、但几乎不可能产生争议的内部文件。</span>
+
+<div class="decision">
+  <span class="tag">What hardening fixes, and what it doesn't · 加固能解决与不能解决的问题</span>
+  <p>Three measures raise the built system's evidentiary strength at no cost. An independent timestamp on every executed document, issued by a public authority outside the company. A copy emailed to the signer as they sign, so they hold evidence through a channel neither party controls. And storage the company itself cannot alter afterwards. Together these answer most of what a vendor's certificate answers.</p>
+  <span class="zh-t">有三项措施可以零成本提升自建系统的举证强度：由公司之外的公共权威机构，对每份已签署文件签发独立时间戳；在客户签署的同时把副本发送至其邮箱，使其通过双方都不控制的渠道持有证据；以及采用公司自身事后也无法更改的存储方式。三者合计，可以覆盖服务商证书所能回答问题的大部分。</span>
+  <p>What they do not remove is that the system belongs to us, and that we administer it. On a document worth A$220,000–270,000 that residual is not worth carrying when paper is free.</p>
+  <span class="zh-t">它们无法消除的是：这套系统归我方所有、由我方管理。对于一份价值 22–27 万澳元的文件而言，在纸质签署完全免费的前提下，这部分残余风险不值得承担。</span>
+</div>
+
+<p>The Client Agreement should include a clause in which the client consents to electronic execution and accepts the portal's audit record as evidence. The legislation already requires consent. Obtaining it in writing, in advance, closes a line of argument before it opens.</p>
+<span class="zh-t">《客户协议》中应加入条款，由客户确认同意以电子方式签署，并接受门户的留痕记录作为证据。相关立法本就要求取得同意；事先以书面形式取得，可以在争议出现之前就关闭这条抗辩路径。</span>
+
+<div class="decision">
+  <span class="tag">Send on a click, not on a stage change · 由点击触发，而非由阶段变更触发</span>
+  <p>Because the firm agrees price per engagement across a range, a representative generates and sends each contract deliberately, working from a preview. The system never fires one when someone changes a dropdown. Automatic dispatch on stage change would eventually put a wrongly-priced contract in front of a client, and the firm cannot recover from that.</p>
+  <span class="zh-t">价格由公司按每份委托在区间内单独议定，因此由销售在预览后主动生成并发出合同；系统绝不会因某人改动下拉选项而自动触发。若以阶段变更自动发送，迟早会让客户拿到一份价格错误的合同，而公司无法挽回这类错误。</span>
+</div>
+
+<h2 class="sec" id="s6"><span class="num">Section 06</span>Product-to-system mapping</h2>
+<p class="zhh zh">产品与系统映射</p>
+
+<p>The twelve products in the Product Book are not twelve versions of the same transaction. They come down to five different transaction types. Building five of those properly is achievable; building twelve separate products as twelve separate features is not.</p>
+<span class="zh-t">《产品册》中的十二项产品并非同一种交易的十二个变体，它们可归结为<strong>五种交易模型</strong>。把五种模型做好是可行的；把十二项产品当作十二个功能来做则不可行。</span>
+
+<table>
+<caption>Transaction models<span class="zh-t">五种交易模型</span></caption>
+<tr><th style="width:20%">Model<span class="zh-t">模型</span></th><th style="width:26%">Products<span class="zh-t">对应产品</span></th><th style="width:54%">What the system must do<span class="zh-t">系统需要具备的能力</span></th></tr>
+<tr><td><strong>Ticketed</strong><span class="zh-t">票务型</span></td><td>07 LocalLink, 08 Taste Network</td><td>Fixed capacity, instant confirmation, QR admission, simple refunds<span class="zh-t">固定容量、即时确认、二维码核销、简单退款</span></td></tr>
+<tr><td><strong>Group departure</strong><span class="zh-t">成团出发型</span></td><td>03 Studyscape, some 07</td><td>Minimum numbers, deposit-and-confirm, automatic go/no-go at a cut-off, participant documents<span class="zh-t">最低成团人数、定金后确认、截止日自动判定成团与否、参团人材料</span></td></tr>
+<tr><td><strong>Quoted engagement</strong><span class="zh-t">报价委托型</span></td><td>01 BridgeStart, 06 Signature Journey, 02</td><td>Enquiry, itinerary or proposal, revision control, approval for non-standard pricing, deposit and balance<span class="zh-t">咨询、行程或方案、修改版本管理、非标价格审批、定金与尾款</span></td></tr>
+<tr><td><strong>Subscription / programme</strong><span class="zh-t">订阅／课程型</span></td><td>05 Career Lab, 09 LocalReady, 11 Silver Horizon</td><td>Recurring or cohort-based enrolment, sessions, progress<span class="zh-t">周期性或按期开班的报名、课次、进度</span></td></tr>
+<tr><td><strong>Multi-year case</strong><span class="zh-t">跨年度案件型</span></td><td>12 Relocation programme</td><td>Charter, milestones, document collection, staged billing, risk register, multi-party access over 6–48 months<span class="zh-t">项目章程、里程碑、材料收集、分阶段收费、风险登记册、6–48 个月的多方访问</span></td></tr>
+</table>
+
+<p><strong>Product 12 is the existing RedBridge Consulting business.</strong> The four-stage employer-sponsorship engagement described in the Product Book is what the firm already sells today. It isn't a new product to be designed. The Product Book adds a wrapper of settlement and relocation services around it; the engagement at its centre already exists, already converts, and already produces essentially all revenue.</p>
+<span class="zh-t"><strong>产品 12 就是红桥咨询现有的业务。</strong>《产品册》中描述的四阶段雇主担保委托，正是该公司今天已在销售的服务——它不是一项有待设计的新产品。《产品册》在其外围加了一层落地与迁居服务；而处于核心的那份委托早已存在、早已能够成交，并且贡献了几乎全部收入。</span>
+
+<p>Product 12 is worth dwelling on. It looks like a booking. It is <strong>case management with staged billing attached</strong>. Building it inside a reservations engine is the most expensive structural mistake on offer in this project, and it's where almost all the current revenue comes from.</p>
+<span class="zh-t">产品 12 尤须强调：<strong>它根本不是预订类产品</strong>，而是附带分阶段收费的案件管理。把它建在预订引擎之内，是本项目中代价最高的结构性错误——而目前绝大部分收入恰恰来自这项产品。</span>
+
+<p>Product 10 (CitySoul) is a user-generated content platform and carries content-moderation and platform-liability obligations that none of the other eleven do. It is treated in this proposal as a Phase 4 candidate requiring a separate decision.</p>
+<span class="zh-t">产品 10（CitySoul）属于用户生成内容平台，承担着其余十一项产品都不涉及的内容审核与平台责任义务。本提案将其列为第四阶段的备选项，需另行决策。</span>
+
+<h2 class="sec" id="s7"><span class="num">Section 07</span>Payments and money</h2>
+<p class="zhh zh">支付与资金架构</p>
+
+<h3>7.1 Currencies</h3>
+<p class="zhh3 zh">7.1 币种</p>
+<p>Pricing and settlement in <strong>AUD</strong>, with <strong>CNY</strong> accepted at checkout. There is a material difference between <em>pricing</em> in CNY and <em>collecting</em> in CNY, and the Group has to pick one:</p>
+<span class="zh-t">以<strong>澳元</strong>定价与结算，收银环节接受<strong>人民币</strong>付款。以人民币<em>定价</em>与以人民币<em>收款</em>是两件性质不同的事，需明确决策：</span>
+<ul>
+  <li><strong>Accept CNY, settle AUD.</strong> The provider converts; RGL's exposure is limited to the movement between quote and payment. Recommended default.
+  <span class="zh-t"><strong>收人民币、结澳元。</strong>由服务商换汇；红桥的汇率敞口仅限于报价到付款之间的波动。<strong>建议采用此方案。</strong></span></li>
+  <li><strong>Price in CNY.</strong> Places FX risk on RGL across engagements billed over months or years. Requires a quote validity window and a re-pricing rule.
+  <span class="zh-t"><strong>以人民币定价。</strong>在跨月甚至跨年收费的委托中，将汇率风险转移到红桥身上，需设定报价有效期与重新定价规则。</span></li>
+  <li><strong>Collect CNY onshore in China.</strong> A structural question about entities and accounts, not a payment-provider question. Out of scope here; refer to the accountant.
+  <span class="zh-t"><strong>在中国境内收取人民币。</strong>这是关于主体与账户的架构问题，不是支付服务商的问题。不在本提案范围内，应交由会计师处理。</span></li>
+</ul>
+
+<div class="note">
+  <span class="tag">Current practice · 现状</span>
+  <p>RedBridge Consulting has a Chengdu branch and is understood to accept CNY through a local bank account, with some payments having moved via Wise. How funds actually flow between the Australian and Chinese accounts, and which entity recognises the revenue, is not documented. Confirm it with the accountant before we design the checkout. It bears directly on Decisions 2 and 5.</p>
+  <span class="zh-t">红桥咨询设有成都分支，据了解通过当地银行账户收取人民币，部分款项曾经由 Wise 流转。<strong>资金在澳洲与中国账户之间的实际流转路径、以及由哪个主体确认收入，目前没有文档记录</strong>，应在设计收银台之前向会计师确认。此事直接关系到第 2 项与第 5 项决策。</span>
+</div>
+
+<h3>7.2 Rails, assigned by product tier</h3>
+<p class="zhh3 zh">7.2 支付通道按产品层级分配</p>
+<p>The four required methods are not offered uniformly. Wallets are built for retail-scale transactions and cannot carry a six-figure milestone; conversely, a bank transfer is poor experience for a A$120 event ticket. The checkout must know which product it is selling before it offers a method.</p>
+<span class="zh-t">四种支付方式不应一律全开。电子钱包为零售级交易设计，无法承载六位数金额的里程碑款项；反过来，让客户为一张 120 澳元的活动票做银行转账则体验极差。<strong>收银台必须先知道自己在卖哪个产品，再决定提供哪些支付方式。</strong></span>
+
+<table>
+<caption>Rail availability by transaction value<span class="zh-t">按交易金额划分的支付通道</span></caption>
+<tr><th style="width:20%">Rail<span class="zh-t">通道</span></th><th style="width:16%">Deposits &amp; low value<span class="zh-t">定金与小额</span></th><th style="width:12%">Mid value<span class="zh-t">中额</span></th><th style="width:18%">Six-figure stages<span class="zh-t">六位数分期款</span></th><th style="width:34%">Notes<span class="zh-t">说明</span></th></tr>
+<tr><td>Bank transfer<span class="zh-t">银行转账</span></td><td>—</td><td>✓</td><td>✓</td><td>The only rail for large stages. Requires reference matching and manual-to-automatic reconciliation<span class="zh-t">大额分期款的唯一通道。需要付款备注匹配，并从人工对账逐步过渡到自动对账</span></td></tr>
+<tr><td>PayID</td><td>✓</td><td>✓</td><td>—</td><td>Fast, low cost, domestic; limits apply per institution<span class="zh-t">快速、低成本、限澳洲境内；各银行有各自限额</span></td></tr>
+<tr><td>WeChat Pay<span class="zh-t">微信支付</span></td><td>✓</td><td>—</td><td>—</td><td>Cross-border transaction caps well below engagement values; confirm limits with the provider<span class="zh-t">跨境交易限额远低于委托金额；需向服务商确认具体限额</span></td></tr>
+<tr><td>Alipay<span class="zh-t">支付宝</span></td><td>✓</td><td>—</td><td>—</td><td>As above<span class="zh-t">同上</span></td></tr>
+<tr><td>Card / POS<span class="zh-t">银行卡／POS</span></td><td>✓</td><td>✓</td><td>—</td><td>Include if in-person or card payment is required; TBC<span class="zh-t">如需线下或刷卡收款则纳入；待定</span></td></tr>
+</table>
+
+<h3>7.3 Milestone billing</h3>
+<p class="zhh3 zh">7.3 里程碑收费</p>
+<p>The flagship engagement is A$220,000–270,000 excluding legal fees, billed across four stages. Because the total varies per client and the stage split is set per contract, <strong>the system stores the milestone schedule against each engagement</strong> and bills from the signed contract rather than from a global price list. This is why the stage split being unconfirmed does not block the build.</p>
+<span class="zh-t">旗舰委托为 22–27 万澳元（不含法律费用），分四个阶段收取。由于总额因客户而异、各阶段拆分由合同逐份约定，因此<strong>里程碑安排作为数据挂在每份委托之下</strong>，系统依据已签合同出账，而非依据统一价目表。这也正是阶段拆分尚未确定不会阻碍建设的原因。</span>
+<p>Three rules govern the design:</p>
+<span class="zh-t">设计遵循三条规则：</span>
+<ul>
+  <li><strong>Milestones are defined by work delivered.</strong> An event occurring does not release a payment. The invoice line, the contract schedule and the system's milestone definition all use the same wording.
+  <span class="zh-t"><strong>里程碑以已交付的工作定义</strong>，而非以某事件的发生定义。发票行、合同附表与系统中的里程碑定义，三者使用完全相同的措辞。</span></li>
+  <li><strong>The system records deliverable evidence against each stage</strong> as the work happens — searches run, employers approached, screening completed, documents prepared.
+  <span class="zh-t"><strong>各阶段的交付证据在工作发生时同步留存</strong>——已开展的搜寻、已接洽的雇主、已完成的筛选、已准备的材料。</span></li>
+  <li><strong>Legal fees never pass through the platform.</strong> They are invoiced by the firm under its own arrangements and are excluded from platform revenue entirely.
+  <span class="zh-t"><strong>法律费用绝不经由本平台。</strong>由律所按其自身安排开票，完全排除在平台收入之外。</span></li>
+</ul>
+
+<h3>7.4 Payers</h3>
+<p class="zhh3 zh">7.4 付款人</p>
+<p>Payment by someone other than the client is existing practice and, at these values, will be common. The payer is therefore a first-class record, carrying identity, relationship to the client, and the authority under which they paid. Not a note in a comment field. Three consequences follow:</p>
+<span class="zh-t">由客户本人以外的人付款是既有做法，且在这一金额区间会相当普遍。因此付款人必须是一类<strong>独立的正式记录</strong>——包含身份、与客户的关系，以及付款所依据的授权——而不是备注栏里的一句话。由此产生三点后果：</span>
+<ul>
+  <li>Refunds return to the original payer, not to the client.
+  <span class="zh-t">退款退回原付款人，而非退给客户。</span></li>
+  <li>The invoice and the payment may name different parties; who the tax invoice addresses is an accounting decision we need before building receipting.
+  <span class="zh-t">发票抬头与实际付款人可能不是同一方；税务发票开给谁，是在建设收据功能之前必须由会计给出的决定。</span></li>
+  <li><strong>An employer can never be a permitted payer of a client fee.</strong> The ledger blocks that payer type outright, rather than leaving it to judgement at data entry.
+  <span class="zh-t"><strong>雇主在任何情况下都不得成为客户费用的付款人。</strong>这一点在账务系统中以禁止的付款人类型强制实现，而不是交由录入人员临场判断。</span></li>
+</ul>
+
+<h3>7.5 Quote and approval</h3>
+<p class="zhh3 zh">7.5 报价与审批</p>
+<p>Because price is agreed per engagement across a range, a quote step comes before the contract. Someone prices it, someone approves anything outside an agreed band, and the client accepts a specific schedule. The system records whatever moves the price within the range as a field against every quote, permission-restricted if commercially sensitive, so finance can analyse margin later.</p>
+<span class="zh-t">由于价格在一个区间内逐份委托议定，合同之前须有<strong>报价环节</strong>：由人定价，超出约定区间的由人审批，客户接受一份具体的收费安排。系统会把影响价格在区间内落点的每项因素，作为字段记录在每份报价上（涉及商业敏感的设置权限限制），以便财务日后分析毛利。</span>
+
+<div class="decision">
+  <span class="tag">Decision required · 需要决策</span>
+  <p>Confirm: accept-CNY-settle-AUD or price-in-CNY; whether card/POS is required; and who the tax invoice addresses when a third party pays.</p>
+  <span class="zh-t">请确认：采用收人民币结澳元还是以人民币定价；是否需要银行卡／POS 收款；以及第三方付款时税务发票开给谁。</span>
+</div>
+
+<h2 class="sec" id="s8"><span class="num">Section 08</span>Data, CRM and the client record</h2>
+<p class="zhh zh">数据、客户关系与主档案</p>
+
+<h3>8.1 Core entities</h3>
+<p class="zhh3 zh">8.1 核心实体</p>
+<p>Person · Household · Organisation · Employer · Lead · Opportunity · Engagement · Case · Milestone · Deliverable · Quote · Contract · Order · Invoice · Payment · Payer · Refund · Supplier · Document · Consent · Approval · Audit event.</p>
+<span class="zh-t">个人 · 家庭 · 机构 · 雇主 · 线索 · 商机 · 委托 · 案件 · 里程碑 · 交付物 · 报价 · 合同 · 订单 · 发票 · 收款 · 付款人 · 退款 · 供应商 · 文件 · 授权同意 · 审批 · 审计事件。</span>
+<p>Two modelling choices matter disproportionately. First, <strong>person and household are distinct</strong>, because several products are bought by one family member and delivered to another. Second, <strong>lead and person are the same underlying record at different stages</strong>, so that a person who bought a ticket in 2024 and returns as an engagement client in 2027 keeps one history.</p>
+<span class="zh-t">其中两项建模选择的影响格外重大。第一，<strong>个人与家庭必须分开</strong>，因为多项产品由一位家庭成员购买、由另一位使用。第二，<strong>线索与个人是同一条底层记录的不同阶段</strong>，这样一位 2024 年买过票、2027 年回来签下委托的客户，才是一条完整历史，而不是两条互不相干的记录。</span>
+
+<h3>8.2 The lead engine</h3>
+<p class="zhh3 zh">8.2 线索引擎</p>
+<p>This is Phase 1 and the highest-value component in the proposal.</p>
+<span class="zh-t">这是第一阶段，也是本提案中价值最高的组件。</span>
+<ul>
+  <li><strong>Capture</strong> from paid and organic sources, preserving campaign and creative attribution
+  <span class="zh-t"><strong>接收</strong>付费投放与自然流量的线索，并保留投放计划与创意的归因信息</span></li>
+  <li><strong>Deduplicate at entry</strong> on Xiaohongshu ID first, with WeChat as the secondary key — Xiaohongshu ID is present on 97% of rows and WeChat on 44%, and matching on it alone finds 875 duplicates, about 17% of handling load
+  <span class="zh-t"><strong>在录入端优先按小红书 ID 去重，微信号作为次级匹配键</strong>——小红书 ID 在 97% 的行上有值，微信号仅 44%；单按小红书 ID 匹配即可识别 875 条重复，约占处理量的 17%</span></li>
+  <li><strong>Route automatically</strong> to a representative or team by rule, not by someone noticing
+  <span class="zh-t"><strong>按规则自动分配</strong>给顾问或团队，而不是等人注意到</span></li>
+  <li><strong>First-response SLA timer</strong>, with escalation on breach — defined below
+  <span class="zh-t"><strong>首次响应时限计时</strong>，超时自动升级——定义见下</span></li>
+  <li><strong>Follow-up scheduling and reminders</strong>, because a follow-up date field with no reminder is not used
+  <span class="zh-t"><strong>跟进排期与提醒</strong>——因为没有提醒的下次跟进日期字段，等于没人填</span></li>
+  <li><strong>Required contact method</strong> at capture, rather than an optional field
+  <span class="zh-t">留资时<strong>强制要求填写有效联系方式</strong>，而非设为选填字段</span></li>
+  <li><strong>Reporting</strong> on assignment rate, response time, duplicate rate, meetings and closes
+  <span class="zh-t"><strong>报表</strong>：分配率、响应时长、重复率、面谈数与成交数</span></li>
+</ul>
+
+<h4>What a first-response SLA is</h4>
+<p class="zhh4 zh">什么是首次响应时限</p>
+<p>An internal commitment to how quickly a new lead receives its first human reply, enforced by the system instead of by good intentions. A clock starts when the lead is created and stops when the first outbound contact is logged. Thresholds trigger escalation automatically. At the first, the assigned representative is notified; at the second, their team leader; at the third, the lead returns to the pool for reassignment. Nobody has to notice.</p>
+<span class="zh-t">这是一项关于新线索多久能得到第一次人工回复的内部承诺，由<strong>系统</strong>强制执行，而不是靠自觉。线索创建时开始计时，记录到第一次外呼／外联时停止。超过设定阈值即自动升级：第一档通知负责顾问，第二档通知其组长，第三档将线索退回公海重新分配。全过程无需任何人注意到。</span>
+<p>It matters because in high-intent inbound sales, speed to first contact is the largest controllable influence on conversion, and right now nobody measures it. Two practical notes: measure the median <em>and</em> the 90th percentile, because averages hide the leads that were left for two days; and make the clock business-hours aware across both Australian and Chinese time zones, or every overnight lead will read as a breach.</p>
+<span class="zh-t">之所以重要，是因为在高意向的进线销售中，<strong>首次接触速度是转化率中最大的一个可控变量</strong>——而目前这个指标根本没有被度量。两点实务提醒：既要看中位数，<em>也</em>要看 90 分位数，因为平均值会掩盖那些被搁置两天的线索；此外计时须识别澳洲与中国两地的工作时间，否则每一条夜间线索都会被判为超时。</span>
+
+<h3>8.3 The engagement file</h3>
+<p class="zhh3 zh">8.3 委托档案</p>
+
+<p>Client documents live in Google Docs today, as Insight Idea has always kept them. Passports, visa histories, English test results, testamurs and employment references sit in shared folders. It works, and it has worked for years.</p>
+<span class="zh-t">客户材料目前存放在 Google 文档中，这是 Insight Idea 一直以来的做法。护照、签证历史、英语成绩、学历证明与工作证明保存在共享文件夹里。这套做法一直在运转，也已经运转多年。</span>
+
+<p>What it does not do is form a file. A folder holds documents. It does not record which matter they belong to, when the firm asked for them, when they arrived, who opened them afterwards, or when they should be destroyed. Sharing links outlive the engagement that created them. For a A$274,000 matter handled under a MARA Agent's registration, that gap is the exposure worth naming.</p>
+<span class="zh-t">但它构不成一份档案。文件夹只是存放材料，并不记录这些材料属于哪个委托、律所何时索取、何时收到、此后由谁调阅，以及何时应当销毁。共享链接的存续时间往往超过产生它的那份委托。对于一份由 MARA 持牌代理经手、金额 27.4 万澳元的案件而言，这才是值得指出的风险敞口。</span>
+
+<p>The portal already produces the missing half. Document requests record what was asked for and when. Uploads record arrival. The case timeline records the stage each document supports. Row-level policies in the database record who may open what, and every access is logged. None of that requires new work. It requires the engagement to be run there.</p>
+<span class="zh-t">门户已经具备缺失的那一半能力：材料索取记录要了什么、什么时候要的，上传记录什么时候收到，案件时间线记录该材料支撑哪个节点，数据库的行级策略记录谁可以打开什么，且每一次访问都留痕。这些都不需要新开发，只需要委托在这里运行。</span>
+
+<div class="decision">
+  <span class="tag">Start with the index, not the files · 先做索引，不搬文件</span>
+  <p>The portal holds the record of which documents exist, when they were requested, when they arrived and who accessed them. The files themselves can stay where they are for now. Insight Idea keeps working the way it works, and the case file becomes auditable from the first matter rather than the first migration.</p>
+  <span class="zh-t">门户先承载有哪些材料、何时索取、何时收到、谁调阅过的记录，文件本身暂时留在原处。Insight Idea 的工作方式不变，而案件档案从第一份委托起就具备可审计性，无需等待一次数据迁移。</span>
+</div>
+
+<p>The legal split then falls out of this rather than being imposed on it. Every case carries a tag: general CRM record, or legal matter. Legal matters open in full only to the legal role. CRM staff see that the matter exists and what stage it has reached, and nothing else. Access is logged in both directions, and the tag is a column in the database rather than a hidden menu, so the rule holds whoever is looking.</p>
+<span class="zh-t">法律案件的隔离由此自然生成，而不是外加的一层限制。每个案件标记为一般 CRM 记录或法律案件；法律案件的完整内容仅法务角色可见，CRM 人员只能看到该案件存在及其所处阶段；两个方向的访问均留痕。该标记是数据库中的一个字段，而非界面上的一个隐藏菜单，因此无论由谁查看，规则都成立。</span>
+
+<p>The rule covers records that already exist, not only new ones, so the historical CRM data needs a classification pass before we switch it on. Two things give that pass an end date. Anything ambiguous defaults to legal matter until someone with the legal role reclassifies it, so the safe state is the default state. And one named person from Insight Idea signs off the classified set, because a data-cleaning job with no end date does not get one.</p>
+<span class="zh-t">该规则同时覆盖既有记录，而非仅适用于新记录，因此在启用之前，历史 CRM 数据需要先完成一次分类梳理。有两点可以让这次梳理有明确终点：凡归属存疑的一律默认标记为法律案件，直至具备法务角色的人重新分类——安全状态即默认状态；以及由 Insight Idea 指定一人对分类结果签字确认，因为没有截止日期的数据整理工作不会自行产生截止日期。</span>
+
+<h4>Retention</h4>
+<p class="zhh4 zh">留存期限</p>
+
+<p>A file that is never destroyed is as much a liability as one that is destroyed too early. The platform closes a matter on the visa grant or the point the case is lost, holds the documents for the period the Code of Conduct requires from that date, then deletes them automatically and logs what it destroyed. Insight Idea supplies the retention period. The platform enforces it without anyone remembering to.</p>
+<span class="zh-t">一份永不销毁的档案，与一份过早销毁的档案同样构成风险。平台以签证获批或案件失败之日作为委托结案时点，自该日起按《行为准则》规定的期限留存材料，到期自动删除并记录销毁内容。留存期限由 Insight Idea 提供，平台负责执行——无需任何人记得去做。</span>
+
+<p>Two things keep it safe. A refusal under review is held until the review concludes, so nothing is destroyed while it may still be needed. And the deletion log is permanent, because the evidence of compliance is the log rather than the absence of the file.</p>
+<span class="zh-t">有两点保证其安全：处于复审程序中的拒签案件暂缓销毁，直至复审结束，避免在材料仍可能被用到时将其删除；以及销毁日志永久保留——证明合规的是这份日志，而不是文件的消失本身。</span>
+
+<div class="note">
+  <span class="tag">What this does not reach · 本方案覆盖不到的部分</span>
+  <p>Retention applies to documents held in the platform. Copies in shared drives and on individual laptops sit outside it, and no system-side rule reaches them. Serving documents through short-lived links rather than shared folders stops the number of copies growing, but the existing ones are a matter for Insight Idea to address as the holder of the registration. Section 14 records this as a risk with an owner.</p>
+  <span class="zh-t">留存规则适用于平台内保存的材料。共享云盘与个人电脑上的副本不在其管辖范围内，任何系统侧规则都无法触及。以短时效链接调阅材料、而非共享文件夹，可以阻止副本继续增加；但已经存在的副本，应由持牌方 Insight Idea 处理。第 14 节已将此列为有明确责任人的风险项。</span>
+</div>
+
+<p><strong>Decision 6.</strong> Whether some matters should sit outside the platform entirely, in the firm's own system, is for Insight Idea to answer. What this document proposes is that whichever matters do sit inside it are recorded properly.</p>
+<span class="zh-t"><strong>第 6 项决策。</strong>是否有部分案件应完全置于平台之外、保留在律所自有系统内，应由 Insight Idea 决定。本文件所主张的是：凡置于平台之内的案件，都应当被完整地记录下来。</span>
+
+<h3>8.4 Migration of existing data</h3>
+<p class="zhh3 zh">8.4 既有数据迁移</p>
+<p>The existing pipeline records import with their stages preserved. Operating stages already in use win over the Product Book's six-stage lifecycle model, because they reflect how the business actually works. Where records move between separate legal entities, the consent and disclosure basis has to exist before any record moves. It is a prerequisite, and it belongs with the lawyers rather than in the engineering backlog.</p>
+<span class="zh-t">既有管道记录连同其阶段一并导入。<strong>实际在用的运营阶段优先于《产品册》的六阶段生命周期模型</strong>，因为前者反映业务的真实运作方式。凡记录需在不同法律主体之间转移的，授权同意与告知基础是前置条件，而非一项数据工作。</span>
+
+<h3>8.5 Getting Xiaohongshu leads into the system</h3>
+<p class="zhh3 zh">8.5 让小红书的线索进入系统</p>
+
+<p>Around 98.7% of leads come from Xiaohongshu and never touch the website form. Xiaohongshu does not offer the kind of API access that would let a company of this size pull those leads out automatically. That access is reserved for very large advertisers. Since the leads never arrive in the portal, none of the routing, deduplication or reporting work can do anything for them, which is why this has to be solved before anything else in Phase 1.</p>
+<span class="zh-t">约 98.7% 的线索来自小红书，且从不经过官网表单。小红书并不向这一规模的公司开放能够自动拉取线索的接口——该权限只面向体量极大的广告主。由于线索根本进不了门户，自动分配、去重与报表都无从发挥作用。因此这件事必须在第一阶段的其他工作之前解决。</span>
+
+<h4>The website form already works. Point it at the register</h4>
+<p class="zhh4 zh">官网表单已经可用，只需把它接到台账上</p>
+
+<p>RedBridge Consulting has a site with an eight-step consultation form on it. It collects visa status, occupation, years of experience and English level before anyone speaks to the enquirer, which is more than a Xiaohongshu lead arrives with. It works. It is not the problem.</p>
+<span class="zh-t">红桥咨询已有官网，站内的八步咨询预约表单在客户与我方接触之前，就已收集签证状态、职业、工作年限与英语水平——这比一条小红书线索所携带的信息要多得多。它本身运转正常，不是问题所在。</span>
+
+<p>The problem is where the submissions go. Repointing that form so it writes to the same lead register as the Xiaohongshu import, tagged by entry path, puts website enquiries into the same triage inbox as everything else. It takes two to three days and requires no change to the site.</p>
+<span class="zh-t">问题在于这些提交去了哪里。把该表单改为写入与小红书导入同一份线索台账，并按来源路径打标，官网咨询就与其余线索一同进入同一个分诊收件箱。这项改动约需两到三天，且无需改动网站本身。</span>
+
+<div class="decision">
+  <span class="tag">Two things called booking · 两种预约并不相同</span>
+  <p>Products 1 to 11 book a product: dates, party size, payment, confirmation. Product 12 books a consultation: a calendar slot, no payment, before anything is bought. The engagement that follows is quoted, contracted and billed by milestone, so product 12 never passes through checkout. Building one flow for both is the most expensive structural mistake available here, and Section 6 keeps them apart.</p>
+  <span class="zh-t">产品 1 至 11 预约的是<strong>产品</strong>：日期、人数、付款、确认。产品 12 预约的是<strong>咨询</strong>：一个日程时段，不涉及付款，且发生在任何购买之前。其后的委托通过报价、签约、按里程碑收费完成，因此产品 12 全程不经过结算流程。用同一套流程承载两者，是此处代价最高的结构性错误；第 6 节将两者分开处理。</span>
+</div>
+
+<h4>Two entry paths, not one</h4>
+<p class="zhh4 zh">两条进入路径，而非一条</p>
+
+<p>Website enquiries and Xiaohongshu enquiries reach the business in completely different ways, and forcing them through one process is what would break it. Website leads arrive before anyone has spoken to them, so they run the full pipeline: qualification, discovery, strategy, proposal, contract. Xiaohongshu leads are screened live, inside the chat, in the first minutes of contact. By the time any export runs, the decision has already been made.</p>
+<span class="zh-t">官网咨询与小红书咨询进入公司的方式完全不同，硬性套用同一套流程正是会让它失效的原因。官网线索在任何人接触之前就已进入系统，因此走完整管道：资格判断、需求诊断、方案策略、正式提案、签约。小红书线索则是在聊天窗口内、接触后的最初几分钟里被实时筛选完毕——任何导出动作运行时，结论早已作出。</span>
+
+<p>So the export serves as the ledger. Routing happens live on Xiaohongshu, before any file is downloaded. Someone downloads the report on a fixed schedule (daily is enough) and uploads it. Xiaohongshu rows land at their outcome, with the reason attached, and the sales representative adds the value on the ones that closed. From there they flow into the CRM pipeline like any other signed client.</p>
+<span class="zh-t">因此，导出并非分配机制，而是台账。由专人按固定频次（每天一次即已足够）下载报表并上传。小红书的记录直接落在其最终状态上，并附带原因；已成交的由对接销售补录金额。此后它们与其他已签约客户一样，进入 CRM 管道。</span>
+
+<div class="decision">
+  <span class="tag">Use the reasons the team already writes · 沿用团队现有的结论用语</span>
+  <p>The register already carries an outcome vocabulary staff use daily — didn't pass, can't be serviced, price, no reply, unusable contact details, closed. Those are the real reasons, so the import maps them straight through. Asking a representative to nominate which pipeline stage an Xiaohongshu lead was lost at would produce invented data, because those stages never happened.</p>
+  <span class="zh-t">台账中已有一套员工每天在用的结论用语——没通过、做不了、太贵了、没回复、未通过联系方式、已成交。这些才是真实原因，导入时应原样映射。若要求销售指出某条小红书线索在哪个管道阶段流失，只会得到编造的数据，因为那些阶段从未发生过。</span>
+</div>
+
+<h4>Response time can still be measured</h4>
+<p class="zhh4 zh">响应时长仍然可以度量</p>
+
+<p>A daily import cannot chase a lead going cold in real time, and nothing on Xiaohongshu can. It can still measure the thing that matters. Xiaohongshu records when the person first messaged, and the portal records when the representative recorded an outcome. The gap between those two timestamps is first response, computed at import, reported the following morning. That gives an accurate median for managing the team, which is what the number is for. Live escalation while a lead is still warm is a separate capability, and it depends on the WeCom decision below, not on how often the report is uploaded.</p>
+<span class="zh-t">每日导入无法实时追赶正在变冷的线索——小红书上的任何方案都做不到。但它仍能度量真正重要的指标。小红书记录了客户首次发消息的时间，门户记录了销售登记结论的时间，两个时间戳之差即为首次响应时长，在导入时计算，次日晨间呈现。这足以得到用于管理团队的准确中位数，而这正是该指标的用途。至于在线索尚有温度时自动升级提醒，属于另一项能力，取决于下文的企业微信决策，而非报表上传的频次。</span>
+
+<p>It is not elegant, and it costs someone a short slot each day. But it turns a system holding one lead in eighty into a system holding all of them, and everything else in Phase 1 depends on that. Build it first, improve it later.</p>
+<span class="zh-t">这个办法并不优雅，每天要占用某人一小段时间。但它能把一个八十条线索里只装一条的系统，变成一个装下全部线索的系统——而第一阶段的其余工作全都依赖于此。应当先把它做出来，之后再逐步改进。</span>
+
+<p>It is worth being clear that this removes work rather than adding it. The register holds 5,076 rows with conversation transcripts and written summaries typed into them by hand. That transcription is happening today, every day. The import populates those fields automatically. The only new action anyone performs is selecting a reason on the leads they declined, and even that can be done next morning from a short exception list rather than in the moment.</p>
+<span class="zh-t">有必要说清楚：这项改动是<strong>减少</strong>工作量，而不是增加。现有台账的 5,076 条记录中，聊天内容与客户摘要都是逐条手工录入的——这项转录工作今天每天都在发生。导入功能会自动填充这些字段。唯一新增的动作，是为被拒绝的线索选择一个原因；而且这一步也可以在次日晨间、从一份简短的待处理清单上批量完成，无需在接触当下操作。</span>
+
+<p>Three things make the difference between this working and it becoming another abandoned process:</p>
+<span class="zh-t">要让这套流程真正运转、而不是又变成一个被弃用的动作，有三点是关键：</span>
+<ul>
+  <li><strong>One named person, one time of day.</strong> If it's nobody's specific job, it won't happen.
+  <span class="zh-t"><strong>一个指定的人，一个固定的时间。</strong>属于所有人的任务，等于不属于任何人。</span></li>
+  <li><strong>The upload must be forgiving.</strong> It should accept the report exactly as Xiaohongshu exports it, without anyone reformatting columns first. If the file needs preparing, the process will lapse within a fortnight.
+  <span class="zh-t"><strong>上传功能必须足够宽容。</strong>要能直接接受小红书导出的原始报表，不需要任何人先去调整列格式。若上传前还要整理文件，这个流程两周之内就会中断。</span></li>
+  <li><strong>Re-uploading the same file must be harmless.</strong> Reports overlap, and people will upload twice. The importer should recognise rows it has already seen and ignore them.
+  <span class="zh-t"><strong>重复上传同一文件必须无害。</strong>报表之间会有重叠，也一定会有人传两次。导入功能应能识别已处理过的记录并自动忽略。</span></li>
+</ul>
+
+<h4>What was ruled out, and why</h4>
+<p class="zhh4 zh">已排除的方案及其原因</p>
+
+<table class="tight">
+<caption>Alternatives considered<span class="zh-t">已考虑的其他方案</span></caption>
+<tr><th style="width:26%">Option<span class="zh-t">方案</span></th><th style="width:16%">Verdict<span class="zh-t">结论</span></th><th style="width:58%">Why<span class="zh-t">原因</span></th></tr>
+<tr><td>Direct API connection to Xiaohongshu<span class="zh-t">直连小红书接口</span></td><td><span class="pill p4">Unavailable 不可行</span></td><td>Reserved for very large Chinese advertisers. Confirmed as not available to us<span class="zh-t">仅面向体量极大的中国广告主。已确认对我方不开放</span></td></tr>
+<tr><td>Lead callback from the ad platform<span class="zh-t">投放平台线索回传</span></td><td><span class="pill p4">Unavailable 不可行</span></td><td>This is the feature where an advertising platform automatically forwards each lead to a web address we nominate, the moment the person submits the form, so leads land in our system without anyone touching a file. Common on Western ad platforms. Confirmed as not available to us on Xiaohongshu, so this is settled — the scheduled export below is the answer, not an interim step while we wait on an account manager<span class="zh-t">该功能指：广告平台在客户提交表单的瞬间，自动把这条线索转发到你指定的网址，线索无需任何人经手文件即可落入自有系统。这在欧美广告平台上很常见，但已确认小红书不向我方开放。此事已有定论——下文的定时导出即为最终方案，而非等待广告客户经理答复期间的过渡措施</span></td></tr>
+<tr><td>Chinese SCRM middleware<span class="zh-t">国内 SCRM 中间件</span></td><td><span class="pill p3">Not pursued 不采用</span></td><td>Chinese vendors that sit between the social platforms and a company's CRM, and hold partnerships giving them data access that individual businesses cannot get. In principle the Group rents their access instead of building its own. In practice it adds a vendor, a subscription and a data-residency question, and if the underlying access is closed the middleware hits the same wall<span class="zh-t">指介于社交平台与企业 CRM 之间的国内厂商，它们持有合作资质，可获得单个企业拿不到的数据权限——原理上是租用它们的通路，而非自建。但实际上会新增一家供应商、一笔订阅费与一个数据驻留问题；而且若底层权限本就关闭，中间件同样会撞上这堵墙</span></td></tr>
+<tr><td>Move the form to our own landing page<span class="zh-t">改用自有落地页承接</span></td><td><span class="pill p2">Later 后续</span></td><td>Send paid traffic to a page we control, so capture and attribution are ours from the first click. Outbound links are restricted and in-app forms convert better, so this would need testing against a control before it replaces anything<span class="zh-t">把付费流量导向自有页面，从第一次点击起就掌握线索接收与归因。但平台对外链有限制、站内表单转化更好，因此在替代现有方式之前需与对照组做测试</span></td></tr>
+<tr><td>Scraping the merchant back office<span class="zh-t">抓取商家后台</span></td><td><span class="pill p4">No 不建议</span></td><td>Fragile, breaks without warning, and likely outside the platform's terms of use. The scheduled export achieves the same result without the exposure<span class="zh-t">脆弱、会毫无预警地失效，且很可能违反平台使用条款。定时导出能达到同样效果，却没有这层风险</span></td></tr>
+</table>
+
+<h4>Conversations: keeping one source of truth</h4>
+<p class="zhh4 zh">沟通记录：如何保持唯一真实来源</p>
+
+<p>The same problem appears again with messaging. The portal already gives RedBridge Consulting and Insight Idea clients their own chat channel, and having every conversation attached to the right client, searchable, and still there when someone leaves, is plainly the right goal. The difficulty is that clients live in WeChat and will not move to a web chat simply because we would prefer it. A policy that fights that will lose, in the same way that running a spreadsheet alongside a CRM means the spreadsheet wins.</p>
+<span class="zh-t">沟通记录上会遇到同样的问题。你已经建好了客户端聊天功能，而把所有沟通集中在一处——挂在正确的客户名下、可检索、且在员工离职后依然留存——显然是正确的目标。难点在于：客户生活在微信里，不会仅仅因为我们更希望如此就转到网页聊天。硬性规定会输给现实，正如 CRM 与表格并行时，赢的总是表格。</span>
+
+<p>Two things make this workable in practice.</p>
+<span class="zh-t">要让这个目标从愿望变成可实现，有两件事要做。</span>
+
+<p><strong>Pull the client back, don't push them.</strong> When a document is requested, a milestone completes or a staff member replies, the client should get a WeChat notification that opens the portal thread. The client stays in the app they already use, and the conversation of record stays in one place. Most of the traffic follows the notification.</p>
+<span class="zh-t"><strong>把客户拉回来，而不是推过去。</strong>当有材料需要提交、里程碑完成、或员工回复时，客户应在微信收到通知，点击即打开门户中的对应会话。客户仍留在自己惯用的应用里，而作为正式记录的沟通则集中在一处。大部分流量会跟着通知走。</span>
+
+<p><strong>Where the conversation genuinely has to happen on WeChat, run it through WeCom.</strong> WeCom is the corporate version of WeChat. Staff use a work account, clients message it from ordinary WeChat, and, unlike personal WeChat, it has a proper interface that lets the company retain conversation records and attach them to a customer. Each external contact carries a stable identifier, and that identifier becomes the key that ties a WeChat thread to the right client record in the CRM. Capturing it at first contact is what prevents orphaned conversations later.</p>
+<span class="zh-t"><strong>如果沟通确实必须发生在微信上，就走企业微信。</strong>企业微信是微信的企业版：员工使用工作账号，客户用普通微信即可与之对话；与个人微信不同，它提供正规接口，允许企业留存会话记录并关联到具体客户。每位外部联系人都有一个稳定标识，这个标识就是把某条微信会话对应到 CRM 中正确客户记录的钥匙。<strong>在首次接触时就采集它，才能避免日后出现无主的会话。</strong></span>
+
+<div class="note">
+  <span class="tag">Two cautions · 两点提醒</span>
+  <p>Conversation retention has to be disclosed. WeCom shows the customer a notice, and Australian privacy obligations point the same way. This belongs in the client agreement, not in an assumption.</p>
+  <span class="zh-t">会话留存必须予以告知。企业微信会向客户展示提示，澳洲隐私法规的要求方向一致——这一点应写入服务协议，而不是默认客户已知悉。</span>
+  <p>Avoid any third-party tool promising to sync personal WeChat accounts automatically. They work by automating a personal account, which breaches WeChat's terms and routinely gets accounts blocked, losing the very conversation history they were bought to preserve.</p>
+  <span class="zh-t">应避免使用声称能自动同步<strong>个人</strong>微信账号的第三方工具。它们的原理是对个人账号做自动化操作，违反微信使用条款，账号被封是常态——结果反而丢失了当初购买它所要保全的会话记录。</span>
+</div>
+
+<div class="decision">
+  <span class="tag">Decision required · 需要决策</span>
+  <p>Name the person responsible for the daily Xiaohongshu export, and the time of day it happens. Separately, decide whether staff move to WeCom for client messaging. That one determines whether WeChat conversations can ever be part of the client record.</p>
+  <span class="zh-t">请指定负责每日导出小红书线索的人员及其执行时间。另需决定：员工是否改用企业微信与客户沟通——这个决定关系到微信会话今后能否成为客户档案的一部分。</span>
+</div>
+
+<h2 class="sec" id="s9"><span class="num">Section 09</span>The website, content and discovery</h2>
+<p class="zhh zh">官网、内容与获客可见性</p>
+
+<p>For this business, content is how customers are found in the first place. That makes the CMS an operational system, not a convenience for the marketing team.</p>
+<span class="zh-t">对本业务而言，内容不是装饰，而是获客渠道本身。因此内容管理系统是一套<strong>运营系统</strong>，不是市场部的便利工具。</span>
+
+<h3>9.1 What the website is, and what sits on it</h3>
+<p class="zhh3 zh">9.1 官网的定位与结构</p>
+
+<p>RGL is the parent property. RedBridge Consulting sits beneath it as the established service line, and the other products in the Product Book sit alongside as lines the Group may add, keep or retire without touching the brand above them. That structure decides the site, so state it before arguing about pages.</p>
+<span class="zh-t">RGL 是母品牌与主站。红桥咨询作为已成熟的业务线位于其下，《产品册》中的其余产品则作为并列的业务线——集团可以新增、保留或撤除其中任一条，而不影响上层品牌。这一结构决定了官网的形态，因此应在讨论页面之前先行确定。</span>
+
+<p>One consequence follows immediately. RedBridge is the only line with proven demand, so it cannot be presented as one of twelve equal offerings. It carries the site's credibility and produces the revenue that funds everything else. The other lines earn prominence as they demonstrate demand, rather than being granted it at launch.</p>
+<span class="zh-t">由此立即得出一个结论：红桥是目前唯一被验证有需求的业务线，因此不能被摆成十二项等量齐观的产品之一。它承担着整个站点的可信度，也创造着支撑其余业务的收入。其余业务线应在验证出需求之后再获得更高的展示权重，而不是在上线之初就被给予。</span>
+
+<table class="tight">
+<caption>Page inventory at launch<span class="zh-t">首发页面清单</span></caption>
+<tr><th style="width:24%">Area<span class="zh-t">板块</span></th><th style="width:76%">Pages<span class="zh-t">页面</span></th></tr>
+<tr><td><strong>Group</strong><span class="zh-t">集团</span></td><td>Home, about, licensing and credentials, contact, legal and privacy<span class="zh-t">首页、关于我们、资质与持牌信息、联系方式、法律与隐私</span></td></tr>
+<tr><td><strong>Migration</strong><span class="zh-t">移民</span></td><td>Overview, one page per pathway, eligibility explainers, employer information, fees and what is included, enquiry<span class="zh-t">总览、每条路径一页、资格说明、雇主相关信息、收费与服务范围、咨询留资</span></td></tr>
+<tr><td><strong>Other lines</strong><span class="zh-t">其他业务线</span></td><td>One page each, at overview depth until a line is running. No booking surface until Phase 3<span class="zh-t">每条业务线一页，在该业务线实际运营之前仅作总览呈现。第三阶段之前不上线预订功能</span></td></tr>
+<tr><td><strong>Content</strong><span class="zh-t">内容</span></td><td>Article index, article pages, question-and-answer pages built from the search-term library<span class="zh-t">文章索引页、文章页，以及依据搜索词库建设的问答页</span></td></tr>
+</table>
+
+<p>Every page exists in English and Chinese, and the Chinese version is not a translation afterthought. Around 85% of leads arrive through Chinese-language Xiaohongshu accounts, so for most visitors the Chinese page is the site.</p>
+<span class="zh-t">所有页面均有中英两个版本，且中文版并非事后翻译。约 85% 的线索来自中文小红书账号——对大多数访客而言，<strong>中文页面就是这个网站本身</strong>。</span>
+
+<h3>9.2 Content ownership</h3>
+<p class="zhh3 zh">9.2 内容归属与责任</p>
+
+<p>The build is not the constraint on this site. Content is. A page inventory of this size needs roughly sixty pieces of copy in two languages, and the review gate in 9.3 applies to every migration-related one of them.</p>
+<span class="zh-t">这个站点的瓶颈不在开发，而在内容。上述规模的页面清单需要约六十份中英双语文案，且其中每一份与移民相关的内容都要经过 9.3 节的审核关卡。</span>
+
+<p>Three roles need naming before Phase 3 begins: who writes, who approves migration content (the MARA Agent at Insight Idea, per Decision 7), and who owns translation quality. Without those three names the site launches with placeholder pages, and fewer complete pages would serve the business better.</p>
+<span class="zh-t">在第三阶段启动前需要明确三个角色：谁负责撰写、谁负责审核移民相关内容（依第 7 项决策，由 Insight Idea 的 MARA 持牌代理担任）、谁对翻译质量负责。若这三个人选未定，站点上线时会带着占位内容；相比之下，页面数量少但内容完整，对业务更有利。</span>
+
+<h3>9.3 The brand transition, and its cost</h3>
+<p class="zhh3 zh">9.3 品牌迁移及其成本</p>
+
+<p>Of 5,076 leads in the register, 4,332 arrived through Xiaohongshu accounts carrying the RedBridge name. The website and the WeChat official account together produced six. The acquisition channel is not merely branded RedBridge; it is a set of individually-named RedBridge accounts, each with its own following.</p>
+<span class="zh-t">台账中的 5,076 条线索里，有 4,332 条来自带有Redbridge字样的小红书账号；官网与公众号合计仅带来 6 条。获客渠道不只是挂着红桥品牌，而是一组各自独立、各自积累粉丝的实名红桥账号。</span>
+
+<p>That matters if RGL becomes the front-facing brand. Followers do not transfer between accounts, and a renamed account on Xiaohongshu keeps its history without keeping its momentum. Whatever the eventual brand hierarchy, moving the acquisition channel onto it is a marketing project with a cost and a risk window. The same holds for the existing domain, where the accumulated search authority needs redirects and a transition period.</p>
+<span class="zh-t">如果 RGL 成为对外主品牌，这一点就很关键。小红书账号之间的粉丝无法转移，改名后的账号虽保留历史内容，却未必保留原有热度。无论最终采用哪种品牌层级，把获客渠道迁移过去都是一个有成本、有风险窗口的市场项目，而不是一次改名。现有域名同理：已积累的搜索权重需要重定向安排与过渡期。</span>
+
+<div class="decision">
+  <span class="tag">Recommended default · 建议默认方案</span>
+  <p>Do not move the Xiaohongshu accounts. Build the RGL site with RedBridge as a named service line on it, and let the accounts keep the name that earns the leads. If the Group later wants a single consumer-facing brand, that becomes a deliberate marketing programme with its own budget, run when there is something other than migration to sell.</p>
+  <span class="zh-t">建议不迁移小红书账号。以 RGL 建设主站，并在站内将红桥作为具名业务线呈现；账号继续沿用那个真正带来线索的名称。若集团日后确需统一对外品牌，届时再作为一个有独立预算的市场项目专门推进——并且要等到手上确实有移民之外的东西可卖之时。</span>
+</div>
+
+<h3>9.4 The CMS</h3>
+<p class="zhh3 zh">9.4 内容管理系统</p>
+
+<h4>Requirements</h4>
+<p class="zhh4 zh">具体要求</p>
+<ul>
+  <li><strong>Draft → review → publish</strong>, with a named approver. Migration content is the highest-risk content the Group publishes, and a CMS where anything can go live unreviewed is the mechanism by which copy drifts into outcome language.
+  <span class="zh-t"><strong>草稿 → 审核 → 发布</strong>，并指定审核人。移民类内容是集团对外发布的内容中风险最高的一类；任何内容都能未经审核直接上线的 CMS，正是文案逐步滑向承诺结果表述的那个机制。</span></li>
+  <li><strong>Bilingual authoring</strong> with translation status per article, matching the Product Book's own bilingual discipline.
+  <span class="zh-t"><strong>中英双语撰写</strong>，逐篇标记翻译状态，与《产品册》自身的双语规范保持一致。</span></li>
+  <li><strong>Structured content</strong> — questions, answers, eligibility explanations, pathway comparisons — because both search engines and generative answer engines reward precise, well-sourced, citable material. This works with the compliance requirement instead of against it: accurate, carefully-scoped content both performs better and carries less risk than the outcome-promising kind.
+  <span class="zh-t"><strong>结构化内容</strong>——问题、解答、资格说明、路径对比——因为搜索引擎与生成式问答引擎都更青睐准确、有出处、可被引用的材料。这一点与合规要求是一致的，而非冲突的：<strong>准确、界定清晰的内容，既比承诺结果式的内容效果更好，风险也更低。</strong></span></li>
+  <li><strong>Evidence record per published claim</strong>, linked from the article, satisfying the Product Book's own standard that claims be substantiated.
+  <span class="zh-t"><strong>每条对外主张配备证据记录</strong>，从文章中可直接链接查看，以满足《产品册》自身主张须有依据的标准。</span></li>
+  <li><strong>Search-term library</strong> — the register already contains hundreds of distinct queries in customers' own words, ranked by volume, including trust queries about the brand. This is a ready-made content plan and costs nothing to act on.
+  <span class="zh-t"><strong>搜索词库</strong>——台账中已有数百个以客户自己的措辞表达、并按热度排序的搜索词，其中包括对品牌可信度的查询。这本身就是一份现成的内容规划，落地不需要任何额外成本。</span></li>
+</ul>
+
+<p>No creator accounts, attribution or revenue share are proposed for the initial release. Content is authored in-house, so CMS roles are sufficient and the creator backend is deferred.</p>
+<span class="zh-t">首个版本不设创作者账号、归因与分成机制：内容由内部撰写，CMS 角色权限已足够，创作者后台推迟建设。</span>
+
+<h2 class="sec" id="s10"><span class="num">Section 10</span>Compliance by design</h2>
+<p class="zhh zh">合规内嵌设计</p>
+
+<p>The Product Book sets eight risk boundaries. Each becomes a mechanism.</p>
+<span class="zh-t">《产品册》设定了八项风险边界，每一项都转化为一个机制。</span>
+
+<table>
+<caption>Boundary to control<span class="zh-t">从边界到控制</span></caption>
+<tr><th style="width:34%">Product Book boundary<span class="zh-t">《产品册》的边界</span></th><th style="width:66%">System control<span class="zh-t">系统控制</span></th></tr>
+<tr><td>No promised government outcomes<span class="zh-t">不承诺政府审批结果</span></td><td>Marketing-claims review gate; claims register with linked evidence; approver role; nothing publishes without sign-off<span class="zh-t">营销主张审核关卡；带证据链接的主张登记册；审核人角色；未经签批不得发布</span></td></tr>
+<tr><td>Related-party transactions auditable<span class="zh-t">关联方交易可审计</span></td><td>Common-control flag on supplier and partner records; independent pricing evidence; disclosure shown at a defined point with client acknowledgement recorded and versioned<span class="zh-t">供应商与合作方记录标注共同控制关系；独立定价依据；在指定环节向客户披露，并记录与版本化客户的确认</span></td></tr>
+<tr><td>No self-approval of own projects<span class="zh-t">不得自审自批本方项目</span></td><td>Segregation of duties in permissions; second reviewer sourced outside the group; recusal recorded in the approval trail<span class="zh-t">权限层面的职责分离；第二审核人须来自集团之外；回避情况记入审批留痕</span></td></tr>
+<tr><td>Fees not tied to sponsorship outcomes<span class="zh-t">费用不与担保结果挂钩</span></td><td>Milestones defined by work delivered; employers blocked as payees; validation on invoice descriptions<span class="zh-t">里程碑以已交付工作定义；禁止雇主作为收付款方；发票描述设校验规则</span></td></tr>
+<tr><td>Data and privacy first<span class="zh-t">数据与隐私优先</span></td><td>Role- and region-scoped access; residency enforced by the system; retention and deletion rules; consent records<span class="zh-t">按角色与地区限定访问；由系统强制数据驻留；留存与删除规则；授权同意记录</span></td></tr>
+<tr><td>Client understands each party's role<span class="zh-t">客户清楚各方职责</span></td><td>Structured disclosure of who does what, at enquiry and again at contract, with acceptance recorded<span class="zh-t">在咨询与签约两个环节结构化披露各方分工，并记录客户确认</span></td></tr>
+<tr><td>Evidence retained for audit<span class="zh-t">证据留存以备审计</span></td><td>Immutable audit log; deliverable evidence captured at the time of work; defined retention periods<span class="zh-t">不可篡改的审计日志；交付证据在工作发生时留存；明确的留存期限</span></td></tr>
+<tr><td>Suppliers replaceable and rated<span class="zh-t">供应商可替换、有评级</span></td><td>Supplier records with compliance documents, expiry enforcement blocking bookings, and a rating derived from delivery data<span class="zh-t">供应商记录附合规文件，证件过期即拦截派单，评级由交付数据自动生成</span></td></tr>
+</table>
+
+<div class="note">
+  <span class="tag">Privacy · 隐私</span>
+  <p>The platform will hold identity, contact, visa and personal-circumstance data for several thousand people, the majority of them onshore in Australia. We design access control, residency and retention into the first schema. Retrofitting them is expensive and usually incomplete.</p>
+  <span class="zh-t">平台将保存数千人的身份、联系方式、签证状态与个人情况数据，其中多数人身处澳洲境内。访问控制、数据驻留与留存期限必须在第一版数据结构中就设计进去。事后加装成本高昂，且通常做不彻底。</span>
+</div>
+
+<h2 class="sec" id="s11"><span class="num">Section 11</span>Delivery plan</h2>
+<p class="zhh zh">交付计划</p>
+
+<h3>11.0 Three ways forward</h3>
+<p class="zhh3 zh">11.0 三条可选路径</p>
+
+<p>Before the phases, the alternative. Doing nothing is a real option here and not a hypothetical one, because it is what the Group does today. Its consequences are visible in the register rather than modelled.</p>
+<span class="zh-t">在讨论分阶段方案之前，先说清楚备选项。维持现状在这里是一个真实存在的选项，而非假设——因为它正是集团目前的做法，其后果可以直接在台账中看到，无需推演。</span>
+
+<table>
+<caption>The three options<span class="zh-t">三个选项</span></caption>
+<tr><th style="width:16%">Option<span class="zh-t">选项</span></th><th style="width:26%">What it means<span class="zh-t">具体做法</span></th><th style="width:20%">Effort<span class="zh-t">投入</span></th><th style="width:38%">What follows<span class="zh-t">结果</span></th></tr>
+<tr><td><strong>A</strong><br>Do nothing<span class="zh-t"><strong>A</strong><br>维持现状</span></td><td>Continue on the four-in-one register, with staff typing conversation transcripts and summaries into it by hand<span class="zh-t">继续使用四合一台账，由员工手工录入聊天内容与客户摘要</span></td><td>No capital. Ongoing manual transcription across 5,076 rows and counting<span class="zh-t">无资本支出。持续的人工转录，目前已累计 5,076 行且仍在增加</span></td><td>Roughly 2,829 leads per eight months keep no recorded disposition. The Group cannot state its own conversion rate, because the register records 8 closes against 35. Paid acquisition continues without the refusal data that would tell the buyer what to stop funding<span class="zh-t">每八个月约有 2,829 条线索没有任何处置记录。集团无法说清自身的转化率——台账记录成交 8 笔，实际 35 笔。付费投放继续进行，却拿不到能告诉投放人员该停投什么的拒绝原因数据</span></td></tr>
+<tr><td><strong>B</strong><br>Do minimum<span class="zh-t"><strong>B</strong><br>最小改动</span></td><td>The Xiaohongshu bridge and the triage inbox only. No routing rules, no deduplication, no response timing, no attribution<span class="zh-t">仅建设小红书线索通路与分诊收件箱。不做分配规则、不做去重、不做响应计时、不做投放归因</span></td><td>~4 weeks<span class="zh-t">约 4 周</span></td><td>The disposition gap closes and the Group can finally count its own funnel. But it still cannot tell a slow lead from a refused one, duplicates keep inflating the handling load by about 17%, and campaign attribution stays unreportable<span class="zh-t">处置结论的缺口被补上，集团终于能统计自己的漏斗。但仍无法区分响应慢与主动拒绝，重复线索继续使处理量虚增约 17%，投放归因依然无法出报表</span></td></tr>
+<tr><td><strong>C</strong><br>Do something<span class="zh-t"><strong>C</strong><br>完整方案</span></td><td>The four phases set out below<span class="zh-t">下文所列的四个阶段</span></td><td>~32 developer-weeks across Phases 1–3, on existing internal capacity<span class="zh-t">第一至第三阶段合计约 32 个开发人周，由现有内部人力承担</span></td><td>As proposed. Phase 1 alone delivers the disposition record, response timing, deduplication and attribution, and each later phase enters against its own evidence<span class="zh-t">即本提案内容。仅第一阶段即可交付处置记录、响应计时、去重与投放归因；其后每个阶段均须凭各自的证据方可进入</span></td></tr>
+</table>
+
+<div class="decision">
+  <span class="tag">Recommended: C, and why not B · 建议选择 C，以及为何不选 B</span>
+  <p>B is the tempting option because it is short. It should be rejected because it fixes the recording and leaves the timing, which means the Group would know how many leads it refused without knowing how many it lost while deciding. Phase 1 of Option C contains all of B and adds the three things that make the record worth having.</p>
+  <span class="zh-t">B 之所以有吸引力，是因为它周期短。不建议选择它，理由是：B 只补上了记录，却没有补上时效——集团会知道自己拒绝了多少条线索，却仍不知道在犹豫期间流失了多少条。选项 C 的第一阶段已完整包含 B 的内容，并补上了使这份记录真正有用的另外三件事。</span>
+</div>
+
+
+<table>
+<caption>Four phases<span class="zh-t">四个阶段</span></caption>
+<tr><th style="width:8%">Phase<span class="zh-t">阶段</span></th><th style="width:30%">Delivers<span class="zh-t">交付内容</span></th><th style="width:13%">Duration<span class="zh-t">周期</span></th><th style="width:49%">Why here<span class="zh-t">为何排在此处</span></th></tr>
+<tr>
+  <td><span class="pill p1">1</span></td>
+  <td><strong>Close the funnel gaps on the existing portal</strong><br>Automatic routing, deduplication at entry, first-response SLA and escalation, campaign attribution, and funnel reporting — plus the adoption programme in 11.1<span class="zh-t"><strong>在现有门户上补齐漏斗缺口</strong>：自动分配、录入端去重、首次响应时限与升级、投放归因、漏斗报表，以及 11.1 的推行落地方案</span></td>
+  <td>~10 weeks build, plus the lead bridge in 8.5<span class="zh-t">约 10 周开发，另加 8.5 的线索通路</span></td>
+  <td>Largest recoverable value; blocked by no outstanding decision; most of the surrounding system already exists<span class="zh-t">可回收价值最大；不受任何未决事项阻碍；周边系统大部分已经存在</span></td>
+</tr>
+<tr>
+  <td><span class="pill p1">2</span></td>
+  <td><strong>The money layer</strong><br>Quotes and approvals, contracts, milestone billing with deliverable evidence, payers, invoicing, bank transfer and PayID, reconciliation — extending the existing milestone and document module rather than replacing it<span class="zh-t"><strong>资金层</strong>：报价与审批、合同、带交付证据的里程碑收费、付款人、开票、银行转账与 PayID、对账——在现有里程碑与材料模块之上扩展，而非推倒重建</span></td>
+  <td>~8–10 weeks<span class="zh-t">约 8–10 周</span></td>
+  <td>Serves the revenue that already exists; requires the four blocking decisions in Section 15<span class="zh-t">服务于已经存在的收入；需第 15 节四项决策先行</span></td>
+</tr>
+<tr>
+  <td><span class="pill p2">3</span></td>
+  <td><strong>Public surfaces</strong><br>Website, CMS with review gate, client portal enhancements, wallet rails, ticketed and group-departure booking<span class="zh-t"><strong>对外界面</strong>：官网、带审核关卡的 CMS、客户门户增强、电子钱包通道、票务与成团出发预订</span></td>
+  <td>~14 weeks<span class="zh-t">约 14 周</span></td>
+  <td>Commerce follows proven demand; wallets arrive with the low-value products that need them<span class="zh-t">交易能力跟随已验证的需求；电子钱包随需要它的低价产品一同上线</span></td>
+</tr>
+<tr>
+  <td><span class="pill p3">4</span></td>
+  <td><strong>Portfolio expansion</strong><br>Remaining transaction models, supplier portal, multi-country, and a separate decision on Product 10<span class="zh-t"><strong>产品组合扩展</strong>：其余交易模型、供应商门户、多国部署，以及产品 10 的单独决策</span></td>
+  <td>Staged<span class="zh-t">分批推进</span></td>
+  <td>Each product enters only against evidence of demand<span class="zh-t">每项产品都须凭需求证据方可进入</span></td>
+</tr>
+</table>
+
+<h3>11.0a Stop conditions</h3>
+<p class="zhh3 zh">11.0a 停止条件</p>
+
+<p>Phases are only gates if something can fail them. Three conditions, each with a stated consequence, govern the next twelve months.</p>
+<span class="zh-t">只有当某个阶段可能不通过，分阶段才真正构成关卡。以下三项条件各自附带明确后果，适用于未来十二个月。</span>
+
+<table class="tight">
+<tr><th style="width:52%">If this happens<span class="zh-t">触发条件</span></th><th style="width:48%">Then<span class="zh-t">应采取的行动</span></th></tr>
+<tr><td>Median first response does not fall below one hour within eight weeks of Phase 1 going live<span class="zh-t">第一阶段上线后八周内，首次响应中位时长仍未降至 1 小时以内</span></td><td>Stop scaling media spend. The constraint is capacity or process, and more leads will not help<span class="zh-t">停止扩大投放。瓶颈在产能或流程，增加线索量无济于事</span></td></tr>
+<tr><td>Recorded disposition coverage does not reach 100% within eight weeks<span class="zh-t">八周内，有明确处置结论的线索占比未达到 100%</span></td><td>Pause Phase 2. The record is the foundation the money layer sits on<span class="zh-t">暂停第二阶段。这份记录是资金层赖以建立的基础</span></td></tr>
+<tr><td>A non-core product line reaches its evaluation point without validated demand<span class="zh-t">某条非核心业务线到达评估节点时仍未验证出需求</span></td><td>It does not enter Phase 4. Demand is proven cheaply before anything is built for it<span class="zh-t">该业务线不进入第四阶段。任何建设之前，须先以低成本验证需求</span></td></tr>
+</table>
+
+<p>These only work if the Chairman fixes the numbers in advance and names someone to check them on a date. Set after the fact, they become commentary.</p>
+<span class="zh-t">这些条件生效的前提是：由董事长事先确定具体数值，并指定专人在指定日期核对。若事后才设定，它们只会变成事后评论。</span>
+
+<h3>11.1 Adoption is a deliverable, not an outcome</h3>
+<p class="zhh3 zh">11.1 被使用是交付物，不是自然结果</p>
+
+<p>The existing portal was offered for testing and nobody tried it. That is a more useful fact than a rejection would have been, because it rules out the software as the cause. Section 3.1a sets out the likelier reason: the portal held about one lead in eighty, because the leads were arriving somewhere else. The wider lesson is worth saying plainly. <strong>Building the software is the easier half of this problem.</strong> A system nobody uses produces the same numbers as no system.</p>
+<span class="zh-t">现有门户此前已开放测试，但无人试用。这个事实比试过之后否决更有参考价值，因为它排除了软件本身的原因。3.1a 节给出了更可能的解释：门户里只装了约八十分之一的线索，因为线索都从别处进来了。这里的教训值得直说：<strong>对本项目而言，把软件做出来是较容易的那一半。</strong>一套没人用的系统，产出的漏斗数字与根本没有系统完全相同。</span>
+
+<p>This proposal therefore treats adoption as scoped work with named owners, not as something expected to happen once the build is finished:</p>
+<span class="zh-t">因此本提案把推行落地当作有明确范围与责任人的工作，而不是把它当成开发完成后自然会发生的事：</span>
+<ul>
+  <li><strong>One workflow, one team, first.</strong> Lead assignment and first response for one sales team. Not every feature for everyone at once.
+  <span class="zh-t"><strong>先做一个流程、一个团队。</strong>先在单一销售团队上跑通线索分配与首次响应，而不是一次性向所有人上线所有功能。</span></li>
+  <li><strong>Migrate the real data before go-live.</strong> Staff won't use a system that's emptier than the spreadsheet they already have. The existing register imports first.
+  <span class="zh-t"><strong>上线前先迁入真实数据。</strong>如果新系统比员工手上的表格还空，他们不会用它。现有台账必须先导入。</span></li>
+  <li><strong>Make the new path the shortest path.</strong> If a lead arrives in the portal already routed and already deduplicated, using it is easier than not using it. Most adoption failures come down to friction rather than unwillingness.
+  <span class="zh-t"><strong>让新路径成为最省事的路径。</strong>如果线索进入门户时已经完成分配与去重，那么用它就比不用它更省事。推行失败通常源于摩擦，而非抵触。</span></li>
+  <li><strong>A named operations owner</strong> who sets routing rules and response thresholds, and whose numbers those become.
+  <span class="zh-t"><strong>指定一位运营负责人</strong>，由其设定分配规则与响应时限，并对这些数字负责。</span></li>
+  <li><strong>Report the gate weekly</strong> — assignment rate and median first response, per team, visible to the Chairman from week one.
+  <span class="zh-t"><strong>每周汇报闸门指标</strong>——分配率与首次响应中位时长，按团队呈现，自第一周起对董事长可见。</span></li>
+  <li><strong>Retire the alternative.</strong> Run it alongside a spreadsheet and the spreadsheet wins. Set a date on which the portal becomes the record.
+  <span class="zh-t"><strong>停用替代方案。</strong>与表格并行运行，结果必然是表格胜出。须设定一个日期，自该日起门户即为唯一记录。</span></li>
+</ul>
+
+
+
+<div class="decision">
+  <span class="tag">Decision required · 需要决策</span>
+  <p>Name the operations owner, and set the date on which the portal becomes the system of record for leads. Without both, Phase 1 delivers software rather than results.</p>
+  <span class="zh-t">请指定运营负责人，并确定门户成为线索唯一记录系统的日期。缺少其中任何一项，第一阶段交付的都只会是软件，而不是结果。</span>
+</div>
+
+<h4>Deliberately deferred</h4>
+<p class="zhh4 zh">有意推迟的部分</p>
+<p>Supplier and external-professional logins; creator and city-curator backend with attribution and revenue share; multi-country tenancy; UGC platform. Each one is written down as excluded, so anyone adding it back has to say so out loud.</p>
+<span class="zh-t">供应商与外部专业人士登录；带归因与分成的创作者及城市主理人后台；多国多租户；用户生成内容平台。每一项都被明确写为排除在外，这样日后要加回来，就是一次可见的决策，而不是不知不觉的范围蔓延。</span>
+
+<h4>What each phase must prove</h4>
+<p class="zhh4 zh">各阶段必须验证的指标</p>
+<table class="tight">
+<tr><th style="width:10%">Phase<span class="zh-t">阶段</span></th><th style="width:46%">Measure<span class="zh-t">指标</span></th><th class="num" style="width:22%">Now<span class="zh-t">现状</span></th><th class="num" style="width:22%">Target<span class="zh-t">目标</span></th></tr>
+<tr><td>1</td><td>Leads carrying a recorded disposition — assigned, or refused with a reason<span class="zh-t">有明确处置结论的线索占比（已分配，或已拒绝并注明原因）</span></td><td class="num">~44%</td><td class="num">100%</td></tr>
+<tr><td>1</td><td>Leads assigned to a representative<span class="zh-t">线索分配率</span></td><td class="num">38.7%</td><td class="num">no target set<span class="zh-t">不设目标</span></td></tr>
+<tr><td>1</td><td>Median first response<span class="zh-t">首次响应中位时长</span></td><td class="num">unmeasured<span class="zh-t">未度量</span></td><td class="num">&lt; 1 hour<span class="zh-t">&lt; 1 小时</span></td></tr>
+<tr><td>1</td><td>Duplicate records<span class="zh-t">重复记录率</span></td><td class="num">17.2%</td><td class="num">&lt; 3%</td></tr>
+<tr><td>2</td><td>Invoices issued from the system<span class="zh-t">由系统出具的发票占比</span></td><td class="num">0%</td><td class="num">100%</td></tr>
+<tr><td>2</td><td>Milestones invoiced with their delivery evidence attached<span class="zh-t">开票时已附交付证据的里程碑占比</span></td><td class="num">—</td><td class="num">100%</td></tr>
+<tr><td>1</td><td>Share of all leads that reach the CRM<span class="zh-t">进入 CRM 的线索占全部线索的比例</span></td><td class="num">~1.3%</td><td class="num">100%</td></tr>
+<tr><td>3</td><td>Enquiries captured directly on the site<span class="zh-t">官网直接留资量</span></td><td class="num">~1.3% — 64 of 5,076<span class="zh-t">约 1.3%——5,076 条线索中 64 条</span></td><td class="num">baseline +25%<span class="zh-t">基线 +25%</span></td></tr>
+</table>
+
+<div class="decision">
+  <span class="tag">Benefits review at Phase 1 + 3 months · 第一阶段完成后三个月的效益复核</span>
+  <p>Three months after Phase 1 goes live, the IT function reports actual against every target in the table above, and states whether the ten-week estimate and the case behind it held. Weekly gate reporting shows whether the work is progressing. This review asks the different question of whether it was worth doing, and it is the point at which the Chairman can stop, continue or re-scope Phase 2 on evidence rather than on intent.</p>
+  <span class="zh-t">第一阶段上线满三个月时，由 IT 就上表中每一项指标报告实际值与目标值的对比，并说明十周的估算与其背后的论证是否成立。周度关卡报表反映的是工作是否在推进；本次复核回答的是另一个问题——这件事是否值得做。届时董事长可依据实际证据，而非当初的意图，决定停止、继续或重新界定第二阶段。</span>
+</div>
+
+<h2 class="sec" id="s12"><span class="num">Section 12</span>Resourcing</h2>
+<p class="zhh zh">资源与人力</p>
+
+<p>This plan assumes one developer. That is enough to do Phase 1 properly and then Phase 2. It is not enough to run Phases 1 through 4 at the same time, and trying to do so tends to deliver none of them.</p>
+<span class="zh-t">本计划以<strong>一名开发人员</strong>为前提。这足以先把第一阶段做好，再做第二阶段；但不足以并行推进第一至第四阶段——强行并行的结果是两头都做不成。</span>
+
+<p>The business supplies three roles, not engineering, and none of them is full-time:</p>
+<span class="zh-t">有三个角色须由业务方而非技术方承担，且均非全职：</span>
+<ul>
+  <li><strong>A decision owner</strong> who approves scope, settles a question within a week, and breaks a tie.
+  <span class="zh-t"><strong>决策负责人</strong>：可批准范围、在一周内给出答复、并在意见相持时拍板。</span></li>
+  <li><strong>An operations owner</strong> who defines routing rules, SLA thresholds and pipeline stages — these are business rules and the business sets them.
+  <span class="zh-t"><strong>运营负责人</strong>：定义分配规则、响应时限与管道阶段——这些是业务规则，不是技术问题。</span></li>
+  <li><strong>A content approver</strong> from Insight Idea, being the MARA Agent, for the publication gate.
+  <span class="zh-t"><strong>内容审核人</strong>：由 Insight Idea 的 MARA 持牌代理担任，负责发布关卡。</span></li>
+</ul>
+
+<p>To compress the timeline, the constraint is engineering capacity. There are three ways out: a second developer, a delivery partner for Phase 3, or a longer schedule. Better to have that conversation now than at month nine.</p>
+<span class="zh-t">若希望压缩周期，瓶颈在于开发产能，诚实的选项只有三个：增加一名开发人员、为第三阶段引入交付合作方，或者接受更长的排期。这个对话现在谈，好过第九个月再谈。</span>
+
+<div class="note">
+  <span class="tag">Estimating basis · 估算依据</span>
+  <p>The existing portal took 10–12 weeks to build. The ten-week figure for Phase 1 covers the specific gaps identified in 3.3 on top of that working system. Read the estimate against that benchmark, not as a general rate of delivery. The two numbers being similar is not a contradiction. The first ten weeks produced the shell and the screens, and the second ten weeks produce the rules, the timers and the reporting that make the shell operate on its own.</p>
+  <span class="zh-t">现有门户的建设耗时 10–12 周。第一阶段所称的 10 周，覆盖 3.3 节在该可运行系统之上所识别出的具体缺口，应以此为基准来理解，而不应视为普遍的开发速度。两个数字接近并不矛盾：前十周产出的是框架与界面，后十周产出的是使框架能够自行运转的规则、计时与报表。</span>
+</div>
+
+
+
+<h2 class="sec" id="s13"><span class="num">Section 13</span>Investment model</h2>
+<p class="zhh zh">投入与回报</p>
+
+<h3>13.1 Cost structure</h3>
+<p class="zhh3 zh">13.1 成本结构</p>
+<p>Costs fall into internal engineering time, third-party software subscriptions (payment processing, document storage, e-signature, messaging, hosting, monitoring), and professional fees wherever the build depends on legal or accounting input. Two of the three are already known. Phase 1 runs entirely on the free tiers of the current hosting and database providers, so it adds no subscription cost at all; paid tiers become necessary only when RGL exists as an operating entity with real volume, and at that point the two providers together sit between roughly US$45 and US$800 a month depending on tier. Internal engineering time is set out in Section 11: about ten weeks for Phase 1 and about thirty-two developer-weeks across Phases 1 to 3, on existing capacity. Only the internal cost rate and the professional fees remain open, because the rate and the corporate structure are not settled. The structure below is set up for finance to populate.</p>
+<span class="zh-t">成本分为三类：内部开发工时；第三方软件订阅（支付处理、文件存储、电子签名、消息触达、主机、监控）；以及建设过程中依赖法律或会计意见时产生的专业服务费。其中两类已经明确。第一阶段完全运行在现有主机与数据库服务商的免费额度内，因此不产生任何新增订阅费用；只有当 RGL 作为实体运营并产生真实业务量时才需转入付费档，届时两家服务商合计约为每月 45 至 800 美元，视所选档位而定。内部开发工时见第 11 节：第一阶段约十周，第一至第三阶段合计约 32 个开发人周，由现有人力承担。尚未确定的只有内部成本口径与专业服务费，因为费率与集团架构均未落定。下方结构已为财务填列预留。</span>
+
+<h3>13.1a What it costs beyond money</h3>
+<p class="zhh3 zh">13.1a 金钱之外的代价</p>
+
+<p>Four costs do not appear in a budget line and should be weighed against the return.</p>
+<span class="zh-t">有四项代价不会出现在预算科目里，但应与回报一并权衡。</span>
+
+<ul>
+  <li><strong>The daily export.</strong> Roughly one staff-hour a day, borne by operations rather than sales. It replaces manual transcription that happens today, so the net is negative, but the hour moves to a different person.
+  <span class="zh-t"><strong>每日导出：</strong>约占用一名员工每天一小时，由运营而非销售承担。它替代的是目前正在发生的人工转录，因此净工时是减少的——但这一小时换了人来出。</span></li>
+  <li><strong>The transition period.</strong> Between go-live and the cutover date, two systems hold the same data and neither is fully trusted. Section 11.1 keeps that window short by naming a date; it does not remove it.
+  <span class="zh-t"><strong>过渡期：</strong>从上线到切换日之间，两套系统同时保有相同数据，且哪一套都不完全可信。第 11.1 节通过明确切换日期把这个窗口压到最短，但无法消除它。</span></li>
+  <li><strong>Ten weeks of the only developer.</strong> No other IT work proceeds during Phase 1. Anything that arrives in that window waits or displaces the phase.
+  <span class="zh-t"><strong>唯一开发人力的十周：</strong>第一阶段期间不进行其他 IT 工作。该窗口内出现的任何需求，要么等待，要么挤占本阶段。</span></li>
+  <li><strong>A new task for management.</strong> The triage inbox is work that did not exist before. It is short, and it can be batched, but it is real.
+  <span class="zh-t"><strong>管理层的新增工作：</strong>分诊收件箱是此前不存在的工作量。它耗时很短、也可以批量处理，但确实是新增的。</span></li>
+</ul>
+
+<h3>13.2 The return case</h3>
+<p class="zhh3 zh">13.2 回报测算</p>
+<p>The clearest return is in Phase 1, though not for the reason an earlier draft of this section gave. Routing more leads to reps is not worth much on its own, because a large share of the unrouted ones were refused deliberately and would convert at nothing like the rate of the rest.</p>
+<span class="zh-t">最清晰的回报仍在第一阶段，但理由与前一版不同。单纯把更多线索分配给销售，本身价值有限——因为未被分配的线索中有相当比例是被有意拒绝的，其转化率不会与其余线索相当。</span>
+
+<p>The return sits in the 2,829 leads with no disposition at all, and in the 1,553 that never moved past &quot;arrived&quot;. Three things follow from closing that gap. Media spend gets cheaper: 93% of August leads were paid for, campaign and creative IDs are already captured on 38% of rows, and once refusals carry a reason those reasons tell the media buyer what to stop buying. Contact quality gets fixable: 206 leads went nowhere because the person never replied or the details were unusable, on a register where phone is filled 3% of the time and WeChat 44%. And the closes stop going missing. The register shows 8 against 35 advised, so every ratio the business quotes about itself is wrong by roughly four times.</p>
+<span class="zh-t">回报在那 2,829 条完全没有处置结论的线索上，以及那 1,553 条从未越过已进线的线索上。补上这个缺口会带来三件事。第一，投放变便宜：8 月线索的 93% 是付费获取的，投放计划与创意 ID 已在 38% 的行上被采集；一旦拒绝都带上原因，这些原因本身就在告诉投放人员该停投什么。第二，联系方式质量变得可修复：有 206 条线索因客户未回复或联系方式不可用而中断，而该台账中电话字段仅 3% 有填写、微信仅 44%。第三，成交不再漏记：台账记录 8 笔，业务方口径 35 笔，这意味着公司对外引用的每一个比率都偏离约四倍。</span>
+
+<p>Put a number on it after the sample described below, not before. Anything quoted now would be a guess wearing a forecast's clothes.</p>
+<span class="zh-t">具体金额应在下方备注所述的抽样完成之后再给。现在给出的任何数字，都只是包装成预测的猜测。</span>
+
+<div class="note">
+  <span class="tag">Test the screening before funding anything on it · 在据此投入之前先验证筛选判断</span>
+  <p>Nobody has checked whether the screening is accurate. Work 200 leads from the &quot;arrived and nothing recorded&quot; pool properly, with a named rep and a real follow-up, and measure what comes out. If they convert at nothing, the screening is sound and the finding is that media should be spending less. If they convert at even a fifth of the assigned rate, the refusals have been costing more than the platform. Either answer is worth having, it takes one rep a fortnight, and it settles the argument that this section cannot settle on its own.</p>
+  <span class="zh-t">目前没有人验证过筛选判断是否准确。从已进线但无任何记录的线索池中取 200 条，指派具体销售、按正常流程真实跟进一遍，然后看结果。若转化为零，说明筛选判断成立，结论是投放应当减少支出。若转化率达到已分配线索的五分之一，那么这些拒绝的代价已经超过平台本身。两种答案都值得拿到；这项验证只需一名销售两周时间，并能解决本节自身无法解决的争议。</span>
+</div>
+
+<h3>13.3 Unit economics</h3>
+<p class="zhh3 zh">13.3 单位经济模型</p>
+<p>At roughly 145 leads per signed client and an average engagement in the mid-A$200,000s, media cost remains a modest share of revenue across a wide band of plausible cost-per-lead values. Confirming the actual figure refines the budget without changing whether the plan is viable. Confirm it anyway, because it sets how hard the Group can push acquisition.</p>
+<span class="zh-t">按每约 145 条线索成交一位客户、单份委托均值约 25 万澳元计算，在单条线索成本的较宽区间内，投放费用占收入的比例都不高。确认实际数字属于预算输入，而非可行性问题——但仍应确认，因为它决定了获客可以推进到多大力度。</span>
+
+<h2 class="sec" id="s14"><span class="num">Section 14</span>Risks</h2>
+<p class="zhh zh">风险</p>
+
+<table>
+<caption>Principal risks to the build<span class="zh-t">建设过程的主要风险</span></caption>
+<tr><th style="width:24%">Risk<span class="zh-t">风险</span></th><th style="width:12%">Severity<span class="zh-t">严重度</span></th><th style="width:64%">Mitigation<span class="zh-t">应对</span></th></tr>
+<tr><td>Built but not adopted<span class="zh-t">建成却无人使用</span></td><td><span class="pill p4">High 高</span></td><td>Realised once already. Adoption scoped as work in 11.1, with a named owner, a cutover date and weekly reporting of the gate metrics<span class="zh-t">已经发生过一次。11.1 将推行落地列为明确工作，设责任人、切换日期，并每周汇报闸门指标</span></td></tr>
+<tr><td>Scope expands beyond capacity<span class="zh-t">范围超出产能</span></td><td><span class="pill p4">High 高</span></td><td>Phased delivery with a written exclusion list; each phase ships independently<span class="zh-t">分阶段交付，并书面列明排除项；每个阶段独立上线</span></td></tr>
+<tr><td>Blocking decisions not made<span class="zh-t">关键决策迟迟未定</span></td><td><span class="pill p4">High 高</span></td><td>Section 15 names twelve decisions with owners; Phase 1 proceeds regardless<span class="zh-t">第 15 节列出十二项决策及责任人；第一阶段不受影响照常推进</span></td></tr>
+<tr><td>Product 12 modelled as a booking<span class="zh-t">把产品 12 当作预订来建模</span></td><td><span class="pill p4">High 高</span></td><td>Case model designed first, in Phase 2, before any reservations logic exists<span class="zh-t">第二阶段先设计案件模型，早于任何预订逻辑</span></td></tr>
+<tr><td>Measurement remains unreliable<span class="zh-t">度量始终不可靠</span></td><td><span class="pill p2">Medium 中</span></td><td>Reporting is a Phase 1 deliverable, not a later addition<span class="zh-t">报表是第一阶段的交付物，而非后续补充</span></td></tr>
+<tr><td>Sales capacity caps the return<span class="zh-t">销售产能限制回报</span></td><td><span class="pill p2">Medium 中</span></td><td>Plan hiring behind the funnel fix; measure meetings per representative<span class="zh-t">在漏斗修复之后规划招聘；按顾问度量面谈数</span></td></tr>
+<tr><td>Client documents held outside the platform<span class="zh-t">平台之外保存的客户材料</span></td><td><span class="pill p4">High 高</span></td><td>Copies in shared drives and on individual laptops fall outside any retention or access rule the platform can enforce. Owner: Insight Idea, as holder of the registration. Review at Phase 2<span class="zh-t">共享云盘与个人电脑上的副本，不受平台任何留存或访问规则的约束。责任方：持牌方 Insight Idea。第二阶段复核</span></td></tr>
+<tr><td>Compliance retrofitted<span class="zh-t">合规事后加装</span></td><td><span class="pill p4">High 高</span></td><td>Controls in the first schema; audit log from day one<span class="zh-t">控制写入第一版数据结构；审计日志自第一天启用</span></td></tr>
+<tr><td>Migration policy change<span class="zh-t">移民政策变动</span></td><td><span class="pill p2">Medium 中</span></td><td>Pathways as configuration, not schema<span class="zh-t">签证路径作为配置项，而非写入数据结构</span></td></tr>
+<tr><td>Key-person concentration<span class="zh-t">关键人依赖</span></td><td><span class="pill p2">Medium 中</span></td><td>Outside the build's control; noted for the Chairman — it applies to both the licence and the acquisition channel<span class="zh-t">超出建设范围，仅提请董事长注意——牌照与获客渠道两方面均存在此问题</span></td></tr>
+<tr><td>Single developer unavailable<span class="zh-t">唯一开发人员不可用</span></td><td><span class="pill p2">Medium 中</span></td><td>Conventional stack, documented decisions, no bespoke frameworks<span class="zh-t">采用常规技术栈、决策形成文档、不自造框架</span></td></tr>
+</table>
+
+<h2 class="sec" id="s15"><span class="num">Section 15</span>Decisions required</h2>
+<p class="zhh zh">需要决策的事项</p>
+
+<p>Four block Phase 2. One blocks Phase 1. That's Decision 10, and it's about adoption, not engineering.</p>
+<span class="zh-t">其中四项影响第二阶段；一项影响第一阶段——即第 10 项，属于推行落地问题，而非技术问题。</span>
+
+<table>
+<caption>Decision log<span class="zh-t">决策清单</span></caption>
+<tr><th style="width:5%">#</th><th style="width:45%">Decision<span class="zh-t">决策事项</span></th><th style="width:16%">Blocks<span class="zh-t">影响</span></th><th style="width:34%">Owner<span class="zh-t">责任人</span></th></tr>
+<tr><td>1</td><td>Approve the architecture in Section 5 and the sequencing in Section 11<span class="zh-t">批准第 5 节架构与第 11 节建设次序</span></td><td><span class="pill p4">Phase 1</span></td><td>Chairman<span class="zh-t">董事长</span></td></tr>
+<tr><td>2</td><td>Which legal entity contracts with the client and issues the invoice<span class="zh-t">由哪个法律主体与客户签约并开票</span></td><td><span class="pill p4">Phase 2</span></td><td>Chairman + lawyer<span class="zh-t">董事长与律师</span></td></tr>
+<tr><td>3</td><td>Exact wording for the milestone description on invoice and contract<span class="zh-t">发票与合同上里程碑描述的确切措辞</span></td><td><span class="pill p4">Phase 2</span></td><td>Client Agreement author<span class="zh-t">服务协议起草人</span></td></tr>
+<tr><td>4</td><td>Confirmed per-stage fee split, and whether price varies by scope, attribute or negotiation<span class="zh-t">确认各阶段收费拆分，以及价格因工作范围、客户属性还是议价而变动</span></td><td><span class="pill p4">Phase 2</span></td><td>Chairman<span class="zh-t">董事长</span></td></tr>
+<tr><td>5</td><td>Accept-CNY-settle-AUD or price-in-CNY; whether card/POS is required<span class="zh-t">收人民币结澳元抑或以人民币定价；是否需要银行卡／POS</span></td><td><span class="pill p4">Phase 2</span></td><td>Finance<span class="zh-t">财务</span></td></tr>
+<tr><td>6</td><td>Confirm the record-level split between legal matters and general CRM records, and which roles may see which<span class="zh-t">确认法律案件与一般 CRM 记录在记录层面的隔离方式，以及各角色的可见范围</span></td><td><span class="pill p2">Phase 2</span></td><td>Insight Idea + Head of IT<span class="zh-t">Insight Idea 与 IT 负责人</span></td></tr>
+<tr><td>7</td><td>Named approver for migration-related published content<span class="zh-t">移民相关对外内容的指定审核人</span></td><td><span class="pill p2">Phase 3</span></td><td>Insight Idea<span class="zh-t">Insight Idea</span></td></tr>
+<tr><td>8</td><td>Which products proceed to Phase 3, and which are set aside<span class="zh-t">哪些产品进入第三阶段，哪些暂时搁置</span></td><td><span class="pill p2">Phase 3</span></td><td>Chairman<span class="zh-t">董事长</span></td></tr>
+<tr><td>9</td><td>Resourcing: one developer and this timeline, or additional capacity<span class="zh-t">资源配置：维持一名开发与本排期，还是增加产能</span></td><td><span class="pill p3">Timeline<span class="zh-t">排期</span></span></td><td>Head of IT, with the Chairman<span class="zh-t">IT 负责人，会同董事长</span></td></tr>
+<tr><td>10</td><td>Name the operations owner and the date the portal becomes the system of record for leads<span class="zh-t">指定运营负责人，并确定门户成为线索唯一记录系统的日期</span></td><td><span class="pill p4">Phase 1</span></td><td>Chairman<span class="zh-t">董事长</span></td></tr>
+<tr><td>11</td><td>Name who runs the daily Xiaohongshu export and when; decide whether staff move to WeCom for client messaging (Section 8.5)<span class="zh-t">指定每日导出小红书线索的负责人与时间；决定员工是否改用企业微信与客户沟通（第 8.5 节）</span></td><td><span class="pill p4">Phase 1</span></td><td>Chairman + operations<span class="zh-t">董事长与运营</span></td></tr>
+<tr><td>12</td><td>Brand hierarchy for the consumer-facing site and the Xiaohongshu accounts (Section 9.3)<span class="zh-t">对外站点与小红书账号的品牌层级（第 9.3 节）</span></td><td><span class="pill p2">Phase 3</span></td><td>Chairman + marketing<span class="zh-t">董事长与市场</span></td></tr>
+</table>
+
+<h2 class="sec" id="a1"><span class="num">Appendix A</span>The twelve adviser questions</h2>
+<p class="zhh zh">顾问提问的情景推演</p>
+
+<p>Section 09 of the Product Book puts twelve questions to advisers, asking not for endorsement of the vision but for go/no-go conditions, resource sequencing, capital structure and twelve-month priorities. They remain open. None of them blocks Phase 1.</p>
+<span class="zh-t">《产品册》第 09 节向顾问提出十二个问题，征求的不是对愿景的背书，而是继续或停止的判定条件、资源投入次序、资本结构与十二个月内的优先级。这些问题目前仍未有结论，且其中没有任何一项会阻碍第一阶段的推进。</span>
+
+<p>A scenario analysis of all twelve — the plausible options, what each would imply, and a suggested default where the evidence supports one — is in the companion paper <em>The Twelve Adviser Questions</em>, issued alongside this document and not for decision.</p>
+<span class="zh-t">十二个问题的完整情景推演——可能的选项、各自的含义，以及在证据支持时给出的建议默认选项——见随本文件一同提交的配套文件《顾问提问的情景推演》，该文件不涉及决策事项。</span>
+
+<div class="note">
+  <span class="tag">Two of the twelve bear on this proposal · 其中两项与本提案直接相关</span>
+  <p><strong>Question 11</strong> sets the milestones and stop conditions for the next twelve months. Its first milestone — every lead carrying a recorded disposition, median first response under an hour, and reporting the business trusts — is Phase 1's own target in Section 12, and its stop conditions govern when to stop scaling media or expanding the platform.</p>
+  <span class="zh-t"><strong>问题 11</strong> 设定未来十二个月的里程碑与停止条件。其第一项里程碑——每条线索都有明确处置结论、首次响应中位时长低于一小时、并产出业务方信得过的报表——正是第 12 节所列第一阶段的目标；其停止条件则决定何时应停止扩大投放或暂缓平台扩张。</span>
+  <p><strong>Question 12</strong> asks what an investment committee would reject the project for today. Two of the three answers are housekeeping. The third is answered by doing what Section 11 proposes: prove demand product by product, cheaply, before building for it.</p>
+  <span class="zh-t"><strong>问题 12</strong> 追问：若今天将项目提交投资委员会，最可能被否决的三个理由是什么。三个理由中有两个属于内务整理，第三个由第 11 节的做法直接回应：先逐个产品、以低成本验证需求，再为其建设。</span>
+</div>
+
+<h2 class="sec" id="a2"><span class="num">Appendix B</span>Glossary and document control</h2>
+<p class="zhh zh">附录 B · 术语与文件控制</p>
+
+<table class="tight">
+<caption>Terms used in this document<span class="zh-t">本文件使用的术语</span></caption>
+<tr><th style="width:26%">Term<span class="zh-t">术语</span></th><th style="width:74%">Meaning here<span class="zh-t">在本文件中的含义</span></th></tr>
+<tr><td>Client record<span class="zh-t">客户主档案</span></td><td>The single master record for a person or household across every product and stage<span class="zh-t">贯穿所有产品与阶段的个人或家庭唯一主记录</span></td></tr>
+<tr><td>Money record<span class="zh-t">资金记录</span></td><td>Quotes, contracts, milestone schedules, invoices, payments, payers, refunds and exposure<span class="zh-t">报价、合同、里程碑安排、发票、收款、付款人、退款与风险敞口</span></td></tr>
+<tr><td>Engagement<span class="zh-t">委托</span></td><td>A contracted multi-stage professional relationship, as distinct from a booking or an order<span class="zh-t">经合同约定的多阶段专业服务关系，区别于一次预订或一笔订单</span></td></tr>
+<tr><td>Milestone<span class="zh-t">里程碑</span></td><td>A defined body of work whose completion triggers an invoice<span class="zh-t">一段明确界定的工作，其完成触发一次开票</span></td></tr>
+<tr><td>Deliverable evidence<span class="zh-t">交付证据</span></td><td>The record of work performed against a milestone, captured at the time<span class="zh-t">针对某一里程碑所完成工作的记录，在工作发生当时留存</span></td></tr>
+<tr><td>Payer<span class="zh-t">付款人</span></td><td>The party who paid, who may differ from the client<span class="zh-t">实际付款的一方，可能不是客户本人</span></td></tr>
+<tr><td>Rail<span class="zh-t">支付通道</span></td><td>A payment method — bank transfer, PayID, WeChat Pay, Alipay, card<span class="zh-t">一种支付方式——银行转账、PayID、微信支付、支付宝、银行卡</span></td></tr>
+<tr><td>Assignment<span class="zh-t">分配</span></td><td>Allocation of a lead to a named representative; the gate to the rest of the funnel<span class="zh-t">将线索指派给具体顾问；漏斗其余环节的闸门</span></td></tr>
+<tr><td>Review gate<span class="zh-t">审核关卡</span></td><td>The mandatory approval step before content is published<span class="zh-t">内容发布前的强制审批环节</span></td></tr>
+<tr><td>GEO</td><td>Optimising content to be found and cited by generative answer engines<span class="zh-t">生成式引擎优化：使内容能被生成式问答引擎检索并引用</span></td></tr>
+</table>
+
+<table class="tight">
+<caption>Five Case Model — where each case is addressed<span class="zh-t">五案模型 · 各案在本文件中的位置</span></caption>
+<tr><th style="width:20%">Case<span class="zh-t">案别</span></th><th style="width:22%">Question it answers<span class="zh-t">所回答的问题</span></th><th style="width:34%">Addressed in<span class="zh-t">对应章节</span></th><th style="width:24%">Known gap<span class="zh-t">已知缺口</span></th></tr>
+<tr><td><strong>Strategic</strong><span class="zh-t"><strong>战略案</strong></span></td><td>Is there a compelling case for change?<span class="zh-t">是否存在必须变革的充分理由？</span></td><td>§1 executive summary; §2 mandate and scope; §3 evidence base; §4 design principles<span class="zh-t">第 1 节执行摘要；第 2 节委托与范围；第 3 节证据基础；第 4 节设计原则</span></td><td>None<span class="zh-t">无</span></td></tr>
+<tr><td><strong>Economic</strong><span class="zh-t"><strong>经济案</strong></span></td><td>Which option delivers best value?<span class="zh-t">哪个方案的性价比最高？</span></td><td>§5.0 build versus buy; §5.4 signature options; §7 currency and rail options; §9.3 brand transition; §11 phase sequencing<span class="zh-t">第 5.0 节自建与外采；第 5.4 节签署方式；第 7 节币种与通道；第 9.3 节品牌迁移；第 11 节阶段排序</span></td><td>No do-nothing option appraised against the investment as a whole<span class="zh-t">未就整体投资比较维持现状方案</span></td></tr>
+<tr><td><strong>Commercial</strong><span class="zh-t"><strong>商务案</strong></span></td><td>Is it procurable and viable?<span class="zh-t">是否可采购、可持续？</span></td><td>§4 buy the commodity, build the differentiator; §5.0 stack and vendors; §5.4 e-signature; §7 payment providers; §8.5 middleware ruled out<span class="zh-t">第 4 节通用能力外采、差异化能力自建；第 5.0 节技术栈与供应商；第 5.4 节电子签名；第 7 节支付服务商；第 8.5 节排除中间件方案</span></td><td>Vendor terms, subscription costs and exit position not stated<span class="zh-t">未列明供应商条款、订阅成本与退出方案</span></td></tr>
+<tr><td><strong>Financial</strong><span class="zh-t"><strong>财务案</strong></span></td><td>Is it affordable?<span class="zh-t">是否负担得起？</span></td><td>§13.1 cost structure; §13.2 return case; §13.3 unit economics<span class="zh-t">第 13.1 节成本结构；第 13.2 节回报论证；第 13.3 节单位经济</span></td><td>No figures, and therefore no appraisal. §13.1 states why, and the structure is set up for finance to populate<span class="zh-t">未列数字，因而无投资评估。第 13.1 节说明原因，并已为财务填列预留结构</span></td></tr>
+<tr><td><strong>Management</strong><span class="zh-t"><strong>管理案</strong></span></td><td>Can it actually be delivered?<span class="zh-t">是否真的交付得出来？</span></td><td>§11 four phases; §11.1 adoption as scoped work; §12 resourcing and phase measures; §14 risks; §15 decisions and owners<span class="zh-t">第 11 节四个阶段；第 11.1 节推行作为交付物；第 12 节资源与阶段指标；第 14 节风险；第 15 节决策与责任人</span></td><td>Risk register has no owner or review-date column<span class="zh-t">风险清单缺少责任人与复核日期列</span></td></tr>
+</table>
+
+<p>This document is ordered as an argument rather than by case, because the Chairman reads it front to back and the argument is what carries the decision. The table above is for anyone reviewing it against the framework — an adviser, an investment committee, or a funder's due diligence — and it names the gaps rather than leaving them to be found.</p>
+<span class="zh-t">本文件按论证逻辑编排，而非按五案分块，因为董事长是从头读到尾的，承载决策的是这条论证线。上表供依框架审阅本文件的人使用——顾问、投资委员会，或出资方的尽职调查——并主动列出缺口，而不是留待对方发现。</span>
+
+<table class="tight">
+<caption>Document control<span class="zh-t">文件控制</span></caption>
+<tr><th style="width:26%">Field<span class="zh-t">项目</span></th><th style="width:74%">Value<span class="zh-t">内容</span></th></tr>
+<tr><td>Version<span class="zh-t">版本</span></td><td>1.1 — bilingual, for decision<span class="zh-t">1.1 · 中英双语，供决策</span></td></tr>
+<tr><td>Governing version<span class="zh-t">准据文本</span></td><td>English. Where the English and Chinese texts differ, the English version governs<span class="zh-t">以英文版为准。中英文本如有不一致之处，以英文版为准</span></td></tr>
+<tr><td>Date<span class="zh-t">日期</span></td><td>13 August 2026<span class="zh-t">2026 年 8 月 13 日</span></td></tr>
+<tr><td>Prepared for<span class="zh-t">呈报对象</span></td><td>The Chairman, RGL<span class="zh-t">红桥董事长</span></td></tr>
+<tr><td>Basis<span class="zh-t">依据</span></td><td>Product Book V1.0; inbound lead register as at 13 August 2026; the existing RedBridge portal codebase; stated fee structure and payment requirements<span class="zh-t">《产品册 V1.0》；截至 2026 年 8 月 13 日的进线留资台账；现有红桥门户代码库；已说明的收费结构与支付要求</span></td></tr>
+<tr><td>Review<span class="zh-t">复核</span></td><td>On approval of Section 15, or on material change to the fee structure, corporate structure or product portfolio<span class="zh-t">第 15 节获批时，或收费结构、集团架构、产品组合发生重大变化时</span></td></tr>
+</table>
+
+<div class="note">
+  <span class="tag">On the figures in this document · 关于本文件中的数字</span>
+  <p>Lead volume, paid share, assignment rate, duplicate rate and customer profile are drawn from the inbound register and are reliable. Meeting and close counts drawn from that register understate reality and are used only where stated. Fee figures are as advised by the business and are subject to Decision 4. No figure here has been independently audited.</p>
+  <span class="zh-t">线索数量、付费来源占比、分配率、重复率与客户画像取自进线台账，数据可靠。由该台账推得的面谈数与成交数低于实际，仅在文中已注明处使用。收费数字系业务方提供，以第 4 项决策为准。本文件中的数字均未经独立审计。</span>
+</div>
+
+<p class="foot">Prepared for internal decision-making. Not legal, financial or migration advice. Contains no personal data.<br>
+<span class="zh">供内部决策使用。不构成法律、财务或移民意见。不含个人信息。</span></p>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var pos = window.scrollY + 140, current = 0;
+    for (var i=0;i<targets.length;i++){ if (targets[i] && targets[i].offsetTop <= pos) current = i; }
+    links.forEach(function(a,i){ a.classList.toggle('on', i===current); });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ window.requestAnimationFrame(function(){ sync(); ticking=false; }); ticking=true; }
+  }, {passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var ZH = 'zh-t zhh zhh3 zhh4'.split(' ');
+  function isZH(n){
+    if(!n || n.nodeType!==1) return false;
+    for(var i=0;i<ZH.length;i++) if(n.classList.contains(ZH[i])) return true;
+    return false;
+  }
+  // Wrap every EN block that is immediately followed by its ZH counterpart.
+  function wrap(scope){
+    var kids = Array.prototype.slice.call(scope.children);
+    for(var i=0;i<kids.length;i++){
+      var en = kids[i], zh = en.nextElementSibling;
+      if(isZH(en) || !isZH(zh)) continue;
+      if(/^(TD|TH|LI|DD|DT)$/.test(en.tagName)) continue;
+      var pair = document.createElement('div');
+      pair.className = 'bi bi-' + en.tagName.toLowerCase()
+                     + (en.classList.contains('sec') ? ' bi-sec' : '')
+                     + (en.classList.contains('lede') ? ' bi-lede' : '');
+      var l = document.createElement('div'); l.className='bi-en';
+      var r = document.createElement('div'); r.className='bi-zh';
+      en.parentNode.insertBefore(pair, en);
+      l.appendChild(en); r.appendChild(zh);
+      pair.appendChild(l); pair.appendChild(r);
+      i++; // skip the zh we just consumed
+    }
+  }
+  var main = document.querySelector('main') || document.body;
+  wrap(main);
+  ['.decision','.note','.scen','header.cover','.foot'].forEach(function(sel){
+    document.querySelectorAll(sel).forEach(wrap);
+  });
+
+  // language toggle
+  var bar = document.createElement('div');
+  bar.className = 'langbar';
+  bar.innerHTML = '<button data-lang="en">EN</button>'
+                + '<button data-lang="zh">\u4e2d\u6587</button>'
+                + '<button data-lang="both">EN + \u4e2d\u6587</button>';
+  main.insertBefore(bar, main.firstChild);
+
+  function set(mode){
+    document.body.classList.remove('bi-en','bi-zh','bi-both');
+    document.body.classList.add('bi-'+mode);
+    bar.querySelectorAll('button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.lang===mode ? 'true':'false');
+    });
+    try{ localStorage.setItem('rgl-lang', mode); }catch(e){}
+  }
+  bar.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(b) set(b.dataset.lang);
+  });
+
+  var saved = null;
+  try{ saved = localStorage.getItem('rgl-lang'); }catch(e){}
+  set(saved || 'both');
+})();
+</script>
+</body>
+</html>
