@@ -236,6 +236,19 @@ export const projectCards = {
         { num: "$40k–95k", label: "AUD cost avoided" },
       ],
     },
+    {
+      slug: "redbridge-global-living",
+      accent: "#A8202B",
+      accentLight: "#F5E9E9",
+      tag: "Project 8 · Aug 2026",
+      title: "RedBridge Global Living",
+      summary: "Strategic proposal for the full RGL platform ecosystem — website, web app, booking, checkout, and four portals — authored solo and submitted to the Chairman for decision.",
+      stats: [
+        { num: "EN+ZH", label: "Bilingual" },
+        { num: "15", label: "Sections" },
+        { num: "5,076", label: "Leads analysed" },
+      ],
+    },
   ],
   zh: [
     {
@@ -327,6 +340,19 @@ export const projectCards = {
         { num: "283+", label: "提交次数" },
         { num: "18", label: "路由 · 178 个组件" },
         { num: "$40k–95k", label: "节省机构费用（澳元）" },
+      ],
+    },
+    {
+      slug: "redbridge-global-living",
+      accent: "#A8202B",
+      accentLight: "#F5E9E9",
+      tag: "项目 8 · 2026年8月",
+      title: "红桥全球旅居",
+      summary: "红桥全球旅居全平台生态系统战略提案——涵盖官网、网页应用、预订、结算及四个门户——独立撰写并呈报董事长决策。",
+      stats: [
+        { num: "中英", label: "双语" },
+        { num: "15", label: "章节" },
+        { num: "5,076", label: "线索分析" },
       ],
     },
   ],
@@ -1839,5 +1865,50 @@ export const p7 = {
         { icon: "🎬", title: "视频 LCP Poster 帧修复", text: "为首页英雄视频添加 poster 帧属性 — 视频加载期间现显示品牌封面图片而非黑色帧，消除流量最高页面上的 LCP Core Web Vitals 风险及视觉突兀的初始加载体验。" },
       ],
     },
+  },
+};
+
+export const p8 = {
+  en: {
+    tag: "Project 8 · Aug 2026",
+    title: "RedBridge Global Living",
+    subtitle: "Role: Head of IT & Product Strategy · Sole author · Cross-subsidiary, Siddeley Group · Bilingual EN/ZH · Full platform ecosystem design",
+    accent: "#A8202B",
+    proposalUrl: "https://claude.ai/code/artifact/c6c54ac7-5371-43df-bb97-df80d5917187",
+    impact: [
+      {
+        label: "Scope",
+        text: "Strategic proposal for the full RGL platform ecosystem — website, web application, booking, checkout, and four portals covering staff, clients, CRM, and content — submitted to the Chairman for decision.",
+      },
+      {
+        label: "Evidence",
+        text: "Grounded in 5,076 lead records from the inbound register and an existing portal code audit; identified that 55.7% of leads carried no disposition record and that 98.7% of inbound traffic bypasses the website entirely.",
+      },
+      {
+        label: "Delivery",
+        text: "Sequenced a phased build plan anchored to evidence of demand, with Phase 1 scoped to ten weeks of existing internal capacity, no new subscriptions, and no blocking decisions.",
+      },
+    ],
+  },
+  zh: {
+    tag: "项目 8 · 2026年8月",
+    title: "红桥全球旅居",
+    subtitle: "职能：IT 总监 & 产品战略 · 独立撰写 · 跨子公司，Siddeley 集团 · 中英双语 · 全平台生态系统设计",
+    accent: "#A8202B",
+    proposalUrl: "https://claude.ai/code/artifact/c6c54ac7-5371-43df-bb97-df80d5917187",
+    impact: [
+      {
+        label: "范围",
+        text: "红桥全球旅居全平台生态系统战略提案——涵盖官网、网页应用、预订、结算及员工、客户、CRM、内容四个门户——呈报董事长决策。",
+      },
+      {
+        label: "数据支撑",
+        text: "以 5,076 条进线台账记录与现有门户代码审查为依据；发现 55.7% 的线索无任何处置记录，98.7% 的进线流量完全绕过官网。",
+      },
+      {
+        label: "交付",
+        text: "以需求证据为锚点制定分阶段建设计划：第一阶段范围为十周、由现有内部人力承担、无新增订阅、无前置决策阻碍。",
+      },
+    ],
   },
 };
