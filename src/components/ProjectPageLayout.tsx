@@ -83,20 +83,22 @@ export default function ProjectPageLayout({
             style={{ background: `radial-gradient(circle, ${accent}, transparent)` }}
           />
           <div className="max-w-5xl mx-auto relative">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-800 mb-6 transition-colors group"
-            >
-              <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-              Back to home
-            </Link>
-            <div
-              className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4 animate-fade-up"
-              style={{ backgroundColor: accent + "22", color: accent }}
-            >
-              {tag}
+            <div className="mb-6 flex flex-col gap-2">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-800 transition-colors group self-start"
+              >
+                <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+                Back to home
+              </Link>
+              <div
+                className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full animate-fade-up self-start"
+                style={{ backgroundColor: accent + "22", color: accent }}
+              >
+                {tag}
+              </div>
             </div>
             <h1
               className="font-serif text-5xl md:text-6xl font-bold mb-4 animate-fade-up"
