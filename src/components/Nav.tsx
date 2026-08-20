@@ -5,7 +5,7 @@ import { useLang } from "@/context/LanguageContext";
 import { nav } from "@/lib/content";
 
 const projects = [
-  { slug: "redbridge-website", en: "RedBridge Website + CRM Portal", zh: "RedBridge 网站 + CRM 门户" },
+  { slug: "redbridge-website", en: "RedBridge Website + Sales/CRM/HR/Legal/Client Portal", zh: "RedBridge 网站 + 销售/CRM/HR/法务/客户门户" },
   { slug: "redbridge-migration", en: "RedBridge Website V2", zh: "RedBridge 网站 V2" },
   { slug: "siddeley-talent-link", en: "Siddeley Talent Link", zh: "维拓联才" },
   { slug: "goodmood-studio", en: "GoodMood Studio", zh: "GoodMood Studio" },
