@@ -364,7 +364,7 @@ export const summary = {
     subheading: "All seven projects · Feb 6 – Jun 2026",
     rows: [
       {
-        project: "RedBridge Website + CRM Portal",
+        project: "RedBridge Website + Sales/CRM/HR/Legal/Client Portal",
         period: "Feb 6 – Apr 17",
         role: "Solo engineer",
         commits: "268",
@@ -421,7 +421,7 @@ export const summary = {
     subheading: "七个项目 · 2026年2月6日 – 6月",
     rows: [
       {
-        project: "RedBridge 网站 + CRM 门户",
+        project: "RedBridge 网站 + 销售/CRM/HR/法务/客户门户",
         period: "2月6日 – 4月17日",
         role: "独立工程师",
         commits: "268",
