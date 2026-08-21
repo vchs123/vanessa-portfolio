@@ -3,7 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>RGL Ecosystem — Strategic Proposal · 红桥全球旅居生态平台战略提案</title>
+<style>
+#pin-gate{
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(25,28,34,0.72);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+#pin-gate .card{
+  background:#fff;border-radius:20px;padding:40px 44px;
+  width:100%;max-width:400px;box-shadow:0 24px 64px rgba(0,0,0,0.22);
+}
+#pin-gate .logo{
+  width:44px;height:44px;border-radius:12px;
+  background:#A8202B;display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+#pin-gate .logo svg{width:22px;height:22px;fill:#fff}
+#pin-gate h2{margin:0 0 4px;font-size:20px;font-weight:700;color:#191C22;letter-spacing:-.02em}
+#pin-gate p{margin:0 0 24px;font-size:13px;color:#8B93A1;line-height:1.5}
+#pin-gate label{display:block;font-size:11.5px;font-weight:600;color:#5C6472;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+#pin-gate input{
+  display:block;width:100%;padding:11px 14px;margin-bottom:14px;
+  border:1.5px solid #DEDAD3;border-radius:10px;
+  font-size:14.5px;color:#191C22;background:#fff;outline:none;
+  transition:border-color .15s;
+}
+#pin-gate input:focus{border-color:#A8202B}
+#pin-gate button{
+  width:100%;padding:13px;margin-top:6px;
+  background:#A8202B;color:#fff;border:none;border-radius:10px;
+  font-size:14.5px;font-weight:600;cursor:pointer;letter-spacing:.01em;
+  transition:opacity .15s;
+}
+#pin-gate button:hover{opacity:.88}
+#pin-gate .err{
+  display:none;font-size:12.5px;color:#dc2626;margin:0 0 12px;
+  padding:9px 12px;background:#fef2f2;border-radius:8px;border:1px solid #fecaca;
+}
+#pin-gate .err.show{display:block}
+</style>
 <style>
 :root{
   --paper:#FFFFFF; --ink:#191C22; --muted:#5C6472; --faint:#8B93A1;
@@ -1769,6 +1811,46 @@ body.bi-zh nav.toc a small{font-size:12.5px}
   var saved = null;
   try{ saved = localStorage.getItem('rgl-lang'); }catch(e){}
   set(saved || 'both');
+})();
+</script>
+
+<!-- PIN gate -->
+<div id="pin-gate">
+  <div class="card">
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.25 3.75 10.15 9 11.35C17.25 21.15 21 16.25 21 11V5L12 1z"/></svg>
+    </div>
+    <h2>Confidential Document</h2>
+    <p>This proposal is for authorised recipients only.<br>Please enter your name and access PIN to continue.</p>
+    <div id="pin-err" class="err">Incorrect PIN. Please try again.</div>
+    <label for="pin-name">Your name</label>
+    <input type="text" id="pin-name" value="Joshua" autocomplete="name" />
+    <label for="pin-code">Access PIN</label>
+    <input type="password" id="pin-code" placeholder="••••" autocomplete="off"
+      onkeydown="if(event.key==='Enter')document.getElementById('pin-submit').click()" />
+    <button id="pin-submit">Access Document →</button>
+  </div>
+</div>
+<script>
+(function(){
+  var CORRECT = '1989';
+  var gate = document.getElementById('pin-gate');
+  var err  = document.getElementById('pin-err');
+  // Already unlocked this session?
+  try{ if(sessionStorage.getItem('rgl-unlocked')==='1'){ gate.style.display='none'; return; } }catch(e){}
+  document.getElementById('pin-submit').addEventListener('click', function(){
+    var pin = (document.getElementById('pin-code').value||'').trim();
+    if(pin === CORRECT){
+      try{ sessionStorage.setItem('rgl-unlocked','1'); }catch(e){}
+      gate.style.transition='opacity .3s';
+      gate.style.opacity='0';
+      setTimeout(function(){ gate.style.display='none'; }, 300);
+    } else {
+      err.classList.add('show');
+      document.getElementById('pin-code').value='';
+      document.getElementById('pin-code').focus();
+    }
+  });
 })();
 </script>
 </body>
