@@ -249,6 +249,19 @@ export const projectCards = {
         { num: "5,076", label: "Leads analysed" },
       ],
     },
+    {
+      slug: "organisation-portal",
+      accent: "#0f4c75",
+      accentLight: "#e0f0ff",
+      tag: "Project 9 · 2026",
+      title: "Organisation Portal",
+      summary: "Internal organisation portal — details to be added.",
+      stats: [
+        { num: "TBC", label: "Scope" },
+        { num: "TBC", label: "Stack" },
+        { num: "TBC", label: "Impact" },
+      ],
+    },
   ],
   zh: [
     {
@@ -353,6 +366,19 @@ export const projectCards = {
         { num: "中英", label: "双语" },
         { num: "15", label: "章节" },
         { num: "5,076", label: "线索分析" },
+      ],
+    },
+    {
+      slug: "organisation-portal",
+      accent: "#0f4c75",
+      accentLight: "#e0f0ff",
+      tag: "项目 9 · 2026年",
+      title: "组织门户",
+      summary: "内部组织门户——详情待补充。",
+      stats: [
+        { num: "待定", label: "范围" },
+        { num: "待定", label: "技术栈" },
+        { num: "待定", label: "影响" },
       ],
     },
   ],
@@ -2378,5 +2404,60 @@ export const p8 = {
         { icon: "🖨️", title: "打印样式表", text: "对表格与标注框进行分页控制，封面页强制换页，隐藏侧边栏导航，并保留双栏输出的网格结构。" },
       ],
     },
+  },
+};
+
+export const p9 = {
+  en: {
+    tag: "Project 9 · 2026",
+    title: "Organisation Portal",
+    subtitle: "Details to be added.",
+    accent: "#0f4c75",
+    impact: [
+      { label: "Cost", text: "To be added." },
+      { label: "Operations", text: "To be added." },
+      { label: "Scale", text: "To be added." },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "Organisation Portal", valueZh: "组织门户" },
+      { field: "Period", fieldZh: "周期", value: "2026", valueZh: "2026年" },
+      { field: "Company", fieldZh: "公司", value: "Siddeley Group", valueZh: "Siddeley Group" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole engineer", valueZh: "IT 负责人 — 独立工程师" },
+    ],
+    highlights: [
+      "Details to be added.",
+    ],
+    statsGrid: [
+      { num: "TBC", label: "Scope" },
+      { num: "TBC", label: "Stack" },
+      { num: "TBC", label: "Timeline" },
+      { num: "TBC", label: "Impact" },
+    ],
+  },
+  zh: {
+    tag: "项目 9 · 2026年",
+    title: "组织门户",
+    subtitle: "详情待补充。",
+    accent: "#0f4c75",
+    impact: [
+      { label: "成本", text: "待补充。" },
+      { label: "运营", text: "待补充。" },
+      { label: "规模", text: "待补充。" },
+    ],
+    tableRows: [
+      { field: "Project Name", fieldZh: "项目名称", value: "Organisation Portal", valueZh: "组织门户" },
+      { field: "Period", fieldZh: "周期", value: "2026", valueZh: "2026年" },
+      { field: "Company", fieldZh: "公司", value: "Siddeley Group", valueZh: "Siddeley Group" },
+      { field: "Role", fieldZh: "职能", value: "Head of IT — Sole engineer", valueZh: "IT 负责人 — 独立工程师" },
+    ],
+    highlights: [
+      "详情待补充。",
+    ],
+    statsGrid: [
+      { num: "待定", label: "范围" },
+      { num: "待定", label: "技术栈" },
+      { num: "待定", label: "周期" },
+      { num: "待定", label: "影响" },
+    ],
   },
 };
