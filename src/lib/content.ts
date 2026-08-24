@@ -250,7 +250,7 @@ export const projectCards = {
       ],
     },
     {
-      slug: "organisation-portal",
+      slug: "redbridge-group-crm",
       accent: "#0f4c75",
       accentLight: "#e0f0ff",
       tag: "Project 9 · Aug 2026 – ongoing",
@@ -369,7 +369,7 @@ export const projectCards = {
       ],
     },
     {
-      slug: "organisation-portal",
+      slug: "redbridge-group-crm",
       accent: "#0f4c75",
       accentLight: "#e0f0ff",
       tag: "项目 9 · 2026年8月至今",

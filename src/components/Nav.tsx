@@ -13,7 +13,7 @@ const projects = [
   { slug: "siddeley-group-website", en: "Siddeley Group Website", zh: "Siddeley Group 网站" },
   { slug: "redbridge-v3", en: "RedBridge Website V3", zh: "RedBridge 网站 V3" },
   { slug: "redbridge-global-living", en: "RedBridge Global Living", zh: "红桥全球旅居" },
-  { slug: "organisation-portal", en: "RedBridge Group CRM", zh: "红桥集团 CRM" },
+  { slug: "redbridge-group-crm", en: "RedBridge Group CRM", zh: "红桥集团 CRM" },
 ];
 
 export default function Nav() {
