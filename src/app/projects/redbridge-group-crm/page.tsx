@@ -38,7 +38,7 @@ export default function OrganisationPortalPage() {
                 className="text-xs font-semibold px-2.5 py-1 rounded-full"
                 style={{ backgroundColor: t.accent + "18", color: t.accent }}
               >
-                {lang === "zh" ? "第 1 阶段 / 共 7 阶段" : "Stage 1 of 7"}
+                {lang === "zh" ? "第 3 阶段 / 共 7 阶段" : "Stage 3 of 7"}
               </span>
             </div>
             <p className="text-sm text-gray-700 leading-relaxed">
