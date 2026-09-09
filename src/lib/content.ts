@@ -387,7 +387,7 @@ export const projectCards = {
 export const summary = {
   en: {
     heading: "Combined Summary",
-    subheading: "All seven projects · Feb 6 – Jun 2026",
+    subheading: "All nine projects · Feb 2026 – ongoing",
     rows: [
       {
         project: "RedBridge Website + Sales/CRM/HR/Legal/Client Portal",
@@ -438,13 +438,27 @@ export const summary = {
         commits: "283+",
         cost: "$40,000–$95,000 AUD avoided · no ongoing retainer",
       },
+      {
+        project: "RedBridge Global Living",
+        period: "Aug 2026",
+        role: "Head of IT · sole author",
+        commits: "—",
+        cost: "$25k–$60k AUD avoided",
+      },
+      {
+        project: "RedBridge Group CRM",
+        period: "Aug 2026 – ongoing",
+        role: "Sole architect & developer",
+        commits: "ongoing",
+        cost: "Zero per-seat licensing · 5,076 records replaced",
+      },
     ],
     total: "$120k–$275k AUD agency-equivalent cost avoided across engineering projects, plus active paid media management",
     cols: ["Project", "Period", "Role", "Vanessa's Commits", "Cost / Impact"],
   },
   zh: {
     heading: "综合汇总",
-    subheading: "七个项目 · 2026年2月6日 – 6月",
+    subheading: "九个项目 · 2026年2月至今",
     rows: [
       {
         project: "RedBridge 网站 + 销售/CRM/HR/法务/客户门户",
@@ -494,6 +508,20 @@ export const summary = {
         role: "IT总监 · 独立技术架构师兼 SEO 实施者",
         commits: "283+",
         cost: "节省 $40,000–$95,000 澳元 · 无持续顾问费",
+      },
+      {
+        project: "红桥全球旅居",
+        period: "2026年8月",
+        role: "IT总监 · 独立作者",
+        commits: "—",
+        cost: "节省 $25k–$60k 澳元",
+      },
+      {
+        project: "红桥集团 CRM",
+        period: "2026年8月至今",
+        role: "独立系统架构师兼开发者",
+        commits: "持续进行中",
+        cost: "零授权费 · 替代 5,076 条人工记录",
       },
     ],
     total: "工程项目合计节省机构等效费用 $120k–$275k 澳元，同时主动管理付费媒体广告投放",
@@ -2460,6 +2488,42 @@ export const p9 = {
       { num: "~40", label: "Staff" },
       { num: "2/7", label: "Stages complete" },
     ],
+    stages: [
+      {
+        number: 1,
+        title: "Architecture & Foundations",
+        status: "complete" as const,
+        outcomes: [
+          "Schema design across 79 tables with full entity modelling — enquiry, lead, case, person, company, address, document",
+          "Identity modelling: role hierarchy, territory inheritance from org chart, per-person exception records with written justification",
+          "157 row-level security policies enforced at the database layer, independent of the application interface",
+          "1,864 translation keys at enforced parity — missing Chinese strings fail the build, not fall back silently",
+          "CI/schema invariant suite: every embedded query validated against the live schema before any deployment",
+        ],
+      },
+      {
+        number: 2,
+        title: "Sales Pipeline & Access Control",
+        status: "complete" as const,
+        outcomes: [
+          "四合一表 methodology encoded as typed timeline — 前端线上 and 一次线下 map to the same five-slot anatomy",
+          "Derived status: 当前阶段 computed from stage, sub-stage, and payment; 已成交 requires signed contract and verified first payment",
+          "Mandatory field enforcement and two- and 24-hour service deadlines enforced by database, not by whoever remembered",
+          "商机ID issuance gated to 已留资 — real WeChat ID captured — so a commitment cannot exist before a qualified contact",
+          "Mobile-first interface live in production; every editable field a searchable dropdown across ~40 staff",
+        ],
+      },
+      {
+        number: 3,
+        title: "Case Management & Document Control",
+        status: "inbuild" as const,
+        outcomes: [
+          "Case lifecycle management: intake, processing, document checklist enforcement, and evidence trail per case",
+          "Document control: checklist gates per stage, upload verification, and status derived from completion — not typed",
+          "商机ID issuance and case-to-document linking ensuring one client on two visa pathways gets two independently tracked cases",
+        ],
+      },
+    ],
   },
   zh: {
     tag: "项目 9 · 2026年8月至今",
@@ -2512,6 +2576,42 @@ export const p9 = {
       { num: "1,864", label: "翻译键数量" },
       { num: "~40", label: "员工人数" },
       { num: "2/7", label: "已完成阶段" },
+    ],
+    stages: [
+      {
+        number: 1,
+        title: "系统架构与基础建设",
+        status: "complete" as const,
+        outcomes: [
+          "79 张表的 Schema 设计，包含完整实体建模——咨询、线索、商机、人员、公司、地址、文件",
+          "身份建模：角色层级、从组织架构继承属地、逐人记录例外情况并附书面理由",
+          "157 条行级安全策略在数据库层强制执行，独立于应用界面",
+          "1,864 个翻译键保持严格双语一致——缺少中文字符串直接导致构建失败，而非静默回退",
+          "CI/Schema 不变性测试套件：每次部署前验证所有内嵌查询均可在线上 Schema 中解析",
+        ],
+      },
+      {
+        number: 2,
+        title: "销售流程与权限管控",
+        status: "complete" as const,
+        outcomes: [
+          "四合一表方法论以有类型的时间线形式编码——前端线上与一次线下映射到同一套五槽结构",
+          "状态推算：当前阶段由阶段、子阶段与款项共同计算；已成交要求已签合同且首笔款项经财务核实",
+          "每阶段必填字段与 2 小时 / 24 小时服务时限由数据库强制执行，而非依赖人员自觉",
+          "商机 ID 生成限定于已留资状态——即真实微信 ID 已采集——确保承诺在资质确认前不存在",
+          "移动优先界面已在生产环境上线；所有可编辑字段均为可搜索下拉框，覆盖约 40 名员工",
+        ],
+      },
+      {
+        number: 3,
+        title: "案件管理与文件管控",
+        status: "inbuild" as const,
+        outcomes: [
+          "案件全生命周期管理：受理、处理、文件清单核查，以及每个案件的证据链记录",
+          "文件管控：每阶段清单门控、上传核验，状态由完成情况推算而非手动录入",
+          "商机 ID 生成与案件–文件关联，确保同一客户走两条签证路径时，两个案件独立追踪",
+        ],
+      },
     ],
   },
 };
