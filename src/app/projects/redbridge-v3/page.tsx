@@ -3,10 +3,22 @@ import { useLang } from "@/context/LanguageContext";
 import { p7 } from "@/lib/content";
 import ProjectPageLayout from "@/components/ProjectPageLayout";
 import FadeIn from "@/components/FadeIn";
+import { useState } from "react";
 
 export default function RedbridgeV3Page() {
   const { lang } = useLang();
   const t = p7[lang];
+  const phases = t.phases;
+
+  // Latest phase starts open; earlier phases start collapsed
+  const [open, setOpen] = useState<Record<number, boolean>>(() =>
+    Object.fromEntries(phases.map((_, i) => [i, i === phases.length - 1]))
+  );
+
+  const toggle = (i: number) => setOpen((prev) => ({ ...prev, [i]: !prev[i] }));
+  const allOpen = phases.every((_, i) => open[i]);
+  const toggleAll = () =>
+    setOpen(Object.fromEntries(phases.map((_, i) => [i, !allOpen])));
 
   return (
     <ProjectPageLayout
@@ -42,49 +54,86 @@ export default function RedbridgeV3Page() {
       {/* Phase breakdown */}
       <FadeIn delay={0.3}>
         <section>
-          <h2 className="font-serif text-3xl font-bold mb-8" style={{ color: t.accent }}>
-            {lang === "zh" ? "阶段详情" : "Phase Breakdown"}
-          </h2>
-          <div className="space-y-6">
-            {t.phases.map((phase, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border-2 overflow-hidden"
-                style={{ borderColor: t.accent + "30" }}
-              >
-                {/* Phase header */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+            <h2 className="font-serif text-3xl font-bold" style={{ color: t.accent }}>
+              {lang === "zh" ? "阶段详情" : "Phase Breakdown"}
+            </h2>
+            <button
+              onClick={toggleAll}
+              className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+              style={{ backgroundColor: t.accent + "14", color: t.accent }}
+            >
+              {allOpen
+                ? lang === "zh"
+                  ? "全部收起"
+                  : "Collapse all"
+                : lang === "zh"
+                ? "全部展开"
+                : "Expand all"}
+            </button>
+          </div>
+          <div className="space-y-4">
+            {phases.map((phase, i) => {
+              const isOpen = !!open[i];
+              return (
                 <div
-                  className="px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2"
-                  style={{ backgroundColor: t.accent + "10" }}
+                  key={i}
+                  className="rounded-2xl border-2 overflow-hidden"
+                  style={{ borderColor: t.accent + "30" }}
                 >
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full self-start"
-                    style={{ backgroundColor: t.accent + "20", color: t.accent }}
+                  {/* Phase header — click to expand */}
+                  <button
+                    onClick={() => toggle(i)}
+                    aria-expanded={isOpen}
+                    className="w-full px-6 py-4 flex items-start gap-3 text-left cursor-pointer"
+                    style={{ backgroundColor: t.accent + "10" }}
                   >
-                    {phase.number}
-                  </span>
-                  <div>
-                    <div className="font-serif text-xl font-bold text-gray-900">{phase.title}</div>
-                    <div className="text-xs text-gray-400 mt-0.5">{phase.period}</div>
-                  </div>
-                </div>
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full flex-shrink-0 mt-0.5"
+                      style={{ backgroundColor: t.accent + "20", color: t.accent }}
+                    >
+                      {phase.number}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-serif text-xl font-bold text-gray-900">{phase.title}</div>
+                      <div className="text-xs text-gray-400 mt-0.5">
+                        {phase.period}
+                        <span className="mx-1.5">·</span>
+                        {phase.outcomes.length}{" "}
+                        {lang === "zh" ? "项成果" : phase.outcomes.length === 1 ? "outcome" : "outcomes"}
+                      </div>
+                    </div>
+                    <svg
+                      className={`w-5 h-5 flex-shrink-0 mt-1 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                      style={{ color: t.accent }}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
 
-                {/* Phase outcomes */}
-                <div className="bg-white px-6 py-5">
-                  <ul className="space-y-3">
-                    {phase.outcomes.map((outcome, j) => (
-                      <li key={j} className="flex gap-3 items-start">
-                        <span
-                          className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: t.accent }}
-                        />
-                        <span className="text-sm text-gray-700 leading-relaxed">{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Phase outcomes — collapsible */}
+                  {isOpen && (
+                    <div className="bg-white px-6 py-5">
+                      <ul className="space-y-3">
+                        {phase.outcomes.map((outcome, j) => (
+                          <li key={j} className="flex gap-3 items-start">
+                            <span
+                              className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                              style={{ backgroundColor: t.accent }}
+                            />
+                            <span className="text-sm text-gray-700 leading-relaxed">{outcome}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </FadeIn>
