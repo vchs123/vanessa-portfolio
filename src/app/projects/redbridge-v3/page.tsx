@@ -28,7 +28,6 @@ export default function RedbridgeV3Page() {
       accent={t.accent}
       impact={t.impact}
       tableRows={t.tableRows}
-      highlights={t.highlights}
       statsGrid={t.statsGrid}
     >
       {/* Live URL callout */}
