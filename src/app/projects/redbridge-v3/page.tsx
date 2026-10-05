@@ -114,22 +114,21 @@ export default function RedbridgeV3Page() {
                     </svg>
                   </button>
 
-                  {/* Phase outcomes — collapsible */}
-                  {isOpen && (
-                    <div className="bg-white px-6 py-5">
-                      <ul className="space-y-3">
-                        {phase.outcomes.map((outcome, j) => (
-                          <li key={j} className="flex gap-3 items-start">
-                            <span
-                              className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                              style={{ backgroundColor: t.accent }}
-                            />
-                            <span className="text-sm text-gray-700 leading-relaxed">{outcome}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                  {/* Phase outcomes — always mounted so every phase stays in the
+                      server-rendered HTML; collapsed state hides via CSS only */}
+                  <div className={`bg-white px-6 py-5 ${isOpen ? "" : "hidden"}`}>
+                    <ul className="space-y-3">
+                      {phase.outcomes.map((outcome, j) => (
+                        <li key={j} className="flex gap-3 items-start">
+                          <span
+                            className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: t.accent }}
+                          />
+                          <span className="text-sm text-gray-700 leading-relaxed">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               );
             })}
