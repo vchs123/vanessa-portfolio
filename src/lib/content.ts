@@ -231,7 +231,7 @@ export const projectCards = {
       title: "RedBridge Website V3",
       summary: "12-phase solo redevelopment and technical SEO overhaul: 24+ bilingual routes, 182+ components, hub-and-spoke SEO architecture, full technical SEO audit, CI/CD pipeline via GitHub Actions, HLS video streaming on Cloudflare R2, and a sitemap submitted to Google Search Console.",
       stats: [
-        { num: "340+", label: "Commits" },
+        { num: "429", label: "Commits" },
         { num: "24+", label: "Routes · 182+ components" },
         { num: "$43k–103k", label: "AUD cost avoided" },
       ],
@@ -350,7 +350,7 @@ export const projectCards = {
       title: "RedBridge 网站 V3",
       summary: "12 阶段独立重构与技术 SEO 全面升级：24+ 个双语路由、182+ 个组件、轮辐式 SEO 架构、完整技术 SEO 审计、GitHub Actions CI/CD 流水线、基于 Cloudflare R2 的 HLS 视频流，并向 Google Search Console 提交站点地图。",
       stats: [
-        { num: "340+", label: "提交次数" },
+        { num: "429", label: "提交次数" },
         { num: "24+", label: "路由 · 182+ 个组件" },
         { num: "$43k–103k", label: "节省机构费用（澳元）" },
       ],
@@ -1602,13 +1602,13 @@ export const p7 = {
   en: {
     tag: "Project 7 · Mar – Oct 2026",
     title: "RedBridge Website V3",
-    subtitle: "Role: Head of IT · Sole technical architect, developer & SEO implementer · Cross-subsidiary, Siddeley Group · 12 phases · 24+ routes · 182+ components · 340+ commits",
+    subtitle: "Role: Head of IT · Sole technical architect, developer & SEO implementer · Cross-subsidiary, Siddeley Group · 12 phases · 24+ routes · 182+ components · 429 commits",
     accent: "#0d9488",
     liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "Cost",
-        text: "The entire V3 redevelopment — 18 bilingual routes, 178 components, a full design system, and a full technical SEO implementation across 10 phases — was delivered solo with zero agency or contractor spend. A comparable from-scratch agency build plus full technical SEO audit and implementation of this scope typically runs $43,000–$103,000 AUD, avoided entirely with no ongoing retainer.",
+        text: "The entire V3 redevelopment — 24+ bilingual routes, 182+ components, a full design system, and a full technical SEO implementation across 12 phases — was delivered solo with zero agency or contractor spend. A comparable from-scratch agency build plus full technical SEO audit and implementation of this scope typically runs $43,000–$103,000 AUD, avoided entirely with no ongoing retainer.",
       },
       {
         label: "Marketing",
@@ -1624,7 +1624,7 @@ export const p7 = {
       { field: "Period", fieldZh: "周期", value: "Mar 6 – Oct 2026 (12 phases)", valueZh: "2026年3月6日–10月（12个阶段）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting Pty Ltd (ABN 88 678 186 091)", valueZh: "RedBridge Consulting Pty Ltd（ABN 88 678 186 091）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Sole technical architect, developer & SEO implementer; bridging design intent and production delivery across an inter-subsidiary engagement", valueZh: "IT 总监 — 独立技术架构师、开发者兼 SEO 实施者；跨子公司协作中衔接设计意图与生产交付" },
-      { field: "Total Commits", fieldZh: "总提交数", value: "340+", valueZh: "340+" },
+      { field: "Total Commits", fieldZh: "总提交数", value: "429", valueZh: "429" },
       { field: "Routes", fieldZh: "路由数", value: "24+ bilingual page routes (EN + ZH)", valueZh: "24+ 个双语页面路由（中 + 英）" },
       { field: "Components", fieldZh: "组件数", value: "182+", valueZh: "182+" },
       { field: "Stack", fieldZh: "技术栈", value: "Next.js 16 (App Router) + next-intl · TypeScript · Tailwind CSS · shadcn/ui · react-hook-form + Zod · libphonenumber-js · Cloudflare Workers via OpenNext · Cloudflare R2 · hls.js · FFmpeg · Google Apps Script · GitHub Actions CI/CD · Google Tag Manager · Google Ads · Google Sheets API · Meta Conversions API · Google Search Console", valueZh: "Next.js 16（App Router）+ next-intl · TypeScript · Tailwind CSS · shadcn/ui · react-hook-form + Zod · libphonenumber-js · 通过 OpenNext 部署至 Cloudflare Workers · Cloudflare R2 · hls.js · FFmpeg · Google Apps Script · GitHub Actions CI/CD · Google Tag Manager · Google Ads · Google Sheets API · Meta Conversions API · Google Search Console" },
@@ -1813,7 +1813,7 @@ export const p7 = {
       },
     ],
     highlights: [
-      "Sole technical architect, developer & SEO implementer across all 12 phases — Mar to Oct 2026, 340+ commits",
+      "Sole technical architect, developer & SEO implementer across all 12 phases — Mar to Oct 2026, 429 commits",
       "Phase 1: solo redevelopment to V3 — 18 bilingual routes, 178 components, full EN/ZH i18n via next-intl, replacing the legacy site with a production-ready internationalised platform",
       "Phase 1: built a multi-step consultation booking form with Google Sheets lead capture — enquiries flow directly to a shared sheet in real time, zero manual handling",
       "Phase 1: integrated Meta Conversions API (CAPI) for server-side ad attribution — tracks leads from Facebook/Instagram campaigns without relying on client-side pixel data; fixed silent CAPI drop in Cloudflare Workers by awaiting CAPI in parallel with the Sheets POST; confirmed production working",
@@ -1865,7 +1865,7 @@ export const p7 = {
       "Phase 11: identified stale BOOKING_SHEET_URL Cloudflare env var as root cause of lead data writing to wrong Google Sheet — updated and verified end-to-end form submissions now land in the correct client sheet",
     ],
     statsGrid: [
-      { num: "340+", label: "Commits" },
+      { num: "429", label: "Commits" },
       { num: "24+", label: "Routes" },
       { num: "182+", label: "Components" },
       { num: "12", label: "Phases" },
@@ -1918,13 +1918,13 @@ export const p7 = {
   zh: {
     tag: "项目 7 · 2026年3月–10月",
     title: "RedBridge 网站 V3",
-    subtitle: "职能：IT 总监 · 独立技术架构师、开发者兼 SEO 实施者 · 跨子公司，Siddeley Group · 12 个阶段 · 24+ 个路由 · 182+ 个组件 · 340+ 次提交",
+    subtitle: "职能：IT 总监 · 独立技术架构师、开发者兼 SEO 实施者 · 跨子公司，Siddeley Group · 12 个阶段 · 24+ 个路由 · 182+ 个组件 · 429 次提交",
     accent: "#0d9488",
     liveUrl: "https://redbridge-consulting.com.au",
     impact: [
       {
         label: "成本",
-        text: "整个 V3 重构 — 18 个双语路由、178 个组件、完整设计系统，以及贯穿 10 个阶段的完整技术 SEO 实施 — 完全由 Vanessa 独立完成，无任何机构或外包支出。同等规模的从零建站加完整技术 SEO 审计与实施，市场费用通常为 $43,000–$103,000 澳元 — 完全避免该支出，且无需持续顾问费。",
+        text: "整个 V3 重构 — 24+ 个双语路由、182+ 个组件、完整设计系统，以及贯穿 12 个阶段的完整技术 SEO 实施 — 完全由 Vanessa 独立完成，无任何机构或外包支出。同等规模的从零建站加完整技术 SEO 审计与实施，市场费用通常为 $43,000–$103,000 澳元 — 完全避免该支出，且无需持续顾问费。",
       },
       {
         label: "营销",
@@ -1940,7 +1940,7 @@ export const p7 = {
       { field: "Period", fieldZh: "周期", value: "Mar 6 – Oct 2026 (12 phases)", valueZh: "2026年3月6日–10月（12个阶段）" },
       { field: "Company", fieldZh: "公司", value: "RedBridge Consulting Pty Ltd (ABN 88 678 186 091)", valueZh: "RedBridge Consulting Pty Ltd（ABN 88 678 186 091）" },
       { field: "Role", fieldZh: "职能", value: "Head of IT — Sole technical architect, developer & SEO implementer; bridging design intent and production delivery across an inter-subsidiary engagement", valueZh: "IT 总监 — 独立技术架构师、开发者兼 SEO 实施者；跨子公司协作中衔接设计意图与生产交付" },
-      { field: "Total Commits", fieldZh: "总提交数", value: "340+", valueZh: "340+" },
+      { field: "Total Commits", fieldZh: "总提交数", value: "429", valueZh: "429" },
       { field: "Routes", fieldZh: "路由数", value: "24+ bilingual page routes (EN + ZH)", valueZh: "24+ 个双语页面路由（中 + 英）" },
       { field: "Components", fieldZh: "组件数", value: "182+", valueZh: "182+" },
       { field: "Stack", fieldZh: "技术栈", value: "Next.js 16 (App Router) + next-intl · TypeScript · Tailwind CSS · shadcn/ui · react-hook-form + Zod · libphonenumber-js · Cloudflare Workers via OpenNext · Cloudflare R2 · hls.js · FFmpeg · Google Apps Script · GitHub Actions CI/CD · Google Tag Manager · Google Ads · Google Sheets API · Meta Conversions API · Google Search Console", valueZh: "Next.js 16（App Router）+ next-intl · TypeScript · Tailwind CSS · shadcn/ui · react-hook-form + Zod · libphonenumber-js · 通过 OpenNext 部署至 Cloudflare Workers · Cloudflare R2 · hls.js · FFmpeg · Google Apps Script · GitHub Actions CI/CD · Google Tag Manager · Google Ads · Google Sheets API · Meta Conversions API · Google Search Console" },
@@ -2129,7 +2129,7 @@ export const p7 = {
       },
     ],
     highlights: [
-      "在全部 12 个阶段（2026年3月–10月，340+ 次提交）中担任唯一技术架构师、开发者兼 SEO 实施者 — Good Mood Studio × Siddeley Group 跨子公司协作",
+      "在全部 12 个阶段（2026年3月–10月，429 次提交）中担任唯一技术架构师、开发者兼 SEO 实施者 — Good Mood Studio × Siddeley Group 跨子公司协作",
       "第一阶段：独立完成 V3 重构 — 18 个双语路由、178 个组件，基于 next-intl 实现完整中英国际化，以生产就绪平台替代旧版网站",
       "第一阶段：构建多步骤咨询预约表单与 Google Sheets 线索捕获 — 询盘实时同步至共享表格，零人工处理",
       "第一阶段：集成 Meta Conversions API（CAPI）实现服务端广告归因 — 精准追踪 Facebook/Instagram 广告线索，不受广告拦截器影响；修复 Cloudflare Workers 中 CAPI 静默丢弃问题；确认生产环境正常运行",
@@ -2180,7 +2180,7 @@ export const p7 = {
       "第十一阶段：识别过期 BOOKING_SHEET_URL Cloudflare 环境变量为线索数据写入错误表格的根因 — 更新环境变量并验证端到端表单提交数据落地正确",
     ],
     statsGrid: [
-      { num: "340+", label: "提交次数" },
+      { num: "429", label: "提交次数" },
       { num: "24+", label: "路由数" },
       { num: "182+", label: "组件数" },
       { num: "12", label: "阶段数" },
