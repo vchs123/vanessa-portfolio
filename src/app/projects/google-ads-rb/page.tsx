@@ -55,8 +55,10 @@ export default function GoogleAdsRBPage() {
         </button>
       </div>
 
-      {/* ── EN Campaign ── */}
-      {campaign === "en" && (
+      {/* ── EN Campaign ──
+          Always mounted, hidden via CSS: on a static export a conditionally
+          rendered branch is absent from the prerendered HTML. */}
+      <div className={campaign === "en" ? "space-y-16" : "hidden"}>
         <>
           {/* Business Impact */}
           <FadeIn>
@@ -227,10 +229,10 @@ export default function GoogleAdsRBPage() {
             </section>
           </FadeIn>
         </>
-      )}
+      </div>
 
-      {/* ── ZH Campaign ── */}
-      {campaign === "zh" && (
+      {/* ── ZH Campaign ── (always mounted, see note above) */}
+      <div className={campaign === "zh" ? "space-y-16" : "hidden"}>
         <>
           {/* Business Impact */}
           <FadeIn delay={0.05}>
@@ -457,7 +459,7 @@ export default function GoogleAdsRBPage() {
             </section>
           </FadeIn>
         </>
-      )}
+      </div>
     </ProjectPageLayout>
   );
 }

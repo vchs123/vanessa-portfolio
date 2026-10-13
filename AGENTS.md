@@ -3,6 +3,7 @@
 - Static export site (`output: "export"`, `trailingSlash: true`, `images: { unoptimized: true }`) deployed to Cloudflare Pages. No server runtime — don't use Next.js features that require one.
 - All copy lives in `src/lib/content.ts`, with parallel `en` and `zh` objects for every export. When adding or editing content, update both languages.
 - Multi-phase projects (e.g. `p2`, `p6`, `p7`) follow a `phases: [{ number, period, title, outcomes[] }]` array, rendered as accordion cards directly in each project's `page.tsx` (not in the shared layout).
+- Collapsible content (accordions, tabs, show-more) must stay mounted and hide via CSS — `className={isOpen ? "" : "hidden"}`, never `{isOpen && <div>…</div>}`. On a static export, conditionally rendered content is absent from the prerendered HTML, so collapsed panels become invisible to crawlers.
 - Bilingual tables use the `BilingualTable` component (EN row in white, ZH row in `blue-50`, stacked per field).
 - New project pages: add the content export to `content.ts`, a `projectCards` entry (both languages), a `Nav.tsx` entry, and a `page.tsx` under `src/app/projects/<slug>/` using `ProjectPageLayout`.
 - "Vanessa Chua" stays in English on ZH pages — do not translate the name to Chinese characters.

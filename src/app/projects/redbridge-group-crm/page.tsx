@@ -170,20 +170,22 @@ export default function OrganisationPortalPage() {
                     </div>
                   </button>
 
-                  {/* Outcomes — collapsible */}
-                  {hasOutcomes && isOpen && (
-                    <ul className="px-5 pb-4 space-y-1.5" style={{ paddingLeft: "52px" }}>
-                      {stage.outcomes.map((outcome, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm text-gray-600 leading-snug">
-                          <span
-                            className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full"
-                            style={{ backgroundColor: dotColor }}
-                          />
-                          {outcome}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  {/* Outcomes — always mounted so every stage stays in the
+                      prerendered HTML; collapsed state hides via CSS only */}
+                  <ul
+                    className={`px-5 pb-4 space-y-1.5 ${hasOutcomes && isOpen ? "" : "hidden"}`}
+                    style={{ paddingLeft: "52px" }}
+                  >
+                    {stage.outcomes.map((outcome, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-gray-600 leading-snug">
+                        <span
+                          className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full"
+                          style={{ backgroundColor: dotColor }}
+                        />
+                        {outcome}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               );
             })}
